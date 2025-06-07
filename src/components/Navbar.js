@@ -14,6 +14,7 @@ const Navbar = (props) => {
     return (  
         <div className="navbar-wrapper">
             <nav className="navbar">
+            <div className="navbar-logo"></div>
                 <div className="navbar-buttons">
                     {navbar_buttons.map((button) => (
                         <Link className="navbar-button" to={button.link} key={button.key}>
