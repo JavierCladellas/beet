@@ -1,5 +1,5 @@
 :root{
-    --nav-height: 240px;
+    --nav-height: 180px;
     --nav-btn-color: black;
     --nav-btn-underline-color: #b275a6;
     --nav-btn-font-size: 0.9rem;
@@ -36,10 +36,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 200px;
-    margin: auto ;
-    height: 140px;
+    width: 180px;
+    margin: auto;
+    height: 120px;
     background-image: url('../assets/logo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .navbar>.navbar-buttons{    
