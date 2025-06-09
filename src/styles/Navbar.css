@@ -2,7 +2,10 @@
     --nav-height: 240px;
     --nav-btn-color: black;
     --nav-btn-underline-color: #b275a6;
-    --nav-btn-font-size: 16px;
+    --nav-btn-font-size: 0.9rem;
+
+    --breakpoint-tablet: 768px;
+    --breakpoint-mobile: 480px;
 }
 
 .navbar-wrapper{
@@ -42,7 +45,7 @@
     background-image: url('../assets/logo.jpg');
 }
 
-.navbar>.navbar-buttons{
+.navbar>.navbar-buttons{    
     display: flex;
     flex-direction: row;
     justify-content: center;
