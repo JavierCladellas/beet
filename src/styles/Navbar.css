@@ -3,9 +3,6 @@
     --nav-btn-color: black;
     --nav-btn-underline-color: #b275a6;
     --nav-btn-font-size: 0.9rem;
-
-    --breakpoint-tablet: 768px;
-    --breakpoint-mobile: 480px;
 }
 
 .navbar-wrapper{
@@ -41,7 +38,7 @@
     align-items: center;
     width: 200px;
     margin: auto ;
-    height: 200px;
+    height: 140px;
     background-image: url('../assets/logo.jpg');
 }
 
@@ -89,4 +86,37 @@
 .navbar>.navbar-buttons>.navbar-button:hover>p:after{ 
     width: 100%; 
     left: 0; 
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        height: auto;
+        padding: 10px;
+    }
+    .navbar>.navbar-buttons{
+        max-height: 0;
+        overflow: hidden;
+        flex-direction: column;
+        justify-content: flex-end;
+        width: 100%;
+        background-color: transparent;
+        transition: max-height 0.3s linear;
+    }
+    .navbar-wrapper {
+        box-shadow: none;
+        padding-bottom: 0;
+    }
+
+    .navbar-buttons.active {
+        max-height: 300px; /* enough to show all items */
+    }
+    .navbar-buttons > .navbar-button {
+        width: 100%;
+        justify-content: center;
+        padding: 10px;
+        margin: 2px;
+    }
+    .navbar>.navbar-buttons>.navbar-button>p{
+        color:white;
+    }
 }

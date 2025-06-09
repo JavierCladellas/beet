@@ -1,21 +1,20 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 import '../styles/Navbar.css';
+import HamburgerMenu from './HamburgerMenu';
 
 
 const Navbar = (props) => {
     const navbar_buttons = props.navbar_buttons;
-
-    const toggleMenu = () => {
-        document.querySelector('.navbar-buttons').classList.toggle('active');  
-        document.querySelector('.navbar').classList.toggle('to-col');
-    }
+    const [menuActive, setMenuActive] = useState(false);
 
     return (  
         <div className="navbar-wrapper">
             <nav className="navbar">
             <div className="navbar-logo"></div>
-                <div className="navbar-buttons">
+                <HamburgerMenu menuActive={menuActive} setMenuActive={setMenuActive} />
+                <div className={`navbar-buttons ${menuActive ? 'active' : ''}`}>
                     {navbar_buttons.map((button) => (
                         <Link className="navbar-button" to={button.link} key={button.key}>
                             <p>{button.name}</p>
