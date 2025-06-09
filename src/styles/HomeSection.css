@@ -63,6 +63,10 @@
 .home-section.full-width>.home-section-body>.home-section-content
 {
     width: 100%;
+    max-width: 1000px;
+}
+.home-section.full-width>.home-section-body>.home-section-content>p {
+    text-align: center;
 }
 
 .home-section-button.light-pink{
