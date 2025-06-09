@@ -105,6 +105,9 @@
     .navbar-wrapper {
         box-shadow: none;
         padding-bottom: 0;
+        box-shadow: 0px 0px 8px rgba(0,0,0,0.2);
+        position: relative;
+    
     }
 
     .navbar-buttons.active {
