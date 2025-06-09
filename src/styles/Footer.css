@@ -1,0 +1,102 @@
+:root{
+    --footer-bg-color: #b275a6;
+    --footer-text-color: white;
+}
+
+.footer-wrapper{
+    background-color: var(--footer-bg-color);
+    margin:0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+}
+footer{
+    color: var(--footer-text-color);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 32px 80px;
+}
+.footer-row{
+    flex-direction: row;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex:1;
+}
+
+.footer-logo {
+    height: 48px;
+    justify-content: space-around;
+    object-fit: contain;
+}
+.footer-logo.beet-logo {
+    /* crop  */
+    object-fit: cover;
+    object-position: 0% 40%;
+    width: 100px;
+    height: 40px;
+}
+
+.footer-col{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap:8px;
+    flex: 1;
+    margin:24px 0;
+    max-width: 360px;
+}
+hr.solid {
+  border-top: 1px solid #ffffff;
+  width: 100%;
+}
+
+footer p{
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    margin:4px;
+}
+footer a{
+    color: var(--footer-text-color);
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer-contact{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.copyright-row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.copyright-row>p{
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-row-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-row-content> .footer-col {
+        align-items: center;
+    }
+    footer p, footer a {
+        font-size: 12px;
+    }
+    .footer-col {
+        max-width: 100%;
+        text-align: center;
+        margin: 4px;
+        gap:2px;
+    }
+}
