@@ -1,86 +1,31 @@
 import ClientsGrid from "./ClientsGrid";
-import HomeSection from "./HomeSection";
 import ProductCard from "./ProductCard";
+import { Link } from 'react-router-dom';
+import '../styles/HomeSection.css'
+
 
 const Home = (props) => {
+    const sections = props.sections;
     return (
         <div>
-            <HomeSection 
-                title="Regalar es el lenguaje universal que nos une."
-                body_text={
-                    `Diseñamos regalos que hablan por ti, cuando las palabras no son suficientes.Transformamos tu intención en regalos bien pensados, emotivos y llenos de significado.`
-                }
-                image="images/topeca.jpg"
-                image_alt="Topeca Coffee"
-                button_text="QUIERO, PORFA!"
-                button_link="/personalize"
-                section_classes="image-left light-gray"
-                button_classes="light-pink"
-            />
-
-            
-            <HomeSection
-                title="Ready. Set. Gift."
-                body_text={
-                    `No time? No problem. Si necesitas hacer un regalo de forma express, sin complicarte y quedar bien con alguien, este es un shortcut para explorar nuestros Ready-to-Go.`
-                }
-                button_text="SHOP"
-                button_classes="light-pink"
-                button_link="/shop"
-                section_classes="full-width"
-                children={
-                    <div className="product-cards-grid">
-                        <ProductCard
-                            name="Product Name"
-                            description="Breve descripción que inspire al cliente"
-                            image="images/product1.jpg"
-                        />
-                        <ProductCard
-                            name="Product Name"
-                            description="Breve descripción que despierte curiosidad"
-                            image="images/product2.jpg"
-                        />
-                        <ProductCard
-                            name="Product Name"
-                            description="Breve descripción que de ideas por ocasión"
-                            image="images/product3.jpg"
-                        />
+            {sections.map((section, index) => (
+                <section key={index} className={"home-section "+ section.section_classes }>
+                    {section.image ? <div className="image-container" style={{ 
+                        backgroundImage: `url(${section.image})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center'
+                    }}></div> : null}
+                    <div className="body">
+                        <h2>{section.title}</h2>
+                        <div className="section-content">
+                            <p>{section.body}</p>
+                            <Link className={`action-button ${section.button_classes}`} to={section.button_link}>
+                                <p>{section.button_text}</p>
+                            </Link>
+                        </div>
                     </div>
-                }
-            />
-            <HomeSection
-                title="Corporate Gifting, a otro nivel."
-                body_text={
-                    `Regalos empresariales que te colocan en el Top of Mind y te ayudan a crear conexiones más auténticas y duraderas con tus clientes, proveedores y colaboradores. 
-                    Cada proyecto está hecho a tu medida.`
-                }
-                image="images/yeti.jpg"
-                image_alt="Yeti Cooler"
-                section_classes="image-right light-gray"
-                button_text="COTIZA"
-                button_classes="pink"
-                button_link="/corporate-gifting"
-            />
-            <HomeSection
-                title="Our Clients"
-                body_text=""
-                children={
-                    <ClientsGrid />
-                }
-                section_classes="full-width"
-            />
-
-            <HomeSection
-                title="Hay regalos que no se dan, se viven."
-                body_text={
-                    `Planificación y ejecución de Boutique Events, donde cada detalle cuenta y tus ideas se transforman en momentos que se sienten, se viven y se recuerdan.`
-                }
-                section_classes="full-width"
-                button_text="LET'S PLAN IT"
-                button_classes="pink"
-                button_link="/events"
-                background_image="images/topeca.jpg"
-            />
+                </section>
+            ))}
         </div>
     )
 }

@@ -1,0 +1,49 @@
+[
+    {
+        "title":"Regalar es el lenguaje universal que nos une.",
+        "body":"Diseñamos regalos que hablan por ti, cuando las palabras no son suficientes.Transformamos tu intención en regalos bien pensados, emotivos y llenos de significado.",
+        "button_text":"QUIERO, PORFA!",
+        "image":"images/home/section1.heic",
+        "button_link":"/personalize",
+        "button_classes":"light-pink",
+        "section_classes":"light-gray image-left",
+        "child":null
+    },
+    {
+        "title":"Ready. Set. Gift.",
+        "body":"No time? No problem. Si necesitas hacer un regalo de forma express, sin complicarte y quedar bien con alguien, este es un shortcut para explorar nuestros Ready-to-Go.",
+        "button_text":"SHOP",
+        "button_link":"/shop",
+        "button_classes":"light-pink",
+        "image":null,
+        "section_classes":"full-width",
+        "child":{"type":"caroussel"}
+    },
+    {
+        "title":"Corporate Gifting, a otro nivel.",
+        "body":"Regalos empresariales que te colocan en el Top of Mind y te ayudan a crear conexiones más auténticas y duraderas con tus clientes, proveedores y colaboradores. Cada proyecto está hecho a tu medida.",
+        "button_text":"COTIZA",
+        "image":"images/home/yeti.heic",
+        "button_link":"/corporate-gifting",
+        "button_classes":"pink",
+        "section_classes":"image-right light-gray",
+        "child":null
+    },
+    {
+        "title":"Our Clients",
+        "body":"",
+        "section_classes":"full-width",
+        "button_classes":"light-pink",
+        "child":{ "type":"clients_grid"}
+    },
+    {
+        "title":"",
+        "body":"Planificación y ejecución de Boutique Events, donde cada detalle cuenta y tus ideas se transforman en momentos que se sienten, se viven y se recuerdan.",
+        "button_text":"LET'S PLAN IT",
+        "image":"images/home/sectionEvents.png",
+        "button_link":"/events",
+        "button_classes":"pink",
+        "section_classes":"full-width",
+        "child":null
+    }
+]

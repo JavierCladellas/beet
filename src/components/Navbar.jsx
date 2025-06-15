@@ -2,18 +2,22 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 import '../styles/Navbar.css';
-import HamburgerMenu from './HamburgerMenu';
+import '../styles/HamburgerMenu.css';
 
 
 const Navbar = (props) => {
     const navbar_buttons = props.navbar_buttons;
     const [menuActive, setMenuActive] = useState(false);
+    const toggleMenu = () => { setMenuActive(!menuActive); };
 
-    return (  
-        <div className="navbar-wrapper">
-            <nav className="navbar">
-            <div className="navbar-logo"></div>
-                <HamburgerMenu menuActive={menuActive} setMenuActive={setMenuActive} />
+    return (
+        <div className="navbar-wrapper ffull fcol">
+            <nav>
+                <div className="navbar-logo"></div>
+
+                <span className={`hamburger-icon ${menuActive ? 'active' : ''}`} onClick={toggleMenu}>
+                    <i></i> <i></i> <i></i>
+                </span>
                 <div className={`navbar-buttons ${menuActive ? 'active' : ''}`}>
                     {navbar_buttons.map((button) => (
                         <Link className="navbar-button" to={button.link} key={button.key}>
@@ -25,5 +29,5 @@ const Navbar = (props) => {
         </div>
     );
 }
- 
+
 export default Navbar;
