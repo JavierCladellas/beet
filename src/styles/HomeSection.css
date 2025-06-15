@@ -1,0 +1,121 @@
+:root {
+    --light-pink: #b275a6;
+    --pink: #540640;
+    --light-gray: #f4f4f4;
+}
+
+
+.home-section {
+    display: flex;
+
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    align-items: stretch;
+
+}
+.home-section.light-gray {
+    background-color: var(--light-gray);
+}
+
+.home-section.image-left {
+    flex-direction: row;
+}
+.home-section.image-right {
+    flex-direction: row-reverse;
+}
+.home-section.full-width {
+    width: 100%;
+}
+.home-section>.image-container {
+    width: 55%;
+}
+.home-section-body{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 4rem 8rem;
+    box-sizing: border-box;
+}
+.home-section.full-width>.home-section-body{
+    width: 100%;
+}
+.home-section-body>h2 {
+    font-family: 'Hatton', sans-serif;
+    font-size: 2.5rem;
+    margin:0;
+}
+.home-section-body>.home-section-content {
+    margin-bottom: 16px;
+}
+.home-section-body>.home-section-content>p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    margin-top: 1rem;
+}
+.home-section.full-width>.home-section-body>.home-section-content
+{
+    width: 100%;
+    max-width: 1000px;
+}
+.home-section.full-width>.home-section-body>.home-section-content>p {
+    text-align: center;
+}
+
+.home-section-button.light-pink{
+    background-color:  var(--light-pink);
+}
+.home-section-button.pink {
+    background-color: var(--pink)
+}
+.home-section-button {
+    padding: 0.5rem 1rem;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    min-width: 120px;
+    text-align: center;
+    align-self: center;
+}
+
+.product-cards-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+    .home-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    .home-section.image-left {
+        flex-direction: column-reverse;
+    }
+    .home-section.image-right {
+        flex-direction: column;
+    }
+    .home-section>.image-container {
+        width: 100%;
+        height: 200px;
+    }
+    .home-section>.home-section-body {
+        width: 100%;
+        padding: 1.5rem;
+    }
+    .home-section-body>h2 {
+        text-align: center;
+    }
+}

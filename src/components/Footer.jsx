@@ -10,7 +10,7 @@ const Footer = (props) => {
                     <img className="footer-logo" src="logos/signature.jpg" alt="Beet Signature"/>
                 </div>
                 
-                <hr class="solid" />
+                <hr className="solid" />
 
                 <div className="footer-row footer-row-content">
                     <div className="footer-col">
@@ -65,7 +65,7 @@ const Footer = (props) => {
                 </div>
 
                 
-                <hr class="solid" />
+                <hr className="solid" />
 
                 <div className="footer-row copyright-row">
                     <p>BEET ® by Chelú, S.A. de C.V. <br/>Est. 2013</p>
