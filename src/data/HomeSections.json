@@ -33,7 +33,6 @@
         "title":"Our Clients",
         "body":"",
         "section_classes":"full-width",
-        "button_classes":"light-pink",
         "child":{ "type":"clients_grid"}
     },
     {
