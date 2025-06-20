@@ -1,0 +1,31 @@
+.caroussel{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.caroussel>.product-items{
+
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out;
+    z-index: -1;
+    overflow-x: auto;
+}
+
+
+.arrow{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 88px;
+    color: var(--light-pink);
+    cursor: pointer;
+    line-height: 209px;
+}
+.arrow::selection{
+    background-color: transparent;
+}

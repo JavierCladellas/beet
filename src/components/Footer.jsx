@@ -9,7 +9,7 @@ const Footer = (props) => {
                     <img className="footer-logo beet-logo" src="/logos/logo.jpg" alt="Logo" />
                     <img className="footer-logo" src="logos/signature.jpg" alt="Beet Signature"/>
                 </div>
-                
+
                 <hr className="solid" />
 
                 <div className="footer-row footer-row-content">
@@ -64,7 +64,7 @@ const Footer = (props) => {
                     </div>
                 </div>
 
-                
+
                 <hr className="solid" />
 
                 <div className="footer-row copyright-row">

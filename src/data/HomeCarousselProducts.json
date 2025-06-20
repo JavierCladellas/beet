@@ -1,0 +1,20 @@
+[
+    {
+        "title":"Nombre del producto",
+        "description":"Breve descripción que inspire al cliente",
+        "image":"/images/personaliza/21.png",
+        "alt_text":"alt"
+    },
+    {
+        "title":"Nombre del producto",
+        "description":"Breve descripción que despierte curiosidad",
+        "image":"/images/personaliza/22.png",
+        "alt_text":"alt"
+    },
+    {
+        "title":"Nombre del producto",
+        "description":"Breve descripción que de ideas por ocasión",
+        "image":"/images/personaliza/23.png",
+        "alt_text":"alt"
+    }
+]
