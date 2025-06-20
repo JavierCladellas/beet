@@ -15,5 +15,38 @@
         "title":"Cómo funciona",
         "body":"Diseñar tu regalo con nosotros es una experiencia fácil, fun & stress-free. Solo nos contás lo que tenés en mente y nosotros hacemos el resto.",
         "child":{"type":"personaliza_steps"}
+    },
+    {
+        "type":"full_section",
+        "child":{
+            "type":"product_caroussel"
+        }
+    },
+    {
+        "title":"¿No sabes qué regalar?",
+        "body":"Aquí te damos algunas ideas de qué tipo de regalos podés diseñar con nosotros. Literal, podemos hacer que el tuyo sea el que más le guste.",
+        "type":"full_section",
+        "child":{
+            "type":"personaliza_ideas"
+        }
+    },
+    {
+        "title":"Testimonios que nos hacen el día",
+        "body":"Clientes que confiaron en nosotros para decir lo que no sabían cómo decir... y esto fue lo que pasó.",
+        "type":"full_section",
+        "child":{
+            "type":"testimonials"
+        }
+    },
+    {
+        "title":"¿Tenés algo en mente?",
+        "image":"images/navbar-bg.png",
+        "body":"Dejános transformar tus ideas en emociones que dejan huella.",
+        "button_text":"LET'S DO IT!",
+        "button_link":"/contact",
+        "button_classes":"light-pink",
+        "type":"full_section",
+        "section_classes":"tall white-text"
     }
+
 ]
