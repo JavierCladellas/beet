@@ -5,8 +5,10 @@ import Navbar from './components/Navbar';
 
 import navbar_buttons from './data/NavbarButtons.json';
 import home_sections from './data/HomeSections.json'
+import personaliza_sections from './data/PersonalizaSections.json'
 import Footer from './components/Footer';
-import Home from './components/Home';
+import Home from './pages/Home';
+import Personaliza from './pages/Personaliza';
 
 import './styles/App.css';
 import './styles/text.css'
@@ -17,7 +19,12 @@ return (
     <Router>
         <div className="App">
             <Navbar navbar_buttons = {navbar_buttons}/>
-            <Home sections={home_sections}/>
+            <Route exact path="/">
+                <Home sections={home_sections}/>
+            </Route>
+            <Route exact path="/personaliza">
+                <Personaliza sections={personaliza_sections}/>
+            </Route>
             <Footer />
         </div>
     </Router>

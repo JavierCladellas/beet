@@ -1,0 +1,19 @@
+[
+    {
+        "type":"hero",
+        "child":{
+            "images":[
+                "/images/personaliza-hero/Personaliza - banner principal.png",
+                "/images/personaliza-hero/Personaliza - banner principal 2.png",
+                "/images/personaliza-hero/Personaliza - banner principal 3.png",
+                "/images/personaliza-hero/Personaliza - banner principal 4.png"
+            ]
+        }
+    },
+    {
+        "type":"full_section",
+        "title":"Cómo funciona",
+        "body":"Diseñar tu regalo con nosotros es una experiencia fácil, fun & stress-free. Solo nos contás lo que tenés en mente y nosotros hacemos el resto.",
+        "child":{"type":"personaliza_steps"}
+    }
+]

@@ -48,7 +48,7 @@ section>.body{
     box-sizing: border-box;
 }
 section.full-width>.body{
-    width: 100%;
+    width: 70%;
 }
 section.full-width.tall{
     min-height: 500px;

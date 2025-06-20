@@ -26,7 +26,7 @@ const Footer = (props) => {
                         <Link className="footer-nav-button" to={"shop"} key="shop">
                             <p>SHOP</p>
                         </Link>
-                        <Link className="footer-nav-button" to={"personalize"} key="personalize">
+                        <Link className="footer-nav-button" to={"personaliza"} key="personaliza">
                             <p>PERSONALIZA</p>
                         </Link>
                         <Link className="footer-nav-button" to={"corporate_gifting"} key="corporate_gifting">
