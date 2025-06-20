@@ -50,6 +50,10 @@ section>.body{
 section.full-width>.body{
     width: 100%;
 }
+section.full-width.tall{
+    min-height: 500px;
+    align-items: center;
+}
 section>.body>.section-content {
     display: flex;
     flex-direction: column;
@@ -80,12 +84,6 @@ section.full-width>.body>.section-content>p {
     background-color: var(--pink)
 }
 
-.product-cards-grid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
 
 @media screen and (max-width: 768px) {
     section {
@@ -102,7 +100,7 @@ section.full-width>.body>.section-content>p {
         width: 100%;
         height: 200px;
     }
-    section>section>.body {
+    section>.section-content>.body {
         width: 100%;
         padding: 1.5rem;
     }

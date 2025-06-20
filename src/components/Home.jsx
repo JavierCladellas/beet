@@ -1,7 +1,8 @@
-import ClientsGrid from "./ClientsGrid";
 import ProductCard from "./ProductCard";
-import { Link } from 'react-router-dom';
 import '../styles/HomeSection.css'
+import SideSection from "./sections/SideSection";
+import FullSection from "./sections/FullSection";
+import ClientsSection from "./sections/ClientSection";
 
 
 const Home = (props) => {
@@ -9,22 +10,13 @@ const Home = (props) => {
     return (
         <div>
             {sections.map((section, index) => (
-                <section key={index} className={"home-section "+ section.section_classes }>
-                    {section.image ? <div className="image-container" style={{ 
-                        backgroundImage: `url(${section.image})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center'
-                    }}></div> : null}
-                    <div className="body">
-                        <h2>{section.title}</h2>
-                        <div className="section-content">
-                            <p>{section.body}</p>
-                            <Link className={`action-button ${section.button_classes}`} to={section.button_link}>
-                                <p>{section.button_text}</p>
-                            </Link>
-                        </div>
-                    </div>
-                </section>
+                section.type === "side_section" ?
+                    <SideSection key={index} section={section} /> :
+                section.type === "full_section" ?
+                    <FullSection key={index} section={section} /> :
+                section.type === "clients_grid" ?
+                    <ClientsSection key={index} section={section} /> :
+                null
             ))}
         </div>
     )

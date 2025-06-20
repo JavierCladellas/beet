@@ -6,8 +6,8 @@
         "image":"images/home/section1.heic",
         "button_link":"/personalize",
         "button_classes":"light-pink",
-        "section_classes":"light-gray image-left",
-        "child":null
+        "type":"side_section",
+        "section_classes":"light-gray image-left"
     },
     {
         "title":"Ready. Set. Gift.",
@@ -16,8 +16,8 @@
         "button_link":"/shop",
         "button_classes":"light-pink",
         "image":null,
-        "section_classes":"full-width",
-        "child":{"type":"caroussel"}
+        "type":"full_section",
+        "child":{"type":"home_caroussel"}
     },
     {
         "title":"Corporate Gifting, a otro nivel.",
@@ -27,22 +27,21 @@
         "button_link":"/corporate-gifting",
         "button_classes":"pink",
         "section_classes":"image-right light-gray",
-        "child":null
+        "type":"side_section"
     },
     {
         "title":"Our Clients",
         "body":"",
-        "section_classes":"full-width",
-        "child":{ "type":"clients_grid"}
+        "type":"clients_grid"
     },
     {
-        "title":"",
+        "title":"Hay regalos que no se dan, se viven",
         "body":"Planificación y ejecución de Boutique Events, donde cada detalle cuenta y tus ideas se transforman en momentos que se sienten, se viven y se recuerdan.",
         "button_text":"LET'S PLAN IT",
         "image":"images/home/sectionEvents.png",
         "button_link":"/events",
         "button_classes":"pink",
-        "section_classes":"full-width",
-        "child":null
+        "section_classes":"tall white-text",
+        "type":"full_section"
     }
 ]
