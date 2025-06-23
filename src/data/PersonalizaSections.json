@@ -11,10 +11,27 @@
         }
     },
     {
-        "type":"full_section",
         "title":"Cómo funciona",
+        "type":"full_section",
+        "section_classes":"full-body",
         "body":"Diseñar tu regalo con nosotros es una experiencia fácil, fun & stress-free. Solo nos contás lo que tenés en mente y nosotros hacemos el resto.",
-        "child":{"type":"personaliza_steps"}
+        "child":{
+            "type":"personaliza_steps",
+            "steps":[
+                {
+                    "title":"Contanos qué querés celebrar",
+                    "description":"Cumple, agradecimiento, amor, baby shower...lo que sea! Todo empieza con tu historia."
+                },
+                {
+                    "title":"Te mandamos una propuesta con magia",
+                    "description":"En base a tu idea y budget, te enviamos el look & feel y opciones de productos. Aquí es donde nos decís qué es lo que más te gusta."
+                },
+                {
+                    "title":"Le agregás tu toque y afinamos detalles",
+                    "description":"Nos decís cómo querés personalizar: nombre, colores, dedicatoria, etc."
+                }
+            ]
+        }
     },
     {
         "type":"full_section",
@@ -34,8 +51,23 @@
         "title":"Testimonios que nos hacen el día",
         "body":"Clientes que confiaron en nosotros para decir lo que no sabían cómo decir... y esto fue lo que pasó.",
         "type":"full_section",
+        "section_classes":"light-gray full-body",
         "child":{
-            "type":"testimonials"
+            "type":"reviews",
+            "reviews":[
+                {
+                    "name":"Teddy Yuhui",
+                    "comment": "Boost your product and service's credibility by adding testimonials from your clients. People love recommendations so feedback from others who've tried it is invaluable."
+                },
+                {
+                    "name":"Sari Purdue",
+                    "comment":"Boost your product and service's credibility by adding testimonials from your clients. People love recommendations so feedback from others who've tried it is invaluable."
+                },
+                {
+                    "name":"Matt Zhangyee",
+                    "comment":"Boost your product and service's credibility by adding testimonials from your clients. People love recommendations so feedback from others who've tried it is invaluable."
+                }
+            ]
         }
     },
     {

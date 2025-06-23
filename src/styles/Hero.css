@@ -39,3 +39,15 @@ section.hero {
     height: 48px;
     color: white;
 }
+
+
+@media screen and (max-width: 768px) {
+    section.hero {
+        max-height: 400px;
+    }
+    .hero-arrow {
+        margin: 24px;
+        width: 32px;
+        height: 32px;
+    }
+}
