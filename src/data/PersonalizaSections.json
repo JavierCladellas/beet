@@ -66,7 +66,7 @@
         "body":"Aquí te damos algunas ideas de qué tipo de regalos podés diseñar con nosotros. Literal, podemos hacer que el tuyo sea el que más le guste.",
         "type":"full_section",
         "child":{
-            "type":"personaliza_ideas"
+            "type":"home_caroussel"
         }
     },
     {

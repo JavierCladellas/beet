@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    overflow: hidden;
     justify-content: center;
 }
 
@@ -15,6 +16,7 @@
     transition: transform 0.5s ease-in-out;
     z-index: -1;
     overflow-x: auto;
+    overflow-y: hidden;
 }
 
 
@@ -33,6 +35,7 @@
 
 .full-caroussel{
     width: 100%;
+    max-height: 300px;
     display: flex;
     flex-direction: row;
     overflow: hidden; /* <- this does the job of a wrapper */
