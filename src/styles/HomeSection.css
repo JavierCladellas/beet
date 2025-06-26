@@ -90,6 +90,22 @@ section.full-width>.body>.section-content>p {
 }
 
 
+section.no-body>.body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+section.no-body>.body>h2 {
+    display: none;
+}
+section.no-body>.body>.section-content {
+    margin: 0;
+    padding: 0;
+}
+section.no-body>.body>.section-content>p {
+    display: none;
+}
+
 @media screen and (max-width: 768px) {
     section {
         flex-direction: column;

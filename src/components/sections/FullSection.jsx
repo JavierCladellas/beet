@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import HomeCaroussel from '../HomeCaroussel';
 import PersonalizaStep from '../PersonalizaStep';
 import ReviewCards from '../ReviewCards';
+import FullCaroussel from '../FullCaroussel';
 
 
 
@@ -24,6 +25,8 @@ const FullSection = (props) => {
                         <PersonalizaStep steps={section.child.steps} /> :
                         section.child.type == "reviews" ?
                         <ReviewCards reviews={section.child.reviews} /> :
+                        section.child.type == "full_caroussel" ?
+                        <FullCaroussel images={section.child.images} /> :
                         null
                     : null}
                     {
