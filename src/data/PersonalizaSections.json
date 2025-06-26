@@ -1,0 +1,106 @@
+[
+    {
+        "type":"hero",
+        "child":{
+            "images":[
+                "/images/personaliza-hero/Personaliza - banner principal.png",
+                "/images/personaliza-hero/Personaliza - banner principal 2.png",
+                "/images/personaliza-hero/Personaliza - banner principal 3.png",
+                "/images/personaliza-hero/Personaliza - banner principal 4.png"
+            ]
+        }
+    },
+    {
+        "title":"Cómo funciona",
+        "type":"full_section",
+        "section_classes":"full-body",
+        "body":"Diseñar tu regalo con nosotros es una experiencia fácil, fun & stress-free. Solo nos contás lo que tenés en mente y nosotros hacemos el resto.",
+        "child":{
+            "type":"personaliza_steps",
+            "steps":[
+                {
+                    "title":"Contanos qué querés celebrar",
+                    "description":"Cumple, agradecimiento, amor, baby shower...lo que sea! Todo empieza con tu historia."
+                },
+                {
+                    "title":"Te mandamos una propuesta con magia",
+                    "description":"En base a tu idea y budget, te enviamos el look & feel y opciones de productos. Aquí es donde nos decís qué es lo que más te gusta."
+                },
+                {
+                    "title":"Le agregás tu toque y afinamos detalles",
+                    "description":"Nos decís cómo querés personalizar: nombre, colores, dedicatoria, etc."
+                }
+            ]
+        }
+    },
+    {
+        "type":"full_section",
+        "section_classes":"no-body",
+        "child":{
+            "type":"full_caroussel",
+            "images":[
+                "/images/personaliza/15.png",
+                "/images/personaliza/16.png",
+                "/images/personaliza/17.png",
+                "/images/personaliza/18.png",
+                "/images/personaliza/19.png",       
+                "/images/personaliza/20.png",
+                "/images/personaliza/21.png",
+                "/images/personaliza/22.png",
+                "/images/personaliza/23.png",
+                "/images/personaliza/24.png",
+                "/images/personaliza/25.png",
+                "/images/personaliza/26.png",
+                "/images/personaliza/27.png",
+                "/images/personaliza/28.png",
+                "/images/personaliza/29.png",
+                "/images/personaliza/30.png",
+                "/images/personaliza/31.png",
+                "/images/personaliza/32.png",
+                "/images/personaliza/33.png" 
+            ]
+        }
+    },
+    {
+        "title":"¿No sabes qué regalar?",
+        "body":"Aquí te damos algunas ideas de qué tipo de regalos podés diseñar con nosotros. Literal, podemos hacer que el tuyo sea el que más le guste.",
+        "type":"full_section",
+        "child":{
+            "type":"home_caroussel"
+        }
+    },
+    {
+        "title":"Testimonios que nos hacen el día",
+        "body":"Clientes que confiaron en nosotros para decir lo que no sabían cómo decir... y esto fue lo que pasó.",
+        "type":"full_section",
+        "section_classes":"light-gray full-body",
+        "child":{
+            "type":"reviews",
+            "reviews":[
+                {
+                    "name":"Teddy Yuhui",
+                    "comment": "Boost your product and service's credibility by adding testimonials from your clients. People love recommendations so feedback from others who've tried it is invaluable."
+                },
+                {
+                    "name":"Sari Purdue",
+                    "comment":"Boost your product and service's credibility by adding testimonials from your clients. People love recommendations so feedback from others who've tried it is invaluable."
+                },
+                {
+                    "name":"Matt Zhangyee",
+                    "comment":"Boost your product and service's credibility by adding testimonials from your clients. People love recommendations so feedback from others who've tried it is invaluable."
+                }
+            ]
+        }
+    },
+    {
+        "title":"¿Tenés algo en mente?",
+        "image":"images/navbar-bg.png",
+        "body":"Dejános transformar tus ideas en emociones que dejan huella.",
+        "button_text":"LET'S DO IT!",
+        "button_link":"/contact",
+        "button_classes":"light-pink",
+        "type":"full_section",
+        "section_classes":"tall white-text"
+    }
+
+]

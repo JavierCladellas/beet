@@ -1,7 +1,7 @@
 [
     {"name": "HOME", "link": "/", "key": "home"},
     {"name": "SHOP", "link": "/shop", "key": "shop"},
-    {"name": "PERSONALIZA", "link": "/personalize", "key": "personalize"},
+    {"name": "PERSONALIZA", "link": "/personaliza", "key": "personaliza"},
     {"name": "CORPORATE GIFTING", "link": "/corporate_gifting", "key": "corporate_gifting"},
     {"name": "EVENTOS", "link": "/events", "key": "eventos"},
     {"name": "ABOUT US", "link": "/about", "key": "about"}

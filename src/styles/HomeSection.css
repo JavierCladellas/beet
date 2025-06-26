@@ -48,8 +48,13 @@ section>.body{
     box-sizing: border-box;
 }
 section.full-width>.body{
-    width: 100%;
+    width: 70%;
 }
+
+section.full-width.full-body>.body{
+    width: 90%;
+}
+
 section.full-width.tall{
     min-height: 500px;
     align-items: center;
@@ -85,6 +90,22 @@ section.full-width>.body>.section-content>p {
 }
 
 
+section.no-body>.body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+section.no-body>.body>h2 {
+    display: none;
+}
+section.no-body>.body>.section-content {
+    margin: 0;
+    padding: 0;
+}
+section.no-body>.body>.section-content>p {
+    display: none;
+}
+
 @media screen and (max-width: 768px) {
     section {
         flex-direction: column;
@@ -100,7 +121,23 @@ section.full-width>.body>.section-content>p {
         width: 100%;
         height: 200px;
     }
+    section>.body{
+        width: 100%;
+        padding: 1.5rem;
+        align-items: center;
+    }
     section>.section-content>.body {
+        width: 100%;
+        padding: 1.5rem;
+        align-items: center;
+    }
+
+    section.full-width>.body {
+        width: 100%;
+        padding: 1.5rem;
+    }
+
+    section.full-width.full-body>.body {
         width: 100%;
         padding: 1.5rem;
     }

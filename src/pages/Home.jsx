@@ -1,8 +1,8 @@
-import ProductCard from "./ProductCard";
+import ProductCard from "../components/ProductCard";
 import '../styles/HomeSection.css'
-import SideSection from "./sections/SideSection";
-import FullSection from "./sections/FullSection";
-import ClientsSection from "./sections/ClientSection";
+import SideSection from "../components/sections/SideSection";
+import FullSection from "../components/sections/FullSection";
+import ClientsSection from "../components/sections/ClientSection";
 
 
 const Home = (props) => {
