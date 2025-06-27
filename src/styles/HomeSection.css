@@ -1,8 +1,4 @@
-:root {
-    --light-pink: #b275a6;
-    --pink: #540640;
-    --light-gray: #f4f4f4;
-}
+
 
 section {
     display: flex;
@@ -59,12 +55,6 @@ section.full-width.tall{
     min-height: 500px;
     align-items: center;
 }
-section>.body>.section-content {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 16px;
-    gap: 32px;
-}
 section.full-width>.body>.section-content
 {
     width: 100%;
@@ -82,12 +72,6 @@ section.full-width>.body>.section-content>p {
     text-align: center;
 }
 
-.action-button.light-pink{
-    background-color:  var(--light-pink);
-}
-.action-button.pink {
-    background-color: var(--pink)
-}
 
 
 section.no-body>.body {

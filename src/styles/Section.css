@@ -1,0 +1,46 @@
+
+.page{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+section{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    align-items: stretch;
+    gap: 32px;
+}
+
+section.side.left{
+    flex-direction: row;
+}
+section.side.right{
+    flex-direction: row-reverse;
+}
+
+section.side>.image-container{
+    width: 55%;
+    /* do not resize from other container */
+    
+}
+section.side>.content{
+    width: 45%;
+}
+
+section>.content{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    
+    align-items: center;
+    box-sizing: border-box;
+}

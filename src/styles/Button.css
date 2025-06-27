@@ -1,0 +1,33 @@
+:root {
+    --light-pink: #b275a6;
+    --pink: #540640;
+    --light-gray: #f4f4f4;
+}
+
+
+.action-button{
+  display: flex;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-optical-sizing: auto;
+  font-size: 1.2rem;
+  font-weight: 300;
+  align-items: center;
+  height:32px;
+  width:140px;
+  text-align: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  min-width: 120px;
+  align-self: center;
+}
+
+.action-button.light-pink{
+    background-color:  var(--light-pink);
+}
+.action-button.pink {
+    background-color: var(--pink)
+}
