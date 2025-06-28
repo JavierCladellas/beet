@@ -1,7 +1,8 @@
-[
-    {
-        "type":"hero",
-        "child":{
+{
+    "hero":{
+        "layout":"hero carousel no-margin",
+
+        "children":{
             "images":[
                 "/images/personaliza-hero/Personaliza - banner principal.png",
                 "/images/personaliza-hero/Personaliza - banner principal 2.png",
@@ -10,40 +11,43 @@
             ]
         }
     },
-    {
+    "steps":{
         "title":"Cómo funciona",
-        "type":"full_section",
-        "section_classes":"full-body",
-        "body":"Diseñar tu regalo con nosotros es una experiencia fácil, fun & stress-free. Solo nos contás lo que tenés en mente y nosotros hacemos el resto.",
-        "child":{
-            "type":"personaliza_steps",
+        "body_text":"Diseñar tu regalo con nosotros es una experiencia fácil, fun & stress-free. Solo nos contás lo que tenés en mente y nosotros hacemos el resto.",
+
+        "layout":"vertical",
+        "content_style":"align-center",
+
+        "children":{
             "steps":[
                 {
+                    "number":"1",
                     "title":"Contanos qué querés celebrar",
                     "description":"Cumple, agradecimiento, amor, baby shower...lo que sea! Todo empieza con tu historia."
                 },
                 {
+                    "number":"2",
                     "title":"Te mandamos una propuesta con magia",
                     "description":"En base a tu idea y budget, te enviamos el look & feel y opciones de productos. Aquí es donde nos decís qué es lo que más te gusta."
                 },
                 {
+                    "number":"3",
                     "title":"Le agregás tu toque y afinamos detalles",
                     "description":"Nos decís cómo querés personalizar: nombre, colores, dedicatoria, etc."
                 }
             ]
+
         }
     },
-    {
-        "type":"full_section",
-        "section_classes":"no-body",
-        "child":{
-            "type":"full_caroussel",
+    "product_carousel":{
+        "layout":"no-margin",
+        "children":{
             "images":[
                 "/images/personaliza/15.png",
                 "/images/personaliza/16.png",
                 "/images/personaliza/17.png",
                 "/images/personaliza/18.png",
-                "/images/personaliza/19.png",       
+                "/images/personaliza/19.png",
                 "/images/personaliza/20.png",
                 "/images/personaliza/21.png",
                 "/images/personaliza/22.png",
@@ -57,25 +61,42 @@
                 "/images/personaliza/30.png",
                 "/images/personaliza/31.png",
                 "/images/personaliza/32.png",
-                "/images/personaliza/33.png" 
+                "/images/personaliza/33.png"
             ]
         }
     },
-    {
-        "title":"¿No sabes qué regalar?",
-        "body":"Aquí te damos algunas ideas de qué tipo de regalos podés diseñar con nosotros. Literal, podemos hacer que el tuyo sea el que más le guste.",
-        "type":"full_section",
-        "child":{
-            "type":"home_caroussel"
+    "suggestions":{
+        "title":"¿No sabés qué regalar?",
+        "body_text":"Aquí te damos algunas ideas de qué tipo de regalos podés diseñar con nosotros. Literal, podemos hacer que el tuyo sea el que más le guste.",
+
+        "layout":"vertical",
+        "content_style":"align-center light-gray",
+
+        "children":{
+            "products":[
+                {
+                    "name":"Gift boxes personalizadas",
+                    "image":"/images/home/section1.jpg"
+                },
+                {
+                    "name":"Otros formatos creativos",
+                    "image":"/images/personaliza/28.png"
+                },
+                {
+                    "name":"Souvenirs para tus eventos privados",
+                    "image":"/images/personaliza/27.png"
+                }
+            ]
         }
     },
-    {
+    "reviews":{
         "title":"Testimonios que nos hacen el día",
-        "body":"Clientes que confiaron en nosotros para decir lo que no sabían cómo decir... y esto fue lo que pasó.",
-        "type":"full_section",
-        "section_classes":"light-gray full-body",
-        "child":{
-            "type":"reviews",
+        "body_text":"Clientes que confiaron en nosotros para decir lo que no sabían cómo decir... y esto fue lo que pasó.",
+
+        "layout":"vertical",
+        "content_style":"align-center light-gray",
+
+        "children":{
             "reviews":[
                 {
                     "name":"Teddy Yuhui",
@@ -92,15 +113,16 @@
             ]
         }
     },
-    {
+    "contact":{
         "title":"¿Tenés algo en mente?",
+        "body_text":"Dejános transformar tus ideas en emociones que dejan huella.",
         "image":"images/navbar-bg.png",
-        "body":"Dejános transformar tus ideas en emociones que dejan huella.",
         "button_text":"LET'S DO IT!",
         "button_link":"/contact",
-        "button_classes":"light-pink",
-        "type":"full_section",
-        "section_classes":"tall white-text"
-    }
 
-]
+        "layout":"vertical",
+        "content_style":"white-text align-center",
+        "button_style":"light-pink"
+
+    }
+}

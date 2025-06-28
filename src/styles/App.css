@@ -4,3 +4,32 @@
   display: flex;
   flex-direction: column;
 }
+
+
+.align-start{
+  align-items: flex-start;
+}
+.align-end{
+  align-items: flex-end;
+}
+.align-center{
+  align-items: center;
+}
+
+
+
+
+/* MISC */
+.stars-container{
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+
+.stars-container>svg{
+  width: 16px;
+  height: 16px;
+  fill: var(--light-pink);
+}
+

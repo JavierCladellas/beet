@@ -1,7 +1,6 @@
 :root {
     --light-pink: #b275a6;
     --pink: #540640;
-    --light-gray: #f4f4f4;
 }
 
 
@@ -22,7 +21,6 @@
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
   min-width: 120px;
-  align-self: center;
 }
 
 .action-button.light-pink{

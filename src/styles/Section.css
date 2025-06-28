@@ -1,3 +1,7 @@
+:root{
+    --light-gray: #f4f4f4;
+    --white: #ffffff;
+}
 
 .page{
     display: flex;
@@ -8,16 +12,17 @@
 }
 
 section{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
     width: 100%;
     height: 100%;
     padding: 0;
     margin: 0;
+}
+section.side{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
     align-items: stretch;
-    gap: 32px;
 }
 
 section.side.left{
@@ -29,8 +34,6 @@ section.side.right{
 
 section.side>.image-container{
     width: 55%;
-    /* do not resize from other container */
-    
 }
 section.side>.content{
     width: 45%;
@@ -40,7 +43,53 @@ section>.content{
     display: flex;
     flex-direction: column;
     gap: 32px;
-    
-    align-items: center;
     box-sizing: border-box;
+    padding: 64px 80px;
+}
+
+section>.content.light-gray{
+    background-color: var(--light-gray);
+}
+
+section>.content.white{
+    background-color: var(--white);
+}
+
+
+
+section.vertical{
+    display: block;
+    position: relative;
+}
+
+section.vertical>.image-container{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+section.no-margin,section.no-margin>.content{
+    padding: 0;
+    margin:0;
+}
+
+section.hero {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-background);
+    height: calc(100vh - var(--nav-height));
+}
+
+
+
+@media screen and (max-width: 768px) {
+    section.hero {
+        max-height: 400px;
+    }
 }

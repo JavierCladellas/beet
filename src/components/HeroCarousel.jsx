@@ -1,13 +1,12 @@
-import '../../styles/Hero.css';
-import ArrowCircle from '../../assets/svg/arrow-circle.jsx';
+import '../styles/Hero.css';
+import ArrowCircle from '../assets/svg/arrow-circle.jsx';
 import { useState, useEffect, useRef } from 'react';
 
 const HeroSection = ({ images }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const timeoutRef = useRef(null);
-    const timeoutDuration = 5000; // Duration for auto-scroll in milliseconds
+    const timeoutDuration = 5000;
 
-    // Auto-scroll effect
     useEffect(() => {
         const next = () => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -26,7 +25,7 @@ const HeroSection = ({ images }) => {
     };
 
     return (
-        <section className="hero full-width tall">
+        <div>
             <div
                 className="hero-slider"
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
@@ -39,7 +38,7 @@ const HeroSection = ({ images }) => {
             <div className="hero-arrow" onClick={handleArrowClick}>
                 <ArrowCircle />
             </div>
-        </section>
+        </div>
     );
 };
 

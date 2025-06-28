@@ -1,0 +1,25 @@
+.grid-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+.full-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 32px;
+    box-sizing: border-box;
+    justify-items: center;
+    width: 100%;
+    grid-template-columns: repeat(4, minmax(10px,1fr));
+}
+
+
+@media screen and (max-width: 768px) {
+    .full-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        padding: 16px;
+    }
+}

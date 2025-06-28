@@ -1,7 +1,7 @@
-import '../styles/Caroussel.css';
+import '../styles/Carousel.css';
 import { useState, useEffect, useRef } from 'react';
 
-const FullCaroussel = ({ images }) => {
+const FullCarousel = ({ images }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const timeoutRef = useRef(null);
     const timeoutDuration = 5000; // 5 seconds
@@ -20,10 +20,9 @@ const FullCaroussel = ({ images }) => {
     const totalWidth = (images.length * 100) / visibleImages;
 
     return (
-        <div className="full-caroussel">
+        <div className="full-carousel">
             {images.map((image, index) => (
                 <div
-                    // Add class active to the 3 current images 
                     className={"image-container" + (index >= currentIndex && index < currentIndex + visibleImages ? " active" : "")}
                     key={index}
                 >
@@ -34,4 +33,4 @@ const FullCaroussel = ({ images }) => {
     );
 };
 
-export default FullCaroussel;
+export default FullCarousel;
