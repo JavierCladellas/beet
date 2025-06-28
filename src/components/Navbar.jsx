@@ -11,10 +11,11 @@ const Navbar = (props) => {
     const toggleMenu = () => { setMenuActive(!menuActive); };
 
     return (
-        <div className="navbar-wrapper ffull fcol">
-            <nav>
+        <nav>
+            <div className='logo-wrapper'>
                 <div className="navbar-logo"></div>
-
+            </div>
+            <div className='sticky'>
                 <span className={`hamburger-icon ${menuActive ? 'active' : ''}`} onClick={toggleMenu}>
                     <i></i> <i></i> <i></i>
                 </span>
@@ -25,8 +26,8 @@ const Navbar = (props) => {
                         </Link>
                     ))}
                 </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
     );
 }
 
