@@ -1,4 +1,9 @@
+import { FiTarget } from 'react-icons/fi';
 import '../styles/Cards.css';
+import { PiHandshakeLight, PiLightbulbFilament } from 'react-icons/pi';
+import { BsLightning } from 'react-icons/bs';
+import { LuPackageCheck } from 'react-icons/lu';
+import { GiHumanTarget } from 'react-icons/gi';
 
 const ProductCard1 = (props) => {
     const product = props.product;
@@ -51,6 +56,20 @@ const StepCard1 = (props) => {
     );
 }
 
+
+const StepCard2 = (props) => {
+    const step = props.step;
+    return (
+        <div className="step-card2">
+            <i className="step-number2">{step.number}</i>
+            <div>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
+            </div>
+        </div>
+    );
+}
+
 const ReviewCard = (props) => {
     const review = props.review;
     return (
@@ -65,5 +84,36 @@ const ReviewCard = (props) => {
 }
 
 
+function iconFactory(iconName) {
+    switch (iconName) {
+        case 'target':
+            return <FiTarget/>
+        case "lightbulb":
+            return <PiLightbulbFilament/>
+        case "lightning":
+            return <BsLightning/>
+        case "package":
+            return <LuPackageCheck/>
+        case "handshake":
+            return <PiHandshakeLight/>
+        case "human_target":
+            return <GiHumanTarget/>
+        default:
+    }
+}
 
-export { ProductCard1, ProductCard2, ClientCard1, StepCard1, ReviewCard};
+const ReasonCard = (props) => {
+    const reason = props.reason;
+    return (
+        <div className="reason-card">
+            <div className="reason-icon">
+            {iconFactory(reason.icon)}
+            </div>
+            <h3>{reason.title}</h3>
+            <p>{reason.description}</p>
+        </div>
+    );
+}
+
+
+export { ProductCard1, ProductCard2, ClientCard1, StepCard1, StepCard2, ReviewCard, ReasonCard};
