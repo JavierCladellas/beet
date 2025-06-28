@@ -12,9 +12,7 @@ const Corporate = (props) => {
 
     return (
         <div className="page">
-            <Section section={sections.hero} children={[
-                <HeroCarousel key="corporate-hero" images={sections.hero.children.images} />
-            ]} />
+            <Section section={sections.hero}/>
             <Section section={sections.how_it_works} children={[
                 <div key="how">
                     {[...Array(Math.floor(sections.how_it_works.children.steps.length/2))].map((_, index) => (

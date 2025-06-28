@@ -80,9 +80,12 @@ const StepCard2 = (props) => {
     const step = props.step;
     return (
         <div className="step-card2">
-            <i className="step-number2">{step.number}</i>
             <div>
+                <i className="step-number2">{step.number}</i>
                 <h3>{step.title}</h3>
+            </div>
+            <div>
+                <div></div>
                 <p>{step.description}</p>
             </div>
         </div>

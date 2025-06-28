@@ -6,7 +6,7 @@
         "image":"/images/corporate/14.png",
 
         "layout":"side left",
-        "content_style":"align-center",
+        "content_style":"align-center less-pad-h text-center",
 
         "children": {
             "signature": "signature.png"
@@ -17,14 +17,14 @@
         "image":"images/navbar-bg.png",
 
         "layout":"vertical",
-        "content_style":"white-text align-center text-center"
+        "content_style":"white-text align-center text-center more-pad-h more-pad-v"
     },
     "team":{
         "title":"The Dream Team",
         "body_text":"<b>More than a team, we’re a sisterhood turning purpose into emotions.</b> Somos un equipo liderado por mujeres creativas, resilientes y comprometidas con crear conexiones que trascienden. Conoce las mentes y manos detrás de cada emoción que entregamos.",
 
         "layout":"vertical",
-        "content_style":"align-center light-gray text-center",
+        "content_style":"align-center light-gray text-center shrink-text",
 
         "children":{
             "members":[
@@ -57,7 +57,7 @@
         "image":"/images/personaliza/18.png",
 
         "layout":"side right",
-        "content_style":"align-center"
+        "content_style":"align-center text-center less-pad-h"
     },
     "signification":{
         "title":"El significado detrás del nombre",
@@ -65,6 +65,6 @@
         "image":"/images/personaliza/33.png",
 
         "layout":"side left",
-        "content_style":"align-center"
+        "content_style":"align-center text-center less-pad-h"
     }
 }

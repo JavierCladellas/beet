@@ -49,7 +49,7 @@ const Section = (props) => {
         <section className={section.layout}>
             { section.image && <div className="image-container background-image" style={{ backgroundImage: `url(${section.image})` }}></div> }
             <div className={"content " + section.content_style}>
-                { section.title && <h2>{section.title}</h2> }
+                { section.title && <h2>{parseText(section.title)}</h2> }
                 { section.body_text && <p> {parseText(section.body_text)} </p> }
                 { props.children && props.children.map( (child => { return child; } )) }
                 { section.button_text && <Link className={"action-button " + section.button_style} to={section.button_link}>{section.button_text}</Link> }

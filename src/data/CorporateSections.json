@@ -1,12 +1,7 @@
 {
     "hero":{
-        "layout":"hero carousel no-margin",
-
-        "children":{
-            "images":[
-                "/images/corporate/banner.png"
-            ]
-        }
+        "layout":"hero no-margin vertical",
+        "image":"/images/corporate/banner.png"
     },
     "how_it_works":{
         "title":"Cómo trabajamos",
@@ -128,11 +123,11 @@
         }
     },
     "motivation":{
-        "title":"Everything we do, we build it around you.",
+        "title":"Everything we do, \n we build it around you.",
         "image":"images/navbar-bg.png",
 
         "layout":"vertical",
-        "content_style":"white-text align-center"
+        "content_style":"white-text align-center text-center"
 
     }
 }

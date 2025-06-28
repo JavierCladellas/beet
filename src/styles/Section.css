@@ -14,8 +14,6 @@
 section{
     width: 100%;
     height: 100%;
-    padding: 0;
-    margin: 0;
 }
 section.side{
     display: flex;
@@ -42,10 +40,40 @@ section.side>.content{
 section>.content{
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 2rem;
     box-sizing: border-box;
-    padding: 64px 80px;
 }
+section>.content>div{
+    width: 100%;
+}
+
+section.side>.content{
+    padding:5% 10%;
+}
+section.vertical>.content{
+    padding: 5% 5%;
+}
+section>.content.more-pad-h{
+    padding-left: 15%;
+    padding-right: 15%;
+}
+section>.content.more-pad-v{
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+section>.content.less-pad-h{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+section>.content.shrink-text>p{
+    max-width: 60%;
+}
+
+section.hero>.content{
+    justify-content: space-between;
+}
+
 
 section>.content.light-gray{
     background-color: var(--light-gray);
