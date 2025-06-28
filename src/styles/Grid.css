@@ -8,7 +8,6 @@
 
 .full-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 32px;
     box-sizing: border-box;
     justify-items: center;
@@ -18,8 +17,9 @@
 
 
 @media screen and (max-width: 768px) {
-    .full-grid {
+    .full-grid,.square-grid {
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
         padding: 16px;
     }
+
 }

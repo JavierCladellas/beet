@@ -1,0 +1,138 @@
+{
+    "hero":{
+        "layout":"hero carousel no-margin",
+
+        "children":{
+            "images":[
+                "/images/corporate/banner.png"
+            ]
+        }
+    },
+    "how_it_works":{
+        "title":"Cómo trabajamos",
+        "button_text":"SOLICITA TU PROPUESTA",
+        "button_link":"/contact",
+
+        "layout":"vertical",
+        "content_style":"align-center light-gray",
+        "button_style":"pink",
+
+        "children":{
+            "steps":[
+                {
+                    "number":"1",
+                    "title":"Nos contás tu necesidad o desafío",
+                    "description":"Nos das a conocer tus objetivos, te escuchamos de verdad, entendemos tu marca, captamos tus expectativas ... nos empapamos e integramos todo lo que buscas."
+                },
+                {
+                    "number":"2",
+                    "title":"Te presentamos una propuesta creativa",
+                    "description":"Preparamos una propuesta visual, alineada a tu presupuesto y tomando en cuenta todas tus solicitudes. "
+                },
+                {
+                    "number":"3",
+                    "title":"Personalizamos los toques finales y afinamos detalles",
+                    "description":"Hacemos de tu marca la protagonista de cada regalo, personalizando los elementos con tu imagen de marca y respetando tu estilo y esencia."
+                },
+                {
+                    "number":"4",
+                    "title":"Ejecutamos el proyecto con precisión",
+                    "description":"Producción, empaque, entregas y cumplimiento. El profesionalismo y puntualidad ante todo, siempre."
+                }
+            ]
+        }
+
+    },
+    "product_carousel":{
+        "layout":"no-margin",
+        "children":{
+            "images":[
+                "/images/corporate/1.png",
+                "/images/corporate/2.png",
+                "/images/corporate/3.png",
+                "/images/corporate/4.png",
+                "/images/corporate/5.png",
+                "/images/corporate/6.png",
+                "/images/corporate/7.png",
+                "/images/corporate/8.png",
+                "/images/corporate/9.png",
+                "/images/corporate/10.png",
+                "/images/corporate/11.png",
+                "/images/corporate/12.png",
+                "/images/corporate/13.png",
+                "/images/corporate/14.png",
+                "/images/corporate/15.png",
+                "/images/corporate/16.png",
+                "/images/corporate/17.png"
+            ]
+        }
+    },
+    "why":{
+        "title":"Por qué las empresas nos eligen",
+
+        "layout":"vertical",
+        "content_style":"align-center ",
+
+        "children":{
+            "reasons":[
+                {
+                    "icon":"target",
+                    "title":"Nos alineamos a tus objetivos",
+                    "description":"Te escuchamos de verdad! Conocemos tu marca, entendemos tu historia y nos aferramos a lo que necesitas."
+                },
+                {
+                    "icon":"lightbulb",
+                    "title":"Te hacemos ver diferente al resto ",
+                    "description":"Diseñamos regalos fuera de lo común. Estamos a la vanguardia y siempre pensando out of the box."
+                },
+                {
+                    "icon":"lightning",
+                    "title":"Resolvemos lo que sea, rápido y bien hecho.",
+                    "description":"Somos ágiles, prácticos y creativos. Nos adaptamos y proponemos soluciones en tiempo récord."
+                },
+                {
+                    "icon":"package",
+                    "title":"Usamos productos Top que te hacen quedar bien ",
+                    "description":" Para nosotros, la calidad es prioridad. Cada elemento que usamos es confiable, útil y duradero."
+                },
+                {
+                    "icon":"handshake",
+                    "title":"Nos aferramos a tu budget, siempre.",
+                    "description":"Buscamos relaciones duraderas, no ventas puntuales. Respetamos tu presupuesto sin perder magia."
+                },
+                {
+                    "icon":"human_target",
+                    "title":"Te ponemos al centro de todo lo que hacemos. ",
+                    "description":"Cada proyectoú es nico. Tu marca es la protagonista siempre y nosotros cuidamos cada detalle por ti."
+                }
+            ]
+        }
+    },
+    "clients":{
+        "title":"Our Clients",
+
+        "layout":"vertical",
+        "content_style":"align-center",
+
+        "children":{
+            "clients":[
+                {"name":"Davivienda","logo":"/logos/davivienda.jpg"},
+                {"name":"Excel Automotriz","logo":"/logos/excel.jpg"},
+                {"name":"Teleperformance","logo":"/logos/teleperformance.jpg"},
+                {"name":"McCormick","logo":"/logos/mccormick.jpg"},
+                {"name":"MaxBloch","logo":"/logos/maxbloch.jpg"},
+                {"name":"AndHer","logo":"/logos/andher.jpg"},
+                {"name":"RSM","logo":"/logos/rsm.jpg"},
+                {"name":"RoadMarket","logo":"/logos/roadmarket.jpg"}
+            ]
+        }
+    },
+    "motivation":{
+        "title":"Everything we do, we build it around you.",
+        "image":"images/navbar-bg.png",
+
+        "layout":"vertical",
+        "content_style":"white-text align-center"
+
+    }
+}
