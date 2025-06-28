@@ -5,6 +5,25 @@ import { BsLightning } from 'react-icons/bs';
 import { LuPackageCheck } from 'react-icons/lu';
 import { GiHumanTarget } from 'react-icons/gi';
 
+
+
+
+
+const MemberCard = (props) => {
+    const member = props.member;
+    return (
+        <div className="member-card">
+            <div className="member-image-container">
+                <img src={member.image} alt={member.name} />
+            </div>
+            <div className="member-details">
+                <h3 className="member-name">{member.name}</h3>
+                <p className="member-description">{member.role}</p>
+            </div>
+        </div>
+    );
+}
+
 const ProductCard1 = (props) => {
     const product = props.product;
     return (
@@ -116,4 +135,4 @@ const ReasonCard = (props) => {
 }
 
 
-export { ProductCard1, ProductCard2, ClientCard1, StepCard1, StepCard2, ReviewCard, ReasonCard};
+export { MemberCard, ProductCard1, ProductCard2, ClientCard1, StepCard1, StepCard2, ReviewCard, ReasonCard};

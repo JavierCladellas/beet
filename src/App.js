@@ -7,10 +7,12 @@ import navbar_buttons from './data/NavbarButtons.json';
 import home_sections from './data/HomeSections.json'
 import personaliza_sections from './data/PersonalizaSections.json'
 import corporate_sections from './data/CorporateSections.json'
+import about_sections from './data/AboutSections.json'
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Personaliza from './pages/Personaliza';
 import Corporate from './pages/Corporate';
+import About from './pages/About';
 
 import './styles/App.css';
 import './styles/text.css'
@@ -29,6 +31,9 @@ return (
             </Route>
             <Route exact path="/corporate-gifting">
                 <Corporate sections={corporate_sections}/>
+            </Route>
+            <Route exact path="/about">
+                <About sections={about_sections}/>
             </Route>
             <Footer />
         </div>

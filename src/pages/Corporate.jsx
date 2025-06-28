@@ -1,7 +1,6 @@
 import Section from "../components/Sections";
 import { StepCard2, ReasonCard, ClientCard1 } from "../components/Cards";
 import HeroCarousel from "../components/HeroCarousel";
-import { FaStar } from "react-icons/fa";
 
 import "../styles/Grid.css";
 import FullCarousel from "../components/FullCarousel";
