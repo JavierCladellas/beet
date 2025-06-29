@@ -230,8 +230,11 @@
         width: 100%;
     }
 
-    .step-card{
+    .step-card,
+    .step-card2,
+    .review-card{
         width: 100%;
+        max-width: 300px;
         height: auto;
     }
     .step-number{

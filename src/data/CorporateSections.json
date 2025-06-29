@@ -127,7 +127,7 @@
         "image":"images/navbar-bg.png",
 
         "layout":"vertical",
-        "content_style":"white-text align-center text-center"
+        "content_style":"white-text align-center text-center more-pad-v"
 
     }
 }
