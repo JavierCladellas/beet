@@ -10,7 +10,6 @@ const About = (props) => {
             <Section section = {sections.story} children = {[
                 <img key="signature" src={sections.story.children.signature} alt="Signature" className="signature"  style={{ maxWidth:"80px" }}/>
             ]} />
-            <Section section = {sections.mission} />
             <Section section = {sections.team} children = {[
                 <div key="team-grid" className="grid-row wrap">
                     {sections.team.children.members.map((member, index) => (
@@ -19,6 +18,7 @@ const About = (props) => {
                 </div>
             ]} />
             <Section section = {sections.what_we_do} />
+            <Section section = {sections.mission} />
             <Section section = {sections.signification} />
         </div>
     );
