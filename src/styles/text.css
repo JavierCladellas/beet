@@ -30,7 +30,7 @@ h3{
     font-style: normal;
     font-variation-settings: "wdth" 100;
     margin:0;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     letter-spacing: -1px;
 }
 
@@ -55,7 +55,9 @@ a>p{
     text-align: center;
 }
 
-
+.member-details>p{
+    font-size: 1rem;
+}
 
 @media screen and (max-width: 768px) {
 
