@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: ["main","5-setup-cicd"]
+    branches: ["main"]
 
 env:
   CI: false
