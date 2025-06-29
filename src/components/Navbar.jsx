@@ -13,11 +13,10 @@ const Navbar = (props) => {
     const location = useLocation();
 
     const handleNavClick = (path) => {
-        console.log(path, location.pathname);
         if (path === location.pathname) {
-        // User clicked the same route — scroll to top
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+        setMenuActive(false);
     };
 
     return (
