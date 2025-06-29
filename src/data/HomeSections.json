@@ -23,19 +23,19 @@
         "children":{
             "products":[
                 {
-                    "title":"Nombre del producto",
+                    "name":"Nombre del producto",
                     "description":"Breve descripción que inspire al cliente",
                     "image":"/beet/images/personaliza/21.png",
                     "alt_text":"alt"
                 },
                 {
-                    "title":"Nombre del producto",
+                    "name":"Nombre del producto",
                     "description":"Breve descripción que despierte curiosidad",
                     "image":"/beet/images/personaliza/22.png",
                     "alt_text":"alt"
                 },
                 {
-                    "title":"Nombre del producto",
+                    "name":"Nombre del producto",
                     "description":"Breve descripción que de ideas por ocasión",
                     "image":"/beet/images/personaliza/23.png",
                     "alt_text":"alt"

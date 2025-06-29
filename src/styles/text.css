@@ -15,13 +15,13 @@ p, span{
 
 h1,h2,.title{
     font-family: "Playfair", serif;
-    font-optical-sizing: auto;
+    font-optical-sizing:auto;
     font-weight: 300;
     font-style: normal;
-    font-variation-settings: "wdth" 100;
     margin:0;
     font-size: 3rem;
     line-height: 3rem;
+    letter-spacing: -2px;
 }
 h3{
     font-family: "Playfair", serif;
@@ -31,6 +31,7 @@ h3{
     font-variation-settings: "wdth" 100;
     margin:0;
     font-size: 1.6rem;
+    letter-spacing: -1px;
 }
 
 a{
