@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
 import '../styles/Navbar.css';
@@ -10,23 +10,28 @@ const Navbar = (props) => {
     const [menuActive, setMenuActive] = useState(false);
     const toggleMenu = () => { setMenuActive(!menuActive); };
 
-    return (
-        <div className="navbar-wrapper ffull fcol">
-            <nav>
-                <div className="navbar-logo"></div>
+    const location = useLocation();
 
-                <span className={`hamburger-icon ${menuActive ? 'active' : ''}`} onClick={toggleMenu}>
-                    <i></i> <i></i> <i></i>
-                </span>
-                <div className={`navbar-buttons ${menuActive ? 'active' : ''}`}>
-                    {navbar_buttons.map((button) => (
-                        <Link className="navbar-button" to={button.link} key={button.key}>
-                            <p>{button.name}</p>
-                        </Link>
-                    ))}
-                </div>
-            </nav>
-        </div>
+    const handleNavClick = (path) => {
+        if (path === location.pathname) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        setMenuActive(false);
+    };
+
+    return (
+        <nav className='sticky'>
+            <span className={`hamburger-icon ${menuActive ? 'active' : ''}`} onClick={toggleMenu}>
+                <i></i> <i></i> <i></i>
+            </span>
+            <div className={`navbar-buttons ${menuActive ? 'active' : ''}`}>
+                {navbar_buttons.map((button) => (
+                    <Link className="navbar-button" to={button.link} key={button.key} onClick={()=>handleNavClick(button.link)}>
+                        <p>{button.name}</p>
+                    </Link>
+                ))}
+            </div>
+        </nav>
     );
 }
 

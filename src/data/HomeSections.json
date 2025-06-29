@@ -17,7 +17,7 @@
         "button_link":"/shop",
 
         "layout":"vertical",
-        "content_style":"align-center",
+        "content_style":"align-center more-pad-h text-center",
         "button_style":"light-pink",
 
         "children":{
@@ -84,7 +84,7 @@
 
 
         "layout":"vertical",
-        "content_style":"white-text align-center",
+        "content_style":"white-text align-center text-center more-pad-v more-pad-h",
         "button_style":"pink"
     }
 }

@@ -1,7 +1,6 @@
 import Section from "../components/Sections";
 import { StepCard2, ReasonCard, ClientCard1 } from "../components/Cards";
 import HeroCarousel from "../components/HeroCarousel";
-import { FaStar } from "react-icons/fa";
 
 import "../styles/Grid.css";
 import FullCarousel from "../components/FullCarousel";
@@ -13,9 +12,7 @@ const Corporate = (props) => {
 
     return (
         <div className="page">
-            <Section section={sections.hero} children={[
-                <HeroCarousel key="corporate-hero" images={sections.hero.children.images} />
-            ]} />
+            <Section section={sections.hero}/>
             <Section section={sections.how_it_works} children={[
                 <div key="how">
                     {[...Array(Math.floor(sections.how_it_works.children.steps.length/2))].map((_, index) => (

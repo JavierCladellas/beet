@@ -14,7 +14,7 @@
   font-weight: 300;
   align-items: center;
   height:32px;
-  width:140px;
+  min-width:140px;
   text-align: center;
   justify-content: center;
   text-decoration: none;

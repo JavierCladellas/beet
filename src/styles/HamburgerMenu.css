@@ -6,7 +6,7 @@
 }
 
 .hamburger-icon > i {
-    background-color: rgb(230, 230, 230);
+    background-color: var(--light-pink);
     border-radius: 2px;
     display: block;
     width: 100%;
@@ -15,7 +15,7 @@
 }
 
 .hamburger-icon > i:nth-child(2) {
-    margin: 6px 0;
+    margin: 5px 0;
 }
 
 .hamburger-icon > i:nth-child(1) {
