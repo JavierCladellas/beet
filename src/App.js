@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Route, Switch,Redirect,HashRouter } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 
@@ -35,18 +34,12 @@ return (
                 <img className="navbar-logo" src="./beet/logos/beet.jpg" alt="Logo"/>
             </div>
             <Navbar navbar_buttons = {navbar_buttons}/>
-            <Route exact path="/">
-                <Home sections={home_sections}/>
-            </Route>
-            <Route exact path="/personaliza">
-                <Personaliza sections={personaliza_sections}/>
-            </Route>
-            <Route exact path="/corporate-gifting">
-                <Corporate sections={corporate_sections}/>
-            </Route>
-            <Route exact path="/about">
-                <About sections={about_sections}/>
-            </Route>
+            <Routes>
+                <Route exact path="/" element = { <Home sections={home_sections}/> } />
+                <Route exact path="/personaliza" element = { <Personaliza sections={personaliza_sections}/> } />
+                <Route exact path="/corporate-gifting" element = { <Corporate sections={corporate_sections}/> } />
+                <Route exact path="/about" element={ <About sections={about_sections} />} />
+            </Routes>
             <Footer />
         </div>
     </HashRouter>
