@@ -3,7 +3,7 @@
         "title":"Regalar es el lenguaje universal que nos une.",
         "body_text":"Diseñamos regalos que hablan por ti, cuando las palabras no son suficientes.Transformamos tu intención en regalos bien pensados, emotivos y llenos de significado.",
         "button_text":"QUIERO, PORFA!",
-        "image":"images/home/section1.jpg",
+        "image":"./beet/images/home/section1.jpg",
         "button_link":"/personaliza",
 
         "layout":"side left",
@@ -25,19 +25,19 @@
                 {
                     "title":"Nombre del producto",
                     "description":"Breve descripción que inspire al cliente",
-                    "image":"/images/personaliza/21.png",
+                    "image":"./beet/images/personaliza/21.png",
                     "alt_text":"alt"
                 },
                 {
                     "title":"Nombre del producto",
                     "description":"Breve descripción que despierte curiosidad",
-                    "image":"/images/personaliza/22.png",
+                    "image":"./beet/images/personaliza/22.png",
                     "alt_text":"alt"
                 },
                 {
                     "title":"Nombre del producto",
                     "description":"Breve descripción que de ideas por ocasión",
-                    "image":"/images/personaliza/23.png",
+                    "image":"./beet/images/personaliza/23.png",
                     "alt_text":"alt"
                 }
             ]
@@ -47,7 +47,7 @@
         "title":"Corporate Gifting, a otro nivel.",
         "body_text":"Regalos empresariales que te colocan en el Top of Mind y te ayudan a crear conexiones más auténticas y duraderas con tus clientes, proveedores y colaboradores. Cada proyecto está hecho a tu medida.",
         "button_text":"COTIZA",
-        "image":"images/home/yeti.jpg",
+        "image":"./beet/images/home/yeti.jpg",
         "button_link":"/corporate-gifting",
 
 
@@ -63,14 +63,14 @@
 
         "children":{
             "clients":[
-                {"name":"Davivienda","logo":"/logos/davivienda.jpg"},
-                {"name":"Excel Automotriz","logo":"/logos/excel.jpg"},
-                {"name":"Teleperformance","logo":"/logos/teleperformance.jpg"},
-                {"name":"McCormick","logo":"/logos/mccormick.jpg"},
-                {"name":"MaxBloch","logo":"/logos/maxbloch.jpg"},
-                {"name":"AndHer","logo":"/logos/andher.jpg"},
-                {"name":"RSM","logo":"/logos/rsm.jpg"},
-                {"name":"RoadMarket","logo":"/logos/roadmarket.jpg"}
+                {"name":"Davivienda","logo":"./beet/logos/davivienda.jpg"},
+                {"name":"Excel Automotriz","logo":"./beet/logos/excel.jpg"},
+                {"name":"Teleperformance","logo":"./beet/logos/teleperformance.jpg"},
+                {"name":"McCormick","logo":"./beet/logos/mccormick.jpg"},
+                {"name":"MaxBloch","logo":"./beet/logos/maxbloch.jpg"},
+                {"name":"AndHer","logo":"./beet/logos/andher.jpg"},
+                {"name":"RSM","logo":"./beet/logos/rsm.jpg"},
+                {"name":"RoadMarket","logo":"./beet/logos/roadmarket.jpg"}
             ]
         }
 
@@ -79,7 +79,7 @@
         "title":"Hay regalos que no se dan, se viven",
         "body_text":"Planificación y ejecución de Boutique Events, donde cada detalle cuenta y tus ideas se transforman en momentos que se sienten, se viven y se recuerdan.",
         "button_text":"LET'S PLAN IT",
-        "image":"images/home/sectionEvents.png",
+        "image":"./beet/images/home/sectionEvents.png",
         "button_link":"/events",
 
 

@@ -32,7 +32,7 @@ return (
         <div className="App">
 
             <div className='logo-wrapper'>
-                <img className="navbar-logo" src="/logos/beet.jpg" alt="Logo"/>
+                <img className="navbar-logo" src="./beet/logos/beet.jpg" alt="Logo"/>
             </div>
             <Navbar navbar_buttons = {navbar_buttons}/>
             <Route exact path="/">
