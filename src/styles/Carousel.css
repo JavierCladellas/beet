@@ -28,8 +28,6 @@
     flex-shrink: 0;
     box-sizing: border-box;
     cursor: pointer;
-    padding: 0 16px;
-    background-color: black;
     background-clip: content-box, padding-box;
 }
 
@@ -37,7 +35,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.5;
 }
 
 .controls{
@@ -60,6 +57,7 @@
     top: 50%;
     transform: translate(0, -50%);
     z-index: 100;
+    display: none;
 }
 
 .arrow-container.left-arrow{
@@ -72,7 +70,7 @@
 }
 
 .arrow-container>svg{
-    color: white;
+    color: var(--pink);
 }
 .arrow-container.left-arrow>svg{
     transform: rotate(-0.5turn);
