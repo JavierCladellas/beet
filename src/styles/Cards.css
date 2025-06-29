@@ -17,7 +17,16 @@
     align-items: center;
     overflow: hidden;
 }
-.product-card>.product-image-container>img,
+
+
+.product-card>.product-image-container>img
+{
+    object-fit: cover;
+    height: 250px;
+    width: 250px;
+    cursor: pointer;
+}
+
 .member-card>.member-image-container>img {
     object-fit: cover;
     height: 200px;
