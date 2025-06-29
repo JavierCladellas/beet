@@ -39,6 +39,8 @@ const Corporate = (props) => {
                 </div>
             ]}/>
 
+            <Section section = {sections.motivation} />
+
             <Section section = {sections.clients} children = {[
                 <div className="full-grid" key="clients">
                     {sections.clients.children.clients.map((client, index) => (
@@ -46,7 +48,6 @@ const Corporate = (props) => {
                     ))}
                 </div>
             ]}/>
-            <Section section = {sections.motivation} />
         </div>
     );
 };
