@@ -72,6 +72,7 @@ footer a{
 }
 .copyright-row>p{
     text-align: center;
+    font-size: 0.9rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -81,8 +82,6 @@ footer a{
     }
     .footer-row-content> .footer-col {
         align-items: center;
-    }
-    footer p, footer a {
     }
     .footer-col {
         max-width: 100%;
