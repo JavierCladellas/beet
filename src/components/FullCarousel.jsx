@@ -1,36 +1,48 @@
-import '../styles/Carousel.css';
-import { useState, useEffect, useRef } from 'react';
+import { useCallback } from 'react';
+import '../styles/Carousel.css'
+import useEmblaCarousel from 'embla-carousel-react'
+import ArrowCircle from '../assets/svg/arrow-circle.jsx';
 
-const FullCarousel = ({ images }) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const timeoutRef = useRef(null);
-    const timeoutDuration = 5000; // 5 seconds
 
-    useEffect(() => {
-        const next = () => {
-            setCurrentIndex((prevIndex) =>
-                (prevIndex + 1) % images.length
-            );
-        };
-        timeoutRef.current = setInterval(next, timeoutDuration);
-        return () => clearInterval(timeoutRef.current);
-    }, [images.length]);
+const FullCarousel = ({ images, options }) => {
+    const [emblaRef, emblaApi] = useEmblaCarousel({
+        slidesToScroll: 3,
+        containScroll: 'trimSnaps',
+        ...options
+    })
 
-    const visibleImages = 3;
-    const totalWidth = (images.length * 100) / visibleImages;
+    const onPrevButtonClick = useCallback(() => {
+        if (!emblaApi) return
+        emblaApi.scrollPrev()
+    }, [emblaApi])
 
-    return (
-        <div className="full-carousel">
-            {images.map((image, index) => (
-                <div
-                    className={"image-container" + (index >= currentIndex && index < currentIndex + visibleImages ? " active" : "")}
-                    key={index}
-                >
+    const onNextButtonClick = useCallback(() => {
+        if (!emblaApi) return
+        emblaApi.scrollNext()
+    }, [emblaApi])
+
+
+
+  return (
+    <div className="full-carousel embla">
+        <div className="embla__viewport" ref={emblaRef}>
+            <div className="embla__container">
+                {images.map((image, index) => (
+                <div className="embla__slide" key={index}>
                     <img src={image} alt={`Carousel ${index}`} />
                 </div>
-            ))}
+                ))}
+            </div>
         </div>
-    );
-};
 
-export default FullCarousel;
+        <div className='arrow-container left-arrow'  onClick={onPrevButtonClick}>
+            <ArrowCircle />
+        </div>
+        <div className='arrow-container right-arrow' onClick={onNextButtonClick}>
+            <ArrowCircle />
+        </div>
+    </div>
+  )
+}
+
+export default FullCarousel
