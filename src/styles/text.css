@@ -55,9 +55,6 @@ a>p{
     text-align: center;
 }
 
-.member-details>p{
-    font-size: 1rem;
-}
 
 @media screen and (max-width: 768px) {
 
