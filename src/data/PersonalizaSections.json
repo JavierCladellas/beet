@@ -115,7 +115,6 @@
     },
     "contact":{
         "title":"¿Tenés algo en mente?",
-        "body_text":"Dejános transformar tus ideas en emociones que dejan huella.",
         "image":"/beet/images/navbar-bg.png",
 
         "layout":"vertical",
