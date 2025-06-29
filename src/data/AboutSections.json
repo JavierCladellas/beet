@@ -5,7 +5,7 @@
 
         "image":"/beet/images/about/lucia_about.jpg",
 
-        "layout":"side left",
+        "layout":"side left image-top",
         "content_style":"align-center less-pad-h text-center",
 
         "children": {
