@@ -31,7 +31,7 @@ const HeroSection = ({ images }) => {
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                 {images.map((image, index) => (
                     <div className="hero-image-container" key={index}>
-                        <img src={image} alt={`Hero ${index}`} />
+                        <img loading="lazy"  src={image} alt={`Hero ${index}`} />
                     </div>
                 ))}
             </div>

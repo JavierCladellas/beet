@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch,Redirect } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
@@ -32,7 +32,7 @@ return (
         <div className="App">
 
             <div className='logo-wrapper'>
-                <img className="navbar-logo" src="/logos/beet.jpg" alt="Logo"/>
+                <img loading="lazy"  className="navbar-logo" src="/logos/beet.jpg" alt="Logo"/>
             </div>
             <Navbar navbar_buttons = {navbar_buttons}/>
             <Route exact path="/">

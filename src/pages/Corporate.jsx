@@ -1,6 +1,5 @@
 import Section from "../components/Sections";
 import { StepCard2, ReasonCard, ClientCard1 } from "../components/Cards";
-import HeroCarousel from "../components/HeroCarousel";
 
 import "../styles/Grid.css";
 import FullCarousel from "../components/FullCarousel";

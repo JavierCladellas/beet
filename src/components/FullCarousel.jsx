@@ -17,7 +17,6 @@ const FullCarousel = ({ images }) => {
     }, [images.length]);
 
     const visibleImages = 3;
-    const totalWidth = (images.length * 100) / visibleImages;
 
     return (
         <div className="full-carousel">
@@ -26,7 +25,7 @@ const FullCarousel = ({ images }) => {
                     className={"image-container" + (index >= currentIndex && index < currentIndex + visibleImages ? " active" : "")}
                     key={index}
                 >
-                    <img src={image} alt={`Carousel ${index}`} />
+                    <img loading="lazy"  src={image} alt={`Carousel ${index}`} />
                 </div>
             ))}
         </div>
