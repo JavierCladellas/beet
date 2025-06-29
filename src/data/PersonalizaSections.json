@@ -27,7 +27,7 @@
                 },
                 {
                     "number":"2",
-                    "title":"Te mandamos una propuesta con magia",
+                    "title":"Te mandamos una propuesta",
                     "description":"En base a tu idea y budget, te enviamos el look & feel y opciones de productos. Aquí es donde nos decís qué es lo que más te gusta."
                 },
                 {
@@ -83,7 +83,7 @@
                     "image":"/beet/images/personaliza/28.png"
                 },
                 {
-                    "name":"Souvenirs para tus eventos privados",
+                    "name":"Souvenirs para tus eventos",
                     "image":"/beet/images/personaliza/27.png"
                 }
             ]
@@ -117,11 +117,9 @@
         "title":"¿Tenés algo en mente?",
         "body_text":"Dejános transformar tus ideas en emociones que dejan huella.",
         "image":"/beet/images/navbar-bg.png",
-        "button_text":"LET'S DO IT!",
-        "button_link":"/contact",
 
         "layout":"vertical",
-        "content_style":"white-text align-center more-pad-v",
+        "content_style":"white-text align-center",
         "button_style":"light-pink"
 
     }

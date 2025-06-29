@@ -33,6 +33,7 @@ const Personaliza = (props) => {
                     ))}
                 </div>
             ]}/>
+            <Section section = {sections.contact} />
             <Section section = {sections.reviews} children = {[
                 <div className="grid-row" key="reviews">
                     {sections.reviews.children.reviews.map((review, index) => (
@@ -45,7 +46,6 @@ const Personaliza = (props) => {
                     ))}
                 </div>
             ]}/>
-            <Section section = {sections.contact} />
         </div>
     );
 };
