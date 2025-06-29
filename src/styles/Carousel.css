@@ -27,7 +27,6 @@
     align-items: center;
     flex-shrink: 0;
     box-sizing: border-box;
-    cursor: pointer;
     background-clip: content-box, padding-box;
 }
 
