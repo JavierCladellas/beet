@@ -1,6 +1,6 @@
 .full-carousel {
     width: 100%;
-    max-height: 300px;
+    max-height: 400px;
     overflow: hidden;
     position: relative;
 }
@@ -21,7 +21,7 @@
     flex:1;
     position: relative;
     min-width: 33.3333%; /* Show 3 slides at a time */
-    height: 300px;
+    height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
