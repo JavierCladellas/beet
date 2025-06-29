@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch,Redirect } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 
@@ -18,9 +19,16 @@ import './styles/App.css';
 import './styles/text.css'
 
 
+const ScrollToTop = () => {
+    const { pathname } = useLocation();
+    useEffect(() => { window.scrollTo(0, 0);}, [pathname]);
+    return null;
+};
+
 function App() {
 return (
     <Router>
+        <ScrollToTop />
         <div className="App">
 
             <div className='logo-wrapper'>

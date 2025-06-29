@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
 import '../styles/Navbar.css';
@@ -10,6 +10,16 @@ const Navbar = (props) => {
     const [menuActive, setMenuActive] = useState(false);
     const toggleMenu = () => { setMenuActive(!menuActive); };
 
+    const location = useLocation();
+
+    const handleNavClick = (path) => {
+        console.log(path, location.pathname);
+        if (path === location.pathname) {
+        // User clicked the same route — scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    };
+
     return (
         <nav className='sticky'>
             <span className={`hamburger-icon ${menuActive ? 'active' : ''}`} onClick={toggleMenu}>
@@ -17,7 +27,7 @@ const Navbar = (props) => {
             </span>
             <div className={`navbar-buttons ${menuActive ? 'active' : ''}`}>
                 {navbar_buttons.map((button) => (
-                    <Link className="navbar-button" to={button.link} key={button.key}>
+                    <Link className="navbar-button" to={button.link} key={button.key} onClick={()=>handleNavClick(button.link)}>
                         <p>{button.name}</p>
                     </Link>
                 ))}
