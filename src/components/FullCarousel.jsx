@@ -1,15 +1,16 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import '../styles/Carousel.css'
 import useEmblaCarousel from 'embla-carousel-react'
 import ArrowCircle from '../assets/svg/arrow-circle.jsx';
-
+import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures'
+import Autoplay from 'embla-carousel-autoplay'
 
 const FullCarousel = ({ images, options }) => {
+
     const [emblaRef, emblaApi] = useEmblaCarousel({
-        slidesToScroll: 3,
-        containScroll: 'trimSnaps',
+        loop: true ,
         ...options
-    })
+    },[WheelGesturesPlugin(),Autoplay({ playOnInit: true, delay: 5000 })])
 
     const onPrevButtonClick = useCallback(() => {
         if (!emblaApi) return
