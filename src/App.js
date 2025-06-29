@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch,Redirect } from 'react-router-dom';
+import { BrowserRouter as Route, Switch,Redirect,HashRouter } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
@@ -27,7 +27,7 @@ const ScrollToTop = () => {
 
 function App() {
 return (
-    <Router>
+    <HashRouter>
         <ScrollToTop />
         <div className="App">
 
@@ -49,7 +49,7 @@ return (
             </Route>
             <Footer />
         </div>
-    </Router>
+    </HashRouter>
   );
 }
 
