@@ -2,7 +2,7 @@ import '../styles/Hero.css';
 import ArrowCircle from '../assets/svg/arrow-circle.jsx';
 import { useState, useEffect, useRef } from 'react';
 
-const HeroSection = ({ images }) => {
+const HeroCarousel = ({ images }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const timeoutRef = useRef(null);
     const timeoutDuration = 5000;
@@ -42,4 +42,4 @@ const HeroSection = ({ images }) => {
     );
 };
 
-export default HeroSection;
+export default HeroCarousel;
