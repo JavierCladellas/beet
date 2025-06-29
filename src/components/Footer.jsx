@@ -6,7 +6,7 @@ const Footer = (props) => {
         <div className="footer-wrapper">
             <footer>
                 <div className="footer-row logo-row">
-                    <img className="footer-logo beet-logo" src="/logos/logo.jpg" alt="Logo" />
+                    <img className="footer-logo beet-logo" src="/logos/beet.jpg" alt="Logo" />
                     <img className="footer-logo" src="logos/signature.jpg" alt="Beet Signature"/>
                 </div>
 
