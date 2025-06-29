@@ -7,7 +7,7 @@ const Footer = (props) => {
             <footer>
                 <div className="footer-row logo-row">
                     <img className="footer-logo beet-logo" src="/beet/logos/beet.png" alt="Logo" />
-                    <img className="footer-logo" src="/beet/logos/signature.jpg" alt="Beet Signature"/>
+                    <img className="footer-logo" src="/beet/logos/signature2.jpg" alt="Beet Signature"/>
                 </div>
 
                 <hr className="solid" />
