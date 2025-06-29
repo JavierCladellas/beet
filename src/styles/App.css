@@ -1,10 +1,29 @@
-
+:root{
+  --logo-height: 120px;
+}
 
 .App {
   display: flex;
   flex-direction: column;
 }
 
+/* HEADER */
+.logo-wrapper{
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  align-items: center;
+  background-image: url('../assets/navbar-bg.png');
+}
+.navbar-logo{
+  height: var(--logo-height);
+  width: auto;
+  margin: auto;
+}
+
+/* FLEX */
 
 .align-start{
   align-items: flex-start;

@@ -6,7 +6,7 @@
 }
 
 .hamburger-icon > i {
-    background-color: rgb(230, 230, 230);
+    background-color: var(--light-pink);
     border-radius: 2px;
     display: block;
     width: 100%;

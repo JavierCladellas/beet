@@ -11,21 +11,16 @@ const Navbar = (props) => {
     const toggleMenu = () => { setMenuActive(!menuActive); };
 
     return (
-        <nav>
-            <div className='logo-wrapper'>
-                <div className="navbar-logo"></div>
-            </div>
-            <div className='sticky'>
-                <span className={`hamburger-icon ${menuActive ? 'active' : ''}`} onClick={toggleMenu}>
-                    <i></i> <i></i> <i></i>
-                </span>
-                <div className={`navbar-buttons ${menuActive ? 'active' : ''}`}>
-                    {navbar_buttons.map((button) => (
-                        <Link className="navbar-button" to={button.link} key={button.key}>
-                            <p>{button.name}</p>
-                        </Link>
-                    ))}
-                </div>
+        <nav className='sticky'>
+            <span className={`hamburger-icon ${menuActive ? 'active' : ''}`} onClick={toggleMenu}>
+                <i></i> <i></i> <i></i>
+            </span>
+            <div className={`navbar-buttons ${menuActive ? 'active' : ''}`}>
+                {navbar_buttons.map((button) => (
+                    <Link className="navbar-button" to={button.link} key={button.key}>
+                        <p>{button.name}</p>
+                    </Link>
+                ))}
             </div>
         </nav>
     );
