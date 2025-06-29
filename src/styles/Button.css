@@ -19,13 +19,25 @@
   justify-content: center;
   text-decoration: none;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.05s ease-in-out;
   min-width: 120px;
 }
 
 .action-button.light-pink{
     background-color:  var(--light-pink);
+    border: 2px solid  var(--light-pink);
 }
 .action-button.pink {
-    background-color: var(--pink)
+    background-color: var(--pink);
+    border: 2px solid  var(--pink);
+}
+
+.action-button:hover{
+    background-color: transparent;
+}
+.action-button.light-pink:hover{
+    color: var(--light-pink);
+}
+.action-button.pink:hover{
+    color: var(--pink);
 }
