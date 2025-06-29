@@ -111,7 +111,7 @@ section.hero {
     align-items: center;
     justify-content: center;
     background-color: var(--color-background);
-    height: calc(100vh - var(--nav-height));
+    height: 400px;
 }
 
 
