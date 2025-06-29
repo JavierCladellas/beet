@@ -114,11 +114,11 @@
         }
     },
     "contact":{
-        "title":"Creamos regalos que hablan por ti, cuando las palabras no son suficientes.",
+        "title":"Creamos regalos que hablan por ti, \n cuando las palabras no son suficientes.",
         "image":"/beet/images/navbar-bg.png",
 
         "layout":"vertical",
-        "content_style":"white-text align-center",
+        "content_style":"white-text align-center text-center more-pad-h",
         "button_style":"light-pink"
 
     }
