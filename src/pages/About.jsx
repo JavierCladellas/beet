@@ -12,7 +12,7 @@ const About = (props) => {
             ]} />
             <Section section = {sections.mission} />
             <Section section = {sections.team} children = {[
-                <div key="team-grid" className="grid-row">
+                <div key="team-grid" className="grid-row wrap">
                     {sections.team.children.members.map((member, index) => (
                         <MemberCard member={member} key={index} />
                     ))}

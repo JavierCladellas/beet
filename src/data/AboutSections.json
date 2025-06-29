@@ -36,17 +36,22 @@
                 {
                     "name":"Wendy Monge",
                     "role":"Líder de Operaciones",
-                    "image":"/beet/images/corporate/14.png"
+                    "image":"/beet/images/about/Wendy.png"
                 },
                 {
                     "name":"Marcela Flores",
                     "role":"Coordinadora de Entregas",
-                    "image":"/beet/images/corporate/14.png"
+                    "image":"/beet/images/about/Marce.png"
                 },
                 {
                     "name":"Camila González",
                     "role":"Partner Estratégico Marketing Digital | Khamaleón Creativa",
-                    "image":"/beet/images/corporate/14.png"
+                    "image":"/beet/images/about/Cami.png"
+                },
+                {
+                    "name":"Javier Cladellas",
+                    "role":"Partner Estratégico Tech and Web",
+                    "image":"/beet/images/about/Javi.png"
                 }
             ]
         }
