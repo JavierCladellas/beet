@@ -1,18 +1,22 @@
 import Section from "../components/Sections";
 import { StepCard2, ReasonCard, ClientCard1 } from "../components/Cards";
-
+import {useRef} from 'react';
 import "../styles/Grid.css";
 import FullCarousel from "../components/FullCarousel";
-
+import Modal from "../components/Modal";
 
 
 const Corporate = (props) => {
     const sections = props.sections;
+    const modalRef = useRef();
 
     return (
         <div className="page">
             <Section section={sections.hero}/>
-            <Section section={sections.how_it_works} children={[
+            <Section
+                section={sections.how_it_works}
+                on_button_click={() => modalRef.current?.open()}
+                children={[
                 <div key="how">
                     {[...Array(Math.floor(sections.how_it_works.children.steps.length/2))].map((_, index) => (
                         <div className="grid-row" key={index}>
@@ -21,7 +25,8 @@ const Corporate = (props) => {
                             ))}
                         </div>
                     ))}
-                </div>
+                </div>,
+                <Modal ref={modalRef} key="how_it_works_modal"/>
             ]}/>
             <Section section = {sections.product_carousel} children = {[
                 <FullCarousel key="product-carousel" images={sections.product_carousel.children.images} />

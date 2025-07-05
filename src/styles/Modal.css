@@ -1,0 +1,39 @@
+.modal {
+    border: none;
+    padding: 0;
+    background: transparent;
+    border-radius: 8px;
+}
+
+.modal::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    position: relative;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    min-width: 300px;
+    max-width: 90vw;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content>.close-button {
+    position: absolute;
+    top:0;
+    right:0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin:8px;
+    transition: color 0.05s ease-in-out;
+}
+
+
+.modal-content>.close-button:hover{
+    color:var(--light-pink);
+}
