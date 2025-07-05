@@ -18,7 +18,7 @@ const Modal = forwardRef((props, ref) => {
                 <button className="close-button" onClick={() => dialogRef.current?.close()}>
                     <IoMdClose />
                 </button>
-                {props.children}
+                { props.children && props.children.map( (child => { return child; } )) }
             </div>
         </dialog>
     );
