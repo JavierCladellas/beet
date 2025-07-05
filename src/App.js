@@ -8,15 +8,18 @@ import home_sections from './data/HomeSections.json'
 import personaliza_sections from './data/PersonalizaSections.json'
 import corporate_sections from './data/CorporateSections.json'
 import about_sections from './data/AboutSections.json'
+import coordinates from './data/Coordinates.json'
+
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Personaliza from './pages/Personaliza';
 import Corporate from './pages/Corporate';
 import About from './pages/About';
 
+import WhatsappButton from './components/IconButtons';
+
 import './styles/App.css';
 import './styles/text.css'
-
 
 const ScrollToTop = () => {
     const { pathname } = useLocation();
@@ -42,6 +45,7 @@ return (
             </Routes>
             <Footer />
         </div>
+        <WhatsappButton number = {coordinates.wa_number} text = {coordinates.wa_default_text}/>
     </HashRouter>
   );
 }
