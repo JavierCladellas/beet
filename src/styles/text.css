@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+IN:wght@100..400&display=swap');
 
-p, span{
+p, span,input,option{
     font-family: "Roboto", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;

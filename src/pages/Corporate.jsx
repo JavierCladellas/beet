@@ -2,6 +2,7 @@ import Section from "../components/Sections";
 import { StepCard2, ReasonCard, ClientCard1 } from "../components/Cards";
 import {useRef} from 'react';
 import "../styles/Grid.css";
+import "../styles/Form.css";
 import FullCarousel from "../components/FullCarousel";
 import Modal from "../components/Modal";
 
@@ -29,23 +30,23 @@ const Corporate = (props) => {
                     </div>,
                     <Modal ref={modalRef} key="how_it_works_modal"
                         children = {[
-                        <form key="how_it_works_form">
+                        <form key="how_it_works_form" >
                             {/* TODO: abstract and parameterize this */}
                             <div className="input-container">
+                                <input required type="text" id="fname" name="fname"/>
                                 <label htmlFor="fname">Tu nombre</label>
-                                <input type="text" id="fname" name="fname"/>
                             </div>
                             <div className="input-container">
+                                <input required type="tel" id="ftel" name="ftel"/>
                                 <label htmlFor="ftel">Whatsapp</label>
-                                <input type="tel" id="ftel" name="ftel"/>
                             </div>
                             <div className="input-container">
+                                <input required type="text" id="fcompany" name="fcompany"/>
                                 <label htmlFor="fcompany">Empresa</label>
-                                <input type="text" id="fcompany" name="fcompany"/>
                             </div>
                             <div className="input-container">
-                                <label htmlFor="foccasion">Ocasión</label>
-                                <select id="foccasion" name="foccasion">
+                                <select required id="foccasion" name="foccasion" defaultValue="">
+                                    <option value="" disabled hidden></option>
                                     <option value="aniversario-empresarial">Aniversario Empresarial</option>
                                     <option value="employee-rewards">Employee Rewards</option>
                                     <option value="welcome-to-the-team-kits">Welcome to the Team kits</option>
@@ -53,25 +54,25 @@ const Corporate = (props) => {
                                     <option value="lanzamiento-de-marca">Lanzamiento de marca</option>
                                     <option value="invitacion-a-evento">Invitación a evento</option>
                                     <option value="Otros">Otros</option>
-                                    {/* TODO: otros sbhould take input text */}
                                 </select>
+                                <label htmlFor="foccasion">Ocasión</label>
                             </div>
                             <div className="input-container">
-                                <label htmlFor="fqtty">Cantidad</label>
                                 <select id="fqtty" name="fqtty">
                                     <option value="1-12">1-12</option>
                                     <option value="12-30">12-30</option>
                                     <option value="+30">+30</option>
                                 </select>
+                                <label htmlFor="fqtty">Cantidad</label>
                             </div>
                             <div className="input-container">
-                                <label htmlFor="fbudget">Budget</label>
                                 <select id="fbudget" name="fbudget">
                                     <option value="-15">-15$</option>
                                     <option value="20-30">20$-$30</option>
                                     <option value="30-50">30$-$50</option>
                                     <option value="+50">+$50</option>
                                 </select>
+                                <label htmlFor="fbudget">Budget</label>
                             </div>
                             <button className="action-button light-pink"
                                 type="button"
