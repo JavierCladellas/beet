@@ -6,7 +6,6 @@
     "how_it_works":{
         "title":"Cómo trabajamos",
         "button_text":"SOLICITA TU PROPUESTA",
-        "button_link":"/contact",
 
         "layout":"vertical",
         "content_style":"align-center light-gray",

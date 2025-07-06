@@ -52,7 +52,7 @@ const Section = (props) => {
                 { section.title && <h2>{parseText(section.title)}</h2> }
                 { section.body_text && <p> {parseText(section.body_text)} </p> }
                 { props.children && props.children.map( (child => { return child; } )) }
-                { section.button_text && <Link className={"action-button " + section.button_style} to={section.button_link}>{section.button_text}</Link> }
+                { section.button_text && <Link className={"action-button " + section.button_style} to={section.button_link && section.button_link} onClick={props.on_button_click}>{section.button_text}</Link> }
             </div>
         </section>
     );
