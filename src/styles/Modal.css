@@ -37,3 +37,35 @@
 .modal-content>.close-button:hover{
     color:var(--light-pink);
 }
+
+
+
+@media screen and (max-width: 768px) {
+    .modal:not(.small){
+        min-width: 100%;
+        min-height: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    .modal>.modal-content{
+        height: 100%;
+        box-sizing: border-box;
+        padding: 60px 24px;
+        margin:0;
+        min-width: 100%;
+        align-content: center;
+        justify-content: center;
+        justify-items: center;
+    }
+    .modal.small>.modal-content{
+        min-height: 160px;
+    }
+
+
+    .modal:not(.small)::backdrop
+    {
+        background: none;
+    }
+
+}

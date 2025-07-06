@@ -74,20 +74,21 @@ const Corporate = (props) => {
                                 </select>
                                 <label htmlFor="fbudget">Budget</label>
                             </div>
-                            <button className="action-button light-pink"
+                            <a href={false} className="action-button light-pink"
                                 type="button"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     confirmationModalRef.current?.open();
-                                    modalRef.current?.close()
+                                    modalRef.current?.close();
+                                    document.body.classList.add('no-scroll');
                                 }}
                             >
                                 Enviar
-                            </button>
+                            </a>
                         </form>
                     ]}
                 />,
-                <Modal ref={confirmationModalRef} key="confirmation-modal" children={[
+                <Modal ref={confirmationModalRef} key="confirmation-modal" className="small" children={[
                     <p key="confirmation-msg">
                         Gracias por tomarnos en cuenta! <br/>
                         Hemos recibido tu info, proto te contactaremos por WhatsApp.

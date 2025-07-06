@@ -46,7 +46,6 @@ input {
 }
 
 
-/* Custom Select Styling */
 .input-container > select {
   appearance: none;
   background-color: transparent;
@@ -66,7 +65,6 @@ input {
   background-position: right 0 top 50%;
 }
 
-/* FLOATING LABEL for SELECT */
 .input-container > select:focus,
 .input-container > select:valid {
   outline: 0;
@@ -80,7 +78,6 @@ input {
   transform: translateY(-1rem);
 }
 
-/* Placeholder option color */
 .input-container > select:invalid {
   color: #999;
 }
