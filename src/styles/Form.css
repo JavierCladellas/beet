@@ -14,12 +14,14 @@ input {
 	flex-direction: column-reverse;
 	position: relative;
     width: 100%;
+    cursor:text;
 }
 
 .input-container>label{
 	color: #8597a3;
 	top: 1rem;
 	transition: 0.25s ease;
+    cursor:text;
 }
 
 .input-container>input {
