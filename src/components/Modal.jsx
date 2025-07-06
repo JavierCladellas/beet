@@ -1,7 +1,7 @@
 import '../styles/Modal.css'
 import { IoMdClose } from "react-icons/io";
 
-import { useRef,forwardRef, useImperativeHandle} from 'react';
+import { useRef,forwardRef, useImperativeHandle, useEffect} from 'react';
 
 
 const Modal = forwardRef((props, ref) => {
@@ -11,11 +11,26 @@ const Modal = forwardRef((props, ref) => {
         dialogRef.current?.close();
         document.body.classList.remove('no-scroll');
     }
-
     const modalOpen = () => {
         dialogRef.current?.showModal();
         document.body.classList.add('no-scroll');
     }
+    useEffect(() => {
+        const handleOutsideClick = (event) => {
+            if (event.target === dialogRef.current) {
+                modalClose();
+            }
+        };
+        const dialog = dialogRef.current;
+        if (dialog) {
+            dialog.addEventListener('click', handleOutsideClick);
+        }
+        return () => {
+            if (dialog) {
+                dialog.removeEventListener('click', handleOutsideClick);
+            }
+        };
+    }, []);
     useImperativeHandle(ref, () => ({
         open: () => modalOpen(),
         close: () => modalClose(),
