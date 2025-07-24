@@ -184,9 +184,10 @@
     padding: 32px;
     gap: 32px;
     flex:1;
-    min-width: 250px;
+    min-width: 400px;
     position:relative;
-    margin: 0 16px;
+    margin: 16px;
+    justify-content: space-between;
 }
 
 .review-icon{
@@ -263,7 +264,8 @@
 .member-details>p,
 .step-card>p,
 .step-card2>div>p,
-.reason-card>p
+.reason-card>p,
+.review-card>p
 {
     font-size: 1rem;
 }

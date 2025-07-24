@@ -4,10 +4,47 @@ import { PiHandshakeLight, PiLightbulbFilament } from 'react-icons/pi';
 import { BsLightning } from 'react-icons/bs';
 import { LuPackageCheck } from 'react-icons/lu';
 import { GiHumanTarget } from 'react-icons/gi';
+import { Fragment } from "react";
 
 
 
+function parseInlineHTML(text) {
+    const regex = /(<\/?[a-z]+>)/gi; // matches tags like <b>, </b>, <i>, </i>, etc.
+    const parts = text.split(regex); // split by tags
 
+    const tagStack = [];
+
+    return parts.map((part, index) => {
+        if (part.match(/^<([a-z]+)>$/i)) {
+            // Opening tag
+            tagStack.push(part.slice(1, -1));
+            return null;
+        } else if (part.match(/^<\/([a-z]+)>$/i)) {
+            // Closing tag
+            tagStack.pop();
+            return null;
+        } else {
+            // Text content
+            return tagStack.reduceRight((acc, tag) => {
+                switch (tag) {
+                    case 'b': return <b key={index}>{acc}</b>;
+                    case 'i': return <i key={index}>{acc}</i>;
+                    case 'u': return <u key={index}>{acc}</u>;
+                    default:  return acc;
+                }
+            }, <Fragment key={index}>{part}</Fragment>);
+        }
+    });
+}
+
+function parseText(text) {
+    return text.split('\n').map((line, i) => (
+        <Fragment key={i}>
+            {parseInlineHTML(line)}
+            <br />
+        </Fragment>
+    ));
+}
 
 const MemberCard = (props) => {
     const member = props.member;
@@ -99,8 +136,8 @@ const ReviewCard = (props) => {
             <i className="review-icon">
                 <img src="/beet/icons/likes.png" alt="review icon"/>
             </i>
-            <p>{review.comment}</p>
-            <b> - {review.name}</b>
+            <p>{parseText(review.comment)}</p>
+            <b> - {parseText(review.name)}</b>
         </div>
     );
 }
