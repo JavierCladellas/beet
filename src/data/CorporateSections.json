@@ -126,7 +126,7 @@
         "image":"/beet/images/navbar-bg.png",
 
         "layout":"vertical",
-        "content_style":"white-text align-center text-center more-pad-v"
+        "content_style":"white-text align-center text-center more-pad-v medium-title"
 
     }
 }

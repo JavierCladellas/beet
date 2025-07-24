@@ -27,7 +27,7 @@ const Home = (props) => {
                 ))}
             </div>
         ]}/>
-        <Section section={sections.eventos} />
+        {/* <Section section={sections.eventos} /> */}
     </div>
     );
 
