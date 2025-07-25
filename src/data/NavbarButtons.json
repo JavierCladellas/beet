@@ -1,7 +1,0 @@
-[
-    {"name": "HOME", "link": "/", "key": "home"},
-    {"name": "SHOP", "link": "/shop", "key": "shop"},
-    {"name": "PERSONALIZA", "link": "/personaliza", "key": "personaliza"},
-    {"name": "CORPORATE GIFTING", "link": "/corporate-gifting", "key": "corporate-gifting"},
-    {"name": "ABOUT US", "link": "/about", "key": "about"}
-]
