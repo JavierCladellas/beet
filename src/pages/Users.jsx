@@ -1,24 +1,17 @@
 import '../styles/Page.css'
-import '../styles/Button.css';
 import '../styles/Form.css'
+
 import Page from '../components/Page';
+import TextInput from '../components/TextInput';
 
 const UserForm = ( ) => {
     return (
         <form>
             <h2>Nuevo Usuario</h2>
-            <div className="input-container">
-                <input required type="email" id="femail" name="femail"/>
-                <label htmlFor="femail">Email</label>
-            </div>
-            <div className="input-container">
-                <input required type="password" id="fpassword" name="fpassword"/>
-                <label htmlFor="fpassword">Password</label>
-            </div>
-            <div className="input-container">
-                <input required type="password" id="fpassword_repeat" name="fpassword_repeat"/>
-                <label htmlFor="fpassword_repeat">Repite la password</label>
-            </div>
+            <TextInput type="email" id="femail" label="Email" required />
+            <TextInput type="password" id="fpassword" label="Password" required/>
+            <TextInput type="password" id="fpassword_repeat" label="Repite la password" required/>
+
             <div className="input-container">
                 <select required id="frole" name="frole" defaultValue="">
                     <option value="" disabled hidden></option>

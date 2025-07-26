@@ -1,5 +1,7 @@
 
 import '../styles/Page.css'
+import '../styles/Button.css';
+
 import Modal from "../components/Modal.jsx";
 import { useRef } from 'react';
 
