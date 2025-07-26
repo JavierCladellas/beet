@@ -85,7 +85,7 @@ const Inventory = ( props ) => {
 return (
     <Page title="Inventario"
             create_button_text="+ Nuevo Item"
-            modal_children={[<NewItemForm />]}
+            modal_children={[<NewItemForm key="new-item-form"/>]}
     />
 );
 }

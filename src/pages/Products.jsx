@@ -76,7 +76,7 @@ const Products = ( props ) => {
 return (
     <Page title="Products"
         create_button_text="+ Nuevo Producto"
-        modal_children={[<NewProductForm />]} />
+        modal_children={[<NewProductForm key = "new-product-form"/>]} />
 );
 }
 

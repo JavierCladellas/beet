@@ -6,9 +6,9 @@
     cursor:text;
 }
 
-.input-container>label{
+.input-container>.text-input + label{
 	color: #8597a3;
-	top: 1rem;
+	top: 0rem;
 	transition: 0.25s ease;
     cursor:text;
 }
@@ -43,9 +43,7 @@
     border-bottom-color: red;
 }
 
-.text-input{
-	appearance: none;
-	border-radius: 0;
+input.text-input, textarea.text-input{
 
 	border: 0;
 	z-index: 1;
@@ -56,14 +54,14 @@
 	transition: 0.25s ease;
 }
 
-.text-input:focus,
-.text-input:valid{
+.input-container>.text-input:focus,
+.input-container>.text-input:valid{
     outline: 0;
     border-bottom-color: var(--light-pink);
     height:16px;
 }
-.text-input:focus + label,
-.text-input:valid + label{
+.input-container>.text-input:focus + label,
+.input-container>.text-input:valid + label{
     color: var(--light-pink);
-    transform: translateY(-1rem);
+    transform: translateY(-0.3rem);
 }

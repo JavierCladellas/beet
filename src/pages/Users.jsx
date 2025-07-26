@@ -13,7 +13,7 @@ const UserForm = ( ) => {
             <TextInput type="password" id="fpassword" label="Password" required/>
             <TextInput type="password" id="fpassword_repeat" label="Repite la password" required/>
 
-            <Dropdown id="frole" label="Rol" required
+            <Dropdown id="frole" label="Rol" required default_value="viewer"
                 options = {[
                     {"value": "super-admin", "label": "Super Admin"},
                     {"value": "admin", "label": "Admin"},
@@ -40,7 +40,7 @@ const Users = ( props ) => {
 return (
     <Page title="Usuarios"
             create_button_text="+ Nuevo Usuario"
-            modal_children={[<UserForm />]}
+            modal_children={[<UserForm key="new-user-form"/>]}
             className="users-page"
     />
 );
