@@ -60,7 +60,7 @@ input.text-input, textarea.text-input{
     border-bottom-color: var(--light-pink);
     height:16px;
 }
-.input-container>.text-input.not-empty:invalid{
+.input-container>.text-input.not-empty:not(:focus):invalid{
     border-bottom-color: red;
 }
 .input-container>.text-input:focus + label,
@@ -69,6 +69,8 @@ input.text-input, textarea.text-input{
     transform: translateY(-0.3rem);
 }
 
-.input-container>.text-input.not-empty:invalid + label{
+
+/* Not focused and invalid */
+.input-container>.text-input.not-empty:not(:focus):invalid + label{
     color: red;
 }
