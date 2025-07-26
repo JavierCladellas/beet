@@ -56,7 +56,8 @@ const NewItemForm = ( ) => {
                             options = {[
                                 {"value": "category1", "label": "Categoría 1"},
                                 {"value": "category2", "label": "Categoría 2"},
-                                {"value": "category3", "label": "Categoría 3"}
+                                {"value": "category3", "label": "Categoría 3"},
+                                {"value": "other", "label": "Otra"}
                             ]}
                         />
                     : <Dropdown id="fproduct" label="Producto" required
