@@ -1,0 +1,36 @@
+.input-container > select {
+    appearance: none;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px solid #eee;
+    border-radius: 0;
+    height: 8px;
+    font: inherit;
+    padding: 0.4rem 1.5rem 0.4rem 0;
+    color: var(--text-color, #333);
+    transition: 0.25s ease;
+    z-index: 1;
+    width: 100%;
+    position: relative;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%238597a3" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0 top 50%;
+}
+
+
+.input-container > select:focus,
+.input-container > select:valid {
+    outline: 0;
+    border-bottom-color: var(--light-pink);
+    height: 100%;
+}
+
+.input-container > select:focus + label,
+.input-container > select:valid + label {
+    color: var(--light-pink);
+    transform: translateY(-1rem);
+}
+
+.input-container > select:invalid {
+    color: #999;
+}

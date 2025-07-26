@@ -3,6 +3,7 @@ import '../styles/Form.css'
 
 import Page from '../components/Page';
 import TextInput from '../components/TextInput';
+import Dropdown from '../components/Dropdown';
 
 const UserForm = ( ) => {
     return (
@@ -12,18 +13,21 @@ const UserForm = ( ) => {
             <TextInput type="password" id="fpassword" label="Password" required/>
             <TextInput type="password" id="fpassword_repeat" label="Repite la password" required/>
 
-            <div className="input-container">
-                <select required id="frole" name="frole" defaultValue="">
-                    <option value="" disabled hidden></option>
-                    <option value="super-admin">Super Admin</option> {/* Unrestricted CRUD on orders + products + users  */}
-                    <option value="admin">Admin</option> {/* Same as super admin for now, maybe without order delete */}
-                    <option value="manager">Manager</option>  {/* CRUD without user management */}
-                    <option value="editor">Editor</option>  {/* Read/write on orders+products  */}
-                    <option value="viewer">Viewer</option> {/* Read on orders and products */}
-                    <option value="support">Support</option> {/* Viewer + update order status and minimal access */}
-                </select>
-                <label htmlFor="frole">Rol</label>
-            </div>
+            <Dropdown id="frole" label="Rol" required
+                options = {[
+                    {"value": "super-admin", "label": "Super Admin"},
+                    {"value": "admin", "label": "Admin"},
+                    {"value": "manager", "label": "Manager"},
+                    {"value": "editor", "label": "Editor"},
+                    {"value": "viewer", "label": "Viewer"},
+                    {"value": "support", "label": "Support"}
+                ]} />
+                {/* Unrestricted CRUD on orders + products + users  */}
+                {/* Same as super admin for now, maybe without order delete */}
+                {/* CRUD without user management */}
+                {/* Read/write on orders+products  */}
+                {/* Read on orders and products */}
+                {/* Viewer + update order status and minimal access */}
 
             <button className='action-button light-pink'>Crear</button>
         </form>

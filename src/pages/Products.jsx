@@ -7,6 +7,7 @@ import Page from '../components/Page.jsx';
 import AttributeInputSection from '../components/AttributesInputSection.jsx';
 import Checkbox from '../components/Checkbox.jsx';
 import TextInput from '../components/TextInput.jsx';
+import Dropdown from '../components/Dropdown.jsx';
 
 
 
@@ -37,21 +38,21 @@ const NewProductForm = ( ) => {
             { isComposite && <TextInput type="textarea" id="fdescription" label="Descripción (override with item if not composite)" required/> }
 
             { isVariant ?
-            <div className="input-container">
-                <select required id="fproduct" name="fproduct" defaultValue="">
-                    <option value="" disabled hidden></option>
-                    <option value="admin">Admin</option>
-                </select>
-                <label htmlFor="fproduct">Producto</label>
-            </div>
+            <Dropdown id="fproduct" label="Producto" required
+                options = {[
+                    {"value": "product1", "label": "Producto 1"},
+                    {"value": "product2", "label": "Producto 2"},
+                    {"value": "product3", "label": "Producto 3"}
+                ]}
+            />
             :
-            <div className="input-container">
-                <select required id="fcategory" name="fcategory" defaultValue="">
-                    <option value="" disabled hidden></option>
-                    <option value="admin">Admin</option>
-                </select>
-                <label htmlFor="fcategory">Product Category</label>
-            </div>
+            <Dropdown id="fcategory" label="Categoría" required
+                options = {[
+                    {"value": "category1", "label": "Categoría 1"},
+                    {"value": "category2", "label": "Categoría 2"},
+                    {"value": "category3", "label": "Categoría 3"}
+                ]}
+            />
             }
 
             <AttributeInputSection />

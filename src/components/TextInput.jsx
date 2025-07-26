@@ -5,11 +5,11 @@ const TextInput = ( props ) => {
 return(
     props.type === "textarea" ?
     <div className="input-container">
-        <textarea required={props.required ?? false} id={props.id} name={props.id}></textarea>
+        <textarea className="text-input" required={props.required ?? false} id={props.id} name={props.id}></textarea>
         <label htmlFor={props.id}>{props.label}</label>
     </div> :
-    <div className="input-container">
-        <input required={props.required ?? false} type={props.type ?? "text"} id={props.id} name={props.id}/>
+    <div className="input-container text-input">
+        <input className="text-input" required={props.required ?? false} type={props.type ?? "text"} id={props.id} name={props.id}/>
         <label htmlFor={props.id}>{props.label}</label>
     </div>
 )

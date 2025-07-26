@@ -28,15 +28,6 @@ form,.form-col{
     height: 100%;
 }
 
-.checkbox-container,.number-input-container{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap:32px;
-}
-
-
 .transparent-add-button{
     justify-self: flex-end;
 }

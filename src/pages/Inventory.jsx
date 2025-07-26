@@ -8,6 +8,7 @@ import AttributeInputSection from '../components/AttributesInputSection.jsx';
 import Checkbox from '../components/Checkbox.jsx';
 import TextInput from '../components/TextInput.jsx';
 import NumberInput from '../components/NumberInput.jsx';
+import Dropdown from '../components/Dropdown.jsx';
 
 
 const NewItemForm = ( ) => {
@@ -50,22 +51,21 @@ const NewItemForm = ( ) => {
                 { (isProduct || isVariant )&& (
                 <div className='form-col'>
                     <h3>{isProduct ? "Producto" : "Variante"}</h3>
-                    { isProduct ? (
-                    <div className="input-container">
-                        <select required id="fcategory" name="fcategory" defaultValue="">
-                            <option value="" disabled hidden></option>
-                            <option value="admin">Admin</option>
-                        </select>
-                        <label htmlFor="fcategory">Product Category</label>
-                    </div>
-                    ) :
-                    <div className="input-container">
-                        <select required id="fproduct" name="fproduct" defaultValue="">
-                            <option value="" disabled hidden></option>
-                            <option value="admin">Admin</option>
-                        </select>
-                        <label htmlFor="fproduct">Producto</label>
-                    </div>
+                    { isProduct ?
+                        <Dropdown id="fcategory" label="Categoría" required
+                            options = {[
+                                {"value": "category1", "label": "Categoría 1"},
+                                {"value": "category2", "label": "Categoría 2"},
+                                {"value": "category3", "label": "Categoría 3"}
+                            ]}
+                        />
+                    : <Dropdown id="fproduct" label="Producto" required
+                        options = {[
+                            {"value": "product1", "label": "Producto 1"},
+                            {"value": "product2", "label": "Producto 2"},
+                            {"value": "product3", "label": "Producto 3"}
+                        ]}
+                    />
                     }
                     <NumberInput id="fprice" label="Precio ($)" required min="0" default_value="0" step="0.01" pattern="^\d+(,\d{1,2})" />
 
