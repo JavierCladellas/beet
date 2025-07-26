@@ -1,0 +1,67 @@
+:root {
+    --light-pink: #b275a6;
+    --pink: #540640;
+}
+
+
+.action-button{
+  display: flex;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-optical-sizing: auto;
+  font-size: 1rem;
+  font-weight: 500;
+  align-items: center;
+  height:32px;
+  min-width:140px;
+  text-align: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.05s ease-in-out;
+  min-width: 120px;
+}
+
+.action-button.light-pink{
+    background-color:  var(--light-pink);
+    border: 2px solid  var(--light-pink);
+}
+.action-button.pink {
+    background-color: var(--pink);
+    border: 2px solid  var(--pink);
+}
+
+.action-button:hover{
+    background-color: transparent;
+}
+.action-button.light-pink:hover{
+    color: var(--light-pink);
+}
+.action-button.pink:hover{
+    color: var(--pink);
+}
+
+
+
+.transparent-add-button {
+    background-color: transparent;
+    width: 100%;
+    border: 2px dashed #b0b0b0;
+    color: #b0b0b0;
+    padding: 0rem 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.05s ease-in-out;
+}
+.transparent-add-button:hover,
+.transparent-add-button:focus {
+    /* animation that makes dashed lines spin */
+    /* border: 2px solid ; */
+    border: 2px dashed var(--light-pink);
+    color: var(--light-pink);
+
+}

@@ -1,0 +1,24 @@
+nav{
+    display: flex;
+    width: 100%;
+    height: 80px;
+    background-color: var(--pink);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.navbar-buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    width: 100%;
+    padding:16px;
+    justify-content: space-around;
+}
+
+.navbar-button{
+    color:white;
+    flex:1;
+    text-align: center;
+}
+.navbar-button>p{
+    font-size: 900;
+}
