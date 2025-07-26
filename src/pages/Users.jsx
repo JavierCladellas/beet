@@ -1,9 +1,7 @@
-
 import '../styles/Page.css'
 import '../styles/Button.css';
 import '../styles/Form.css'
-import Modal from "../components/Modal.jsx";
-import { useRef } from 'react';
+import Page from '../components/Page';
 
 const UserForm = ( ) => {
     return (
@@ -42,19 +40,13 @@ const UserForm = ( ) => {
 
 
 const Users = ( props ) => {
-    const modalRef = useRef();
-
-    return (
-        <div className="page">
-            <div className="title-row">
-                <h1>Users</h1>
-                <button className='action-button light-pink' onClick={() => modalRef.current?.open()}>
-                    + Nuevo Usuario
-                </button>
-            </div>
-            <Modal ref={modalRef} key="users_modal" children = {[<UserForm key="userForm"/>]}/>
-        </div>
-    );
+return (
+    <Page title="Usuarios"
+            create_button_text="+ Nuevo Usuario"
+            modal_children={[<UserForm />]}
+            className="users-page"
+    />
+);
 }
 
 export default Users;

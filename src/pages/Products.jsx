@@ -4,8 +4,8 @@ import '../styles/Button.css';
 import '../styles/Form.css'
 import '../styles/Checkbox.css'
 
-import Modal from "../components/Modal.jsx";
-import { useRef, useState } from 'react';
+import { useState } from 'react';
+import Page from '../components/Page.jsx';
 
 
 const AttributeInputRow = ( {index} ) => {
@@ -134,19 +134,11 @@ const NewProductForm = ( ) => {
 }
 
 const Products = ( props ) => {
-    const modalRef = useRef();
-
-    return (
-        <div className="page">
-            <div className="title-row">
-                <h1>Productos</h1>
-                <button className='action-button light-pink'  onClick={() => modalRef.current?.open()}>
-                    + Nuevo Producto
-                </button>
-            </div>
-            <Modal ref={modalRef} key="new-product-modal" children = {[<NewProductForm key="new-product-form"/>]}/>
-        </div>
-    );
+return (
+    <Page title="Products"
+        create_button_text="+ Nuevo Producto"
+        modal_children={[<NewProductForm />]} />
+);
 }
 
 export default Products;

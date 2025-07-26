@@ -3,8 +3,8 @@ import '../styles/Page.css'
 import '../styles/Button.css';
 import '../styles/Form.css'
 import '../styles/Checkbox.css'
-import Modal from "../components/Modal.jsx";
-import { useRef, useState } from 'react';
+import { useState } from 'react';
+import Page from '../components/Page.jsx';
 
 
 const AttributeInputRow = ( {index} ) => {
@@ -149,20 +149,12 @@ const NewItemForm = ( ) => {
 
 
 const Inventory = ( props ) => {
-    const modalRef = useRef();
-
-    return (
-        <div className="page">
-            <div className="title-row">
-                <h1>Inventario</h1>
-                <button className='action-button light-pink'  onClick={() => modalRef.current?.open()}>
-                    + Nuevo Item
-                </button>
-            </div>
-            <Modal ref={modalRef} key="inventory-modal" children = {[<NewItemForm key="new-item-form"/>]}/>
-        </div>
-
-    );
+return (
+    <Page title="Inventario"
+            create_button_text="+ Nuevo Item"
+            modal_children={[<NewItemForm />]}
+    />
+);
 }
 
 export default Inventory;
