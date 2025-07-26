@@ -55,13 +55,20 @@ input.text-input, textarea.text-input{
 }
 
 .input-container>.text-input:focus,
-.input-container>.text-input:valid{
+.input-container>.text-input.not-empty{
     outline: 0;
     border-bottom-color: var(--light-pink);
     height:16px;
 }
+.input-container>.text-input.not-empty:invalid{
+    border-bottom-color: red;
+}
 .input-container>.text-input:focus + label,
-.input-container>.text-input:valid + label{
+.input-container>.text-input.not-empty + label{
     color: var(--light-pink);
     transform: translateY(-0.3rem);
+}
+
+.input-container>.text-input.not-empty:invalid + label{
+    color: red;
 }
