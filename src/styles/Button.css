@@ -65,3 +65,15 @@
     color: var(--light-pink);
 
 }
+
+.icon-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    height:24px;
+    width: 24px;
+    outline:0;
+    border: 0;
+    cursor: pointer;
+}

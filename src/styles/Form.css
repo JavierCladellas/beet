@@ -16,6 +16,7 @@ form,.form-col{
 .dynamic-col{
     overflow-y:scroll;
     max-height: 120px;
+    padding-right: 16px;
 }
 
 .form-row{
@@ -26,6 +27,13 @@ form,.form-col{
     gap: 2.2rem;
     width: 100%;
     height: 100%;
+}
+
+.form-row.align-center{
+    align-items: center;
+}
+.form-row.tight{
+    gap:8px;
 }
 
 .transparent-add-button{
