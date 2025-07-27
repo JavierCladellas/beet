@@ -32,7 +32,7 @@ const NewItemForm = ( ) => {
         <form>
             <h2>Nuevo Item</h2>
 
-            <div className='form-row'>
+            <div className='form-row resp-col'>
                 <div className='form-col'>
 
                     <Checkbox id="fis_product" label="Crear Producto?" checked_default={isProduct} on_change={isProductHandler}/>

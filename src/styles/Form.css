@@ -15,6 +15,7 @@ form,.form-col{
 }
 .dynamic-col{
     overflow-y:scroll;
+    justify-content: flex-start;
     max-height: 120px;
     padding-right: 16px;
 }
@@ -26,7 +27,6 @@ form,.form-col{
     justify-content: center;
     gap: 2.2rem;
     width: 100%;
-    height: 100%;
 }
 
 .form-row.align-center{
@@ -38,4 +38,16 @@ form,.form-col{
 
 .transparent-add-button{
     justify-self: flex-end;
+}
+
+@media screen and (max-width: 768px) {
+
+    .dynamic-col{
+        max-height: 300px;
+    }
+    .resp-col{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }
