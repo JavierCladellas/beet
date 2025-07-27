@@ -39,7 +39,7 @@
     outline: 0;
     border-bottom-color: var(--light-pink);
 }
-.number-input:invalid {
+.number-input.not-empty:not(:focus):invalid {
     border-bottom-color: red;
 }
 

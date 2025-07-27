@@ -76,4 +76,10 @@
     outline:0;
     border: 0;
     cursor: pointer;
+    transition: color 0.05s ease-in-out;
+}
+
+.icon-button:hover,
+.icon-button:focus{
+    color: var(--light-pink);
 }
