@@ -52,8 +52,7 @@ const NewItemForm = ( ) => {
 
                     </div>
 
-                    { (isProduct || isVariant )&& (
-                    <div className='form-col'>
+                    <div className='form-col' style={{display: (isProduct || isVariant ) ? "flex" : "none"}}>
                         <h3>{isProduct ? "Producto" : "Variante"}</h3>
                         { isProduct ?
                             <Dropdown id="fcategory" label="Categoría" required
@@ -77,7 +76,6 @@ const NewItemForm = ( ) => {
                         <AttributeInputSection />
 
                     </div>
-                    )}
                 </div>
             }
         />
