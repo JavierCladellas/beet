@@ -1,6 +1,7 @@
 :root {
     --light-pink: #b275a6;
     --pink: #540640;
+    --light-gray: #a4a4a4;
 }
 
 
@@ -32,6 +33,11 @@
     border: 2px solid  var(--pink);
 }
 
+.action-button.light-gray{
+    background-color: var(--light-gray);
+    border: 2px solid var(--light-gray);
+}
+
 .action-button:hover{
     background-color: transparent;
 }
@@ -40,6 +46,9 @@
 }
 .action-button.pink:hover{
     color: var(--pink);
+}
+.action-button.light-gray:hover{
+    color: var(--light-gray);
 }
 
 

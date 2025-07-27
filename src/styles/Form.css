@@ -32,6 +32,10 @@ form,.form-col{
 .form-row.align-center{
     align-items: center;
 }
+.form-row.justify-end{
+    justify-content: flex-end;
+}
+
 .form-row.tight{
     gap:8px;
 }
