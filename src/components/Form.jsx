@@ -27,6 +27,13 @@ const Form = ( props ) => {
             dynamicCols.forEach(col => {
                 col.innerHTML = '';
             });
+
+            //Reset image upload previews
+            const imageUploads = formRef.current.querySelectorAll('.image-upload-preview');
+            imageUploads.forEach(upload => {
+                upload.style.backgroundImage = '';
+                upload.classList.remove('has-image');
+            });
         }
         props.onCancel?.();
     };
