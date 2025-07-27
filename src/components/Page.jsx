@@ -3,7 +3,7 @@ import '../styles/Page.css'
 import '../styles/Button.css';
 
 import Modal from "../components/Modal.jsx";
-import { useRef,useEffect,useState, forwardRef, useImperativeHandle } from 'react';
+import { useRef,useEffect,useState, forwardRef, useImperativeHandle, useCallback } from 'react';
 import dev_env from '../data/DevEnv.json'
 import Table from '../components/Table';
 
@@ -15,7 +15,7 @@ const Page = forwardRef((props,ref) => {
 
     const [loading, setLoading] = useState(false);
 
-    const fetchTableData = () => {
+    const fetchTableData = useCallback(() => {
         setLoading(true);
         fetch(dev_env.url + props.api_endpoint)
             .then(response => response.json())
@@ -39,11 +39,11 @@ const Page = forwardRef((props,ref) => {
                     setLoading(false);
                 }, 500);
             });
-    };
+    }, [props.api_endpoint]);
 
     useEffect(() => {
         fetchTableData();
-    }, []);
+    }, [fetchTableData]);
 
 
     useImperativeHandle(ref, () => ({
