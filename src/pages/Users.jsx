@@ -1,23 +1,30 @@
 import '../styles/Page.css'
 import '../styles/Form.css'
 
+import { useRef } from 'react';
+
 import Page from '../components/Page';
 import TextInput from '../components/TextInput';
 import Dropdown from '../components/Dropdown';
 import Form from '../components/Form';
 
-const UserForm = ( ) => {
+
+
+const UserForm = ( props ) => {
     return (
         <Form title="Nuevo Usuario"
+            method="post"
+            action="users"
+            onSuccess={props.onSuccess}
             content = {
                 <div className='form-col'>
-                <TextInput type="email" id="femail" label="Email" required />
-                <TextInput type="password" id="fpassword" label="Password" required/>
-                <TextInput type="password" id="fpassword_repeat" label="Repite la password" required/>
+                <TextInput type="email" id="email" label="Email" required />
+                <TextInput type="password" id="password" label="Password" required/>
+                <TextInput type="password" id="password_repeat" label="Repite la password" required/>
 
-                <Dropdown id="frole" label="Rol" required default_value="viewer"
+                <Dropdown id="role" label="Rol" required default_value="viewer"
                     options = {[
-                        {"value": "super-admin", "label": "Super Admin"},
+                        {"value": "superadmin", "label": "Super Admin"},
                         {"value": "admin", "label": "Admin"},
                         {"value": "manager", "label": "Manager"},
                         {"value": "editor", "label": "Editor"},
@@ -38,14 +45,22 @@ const UserForm = ( ) => {
 
 
 
+
 const Users = ( props ) => {
-return (
-    <Page title="Usuarios"
-            create_button_text="+ Nuevo Usuario"
-            modal_children={[<UserForm key="new-user-form"/>]}
-            className="users-page"
-    />
-);
+    const pageRef = useRef();
+
+    return (
+        <Page title="Usuarios"
+                ref={pageRef}
+                create_button_text="+ Nuevo Usuario"
+                modal_children={[<UserForm key="new-user-form"
+                onSuccess={() => {
+                    pageRef.current?.refreshTable?.();
+                }}/>]}
+                className="users-page"
+                api_endpoint="users"
+        />
+    );
 }
 
 export default Users;

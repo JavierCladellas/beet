@@ -3,11 +3,52 @@ import '../styles/Page.css'
 import '../styles/Button.css';
 
 import Modal from "../components/Modal.jsx";
-import { useRef } from 'react';
+import { useRef,useEffect,useState, forwardRef, useImperativeHandle } from 'react';
+import dev_env from '../data/DevEnv.json'
+import Table from '../components/Table';
 
 
-const Page = ( props ) => {
+const Page = forwardRef((props,ref) => {
     const modalRef = useRef();
+    const [table_data, setTableData] = useState([]);
+    const [table_cols, setTableColumns] = useState([]);
+
+    const [loading, setLoading] = useState(false);
+
+    const fetchTableData = () => {
+        setLoading(true);
+        fetch(dev_env.url + props.api_endpoint)
+            .then(response => response.json())
+            .then(data => {
+                let columns = [];
+                if (data.length > 0) {
+                    columns = Object.keys(data[0]).map(key => ({
+                        field: key,
+                        headerName: key.charAt(0).toUpperCase() + key.slice(1),
+                        width: 150,
+                    }));
+                }
+                setTableData(data);
+                setTableColumns(columns);
+            })
+            .catch(error => {
+                console.error("Error fetching:", error);
+            })
+            .finally(() => {
+                setTimeout(() => {
+                    setLoading(false);
+                }, 500);
+            });
+    };
+
+    useEffect(() => {
+        fetchTableData();
+    }, []);
+
+
+    useImperativeHandle(ref, () => ({
+        refreshTable: fetchTableData
+    }));
 
 return(
     <div className="page">
@@ -19,10 +60,16 @@ return(
             </button>
             )}
         </div>
+        {props.content ?? <div></div>}
+        <Table
+            rows={table_data}
+            columns={table_cols}
+            loading={loading}
+        />
         <Modal ref={modalRef} children = {props.modal_children}/>
     </div>
 );
-}
+})
 
 
 export default Page;

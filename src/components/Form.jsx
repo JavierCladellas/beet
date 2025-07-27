@@ -1,9 +1,17 @@
 import { useRef } from 'react';
 
+import dev_env from '../data/DevEnv.json'
 
 
 const Form = ( props ) => {
     const formRef = useRef();
+
+    const closeModal = () => {
+        const modalRef = formRef.current.closest('.modal');
+        if (modalRef) {
+            modalRef.close();
+        }
+    }
 
     const cancelHandler = ( ) => {
         if (formRef.current) {
@@ -36,16 +44,49 @@ const Form = ( props ) => {
             });
 
             //close the modal ref if it exists
-            const modalRef = formRef.current.closest('.modal');
-            if (modalRef) {
-                modalRef.close();
-            }
+            closeModal();
         }
         props.onCancel?.();
     };
 
+    const onSuccess = (result) => {
+        console.log("Form submitted successfully:", result);
+
+        closeModal();
+
+        props.onSuccess?.(result);
+    }
+
+    const onError = (error) => {
+        console.error("Form submission failed:", error);
+        props.onError?.(error);
+    }
+
+    const submitHandler = async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(formRef.current);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+            const response = await fetch(dev_env.url + (props.action ?? '#'), {
+                method: props.method ?? 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+            onSuccess(result);
+        } catch (error) {
+            console.error("Form submission error:", error);
+            onError(error);
+        }
+    };
+
     return (
-        <form ref={formRef}>
+        <form ref={formRef} onSubmit={submitHandler}>
             <h2>{props.title}</h2>
 
             {props.content ?? <div></div> }
