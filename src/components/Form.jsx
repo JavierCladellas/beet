@@ -14,6 +14,13 @@ const Form = ( props ) => {
                 const event = new Event('input', { bubbles: true });
                 field.dispatchEvent(event);
             });
+            //Reset select elements
+            const selects = formRef.current.querySelectorAll('select');
+            selects.forEach(select => {
+                select.selectedIndex = 0; // Reset to the first option
+                const event = new Event('change', { bubbles: true });
+                select.dispatchEvent(event);
+            });
         }
         props.onCancel?.();
     };
