@@ -8,6 +8,7 @@ import AttributeInputSection from '../components/AttributesInputSection.jsx';
 import Checkbox from '../components/Checkbox.jsx';
 import TextInput from '../components/TextInput.jsx';
 import Dropdown from '../components/Dropdown.jsx';
+import UploadImage from '../components/UploadImage.jsx';
 
 
 
@@ -58,7 +59,7 @@ const NewProductForm = ( ) => {
             <AttributeInputSection />
 
             {isComposite && (
-                <p>Photo</p>
+                <UploadImage id="fproduct_image" label="Upload" required/>
             )}
 
             { isComposite ?

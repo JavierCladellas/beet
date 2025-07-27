@@ -9,7 +9,7 @@ import Checkbox from '../components/Checkbox.jsx';
 import TextInput from '../components/TextInput.jsx';
 import NumberInput from '../components/NumberInput.jsx';
 import Dropdown from '../components/Dropdown.jsx';
-
+import UploadImage from '../components/UploadImage.jsx';
 
 const NewItemForm = ( ) => {
     const [isProduct, setIsProduct] = useState(true);
@@ -44,7 +44,7 @@ const NewItemForm = ( ) => {
 
                     <NumberInput id="fstock" label="Stock" required default_value="1"/>
 
-                    <p>Photo</p>
+                    <UploadImage id="fitem_image" label="Upload" required/>
 
                 </div>
 
