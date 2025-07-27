@@ -40,35 +40,30 @@ const NewProductForm = ( ) => {
 
                 <Checkbox id="fis_variant" label="Variante" checked_default={isVariant} on_change={isVariantHandler}/>
 
-                { isComposite && <TextInput id="fname" label="Nombre (override w item if not composite)" required/> }
+                <TextInput id="fname" label="Nombre (override w item if not composite)" required style={{display:isComposite?"flex":"none"}}/>
 
-                { isComposite && <TextInput id="fsku" label="SKU (override with item if not composite)" required/> }
+                <TextInput id="fsku" label="SKU (override with item if not composite)" required style={{display:isComposite?"flex":"none"}}/>
 
-                { isComposite && <TextInput type="textarea" id="fdescription" label="Descripción (override with item if not composite)" required/> }
+                <TextInput type="textarea" id="fdescription" label="Descripción (override with item if not composite)" required style={{display:isComposite?"flex":"none"}}/>
 
-                { isVariant ?
-                <Dropdown id="fproduct" label="Producto" required
+                <Dropdown id="fproduct" label="Producto" required style={{display:isVariant?"flex":"none"}}
                     options = {[
                         {"value": "product1", "label": "Producto 1"},
                         {"value": "product2", "label": "Producto 2"},
                         {"value": "product3", "label": "Producto 3"}
                     ]}
                 />
-                :
-                <Dropdown id="fcategory" label="Categoría" required
+                <Dropdown id="fcategory" label="Categoría" required style={{display:!isVariant?"flex":"none"}}
                     options = {[
                         {"value": "category1", "label": "Categoría 1"},
                         {"value": "category2", "label": "Categoría 2"},
                         {"value": "category3", "label": "Categoría 3"}
                     ]}
                 />
-                }
 
                 <AttributeInputSection />
 
-                {isComposite && (
-                    <UploadImage id="fproduct_image" label="Upload" required/>
-                )}
+                <UploadImage id="fproduct_image" label="Upload" required style={{display:isComposite?"block":"none"}}/>
 
                 { isComposite ?
                 <p>Seleccionar items</p>

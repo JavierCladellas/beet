@@ -32,7 +32,7 @@ const TextInput = (props) => {
 
     if (props.type === "textarea") {
         return (
-            <div className="input-container">
+            <div className="input-container" style={props.style}>
                 <textarea
                     ref={inputRef}
                     className={"text-input" + (isEmpty ? "" : " not-empty")}
@@ -47,7 +47,7 @@ const TextInput = (props) => {
     }
 
     return (
-        <div className="input-container text-input">
+        <div className="input-container text-input" style={props.style}>
             <input
                 ref={inputRef}
                 className={"text-input" + (isEmpty ? "" : " not-empty")}

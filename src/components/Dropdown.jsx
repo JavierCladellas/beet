@@ -15,7 +15,7 @@ const Dropdown = ( props ) => {
     };
 
     return(
-        <div className="input-container">
+        <div className="input-container" style={props.style}>
             {selectedValue === "other" && (
                 <input
                     type="text"
