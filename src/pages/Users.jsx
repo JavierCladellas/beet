@@ -19,8 +19,8 @@ const UserForm = ( props ) => {
             content = {
                 <div className='form-col'>
                 <TextInput type="email" id="email" label="Email" required />
-                <TextInput type="password" id="password" label="Password" required/>
-                <TextInput type="password" id="password_repeat" label="Repite la password" required/>
+                <TextInput type="password" id="password" label="Password" required pattern="^(?=.*\d).{8,}$"/>
+                <TextInput type="password" id="password_repeat" label="Repite la password" required checkAgainst={"password"}/>
 
                 <Dropdown id="role" label="Rol" required default_value="viewer"
                     options = {[

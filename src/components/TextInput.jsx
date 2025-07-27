@@ -6,7 +6,18 @@ const TextInput = (props) => {
     const inputRef = useRef(null);
 
     const inputHandler = (e) => {
-        setIsEmpty(e.target.value.trim() === "");
+        const value = e.target.value;
+        setIsEmpty(value.trim() === "");
+
+        if ( props.checkAgainst ) {
+            const other = document.getElementById(props.checkAgainst);
+            if (other && value !== other.value) {
+                e.target.setCustomValidity("The values do not match.");
+            } else {
+                e.target.setCustomValidity("");
+            }
+        }
+
     };
 
     // On reset, update `isEmpty` by checking actual DOM value
@@ -54,6 +65,7 @@ const TextInput = (props) => {
                 required={props.required ?? false}
                 type={props.type ?? "text"}
                 id={props.id}
+                pattern={props.pattern}
                 name={props.id}
                 onChange={inputHandler}
             />
