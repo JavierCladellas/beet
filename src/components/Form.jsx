@@ -17,9 +17,15 @@ const Form = ( props ) => {
             //Reset select elements
             const selects = formRef.current.querySelectorAll('select');
             selects.forEach(select => {
-                select.selectedIndex = 0; // Reset to the first option
+                select.selectedIndex = 0;
                 const event = new Event('change', { bubbles: true });
                 select.dispatchEvent(event);
+            });
+
+            //Reset dynamic-cols by removing its content
+            const dynamicCols = formRef.current.querySelectorAll('.dynamic-col');
+            dynamicCols.forEach(col => {
+                col.innerHTML = '';
             });
         }
         props.onCancel?.();
