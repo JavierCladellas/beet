@@ -34,6 +34,12 @@ const Form = ( props ) => {
                 upload.style.backgroundImage = '';
                 upload.classList.remove('has-image');
             });
+
+            //close the modal ref if it exists
+            const modalRef = formRef.current.closest('.modal');
+            if (modalRef) {
+                modalRef.close();
+            }
         }
         props.onCancel?.();
     };
