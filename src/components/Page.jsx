@@ -17,7 +17,13 @@ const Page = forwardRef((props,ref) => {
 
     const fetchTableData = useCallback(() => {
         setLoading(true);
-        fetch(dev_env.url + props.api_endpoint)
+        fetch(dev_env.url + props.api_endpoint, {
+            method: 'GET',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 let columns = [];

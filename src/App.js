@@ -18,6 +18,7 @@ import Login from './pages/Login';
 function App() {
     const [login, setLogin] = useState(false);
     const [loading, setloading] = useState(true);
+    const [userRole, setUserRole] = useState(null);
 
 
     useEffect(() => {
@@ -32,6 +33,8 @@ function App() {
                 });
                 if (response.status === 200){
                     setLogin(true);
+                    const data = await response.json();
+                    setUserRole(data.role);
                 }
             }
             catch (error) {
@@ -45,6 +48,17 @@ function App() {
         checkLogin()
     }, []);
 
+    const ProtectedRoute = ({ role, allowedRoles, children }) => {
+        if (!allowedRoles.includes(role)) {
+            return <div>Access Denied</div>;
+        }
+        return children;
+    }
+
+    const filteredNavbarButtons = navbar_buttons.filter(button => {
+        if (!button.roles) return true;  // no restriction if roles not specified
+        return button.roles.includes(userRole);
+    });
 
     if (loading) {
         return <div className="loading-icon-container">
@@ -59,11 +73,15 @@ function App() {
         return(
             <HashRouter>
             <div className="App">
-                <Navbar navbar_buttons = {navbar_buttons}/>
+                <Navbar navbar_buttons = {filteredNavbarButtons} />
                 <Routes>
                     <Route exact path="/" element = { <Products /> } />
                     <Route exact path="/Inventory" element = { <Inventory /> } />
-                    <Route exact path="/users" element = { <Users /> } />
+                    <Route exact path="/users" element = {
+                        <ProtectedRoute role={userRole} allowedRoles={["admin", "superadmin"]}>
+                            <Users />
+                        </ProtectedRoute>
+                    } />
                 </Routes>
             </div>
             </HashRouter>

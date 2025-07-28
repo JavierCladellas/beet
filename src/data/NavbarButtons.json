@@ -2,5 +2,5 @@
     {"name": "PRODUCTS", "link": "/", "key": "products"},
     {"name": "INVENTARIO", "link": "/inventory", "key": "inventory"},
     {"name": "ORDERS", "link": "/orders", "key": "orders"},
-    {"name": "USERS", "link": "/users", "key": "users"}
+    {"name": "USERS", "link": "/users", "key": "users", "roles": ["superadmin","admin"]}
 ]
