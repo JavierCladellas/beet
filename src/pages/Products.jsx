@@ -34,6 +34,8 @@ const NewProductForm = ( ) => {
     return (
         <Form title="Nuevo Producto"
             onCancel={cancelHandler}
+            create_button_text = "Crear"
+            cancel_button_text = "Cancelar"
             content={
             <div className='form-col'>
                 <Checkbox id="fis_composite" label="Producto&nbsp;compuesto" checked_default={isComposite} on_change={isCompositeHandler}/>

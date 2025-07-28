@@ -15,6 +15,8 @@ const UserForm = ( props ) => {
         <Form title="Nuevo Usuario"
             method="post"
             action="users"
+            create_button_text = "Crear"
+            cancel_button_text = "Cancelar"
             onSuccess={props.onSuccess}
             content = {
                 <div className='form-col'>
@@ -54,9 +56,9 @@ const Users = ( props ) => {
                 ref={pageRef}
                 create_button_text="+ Nuevo Usuario"
                 modal_children={[<UserForm key="new-user-form"
-                onSuccess={() => {
-                    pageRef.current?.refreshTable?.();
-                }}/>]}
+                    onSuccess={() => {
+                        pageRef.current?.refreshTable?.();
+                    }}/>]}
                 className="users-page"
                 api_endpoint="users"
         />

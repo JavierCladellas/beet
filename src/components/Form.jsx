@@ -50,15 +50,12 @@ const Form = ( props ) => {
     };
 
     const onSuccess = (result) => {
-        console.log("Form submitted successfully:", result);
-
         closeModal();
 
         props.onSuccess?.(result);
     }
 
     const onError = (error) => {
-        console.error("Form submission failed:", error);
         props.onError?.(error);
     }
 
@@ -71,16 +68,20 @@ const Form = ( props ) => {
         try {
             const response = await fetch(dev_env.url + (props.action ?? '#'), {
                 method: props.method ?? 'POST',
+                credentials: 'include',
+                withCredentials: true,
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(data)
             });
 
-            const result = await response.json();
-            onSuccess(result);
+            onSuccess(response);
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Form submission failed');
+            }
         } catch (error) {
-            console.error("Form submission error:", error);
             onError(error);
         }
     };
@@ -92,8 +93,12 @@ const Form = ( props ) => {
             {props.content ?? <div></div> }
 
             <div className='form-row justify-end'>
-                <button type="button" className='action-button light-gray' onClick={cancelHandler}>Cancelar</button>
-                <button className='action-button light-pink'>Crear</button>
+                { props.cancel_button_text &&
+                    <button type="button" className='action-button light-gray' onClick={cancelHandler}>Cancelar</button>
+                }
+                { props.create_button_text &&
+                    <button className='action-button light-pink'>{props.create_button_text}</button>
+                }
             </div>
         </form>
     )

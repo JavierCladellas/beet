@@ -8,3 +8,20 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.login-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin: 80px;
+}
+
+.login-container>form{
+    width: 100%;
+    max-width: 400px;
+    margin:80px;
+    align-items: center;
+    justify-content: center;
+}

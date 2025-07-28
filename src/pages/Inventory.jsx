@@ -35,6 +35,8 @@ const NewItemForm = ( ) => {
 
         <Form onCancel={cancelHandler}
             title ="Nuevo Item"
+            create_button_text = "Crear"
+            cancel_button_text = "Cancelar"
             content = {
                 <div className='form-row resp-col'>
                     <div className='form-col'>

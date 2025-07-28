@@ -17,3 +17,14 @@ svg{
 .no-scroll{
     overflow: hidden;
 }
+
+.loading-icon-container{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+.loading-icon{
+
+}
