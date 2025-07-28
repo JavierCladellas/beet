@@ -71,6 +71,8 @@ return(
             rows={table_data}
             columns={table_cols}
             loading={loading}
+            onEdit={props.onRowEdit}
+            onDelete={props.onRowDelete}
         />
         <Modal ref={modalRef} children = {props.modal_children}/>
     </div>

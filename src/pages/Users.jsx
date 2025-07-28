@@ -46,6 +46,14 @@ const UserForm = ( props ) => {
 };
 
 
+const onRowEdit = ( row ) => {
+    console.log("Editing row:", row);
+}
+
+const onRowDelete = ( row ) => {
+    console.log("Deleting row:", row);
+}
+
 
 
 const Users = ( props ) => {
@@ -61,6 +69,8 @@ const Users = ( props ) => {
                     }}/>]}
                 className="users-page"
                 api_endpoint="users"
+                onRowEdit={onRowEdit}
+                onRowDelete={onRowDelete}
         />
     );
 }
