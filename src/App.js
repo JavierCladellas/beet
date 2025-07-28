@@ -15,6 +15,19 @@ import Navbar from './components/Navbar';
 import Users from './pages/Users';
 import Login from './pages/Login';
 
+
+
+
+const ProtectedRoute = ({ role, allowedRoles, children }) => {
+    if (!allowedRoles.includes(role)) {
+        return <div>Access Denied</div>;
+    }
+    return children;
+}
+
+
+
+
 function App() {
     const [login, setLogin] = useState(false);
     const [loading, setloading] = useState(true);
@@ -32,8 +45,8 @@ function App() {
                     }
                 });
                 if (response.status === 200){
-                    setLogin(true);
                     const data = await response.json();
+                    setLogin(true);
                     setUserRole(data.role);
                 }
             }
@@ -46,19 +59,18 @@ function App() {
             }
         };
         checkLogin()
-    }, []);
+    }, [login, userRole]);
 
-    const ProtectedRoute = ({ role, allowedRoles, children }) => {
-        if (!allowedRoles.includes(role)) {
-            return <div>Access Denied</div>;
-        }
-        return children;
-    }
 
-    const filteredNavbarButtons = navbar_buttons.filter(button => {
-        if (!button.roles) return true;  // no restriction if roles not specified
-        return button.roles.includes(userRole);
-    });
+    const [navbarButtons, setNavbarButtons] = useState([]);
+
+    useEffect(() => {
+        const filteredNavbarButtons = navbar_buttons.filter(button => {
+            if (!button.roles) return true;  // no restriction if roles not specified
+            return button.roles.includes(userRole);
+        });
+        setNavbarButtons(filteredNavbarButtons);
+    }, [userRole]);
 
     if (loading) {
         return <div className="loading-icon-container">
@@ -73,7 +85,7 @@ function App() {
         return(
             <HashRouter>
             <div className="App">
-                <Navbar navbar_buttons = {filteredNavbarButtons} />
+                <Navbar navbar_buttons = {navbarButtons} />
                 <Routes>
                     <Route exact path="/" element = { <Products /> } />
                     <Route exact path="/Inventory" element = { <Inventory /> } />

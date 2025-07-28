@@ -1,10 +1,33 @@
 import { Link } from 'react-router-dom';
+import { IoLogOutOutline } from "react-icons/io5";
+
+import dev_env from '../data/DevEnv.json';
 
 import '../styles/Navbar.css';
 
 
 const Navbar = (props) => {
     const navbar_buttons = props.navbar_buttons;
+
+
+    const logout = async () => {
+        try {
+            const response = await fetch(dev_env.url + "logout", {
+                method: 'POST',
+                credentials: "include",
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            if (response.status === 200) {
+                window.location.href = '/login';
+            } else {
+                console.error("Logout failed");
+            }
+        } catch (error) {
+            console.error("Error during logout:", error);
+        }
+    }
 
     return (
         <nav>
@@ -14,7 +37,9 @@ const Navbar = (props) => {
                     <p>{button.name}</p>
                 </Link>
             ))}
+            <button className='logout-btn' onClick={logout}><IoLogOutOutline width={"100%"} /></button>
             </div>
+
         </nav>
     );
 }

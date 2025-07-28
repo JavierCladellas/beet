@@ -92,3 +92,21 @@
 .icon-button:focus{
     color: var(--light-pink);
 }
+
+.logout-btn{
+    height:24px;
+    width: 24px;
+    margin:0;
+    background-color: transparent;
+    outline: 0;
+    border: 0;
+    padding:0;
+    color:white;
+    cursor: pointer;
+}
+
+
+.logout-btn:hover,
+.logout-btn:focus{
+    color: var(--light-pink);
+}
