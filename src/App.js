@@ -91,7 +91,7 @@ function App() {
                     <Route exact path="/Inventory" element = { <Inventory /> } />
                     <Route exact path="/users" element = {
                         <ProtectedRoute role={userRole} allowedRoles={["admin", "superadmin"]}>
-                            <Users />
+                            <Users userRole = {userRole}/>
                         </ProtectedRoute>
                     } />
                 </Routes>

@@ -11,6 +11,29 @@ import Form from '../components/Form';
 
 
 const UserForm = ( props ) => {
+
+    {/* Unrestricted CRUD on orders + products + users  */}
+    {/* Same as super admin for now, maybe without order delete */}
+    {/* CRUD without user management */}
+    {/* Read/write on orders+products  */}
+    {/* Read on orders and products */}
+    {/* Viewer + update order status and minimal access */}
+    const rolOpts = [];
+
+    if (props.userRole === "superadmin") {
+        rolOpts.push({"value": "superadmin", "label": "Super Admin"});
+    }
+    if (props.userRole === "admin" || props.userRole === "superadmin") {
+        rolOpts.push({"value": "admin", "label": "Admin"});
+    }
+    if (props.userRole === "manager" || props.userRole === "admin" || props.userRole === "superadmin") {
+        rolOpts.push({"value": "manager", "label": "Manager"});
+        rolOpts.push({"value": "editor", "label": "Editor"});
+        rolOpts.push({"value": "viewer", "label": "Viewer"});
+        rolOpts.push({"value": "support", "label": "Support"});
+    }
+
+
     return (
         <Form title="Nuevo Usuario"
             method="post"
@@ -25,20 +48,7 @@ const UserForm = ( props ) => {
                 <TextInput type="password" id="password_repeat" label="Repite la password" required checkAgainst={"password"}/>
 
                 <Dropdown id="role" label="Rol" required default_value="viewer"
-                    options = {[
-                        {"value": "superadmin", "label": "Super Admin"},
-                        {"value": "admin", "label": "Admin"},
-                        {"value": "manager", "label": "Manager"},
-                        {"value": "editor", "label": "Editor"},
-                        {"value": "viewer", "label": "Viewer"},
-                        {"value": "support", "label": "Support"}
-                    ]} />
-                    {/* Unrestricted CRUD on orders + products + users  */}
-                    {/* Same as super admin for now, maybe without order delete */}
-                    {/* CRUD without user management */}
-                    {/* Read/write on orders+products  */}
-                    {/* Read on orders and products */}
-                    {/* Viewer + update order status and minimal access */}
+                    options = {rolOpts} />
                 </div>
             }
         />
@@ -66,7 +76,9 @@ const Users = ( props ) => {
                 modal_children={[<UserForm key="new-user-form"
                     onSuccess={() => {
                         pageRef.current?.refreshTable?.();
-                    }}/>]}
+                    }}
+                    userRole = {props.userRole}
+                    />]}
                 className="users-page"
                 api_endpoint="users"
                 onRowEdit={onRowEdit}
