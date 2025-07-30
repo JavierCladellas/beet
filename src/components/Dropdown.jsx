@@ -1,10 +1,15 @@
 import "../styles/Dropdown.css";
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 
 const Dropdown = ( props ) => {
 
     const [selectedValue, setSelectedValue] = useState(props.default_value ?? "");
     const [customInput, setCustomInput] = useState("");
+
+
+    useEffect(() => {
+        setSelectedValue(props.default_value ?? "");
+    }, [props.default_value]);
 
 
     const handleChange = (e) => {
@@ -28,7 +33,6 @@ const Dropdown = ( props ) => {
                 />
             )}
             <select id={props.id} name={props.id}
-                    defaultValue={props.default_value ?? ""}
                     required={props.required??false}
                     onChange={handleChange}
                     className={selectedValue === "other"?"custom-select":""}

@@ -5,6 +5,14 @@ const TextInput = (props) => {
     const [isEmpty, setIsEmpty] = useState(true);
     const inputRef = useRef(null);
 
+    const [value, setValue] = useState(props.default_value ?? "");
+
+    useEffect(() => {
+        setValue(props.default_value);
+        if (props.default_value)
+            setIsEmpty(props.default_value.trim() === "");
+    }, [props.default_value]);
+
     const inputHandler = (e) => {
         const value = e.target.value;
         setIsEmpty(value.trim() === "");
@@ -51,6 +59,7 @@ const TextInput = (props) => {
                     id={props.id}
                     name={props.id}
                     onChange={inputHandler}
+                    defaultValue={value}
                 />
                 <label htmlFor={props.id}>{props.label}</label>
             </div>
@@ -68,6 +77,7 @@ const TextInput = (props) => {
                 pattern={props.pattern}
                 name={props.id}
                 onChange={inputHandler}
+                defaultValue={value}
             />
             <label htmlFor={props.id}>{props.label}</label>
         </div>

@@ -10,6 +10,8 @@ import Table from '../components/Table';
 
 const Page = forwardRef((props,ref) => {
     const modalRef = useRef();
+    const modalEditRef = useRef();
+    const deleteModalRef = useRef();
     const [table_data, setTableData] = useState([]);
     const [table_cols, setTableColumns] = useState([]);
 
@@ -56,27 +58,40 @@ const Page = forwardRef((props,ref) => {
         refreshTable: fetchTableData
     }));
 
-return(
-    <div className="page">
-        <div className="title-row">
-            <h1>{props.title}</h1>
-            {props.create_button_text && (
-            <button className='action-button light-pink' onClick={() => modalRef.current?.open()}>
-                { props.create_button_text }
-            </button>
-            )}
+    const onRowEdit = ( modal_ref, rowEdit, row ) => {
+        modal_ref.current?.open();
+        rowEdit(row);
+    };
+
+    const onRowDelete = (modal_ref, rowDelete, row ) => {
+        modal_ref.current?.open();
+        rowDelete(row);
+    }
+
+
+    return(
+        <div className="page">
+            <div className="title-row">
+                <h1>{props.title}</h1>
+                {props.create_button_text && (
+                <button className='action-button light-pink' onClick={() => modalRef.current?.open()}>
+                    { props.create_button_text }
+                </button>
+                )}
+            </div>
+            {props.content ?? <div></div>}
+            <Modal ref={modalRef} children = {props.modal_children}/>
+            <Modal ref={modalEditRef} children={props.modal_edit_children}/>
+            <Modal ref={deleteModalRef} children={props.modal_delete_children} />
+            <Table
+                rows={table_data}
+                columns={table_cols}
+                loading={loading}
+                onEdit={(row) => {onRowEdit(modalEditRef, props.onRowEdit, row)}}
+                onDelete={(row) => {onRowDelete(deleteModalRef, props.onRowDelete, row)}}
+            />
         </div>
-        {props.content ?? <div></div>}
-        <Table
-            rows={table_data}
-            columns={table_cols}
-            loading={loading}
-            onEdit={props.onRowEdit}
-            onDelete={props.onRowDelete}
-        />
-        <Modal ref={modalRef} children = {props.modal_children}/>
-    </div>
-);
+    );
 })
 
 

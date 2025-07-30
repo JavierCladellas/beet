@@ -3,7 +3,7 @@ import { IconButton } from '@mui/material';
 import { AiFillEdit } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 
-const Table = ({ rows, columns, loading, onEdit, onDelete }) => {
+const Table = ({ rows, columns, loading, onEdit, onDelete, checkboxSelection }) => {
   const enhancedColumns = [
     ...columns.map((col) => ({
       ...col,
@@ -44,7 +44,7 @@ const Table = ({ rows, columns, loading, onEdit, onDelete }) => {
       rows={rows}
       columns={enhancedColumns}
       pageSizeOptions={[5, 10]}
-      checkboxSelection
+      checkboxSelection={checkboxSelection ?? false}
       sx={{ border: 0 }}
       initialState={{
         columns: {
