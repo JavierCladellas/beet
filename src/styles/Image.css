@@ -37,3 +37,11 @@
     color: transparent;
     border: none;
 }
+
+.table-image-preview {
+    height: 100%;
+    width: auto;
+    border-radius: 8px;
+    object-fit: contain;
+    display: block;
+}

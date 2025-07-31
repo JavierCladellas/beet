@@ -64,6 +64,7 @@ const Form = ( props ) => {
 
         const formData = new FormData(formRef.current);
         const data = Object.fromEntries(formData.entries());
+        console.log('Form data:', data);
 
         try {
             const response = await fetch(dev_env.url + (props.action ?? '#'), {
@@ -71,9 +72,8 @@ const Form = ( props ) => {
                 credentials: 'include',
                 withCredentials: true,
                 headers: {
-                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(data)
+                body: props.asMultipart ? formData : JSON.stringify(data)
             });
 
             onSuccess(response);

@@ -94,7 +94,7 @@ const UserEditForm = forwardRef((props, ref) => {
     )
 });
 
-const UesrDeleteForm = forwardRef((props, ref) => {
+const UserDeleteForm = forwardRef((props, ref) => {
     const [userId, setUserId] = useState("");
     const [email, setEmail] = useState("");
 
@@ -155,7 +155,7 @@ const Users = ( props ) => {
         }}
     />
 
-    const deleteForm = <UesrDeleteForm key="delete-user-form"
+    const deleteForm = <UserDeleteForm key="delete-user-form"
         ref={deleteModalRef}
         onSuccess={() => {
             pageRef.current?.refreshTable?.();

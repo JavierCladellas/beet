@@ -3,7 +3,7 @@ import "../styles/Image.css";
 const UploadImage = ( props ) => {
 return(
     <div className="image-upload-container" style={props.style}>
-        <input type="file" id={props.id} accept="image/*" onChange={(e) => {
+        <input type="file" id={props.id} name={props.id} accept="image/*" required={props.required} onChange={(e) => {
             const fileInput = e.target;
             const preview = fileInput.nextElementSibling;
             const file = fileInput.files[0];

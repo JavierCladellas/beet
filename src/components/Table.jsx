@@ -7,9 +7,21 @@ const Table = ({ rows, columns, loading, onEdit, onDelete, checkboxSelection }) 
   const enhancedColumns = [
     ...columns.map((col) => ({
       ...col,
-      flex: col.flex ?? 1, // Allow each column to grow
+      flex: col.flex ?? 1,
       minWidth: col.minWidth ?? 100,
-      maxWidth: col.maxWidth ?? 500, // limit max width if needed
+      maxWidth: col.maxWidth ?? 500,
+      headerName: col.field === 'image_url' ? 'Image' : col.headerName,
+      renderCell:
+        col.field === 'image_url'
+          ? (params) => (
+              <img
+                src={"http://localhost:8000/api/"+params.value}
+                alt="preview"
+                className='table-image-preview'
+                onClick={(e) => e.stopPropagation()}
+              />
+            )
+          : col.renderCell,
     })),
     {
       field: 'actions',
@@ -23,21 +35,28 @@ const Table = ({ rows, columns, loading, onEdit, onDelete, checkboxSelection }) 
           <IconButton
             aria-label="edit"
             size="small"
-            onClick={(e) => {e.stopPropagation(); onEdit?.(params.row)}}
+            onClick={(e) => {
+              e.stopPropagation();
+              onEdit?.(params.row);
+            }}
           >
-            <AiFillEdit/>
+            <AiFillEdit />
           </IconButton>
           <IconButton
             aria-label="delete"
             size="small"
-            onClick={(e) => {e.stopPropagation(); onDelete?.(params.row)}}
+            onClick={(e) => {
+              e.stopPropagation();
+              onDelete?.(params.row);
+            }}
           >
-            <MdDelete/>
+            <MdDelete />
           </IconButton>
         </>
       ),
     },
   ];
+
 
   return (
     <DataGrid
