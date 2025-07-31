@@ -14,12 +14,14 @@ const Table = ({ rows, columns, loading, onEdit, onDelete, checkboxSelection }) 
       renderCell:
         col.field === 'image_url'
           ? (params) => (
+              params.value ?
               <img
                 src={"http://localhost:8000/api/"+params.value}
                 alt="preview"
                 className='table-image-preview'
                 onClick={(e) => e.stopPropagation()}
-              />
+              /> :
+              <span></span>
             )
           : col.renderCell,
     })),
