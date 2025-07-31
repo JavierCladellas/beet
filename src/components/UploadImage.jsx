@@ -7,11 +7,10 @@ const UploadImage = (props) => {
 
   // Load default image if provided
   useEffect(() => {
-    console.log('default_value changed:', props.default_value);
-
     if (props.default_value && previewRef.current) {
       previewRef.current.style.backgroundImage = `url('${props.default_value}')`;
       previewRef.current.classList.add("has-image");
+      previewRef.current.value = props.default_value;
     }
   }, [props.default_value]);
 

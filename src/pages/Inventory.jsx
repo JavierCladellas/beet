@@ -75,7 +75,7 @@ const NewItemForm = ( props ) => {
                                 {"value": "product3", "label": "Producto 3"}
                             ]}
                         />
-                        {/* <NumberInput id="fprice" label="Precio ($)" required={isProduct||isVariant} style={{display: (isVariant||isProduct) ? "flex" : "none"}} min="0" default_value="0" step="0.01" pattern="^\d+(,\d{1,2})" /> */}
+                        <NumberInput id="fprice" label="Precio ($)" required={isProduct||isVariant} style={{display: (isVariant||isProduct) ? "flex" : "none"}} min="0" default_value="0" step="0.01" pattern="^\d+(,\d{1,2})" />
 
                         <AttributeInputSection />
 
@@ -104,6 +104,7 @@ const ItemEditForm = forwardRef((props, ref) => {
             action={`items/${itemId}`}
             create_button_text = "Guardar"
             cancel_button_text = "Cancelar"
+            asMultipart
             onSuccess={props.onSuccess}
             content = {
                 <div className='form-col'>
@@ -113,7 +114,7 @@ const ItemEditForm = forwardRef((props, ref) => {
 
                     <NumberInput id="stock" label="Stock" required default_value={stock}/>
 
-                    <UploadImage key = {image} id="image" label="Upload" default_value={image}/>
+                    <UploadImage id="image" label="Upload" default_value={image}/>
 
                 </div>
             }
