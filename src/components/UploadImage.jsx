@@ -4,13 +4,16 @@ import "../styles/Image.css";
 const UploadImage = (props) => {
   const previewRef = useRef(null);
   const inputRef = useRef(null);
+  const existingRef = useRef(null);
 
   // Load default image if provided
   useEffect(() => {
     if (props.default_value && previewRef.current) {
       previewRef.current.style.backgroundImage = `url('${props.default_value}')`;
       previewRef.current.classList.add("has-image");
-      previewRef.current.value = props.default_value;
+      if (existingRef.current) {
+        existingRef.current.value = props.default_value;
+      }
     }
   }, [props.default_value]);
 
@@ -45,6 +48,14 @@ const UploadImage = (props) => {
       <div ref={previewRef} className="image-upload-preview">
         {props.label}
       </div>
+      {props.default_value && (
+      <input
+        type="hidden"
+        name={`${props.id}_existing`}
+        ref ={existingRef}
+        value={props.default_value}
+      />
+    )}
     </div>
   );
 };

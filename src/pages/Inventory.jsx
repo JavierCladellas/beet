@@ -123,13 +123,44 @@ const ItemEditForm = forwardRef((props, ref) => {
 });
 
 const onRowEdit = ( editFormRef, row ) => {
-    editFormRef.current.setItemId(row.id);
-    editFormRef.current.setItemName(row.name);
-    editFormRef.current.setSku(row.sku);
-    editFormRef.current.setDescription(row.description);
-    editFormRef.current.setStock(row.stock);
-    editFormRef.current.setImage("http://localhost:8000/api/"+row.image_url);
+    editFormRef.current?.setItemId(row.id);
+    editFormRef.current?.setItemName(row.name);
+    editFormRef.current?.setSku(row.sku);
+    editFormRef.current?.setDescription(row.description);
+    editFormRef.current?.setStock(row.stock);
+    editFormRef.current?.setImage("http://localhost:8000/api/"+row.image_url);
 }
+
+
+const ItemDeleteForm = forwardRef((props, ref) => {
+    const [itemId, setItemId] = useState("");
+    const [itemName, setItemName] = useState("");
+
+    useImperativeHandle(ref, () => ({
+        setItemId, setItemName
+    }));
+
+    return (
+        <Form title="Eliminar Item"
+            method="delete"
+            action={`items/${itemId}`}
+            create_button_text = "Eliminar"
+            cancel_button_text = "Cancelar"
+            onSuccess={props.onSuccess}
+            content = {
+                <div className='form-col'>
+                    <p>¿Estás seguro de que deseas eliminar el item <strong>{itemName}</strong>?</p>
+                </div>
+            }
+        />
+    )
+});
+
+const onRowDelete = ( deleteFormRef, row ) => {
+    deleteFormRef.current?.setItemId(row.id);
+    deleteFormRef.current?.setItemName(row.name);
+}
+
 
 
 const Inventory = ( props ) => {
@@ -150,6 +181,15 @@ const Inventory = ( props ) => {
             pageRef.current?.refreshTable?.();
         }}
     />
+
+    const deleteForm = <ItemDeleteForm
+        key = "delete-item-form"
+        ref={useRef()}
+        onSuccess={() => {
+            pageRef.current?.refreshTable?.();
+        }}
+    />
+
     return (
         <Page title="Inventario"
                 ref={pageRef}
@@ -157,8 +197,10 @@ const Inventory = ( props ) => {
                 api_endpoint="items"
                 checkboxSelection
                 onRowEdit={(r) => onRowEdit(editFormRef,r)}
+                onRowDelete={(r) => onRowDelete(deleteForm,r)}
                 modal_children={[createForm]}
                 modal_edit_children = {[editForm]}
+                modal_delete_children = {[deleteForm]}
         />
     );
 }
