@@ -70,11 +70,7 @@ const UserEditForm = forwardRef((props, ref) => {
     const [email, setEmail] = useState("");
     const [role, setRole] = useState("");
 
-    useImperativeHandle(ref, () => ({
-        setUserId,
-        setEmail,
-        setRole
-    }));
+    useImperativeHandle(ref, () => ({ setUserId, setEmail, setRole }));
 
     return (
         <Form title="Editar Usuario"

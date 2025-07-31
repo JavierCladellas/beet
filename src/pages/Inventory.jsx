@@ -2,7 +2,7 @@
 import '../styles/Page.css'
 import '../styles/Form.css'
 
-import { useState, useRef } from 'react';
+import { useState, useRef, forwardRef, useImperativeHandle} from 'react';
 import Page from '../components/Page.jsx';
 import AttributeInputSection from '../components/AttributesInputSection.jsx';
 import Checkbox from '../components/Checkbox.jsx';
@@ -86,10 +86,54 @@ const NewItemForm = ( props ) => {
     )
 };
 
+const ItemEditForm = forwardRef((props, ref) => {
+    const [itemId, setItemId] = useState("");
+    const [itemName, setItemName] = useState("");
+    const [sku, setSku] = useState("");
+    const [description, setDescription] = useState("");
+    const [stock, setStock] = useState("");
+    const [image, setImage] = useState("");
+
+    useImperativeHandle(ref, () => ({
+        setItemId, setItemName, setSku, setDescription, setStock, setImage
+    }));
+
+    return (
+        <Form title="Editar Item"
+            method="put"
+            action={`items/${itemId}`}
+            create_button_text = "Guardar"
+            cancel_button_text = "Cancelar"
+            onSuccess={props.onSuccess}
+            content = {
+                <div className='form-col'>
+                    <TextInput id="name" label="Nombre" required default_value={itemName}/>
+                    <TextInput id="sku" label="SKU" required default_value={sku}/>
+                    <TextInput type="textarea" id="description" label="Descripción" default_value={description}/>
+
+                    <NumberInput id="stock" label="Stock" required default_value={stock}/>
+
+                    <UploadImage key = {image} id="image" label="Upload" default_value={image}/>
+
+                </div>
+            }
+        />
+    )
+});
+
+const onRowEdit = ( editFormRef, row ) => {
+    editFormRef.current.setItemId(row.id);
+    editFormRef.current.setItemName(row.name);
+    editFormRef.current.setSku(row.sku);
+    editFormRef.current.setDescription(row.description);
+    editFormRef.current.setStock(row.stock);
+    editFormRef.current.setImage("http://localhost:8000/api/"+row.image_url);
+}
 
 
 const Inventory = ( props ) => {
     const pageRef = useRef();
+    const editFormRef = useRef();
 
     const createForm = <NewItemForm
         key="new-item-form"
@@ -98,14 +142,22 @@ const Inventory = ( props ) => {
         }}
         userRole = {props.userRole}
     />
-
+    const editForm = <ItemEditForm
+        key = "edit-item-form"
+        ref={editFormRef}
+        onSuccess={() => {
+            pageRef.current?.refreshTable?.();
+        }}
+    />
     return (
         <Page title="Inventario"
                 ref={pageRef}
                 create_button_text="+ Nuevo Item"
                 api_endpoint="items"
                 checkboxSelection
+                onRowEdit={(r) => onRowEdit(editFormRef,r)}
                 modal_children={[createForm]}
+                modal_edit_children = {[editForm]}
         />
     );
 }
