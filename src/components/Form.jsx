@@ -64,7 +64,6 @@ const Form = ( props ) => {
 
         const formData = new FormData(formRef.current);
         const data = Object.fromEntries(formData.entries());
-        console.log('Form data:', data);
 
         try {
             const response = await fetch(dev_env.url + (props.action ?? '#'), {

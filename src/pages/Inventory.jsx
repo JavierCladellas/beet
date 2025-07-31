@@ -166,6 +166,7 @@ const onRowDelete = ( deleteFormRef, row ) => {
 const Inventory = ( props ) => {
     const pageRef = useRef();
     const editFormRef = useRef();
+    const deleteFormRef = useRef();
 
     const createForm = <NewItemForm
         key="new-item-form"
@@ -184,7 +185,7 @@ const Inventory = ( props ) => {
 
     const deleteForm = <ItemDeleteForm
         key = "delete-item-form"
-        ref={useRef()}
+        ref={deleteFormRef}
         onSuccess={() => {
             pageRef.current?.refreshTable?.();
         }}
@@ -197,7 +198,7 @@ const Inventory = ( props ) => {
                 api_endpoint="items"
                 checkboxSelection
                 onRowEdit={(r) => onRowEdit(editFormRef,r)}
-                onRowDelete={(r) => onRowDelete(deleteForm,r)}
+                onRowDelete={(r) => onRowDelete(deleteFormRef,r)}
                 modal_children={[createForm]}
                 modal_edit_children = {[editForm]}
                 modal_delete_children = {[deleteForm]}

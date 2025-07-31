@@ -132,7 +132,7 @@ const onRowDelete = ( deleteFormRef, row ) => {
 const Users = ( props ) => {
     const pageRef = useRef();
     const editFormRef = useRef();
-    const deleteModalRef = useRef();
+    const deleteFormRef = useRef();
 
 
 
@@ -152,7 +152,7 @@ const Users = ( props ) => {
     />
 
     const deleteForm = <UserDeleteForm key="delete-user-form"
-        ref={deleteModalRef}
+        ref={deleteFormRef}
         onSuccess={() => {
             pageRef.current?.refreshTable?.();
         }}
@@ -168,7 +168,7 @@ const Users = ( props ) => {
                 className="users-page"
                 api_endpoint="users"
                 onRowEdit={(r) => onRowEdit(editFormRef,r)}
-                onRowDelete={(r) => onRowDelete(deleteModalRef,r)}
+                onRowDelete={(r) => onRowDelete(deleteFormRef,r)}
         />
     );
 }
