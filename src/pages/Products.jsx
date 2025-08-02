@@ -6,7 +6,7 @@
 import '../styles/Page.css'
 import '../styles/Form.css'
 
-import { useState, useRef, forwardRef, useImperativeHandle} from 'react';
+import { useState, useRef, forwardRef, useImperativeHandle, useEffect} from 'react';
 import Page from '../components/Page.jsx';
 import AttributeInputSection from '../components/AttributesInputSection.jsx';
 import Checkbox from '../components/Checkbox.jsx';
@@ -16,7 +16,9 @@ import UploadImage from '../components/UploadImage.jsx';
 import Form from '../components/Form.jsx';
 import NumberInput from '../components/NumberInput.jsx';
 
-const NewProductForm = ( ) => {
+import dev_env from '../data/DevEnv.json'
+
+const NewProductForm = ( props ) => {
     const [isVariable, setIsVariable] = useState(false);
 
     const isVariableHandler = (e) => {
@@ -28,11 +30,29 @@ const NewProductForm = ( ) => {
     }
 
 
+    const [categories, setCategories] = useState([]);
+    useEffect(() => {
+        fetch(dev_env.url+"categories")
+            .then(response => response.json())
+            .then(data => {
+                let options = [{"value": "other", "label": "Otra"}];
+                data.forEach(category => {
+                    options.push({"value": category.name, "label": category.name});
+                });
+                setCategories(options);
+            })
+            .catch(error => {
+                console.error('Error fetching categories:', error);
+            });
+    },[]);
+
+
     return (
         <Form title="Nuevo Producto"
             onCancel={cancelHandler}
             create_button_text = "Crear"
             cancel_button_text = "Cancelar"
+            onSuccess={props.onSuccess}
             method="post"
             action={isVariable?"products":"products/variant"}
             content={
@@ -49,10 +69,8 @@ const NewProductForm = ( ) => {
 
                 <TextInput type="textarea" id="description" label="Descripción"/>
 
-                <Dropdown id="category" label="Categoría"
-                    options = {[
-                        {"value": "other", "label": "Otra"}
-                    ]}
+                <Dropdown id="category" label="Categoría" placeholder = "Ninguna" accept_empty
+                    options = {categories}
                 />
 
                 <UploadImage id="product_image" label="Foto" required={!isVariable} style={{display:isVariable?"none":"flex"}}/>

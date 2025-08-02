@@ -15,7 +15,7 @@ const Dropdown = ( props ) => {
     const handleChange = (e) => {
         setSelectedValue(e.target.value);
         if (e.target.value !== "other") {
-            setCustomInput(""); // reset if not 'other'
+            setCustomInput("");
         }
     };
 
@@ -24,7 +24,6 @@ const Dropdown = ( props ) => {
             {selectedValue === "other" && (
                 <input
                     type="text"
-                    name={`${props.id}_custom`}
                     placeholder="Tu opción personalizada"
                     value={customInput}
                     onChange={(e) => setCustomInput(e.target.value)}
@@ -32,17 +31,22 @@ const Dropdown = ( props ) => {
                     required
                 />
             )}
-            <select id={props.id} name={props.id}
+            <select id={props.id}
                     required={props.required??false}
                     onChange={handleChange}
                     className={selectedValue === "other"?"custom-select":""}
                     value={selectedValue}
                 >
-                {!props.default_value && <option value="" disabled hidden>Selecciona</option>}
+                {!props.default_value && <option value="" disabled={props.accept_empty} hidden>{props.placeholder ?? "Selecciona"}</option>}
                 {props.options.map((option, index) => (
                     <option key={index} value={option.value}>{option.label}</option>
                 ))}
             </select>
+            <input
+                type="hidden"
+                name={props.id}
+                value={selectedValue === "other" ? customInput : selectedValue}
+            />
             <label htmlFor={props.id}>{props.label}</label>
 
         </div>
