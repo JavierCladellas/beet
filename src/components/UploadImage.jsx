@@ -6,14 +6,25 @@ const UploadImage = (props) => {
   const inputRef = useRef(null);
   const existingRef = useRef(null);
 
-  // Load default image if provided
   useEffect(() => {
-    if (props.default_value && previewRef.current) {
-      previewRef.current.style.backgroundImage = `url('${props.default_value}')`;
-      previewRef.current.classList.add("has-image");
-      if (existingRef.current) {
-        existingRef.current.value = props.default_value;
+    const preview = previewRef.current;
+    const defaultValue = props.default_value;
+
+    if (preview) {
+      if (defaultValue) {
+        const fullUrl = defaultValue.startsWith("http")
+          ? defaultValue
+          : `http://localhost:8000/api/${defaultValue}`;
+        preview.style.backgroundImage = `url('${fullUrl}')`;
+        preview.classList.add("has-image");
+      } else {
+        preview.style.backgroundImage = "";
+        preview.classList.remove("has-image");
       }
+    }
+
+    if (existingRef.current) {
+      existingRef.current.value = props.default_value || "";
     }
   }, [props.default_value]);
 
@@ -22,17 +33,17 @@ const UploadImage = (props) => {
     const preview = previewRef.current;
 
     if (file) {
-        const reader = new FileReader();
-        reader.onload = function (event) {
-            preview.style.backgroundImage = `url('${event.target.result}')`;
-            preview.classList.add("has-image");
-        };
-        reader.readAsDataURL(file);
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        preview.style.backgroundImage = `url('${event.target.result}')`;
+        preview.classList.add("has-image");
+      };
+      reader.readAsDataURL(file);
     } else {
-        preview.style.backgroundImage = "";
-        preview.classList.remove("has-image");
+      preview.style.backgroundImage = "";
+      preview.classList.remove("has-image");
     }
-    };
+  };
 
   return (
     <div className="image-upload-container" style={props.style}>
@@ -48,14 +59,12 @@ const UploadImage = (props) => {
       <div ref={previewRef} className="image-upload-preview">
         {props.label}
       </div>
-      {props.default_value && (
       <input
         type="hidden"
         name={`${props.id}_existing`}
-        ref ={existingRef}
-        value={props.default_value}
+        ref={existingRef}
+        value={props.default_value || ""}
       />
-    )}
     </div>
   );
 };

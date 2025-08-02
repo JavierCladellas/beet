@@ -127,7 +127,7 @@ const onRowEdit = ( editFormRef, row ) => {
     editFormRef.current?.setSku(row.sku);
     editFormRef.current?.setDescription(row.description);
     editFormRef.current?.setStock(row.stock);
-    editFormRef.current?.setImage("http://localhost:8000/api/"+row.image_url);
+    editFormRef.current?.setImage(row.image_url ?? "");
 }
 
 
