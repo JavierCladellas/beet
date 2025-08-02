@@ -19,7 +19,7 @@ const TextInput = (props) => {
 
         if ( props.checkAgainst ) {
             const other = document.getElementById(props.checkAgainst);
-            if (other && value !== other.value) {
+            if (other && e.target.value !== other.value) {
                 e.target.setCustomValidity("The values do not match.");
             } else {
                 e.target.setCustomValidity("");
