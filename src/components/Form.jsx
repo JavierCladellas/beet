@@ -43,7 +43,6 @@ const Form = ( props ) => {
                 upload.classList.remove('has-image');
             });
 
-            //close the modal ref if it exists
             closeModal();
         }
         props.onCancel?.();
@@ -71,6 +70,7 @@ const Form = ( props ) => {
                 credentials: 'include',
                 withCredentials: true,
                 headers: {
+                    'Content-Type':props.asMultipart? undefined : "application/json",
                 },
                 body: props.asMultipart ? formData : JSON.stringify(data)
             });

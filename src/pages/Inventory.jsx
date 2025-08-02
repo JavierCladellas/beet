@@ -36,7 +36,7 @@ const NewItemForm = ( props ) => {
         <Form onCancel={cancelHandler}
             title ="Nuevo Item"
             method="post"
-            action="items"
+            action={isVariant ? "items/variant" : (isProduct ? "items/product" : "items") }
             asMultipart
             onSuccess={props.onSuccess}
             create_button_text = "Crear"
@@ -75,7 +75,7 @@ const NewItemForm = ( props ) => {
                                 {"value": "product3", "label": "Producto 3"}
                             ]}
                         />
-                        <NumberInput id="fprice" label="Precio ($)" required={isProduct||isVariant} style={{display: (isVariant||isProduct) ? "flex" : "none"}} min="0" default_value="0" step="0.01" pattern="^\d+(,\d{1,2})" />
+                        <NumberInput id="fprice" label="Precio ($)" required={isProduct||isVariant} style={{display: (isVariant||isProduct) ? "flex" : "none"}} min="0" default_value="0" step="0.01" pattern="^\d+(.\d{1,2})" />
 
                         <AttributeInputSection />
 
@@ -103,7 +103,6 @@ const ItemEditForm = forwardRef((props, ref) => {
             method="put"
             action={`items/${itemId}`}
             create_button_text = "Guardar"
-            cancel_button_text = "Cancelar"
             asMultipart
             onSuccess={props.onSuccess}
             content = {

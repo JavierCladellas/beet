@@ -64,7 +64,7 @@ const Table = ({ rows, columns, loading, onEdit, onDelete, checkboxSelection }) 
     <DataGrid
       rows={rows}
       columns={enhancedColumns}
-      pageSizeOptions={[5, 10]}
+      pageSizeOptions={[5, 10, 100]}
       checkboxSelection={checkboxSelection ?? false}
       sx={{ border: 0 }}
       initialState={{

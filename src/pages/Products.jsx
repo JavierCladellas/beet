@@ -1,3 +1,7 @@
+// Comentarios en ordenes para cada producto
+// Proponer variantes en producto si out of stock
+//
+
 
 import '../styles/Page.css'
 import '../styles/Form.css'
@@ -10,9 +14,7 @@ import TextInput from '../components/TextInput.jsx';
 import Dropdown from '../components/Dropdown.jsx';
 import UploadImage from '../components/UploadImage.jsx';
 import Form from '../components/Form.jsx';
-
-
-
+import NumberInput from '../components/NumberInput.jsx';
 
 const NewProductForm = ( ) => {
     const [isComposite, setIsComposite] = useState(false);
@@ -42,6 +44,8 @@ const NewProductForm = ( ) => {
 
                 <Checkbox id="fis_variant" label="Variante" checked_default={isVariant} on_change={isVariantHandler}/>
 
+                <NumberInput id="fprice" label="Precio ($)" required min="0" default_value="0" step="0.01" pattern="^\d+(,\d{1,2})" />
+
                 <TextInput id="fname" label="Nombre (override w item if not composite)" required style={{display:isComposite?"flex":"none"}}/>
 
                 <TextInput id="fsku" label="SKU (override with item if not composite)" required style={{display:isComposite?"flex":"none"}}/>
@@ -59,7 +63,8 @@ const NewProductForm = ( ) => {
                     options = {[
                         {"value": "category1", "label": "Categoría 1"},
                         {"value": "category2", "label": "Categoría 2"},
-                        {"value": "category3", "label": "Categoría 3"}
+                        {"value": "category3", "label": "Categoría 3"},
+                        {"value": "other", "label": "Otra"}
                     ]}
                 />
 
