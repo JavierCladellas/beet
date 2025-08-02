@@ -1,0 +1,71 @@
+.select-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 10px;
+    justify-content: center;
+}
+
+.select-item-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 140px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: white;
+    transition: box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+/* Hide the native checkbox */
+.select-item-card>input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Style the card differently when checkbox is checked */
+.select-item-card > input[type="checkbox"]:checked + label {
+    border-color: #5c3c92; /* muted deep purple */
+    box-shadow: 0 8px 24px rgba(92, 60, 146, 0.25); /* soft, diffused shadow */
+    background-color: #f5f2ff; /* very light lavender */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+
+/* Make the label cover the whole card to catch clicks */
+.select-item-card>label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    padding: 12px 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    user-select: none;
+}
+
+/* Image styles */
+.select-item-card>label>img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Text styles */
+.select-item-card>label>span {
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

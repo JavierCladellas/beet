@@ -3,7 +3,7 @@ import { IconButton } from '@mui/material';
 import { AiFillEdit } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 
-const Table = ({ rows, columns, loading, onEdit, onDelete, checkboxSelection }) => {
+const Table = ({ rows, columns, loading, onEdit, onDelete, checkboxSelection, hideActions }) => {
   const enhancedColumns = [
     ...columns.map((col) => ({
       ...col,
@@ -24,8 +24,11 @@ const Table = ({ rows, columns, loading, onEdit, onDelete, checkboxSelection }) 
               <span></span>
             )
           : col.renderCell,
-    })),
-    {
+    }))
+  ];
+
+  if (!hideActions)
+    enhancedColumns.push({
       field: 'actions',
       headerName: 'Actions',
       width: 120,
@@ -56,8 +59,7 @@ const Table = ({ rows, columns, loading, onEdit, onDelete, checkboxSelection }) 
           </IconButton>
         </>
       ),
-    },
-  ];
+    })
 
 
   return (

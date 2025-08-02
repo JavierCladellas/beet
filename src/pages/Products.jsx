@@ -17,9 +17,13 @@ import Form from '../components/Form.jsx';
 import NumberInput from '../components/NumberInput.jsx';
 
 import dev_env from '../data/DevEnv.json'
+import Modal from '../components/Modal.jsx';
+import SelectItems from '../components/selectItems.jsx';
 
 const NewProductForm = ( props ) => {
     const [isVariable, setIsVariable] = useState(false);
+    const [selectedItems, setSelectedItems] = useState([]);
+    const selectItemsModalRef = useRef();
 
     const isVariableHandler = (e) => {
         setIsVariable(e.target.checked);
@@ -59,21 +63,44 @@ const NewProductForm = ( props ) => {
             <div className='form-col'>
                 <Checkbox id="is_variable" label="Producto Variable" checked_default={isVariable} on_change={isVariableHandler}/>
 
-                <p style={{display:isVariable?"none":"flex"}}>Seleccionar items</p>
+                <div className='form-col' style={{display:isVariable?"none":"flex"}} >
+                    {selectedItems.length > 0 &&
+                        <div className="dynamic-col form-col" style={{gap:"4px", alignItems:"flex-start", border: "1px dashed black", padding:"8px"}}>
+                            {selectedItems.map((itemId, index) => (
+                                <p key={index}>{itemId.name}</p>
+                            ))}
+                        </div>
+                    }
+
+                    <button type="button" className='action-button light-pink' onClick={(e) => {e.preventDefault(); selectItemsModalRef.current?.open()}}>
+                        + Item
+                    </button>
+                </div>
+                <input type="hidden" name="item_ids" value={selectedItems.map(item => item.id).join(",")} />
+
+                <TextInput id="name" label="Nombre" required />
+
+                <TextInput id="sku" label="SKU" required={!isVariable} style={{display:isVariable?"none":"flex"}} />
+
+
+                <TextInput type="textarea" id="description" label="Descripción" />
+
 
                 <NumberInput id="price" label="Precio ($)" required min="0" default_value="0" step="0.01" pattern="^\d+(,\d{1,2})" style={{display:isVariable?"none":"flex"}}/>
-
-                <TextInput id="name" label="Nombre" required/>
-
-                <TextInput id="sku" label="SKU" required={!isVariable} style={{display:isVariable?"none":"flex"}}/>
-
-                <TextInput type="textarea" id="description" label="Descripción"/>
 
                 <Dropdown id="category" label="Categoría" placeholder = "Ninguna" accept_empty
                     options = {categories}
                 />
 
-                <UploadImage id="product_image" label="Foto" required={!isVariable} style={{display:isVariable?"none":"flex"}}/>
+                <UploadImage id="product_image" label="Foto" required={!isVariable} style={{display:isVariable?"none":"flex"}} />
+
+                <Modal ref={selectItemsModalRef} children = {[
+                    <SelectItems key="select-items" onConfirm={(s) => {
+                        setSelectedItems(s);
+                        selectItemsModalRef.current?.close();
+                    }} />
+                ]}
+                />
             </div>
             }
         />
