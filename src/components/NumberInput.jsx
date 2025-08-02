@@ -30,7 +30,7 @@ const NumberInput = ( props ) => {
     };
 
     return(
-        <div className="number-input-container">
+        <div className="number-input-container" style={props.style}>
             <label htmlFor={props.id}>{props.label}</label>
             <input className={"number-input"+ (isEmpty?"":" not-empty")} type="number" required={props.required ?? false}
                 id={props.id} name={props.id}

@@ -53,7 +53,7 @@ const AttributeInputSection = ( props ) => {
 
 
     return (
-        <div className='form-col'>
+        <div className='form-col' style={props.style}>
         {attributeRows.length > 0 &&
         <div className="form-col dynamic-col" ref={attributesListRef}>
             {attributeRows.map((row, index) => (
