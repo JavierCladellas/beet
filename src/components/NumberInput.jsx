@@ -4,35 +4,30 @@ import { useState, useEffect, useRef } from "react";
 
 const NumberInput = ( props ) => {
     const [isEmpty, setIsEmpty] = useState(true);
-    const [value, setValue] = useState(props.default_value ?? "");
     const inputRef = useRef(null);
 
-    const inputHandler = (e) => {
-        setValue(e.target.value);
-        setIsEmpty(e.target.value.trim() === "");
-    }
+    const [value, setValue] = useState(props.default_value ?? "");
 
     useEffect(() => {
         setValue(props.default_value);
         if (props.default_value)
-            setIsEmpty(props.default_value.trim() === "");
+            setIsEmpty(props.default_value === "");
     }, [props.default_value]);
 
+    const inputHandler = (e) => {
+        setValue(e.target.value);
+        setIsEmpty(e.target.value.trim() === "");
 
-    useEffect(() => {
-        const el = inputRef.current;
-        const updateState = () => {
-            if (el) {
-                setIsEmpty(el.value.trim() === "");
+        if ( props.checkAgainst ) {
+            const other = document.getElementById(props.checkAgainst);
+            if (other && value !== other.value) {
+                e.target.setCustomValidity("The values do not match.");
+            } else {
+                e.target.setCustomValidity("");
             }
-        };
-        el?.addEventListener('input', updateState);
-        updateState();
-        return () => {
-            el?.removeEventListener('input', updateState);
-        };
-    }, []);
+        }
 
+    };
 
     return(
         <div className="number-input-container">
