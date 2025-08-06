@@ -28,27 +28,29 @@ const SelectItems = ( props ) => {
     }, []);
 
     return (
-        <div className="select-items">
-            {items.map((item) => (
-                <div key={item.id} className="select-item-card">
-                    <input
-                        type="checkbox"
-                        className=""
-                        id={`item-${item.id}`}
-                        onChange={() => {
-                            if (selectedItemsIds.includes(item.id)) {
-                                setSelectedItemsIds(selectedItemsIds.filter(id => id !== item.id));
-                            } else {
-                                setSelectedItemsIds([...selectedItemsIds, item.id]);
-                            }
-                        }}
-                    />
-                    <label htmlFor={`item-${item.id}`}>
-                        {item.image_url ? <img src={dev_env.url + item.image_url} alt={item.name} /> : <img></img>}
-                        <span>{item.name}</span>
-                    </label>
-                </div>
-            ))}
+        <div className="form-col">
+            <div className="select-items">
+                {items.map((item) => (
+                    <div key={item.id} className="select-item-card">
+                        <input
+                            type="checkbox"
+                            className=""
+                            id={`item-${item.id}`}
+                            onChange={() => {
+                                if (selectedItemsIds.includes(item.id)) {
+                                    setSelectedItemsIds(selectedItemsIds.filter(id => id !== item.id));
+                                } else {
+                                    setSelectedItemsIds([...selectedItemsIds, item.id]);
+                                }
+                            }}
+                        />
+                        <label htmlFor={`item-${item.id}`}>
+                            {item.image_url ? <img src={dev_env.url + item.image_url} alt={item.name} /> : <img></img>}
+                            <span>{item.name}</span>
+                        </label>
+                    </div>
+                ))}
+            </div>
             <button
                 className="select-items-button action-button light-pink"
                 type="button"
