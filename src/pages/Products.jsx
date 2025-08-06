@@ -58,6 +58,7 @@ const NewProductForm = ( props ) => {
             cancel_button_text = "Cancelar"
             onSuccess={props.onSuccess}
             method="post"
+            asMultipart = {!isVariable}
             action={isVariable?"products":"products/variant"}
             content={
             <div className='form-col'>
@@ -76,7 +77,9 @@ const NewProductForm = ( props ) => {
                         + Item
                     </button>
                 </div>
-                <input type="hidden" name="item_ids" value={selectedItems.map(item => item.id).join(",")} />
+                { selectedItems.map((item, index) => (
+                    <input type="hidden" name="item_ids" value={item.id} />
+                )) }
 
                 <TextInput id="name" label="Nombre" required />
 
@@ -92,7 +95,7 @@ const NewProductForm = ( props ) => {
                     options = {categories}
                 />
 
-                <UploadImage id="product_image" label="Foto" required={!isVariable} style={{display:isVariable?"none":"flex"}} />
+                <UploadImage id="product_image" label="Foto" style={{display:isVariable?"none":"flex"}} />
 
                 <Modal ref={selectItemsModalRef} children = {[
                     <SelectItems key="select-items" onConfirm={(s) => {
