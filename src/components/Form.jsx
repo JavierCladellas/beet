@@ -63,6 +63,12 @@ const Form = ( props ) => {
 
         const formData = new FormData(formRef.current);
         const data = Object.fromEntries(formData.entries());
+
+        if ( props.validate && !props.validate() ) {
+            return;
+        }
+
+
         try {
             const response = await fetch(dev_env.url + (props.action ?? '#'), {
                 method: props.method ?? 'POST',

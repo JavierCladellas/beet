@@ -59,6 +59,13 @@ const NewProductForm = ( props ) => {
             method="post"
             asMultipart = {!isVariable}
             action={isVariable?"products":"products/variant"}
+            validate={() => {
+                if (!isVariable && selectedItems.length === 0) {
+                    alert("Debe seleccionar al menos un item.");
+                    return false;
+                }
+                return true;
+            }}
             content={
             <div className='form-col'>
                 <Checkbox id="is_variable" label="Producto Variable" checked_default={isVariable} on_change={isVariableHandler}/>
@@ -77,8 +84,10 @@ const NewProductForm = ( props ) => {
                     </button>
                 </div>
                 { selectedItems.map((item, index) => (
-                    <input type="hidden" name="item_ids" value={item.id} />
+                    <input type="hidden" name="item_ids" value={item.id} key={index}/>
                 )) }
+
+                {/* Ensure that if !isVariable, then item_ids is required */}
 
                 <TextInput id="name" label="Nombre" required />
 
@@ -140,7 +149,7 @@ const onRowDelete = ( deleteFormRef, row ) => {
 
 const renderCbs = {
     "category": (params) => (
-        params.value.name ?? ""
+        params.value ? params.value.name : ""
     ),
     "image_url": (params) => (
         params.value ?
@@ -154,6 +163,9 @@ const renderCbs = {
     ),
     "is_variable": (params) => (
         params.value ? "Sí" : "No"
+    ),
+    "items": (params) => (
+        params.value ? (params.value.length > 0 ? params.value.length : ""): ""
     )
 }
 const header_names = {
