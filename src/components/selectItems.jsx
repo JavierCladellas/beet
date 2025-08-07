@@ -45,7 +45,7 @@ const SelectItems = ( props ) => {
                             }}
                         />
                         <label htmlFor={`item-${item.id}`}>
-                            {item.image_url ? <img src={dev_env.url + item.image_url} alt={item.name} /> : <img></img>}
+                            {item.image_url ? <img src={dev_env.url + item.image_url} alt={item.name} /> : <img alt=""></img>}
                             <span>{item.name}</span>
                         </label>
                     </div>
