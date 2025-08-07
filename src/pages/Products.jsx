@@ -94,7 +94,7 @@ const NewProductForm = ( props ) => {
                     options = {categories}
                 />
 
-                <UploadImage id="product_image" label="Foto" style={{display:isVariable?"none":"flex"}} />
+                <UploadImage id="image" label="Foto" style={{display:isVariable?"none":"flex"}} />
 
                 <Modal ref={selectItemsModalRef} children = {[
                     <SelectItems key="select-items" onConfirm={(s) => {
