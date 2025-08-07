@@ -138,6 +138,30 @@ const onRowDelete = ( deleteFormRef, row ) => {
     deleteFormRef.current?.setProductName(row.name);
 }
 
+const renderCbs = {
+    "category": (params) => (
+        params.value.name ?? ""
+    ),
+    "image_url": (params) => (
+        params.value ?
+        <img
+            src={"http://localhost:8000/api/"+params.value}
+            alt="preview"
+            className='table-image-preview'
+            onClick={(e) => e.stopPropagation()}
+        /> :
+        <span></span>
+    ),
+    "is_variable": (params) => (
+        params.value ? "Sí" : "No"
+    )
+}
+const header_names = {
+    "category": "Categoría",
+    "image_url" : "Image",
+    "is_variable": "Variable"
+}
+
 const Products = ( props ) => {
     const pageRef = useRef();
     const deleteFormRef = useRef();
@@ -166,6 +190,8 @@ const Products = ( props ) => {
             onRowDelete={(r) => onRowDelete(deleteFormRef,r)}
             modal_children={[createForm]}
             modal_delete_children={[deleteForm]}
+            table_render_callbacks = {renderCbs}
+            table_header_names = {header_names}
         />
     );
 }

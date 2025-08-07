@@ -87,6 +87,8 @@ const Page = forwardRef((props,ref) => {
                 rows={table_data}
                 columns={table_cols}
                 loading={loading}
+                renderCallbacks ={props.table_render_callbacks}
+                headerNames={props.table_header_names}
                 checkboxSelection={props.checkboxSelection ?? false}
                 onEdit={(row) => {onRowEdit(modalEditRef, props.onRowEdit, row)}}
                 onDelete={(row) => {onRowDelete(deleteModalRef, props.onRowDelete, row)}}

@@ -161,6 +161,21 @@ const onRowDelete = ( deleteFormRef, row ) => {
 }
 
 
+const renderCbs = {
+    "image_url": (params) => (
+        params.value ?
+        <img
+            src={"http://localhost:8000/api/"+params.value}
+            alt="preview"
+            className='table-image-preview'
+            onClick={(e) => e.stopPropagation()}
+        /> :
+        <span></span>
+    )
+}
+const headerNames = {
+    "image_url" : "Image"
+}
 
 const Inventory = ( props ) => {
     const pageRef = useRef();
@@ -201,6 +216,8 @@ const Inventory = ( props ) => {
                 modal_children={[createForm]}
                 modal_edit_children = {[editForm]}
                 modal_delete_children = {[deleteForm]}
+                table_render_callbacks={renderCbs}
+                table_header_names={headerNames}
         />
     );
 }
