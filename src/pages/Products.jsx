@@ -8,7 +8,6 @@ import '../styles/Form.css'
 
 import { useState, useRef, forwardRef, useImperativeHandle, useEffect} from 'react';
 import Page from '../components/Page.jsx';
-import AttributeInputSection from '../components/AttributesInputSection.jsx';
 import Checkbox from '../components/Checkbox.jsx';
 import TextInput from '../components/TextInput.jsx';
 import Dropdown from '../components/Dropdown.jsx';
@@ -110,8 +109,38 @@ const NewProductForm = ( props ) => {
     )
 }
 
+const ProductDeleteForm = forwardRef((props, ref) => {
+    const [productId, setProductId] = useState("");
+    const [productName, setProductName] = useState("");
+
+    useImperativeHandle(ref, () => ({
+        setProductId, setProductName
+    }));
+
+    return (
+        <Form title="Eliminar Producto"
+            method="delete"
+            action={`products/${productId}`}
+            create_button_text = "Eliminar"
+            cancel_button_text = "Cancelar"
+            content={
+                <div className='form-col'>
+                    <p>¿Seguro que quieres eliminar el producto <strong>{productName}</strong>?</p>
+                </div>
+            }
+            onSuccess={props.onSuccess}
+        />
+    )
+});
+
+const onRowDelete = ( deleteFormRef, row ) => {
+    deleteFormRef.current?.setProductId(row.id);
+    deleteFormRef.current?.setProductName(row.name);
+}
+
 const Products = ( props ) => {
     const pageRef = useRef();
+    const deleteFormRef = useRef();
 
     const createForm = <NewProductForm
         key="new-product-form"
@@ -119,13 +148,24 @@ const Products = ( props ) => {
             pageRef.current?.refreshTable?.();
         }}
     />;
+
+    const deleteForm = <ProductDeleteForm
+        key="delete-product-form"
+        ref={deleteFormRef}
+        onSuccess={() => {
+            pageRef.current?.refreshTable?.();
+        }}
+    />;
+
     return (
         <Page title="Products"
             ref={pageRef}
             create_button_text="+ Nuevo Producto"
             api_endpoint="products"
             checkboxSelection
+            onRowDelete={(r) => onRowDelete(deleteFormRef,r)}
             modal_children={[createForm]}
+            modal_delete_children={[deleteForm]}
         />
     );
 }
