@@ -210,7 +210,6 @@ const Inventory = ( props ) => {
                 ref={pageRef}
                 create_button_text="+ Nuevo Item"
                 api_endpoint="items"
-                checkboxSelection
                 onRowEdit={(r) => onRowEdit(editFormRef,r)}
                 onRowDelete={(r) => onRowDelete(deleteFormRef,r)}
                 modal_children={[createForm]}

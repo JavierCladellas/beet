@@ -39,7 +39,7 @@ const Modal = forwardRef((props, ref) => {
     return (
         <dialog ref={dialogRef} className={"modal "+props.className}>
             <div className="modal-content">
-                <button className="close-button" onClick={() => modalClose()}>
+                <button type="button" className="close-button" onClick={() => modalClose()}>
                     <IoMdClose />
                 </button>
                 { props.children && props.children.map( (child => { return child; } )) }
