@@ -108,6 +108,7 @@ const NewProductForm = ( props ) => {
                 <Modal ref={selectItemsModalRef} children = {[
                     <SelectItems key="select-items"
                     selectedItems={[...selectedItems]}
+
                     onSelectionChange={(s) => {
                         setSelectedItems(s);
                     }}
@@ -115,8 +116,7 @@ const NewProductForm = ( props ) => {
                         setSelectedItems(s);
                         selectItemsModalRef.current?.close();
                     }} />
-                ]}
-                />
+                ]}/>
             </div>
             }
         />
@@ -133,13 +133,13 @@ const ProductEditForm = forwardRef((props, ref) => {
     const [productSku, setProductSku] = useState("")
     const [productPrice, setProductPrice] = useState("")
     const [productImage, setProductImage] = useState("")
-    const [editSelectedItems, editSetSelectedItems] = useState([]);
+    const [editSelectedItems, setEditSelectedItems] = useState([]);
     const editSelectItemsModalRef = useRef();
 
     useImperativeHandle(ref, () => ({
         setProductId, setProductName, setProductIsVariable,
         setProductDescription, setProductCategory, setProductSku,
-        setProductPrice, setProductImage, editSetSelectedItems
+        setProductPrice, setProductImage, setEditSelectedItems
     }));
 
     const [categories, setCategories] = useState([]);
@@ -184,7 +184,7 @@ const ProductEditForm = forwardRef((props, ref) => {
                         options = {categories}
                     />
                 </div> :
-                <div className='form-col'>
+                <div className='form-col' key="rerender-pls">
 
                     <div className='form-col'>
                         {editSelectedItems.length > 0 &&
@@ -219,18 +219,15 @@ const ProductEditForm = forwardRef((props, ref) => {
 
                     <UploadImage id="image" label="Foto" default_value={productImage} />
 
-                    <Modal ref={editSelectItemsModalRef} children = {[
+                    <Modal ref={editSelectItemsModalRef} key="edit-selected-items-modal" children = {[
                         <SelectItems
                             selectedItems={[...editSelectedItems]}
-                                onSelectionChange={(s) => {
-                                    editSetSelectedItems(s);
-                                }}
-                                key="edit-selected-items"
-                                onConfirm={(s) => {
-                                    editSetSelectedItems(s);
-                                    editSelectItemsModalRef.current?.close();
-                                }
-                            } />
+                            onSelectionChange={(newItems) => console.log("EDIT:", newItems)}
+                            key="edit-selected-items"
+                            onConfirm={(s) => {
+                                setEditSelectedItems(s);
+                                editSelectItemsModalRef.current?.close();
+                        }} />
                     ]} />
 
                 </div>
@@ -249,7 +246,7 @@ const onRowEdit = ( editFormRef, row ) => {
     editFormRef.current?.setProductSku(row.sku)
     editFormRef.current?.setProductPrice(row.price)
     editFormRef.current?.setProductImage(row.image_url ?? "")
-    editFormRef.current?.editSetSelectedItems([...row.items]);
+    editFormRef.current?.setEditSelectedItems([...row.items]);
 }
 
 const ProductDeleteForm = forwardRef((props, ref) => {
