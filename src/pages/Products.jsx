@@ -195,12 +195,13 @@ const ProductEditForm = forwardRef((props, ref) => {
                             </div>
                         }
 
-                        <button type="button" className='action-button light-pink' onClick={(e) => {
+                        {/* <button disabled type="button" className='action-button light-pink' onClick={(e) => {
                             e.preventDefault();
                             editSelectItemsModalRef.current?.open()}}
                         >
                             + Item
-                        </button>
+                        </button> */}
+
                     </div>
                     { editSelectedItems.map((item, index) => (
                         <input type="hidden" name="item_ids" value={item.id} key={"edit-"+index}/>
