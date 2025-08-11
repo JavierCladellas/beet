@@ -162,7 +162,7 @@ const ProductEditForm = forwardRef((props, ref) => {
         <Form title={"Editar Producto "+ productName}
             method="put"
             key="edit-product-form"
-            action={`products/${productId}`}
+            action={productIsVariable?`products/${productId}`:`products/variant/${productId}`}
             create_button_text = "Editar"
             cancel_button_text = "Cancelar"
             onSuccess={props.onSuccess}
