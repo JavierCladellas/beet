@@ -52,7 +52,7 @@ const ProductCreateForm = ( props ) => {
             asMultipart = {!isVariable}
             action={isVariable?"products":"products/variant"}
             validate={() => {
-                if (!isVariable && selectedItems.length === 0) {
+                if (!isVariable && selectedItems && selectedItems.length === 0) {
                     alert("Debe seleccionar al menos un item.");
                     return false;
                 }
@@ -63,7 +63,7 @@ const ProductCreateForm = ( props ) => {
                 <Checkbox id="is_variable" label="Producto Variable" checked_default={isVariable} on_change={isVariableHandler}/>
 
                 <div className='form-col' style={{display:isVariable?"none":"flex"}} >
-                    {selectedItems.length > 0 &&
+                    {selectedItems && selectedItems.length > 0 &&
                         <div className="dynamic-col form-col" style={{gap:"4px", alignItems:"flex-start", border: "1px dashed black", padding:"8px"}}>
                             {selectedItems.map((itemId, index) => (
                                 <p key={index}>{itemId.name}</p>
@@ -172,7 +172,7 @@ const ProductEditForm = (props) => {
                             </div>
                         }
 
-                        {/* <button disabled type="button" className='action-button light-pink' onClick={(e) => {
+                        {/* <button type="button" className='action-button light-pink' onClick={(e) => {
                             e.preventDefault();
                             selectItemsModalRef.current?.open()}}
                         >
@@ -200,7 +200,7 @@ const ProductEditForm = (props) => {
                     <Modal ref={selectItemsModalRef} key="edit-selected-items-modal" children = {[
                         <SelectItems
                             selectedItems={[...selectedItems]}
-                            onSelectionChange={(newItems) => console.log("EDIT:", newItems)}
+                            onSelectionChange={(newItems) => setSelectedItems(newItems)}
                             key="edit-selected-items"
                             onConfirm={(s) => {
                                 setSelectedItems(s);

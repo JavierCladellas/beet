@@ -8,36 +8,22 @@ const SelectItems = (props) => {
   useEffect(() => {
     fetch(dev_env.url + "items", {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
     })
       .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
+        if (!response.ok) throw new Error("Network response was not ok");
         return response.json();
       })
-      .then((data) => {
-        setItems(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching items:", error);
-      });
+      .then((data) => setItems(data))
+      .catch((error) => console.error("Error fetching items:", error));
   }, []);
-
-  // Extract selected IDs from props.selectedItems, fallback to empty array
-  const selectedIds = props.selectedItems ? props.selectedItems.map(item => item.id) : [];
 
   const toggleItem = (id) => {
     if (!props.onSelectionChange) return;
 
-    if (selectedIds.includes(id)) {
-      // Remove from selection
+    if (props.selectedItems.some(item => item.id === id)) {
       props.onSelectionChange(props.selectedItems.filter(item => item.id !== id));
     } else {
-      // Add to selection
-      // Find the item object by id from items list and add it
       const newItem = items.find(item => item.id === id);
       if (newItem) {
         props.onSelectionChange([...props.selectedItems, newItem]);
@@ -53,7 +39,7 @@ const SelectItems = (props) => {
             <input
               type="checkbox"
               id={`item-${item.id}`}
-              checked={selectedIds.includes(item.id)}
+              checked={props.selectedItems.some(sel => sel.id === item.id)}
               onChange={() => toggleItem(item.id)}
             />
             <label htmlFor={`item-${item.id}`}>
@@ -70,9 +56,7 @@ const SelectItems = (props) => {
       <button
         className="select-items-button action-button light-pink"
         type="button"
-        onClick={() => {
-          props.onConfirm(props.selectedItems);
-        }}
+        onClick={() => props.onConfirm(props.selectedItems)}
       >
         Confirmar
       </button>
