@@ -99,10 +99,6 @@ const ProductCreateForm = ( props ) => {
                 <Modal ref={selectItemsModalRef} children = {[
                     <SelectItems key="select-items"
                     selectedItems={[...selectedItems]}
-
-                    onSelectionChange={(s) => {
-                        setSelectedItems(s);
-                    }}
                     onConfirm={(s) => {
                         setSelectedItems(s);
                         selectItemsModalRef.current?.close();
@@ -172,12 +168,12 @@ const ProductEditForm = (props) => {
                             </div>
                         }
 
-                        {/* <button type="button" className='action-button light-pink' onClick={(e) => {
+                        <button type="button" className='action-button light-pink' onClick={(e) => {
                             e.preventDefault();
                             selectItemsModalRef.current?.open()}}
                         >
                             + Item
-                        </button> */}
+                        </button>
 
                     </div>
                     { selectedItems.map((item, index) => (

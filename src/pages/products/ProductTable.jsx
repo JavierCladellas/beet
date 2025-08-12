@@ -58,11 +58,10 @@ const ProductTable = forwardRef((props, ref) => {
                 <IconButton aria-label="edit" size="small"
                     onClick={(e) => {
                         e.stopPropagation();
-                        console.log(params.row)
                         setEditForm(<ProductEditForm key="edit-product-form"
                             id = {params.row.id} name = {params.row.name}
                             isVariable = {params.row.is_variable} description = {params.row.description}
-                            category = {params.row.category.name} sku = {params.row.sku} price = {params.row.price}
+                            category = {params.row.category ? params.row.category.name : ""} sku = {params.row.sku} price = {params.row.price}
                             image = {params.row.image_url} selectedItems = {params.row.items}
                             onSuccess={fetchTableData}
                         />)
