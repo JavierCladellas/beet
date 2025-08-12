@@ -64,7 +64,10 @@ const InventoryTable = forwardRef((props, ref) => {
                 <IconButton aria-label="delete" size="small"
                     onClick={(e) => {
                         e.stopPropagation();
-                        setDeleteForm(<ItemDeleteForm key="delete-item-form" id={params.row.id} name={params.row.name} sku={params.row.sku} onSuccess={fetchTableData}/>)
+                        setDeleteForm(<ItemDeleteForm key="delete-item-form"
+                            id={params.row.id} name={params.row.name} sku={params.row.sku}
+                            onSuccess={fetchTableData}
+                        />)
                         deleteModalRef.current?.open();
                     }}
                 >
