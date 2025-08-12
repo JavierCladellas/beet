@@ -8,8 +8,10 @@ import dev_env from './data/DevEnv.json';
 
 import './styles/App.css';
 import './styles/Text.css';
+import './styles/Button.css';
+import './styles/Page.css';
 
-import Products from './pages/Products';
+import Products from './pages/products/Products';
 import Inventory from './pages/inventory/Inventory';
 import Navbar from './components/Navbar';
 import Users from './pages/users/Users';
