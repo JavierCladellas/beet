@@ -12,7 +12,7 @@ import './styles/Text.css';
 import Products from './pages/Products';
 import Inventory from './pages/Inventory';
 import Navbar from './components/Navbar';
-import Users from './pages/Users';
+import Users from './pages/users/Users';
 import Login from './pages/Login';
 
 

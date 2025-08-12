@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 
 import dev_env from '../data/DevEnv.json'
+import '../styles/Form.css'
 
 
 const Form = ( props ) => {

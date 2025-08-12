@@ -293,6 +293,14 @@ const renderCbs = {
         /> :
         <span></span>
     ),
+    "variants": (params) => (
+        params.value ?
+        <div className='form-row align-center'>
+            {params.value.length}
+            {/* <button type="button" className='icon-button light-pink' onClick={}><FaEye /></button> */}
+        </div>
+        :<div></div>
+    ),
     "is_variable": (params) => (
         params.value ? "Sí" : "No"
     ),
