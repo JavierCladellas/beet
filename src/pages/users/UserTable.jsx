@@ -90,6 +90,13 @@ const UserTable = forwardRef((props, ref) => {
                 sx={{ border: 0 }}
                 loading={ loading }
                 slotProps={{ loadingOverlay: { variant: 'circular-progress', noRowsVariant: 'circular-progress' } }}
+                initialState={{
+                    columns: {
+                      columnVisibilityModel: {
+                        id: false
+                      },
+                    },
+                  }}
             />
             {deleteModal}
             {editModal}
