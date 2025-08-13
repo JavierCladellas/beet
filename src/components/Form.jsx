@@ -81,7 +81,9 @@ const Form = ( props ) => {
                 body: props.asMultipart ? formData : JSON.stringify(data)
             });
 
-            onSuccess(response);
+            if (response.ok){
+                onSuccess(response);
+            }
             if (!response.ok) {
                 const errorData = await response.json();
                 throw new Error(errorData.message || 'Form submission failed');
