@@ -2,14 +2,14 @@ import { useEffect,useState, useCallback, useRef, forwardRef, useImperativeHandl
 
 import { DataGrid } from '@mui/x-data-grid';
 import { IconButton } from '@mui/material';
-import { AiFillEdit } from "react-icons/ai";
+import { AiFillEdit, AiFillEye } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 
 import dev_env from '../../data/DevEnv.json'
 import Modal from '../../components/Modal';
 
-import { ProductDeleteForm, ProductEditForm, VariantsModalContent } from './ProductForms';
-import { IoMdAdd, IoMdEye } from 'react-icons/io';
+import { ProductDeleteForm, ProductEditForm } from './ProductForms';
+import { VariantsModalContent } from './VariantForms';
 
 
 const ProductTable = forwardRef((props, ref) => {
@@ -45,19 +45,19 @@ const ProductTable = forwardRef((props, ref) => {
             renderCell: (params) => (
                 params.row.variants ?
                     <div style={{display:"flex", alignItems:"center", justifyContent:"", gap:"32px"}}>
-                        <span>{params.row.variants.length}</span>
-                        <button className='icon-button' style={{height:"16px", margin:0, padding:0}} type="button"
+                        {params.row.variants.length}
+                        <IconButton aria-label="edit" size="small"
                             onClick={
                                 (e)=>{e.stopPropagation();
                                 setVariantsModalContent(<VariantsModalContent key="variants-modal-content"
-                                    id={params.row.id} name={params.row.name}
-                                    variants={params.row.variants}
-                                />);
+                                    id={params.row.id} name={params.row.name} variants={params.row.variants}
+                                    onFormSubmitSuccess={ () => { fetchTableData(); }}
+                                />)
                                 variantsModalRef.current?.open(); }
                             }
                         >
-                            <IoMdEye/>
-                        </button>
+                            <AiFillEye/>
+                        </IconButton>
                     </div>
                 : ""
             )

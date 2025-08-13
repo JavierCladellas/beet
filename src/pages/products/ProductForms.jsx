@@ -1,4 +1,4 @@
-import { useState, useRef, forwardRef, useImperativeHandle, useEffect} from 'react';
+import { useState, useRef, useEffect} from 'react';
 
 import dev_env from '../../data/DevEnv.json';
 import SelectItems from '../../components/selectItems.jsx';
@@ -9,7 +9,6 @@ import UploadImage from '../../components/UploadImage.jsx';
 import Modal from '../../components/Modal.jsx';
 import Form from '../../components/Form.jsx';
 import NumberInput from '../../components/NumberInput.jsx';
-import { DataGrid } from '@mui/x-data-grid';
 
 
 const ProductCreateForm = ( props ) => {
@@ -213,7 +212,6 @@ const ProductEditForm = (props) => {
 };
 
 const ProductDeleteForm = (props) => {
-
     return (
         <Form title="Eliminar Producto"
             method="delete"
@@ -230,54 +228,4 @@ const ProductDeleteForm = (props) => {
     )
 };
 
-
-
-
-const VariantsModalContent = (props) => {
-    return (
-        <div className="form-col">
-            <h2>Variantes de <b>{props.name}</b></h2>
-            <input type="hidden" name="product_id" value={props.id} />
-            <DataGrid
-                sx={{width:"100%"}}
-                columns={[
-                    { field: "id", headerName:"", width:0, flex: 0},
-                    { field: "sku", headerName:"SKU", width:100, flex: 1,minWidth : 100, maxWidth: 150},
-                    { field: "name", headerName:"Nombre", flex: 1,minWidth : 100, maxWidth: 300},
-                    { field: "price", headerName:"Precio", flex: 1, minWidth : 100, maxWidth: 200},
-                    { field: "image_url", headerName:"", flex: 1,minWidth : 100, maxWidth: 300,
-                    sortable: false, filterable: false, disableExport: true,
-                    renderCell: (params) => (
-                        params.value ?
-                        <img
-                        src={"http://localhost:8000/api/"+params.value}
-                        alt="preview"
-                        className='table-image-preview'
-                        onClick={(e) => e.stopPropagation()}
-                        /> :
-                        <span></span>
-                    )},
-                    { field: "description", headerName:"Descripción", flex: 1,minWidth : 100},
-                ]}
-                rows={props.variants}
-                initialState={{
-                    columns: {
-                      columnVisibilityModel: {
-                        id: false
-                      },
-                    },
-                }}
-            />
-            <button
-                className="select-items-button action-button light-pink"
-                type="button"
-                // onClick
-            >
-                + Nueva Variante
-            </button>
-        </div>
-    )
-}
-
-
-export {ProductCreateForm, ProductDeleteForm, ProductEditForm,VariantsModalContent};
+export {ProductCreateForm, ProductDeleteForm, ProductEditForm};
