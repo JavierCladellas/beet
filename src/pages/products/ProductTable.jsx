@@ -8,7 +8,8 @@ import { MdDelete } from "react-icons/md";
 import dev_env from '../../data/DevEnv.json'
 import Modal from '../../components/Modal';
 
-import { ProductDeleteForm, ProductEditForm } from './ProductForms';
+import { ProductDeleteForm, ProductEditForm, VariantsModalContent } from './ProductForms';
+import { IoMdAdd, IoMdEye } from 'react-icons/io';
 
 
 const ProductTable = forwardRef((props, ref) => {
@@ -24,6 +25,10 @@ const ProductTable = forwardRef((props, ref) => {
     const editModal = <Modal key="edit-product-modal" ref={editModalRef} children={[editForm]} />
 
 
+    const [variantsModalContent, setVariantsModalContent] = useState(<VariantsModalContent key="variants-modal-content"/>)
+    const variantsModalRef = useRef(null);
+    const variantsModal = <Modal key="variants-modal" ref={variantsModalRef} children={[variantsModalContent]} className="full"/>
+
     const tableColumns = [
         { field: "id", headerName:"", width:0, flex: 0},
         { field: "name", headerName:"Nombre", flex: 1,minWidth : 100, maxWidth: 300},
@@ -33,6 +38,29 @@ const ProductTable = forwardRef((props, ref) => {
         },
         { field: "category", headerName:"Categoría", flex: 1,minWidth : 100, maxWidth: 150,
             renderCell: (params) => ( params.value ? params.value.name : "" )
+        },
+
+        { field: "variants", headerName:"Variantes", width:100, flex:1, minWidth:100, maxWidth:150,
+            sortable: false, filterable: false,
+            renderCell: (params) => (
+                params.row.variants ?
+                    <div style={{display:"flex", alignItems:"center", justifyContent:"", gap:"32px"}}>
+                        <span>{params.row.variants.length}</span>
+                        <button className='icon-button' style={{height:"16px", margin:0, padding:0}} type="button"
+                            onClick={
+                                (e)=>{e.stopPropagation();
+                                setVariantsModalContent(<VariantsModalContent key="variants-modal-content"
+                                    id={params.row.id} name={params.row.name}
+                                    variants={params.row.variants}
+                                />);
+                                variantsModalRef.current?.open(); }
+                            }
+                        >
+                            <IoMdEye/>
+                        </button>
+                    </div>
+                : ""
+            )
         },
 
         { field: "image_url", headerName:"", flex: 1,minWidth : 100, maxWidth: 300,
@@ -126,10 +154,11 @@ const ProductTable = forwardRef((props, ref) => {
                         id: false
                       },
                     },
-                  }}
+                }}
             />
             {deleteModal}
             {editModal}
+            {variantsModal}
         </div>
     );
 
