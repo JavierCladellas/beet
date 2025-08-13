@@ -9,6 +9,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import { AiFillEdit } from 'react-icons/ai';
 import { MdDelete } from 'react-icons/md';
 import { IconButton } from '@mui/material';
+import AttributeInputSection from '../../components/AttributesInputSection';
 
 
 const VariantCreateForm = (props) => {
@@ -56,6 +57,8 @@ const VariantCreateForm = (props) => {
                 <TextInput id="sku" label="SKU" required />
 
                 <NumberInput id="price" label="Precio ($)" required min="0" default_value="0" step="0.01" pattern="^\d+(,\d{1,2})"/>
+
+                <AttributeInputSection />
 
                 <UploadImage id="image" label="Foto" />
 

@@ -14,6 +14,7 @@ const Dropdown = ( props ) => {
 
     const handleChange = (e) => {
         setSelectedValue(e.target.value);
+        props.onChange(e);
         if (e.target.value !== "other") {
             setCustomInput("");
         }
@@ -26,7 +27,7 @@ const Dropdown = ( props ) => {
                     type="text"
                     placeholder="Tu opción personalizada"
                     value={customInput}
-                    onChange={(e) => setCustomInput(e.target.value)}
+                    onChange={(e) => {setCustomInput(e.target.value); props.onChange(e);}}
                     className="custom-input"
                     required
                 />
