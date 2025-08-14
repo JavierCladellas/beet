@@ -29,6 +29,10 @@ const ProductTable = forwardRef((props, ref) => {
     const variantsModalRef = useRef(null);
     const variantsModal = <Modal key="variants-modal" ref={variantsModalRef} children={[variantsModalContent]} className="full"/>
 
+    const imageModalRef = useRef(null);
+    const [imgBig, setImgBig] = useState();
+    const imageModal = <Modal key="img-modal" ref={imageModalRef} children={[imgBig]} />
+
     const tableColumns = [
         { field: "id", headerName:"", width:0, flex: 0},
         { field: "name", headerName:"Nombre", flex: 1,minWidth : 100, maxWidth: 300},
@@ -70,8 +74,13 @@ const ProductTable = forwardRef((props, ref) => {
             <img
             src={"http://localhost:8000/api/"+params.value}
             alt="preview"
+            style={{cursor:"pointer"}}
             className='table-image-preview'
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e) => {
+                e.stopPropagation();
+                setImgBig(<img src={"http://localhost:8000/api/"+params.value} className='image-full-modal' alt="item"/>);
+                imageModalRef.current?.open();
+            }}
             /> :
             <span></span>
         )},
@@ -159,6 +168,7 @@ const ProductTable = forwardRef((props, ref) => {
             {deleteModal}
             {editModal}
             {variantsModal}
+            {imageModal}
         </div>
     );
 

@@ -176,6 +176,10 @@ const VariantsModalContent = (props) => {
     const editModalRef = useRef(null);
     const editModal = <Modal key="edit-variant-modal" ref={editModalRef} children={[editForm]} />
 
+    const imageModalRef = useRef(null);
+    const [imgBig, setImgBig] = useState();
+    const imageModal = <Modal key="img-modal" ref={imageModalRef} children={[imgBig]} />
+
     useEffect(()=>{
         setVariants(props.variants);
     },[props.variants]);
@@ -201,7 +205,12 @@ const VariantsModalContent = (props) => {
                         src={"http://localhost:8000/api/"+params.value}
                         alt="preview"
                         className='table-image-preview'
-                        onClick={(e) => e.stopPropagation()}
+                        style={{cursor:"pointer"}}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setImgBig(<img src={"http://localhost:8000/api/"+params.value} className='image-full-modal' alt="item"/>);
+                            imageModalRef.current?.open();
+                        }}
                         /> :
                         <span></span>
                     )},
@@ -290,6 +299,7 @@ const VariantsModalContent = (props) => {
             />
             {deleteModal}
             {editModal}
+            {imageModal}
         </div>
     )
 }

@@ -23,6 +23,11 @@ const InventoryTable = forwardRef((props, ref) => {
     const editModalRef = useRef(null);
     const editModal = <Modal key="edit-item-modal" ref={editModalRef} children={[editForm]} />
 
+
+    const imageModalRef = useRef(null);
+    const [imgBig, setImgBig] = useState();
+    const imageModal = <Modal key="img-modal" ref={imageModalRef} children={[imgBig]} />
+
     const tableColumns = [
         { field: "id", headerName:"", width:0, flex: 0},
         { field: "sku", headerName:"SKU", width:100, flex: 1,minWidth : 100, maxWidth: 150},
@@ -36,7 +41,12 @@ const InventoryTable = forwardRef((props, ref) => {
             src={"http://localhost:8000/api/"+params.value}
             alt="preview"
             className='table-image-preview'
-            onClick={(e) => e.stopPropagation()}
+            style={{cursor:"pointer"}}
+            onClick={(e) => {
+                e.stopPropagation();
+                setImgBig(<img src={"http://localhost:8000/api/"+params.value} className='image-full-modal' alt="item"/>);
+                imageModalRef.current?.open();
+            }}
             /> :
             <span></span>
         )},
@@ -122,6 +132,7 @@ const InventoryTable = forwardRef((props, ref) => {
             />
             {deleteModal}
             {editModal}
+            {imageModal}
         </div>
     );
 
