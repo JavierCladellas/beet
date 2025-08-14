@@ -218,7 +218,7 @@ const VariantsModalContent = (props) => {
                             <IconButton aria-label="edit" size="small"
                                 onClick={(e) => {
                                     e.stopPropagation();
-                                    setEditForm(<VariantEditForm key="edit-variant-form"
+                                    setEditForm(<VariantEditForm key={`edit-variant-form-${params.row.id}`}
                                         id={params.row.id} name={params.row.name} sku={params.row.sku}
                                         price={params.row.price} selectedItems={params.row.items} image={params.row.image_url}
                                         variant_attributes = {params.row.variant_attributes}
@@ -235,7 +235,7 @@ const VariantsModalContent = (props) => {
                             <IconButton aria-label="delete" size="small"
                                 onClick={(e) => {
                                     e.stopPropagation();
-                                    setDeleteForm(<VariantDeleteForm key="delete-variant-form"
+                                    setDeleteForm(<VariantDeleteForm key={`delete-variant-form-${params.row.id}`}
                                         id={params.row.id} name={params.row.name} sku={params.row.sku}
                                         onSuccess={ async (res) => {
                                             props.onFormSubmitSuccess(res);
@@ -271,7 +271,7 @@ const VariantsModalContent = (props) => {
             </button>
             <Modal key="new-variant-modal" ref={newVariantModal}
                 children={[
-                    <VariantCreateForm key="new-variant-form"
+                    <VariantCreateForm key={`new-variant-form-${props.id}`}
                         productId={props.id} productName={props.name}
                         onSuccess={ async (res) => {
                             props.onFormSubmitSuccess(res);
