@@ -77,12 +77,9 @@ const VariantCreateForm = (props) => {
 };
 
 const VariantEditForm = ( props ) => {
-    const [selectedItems, setSelectedItems] = useState([]);
+    const [selectedItems, setSelectedItems] = useState(props.selectedItems);
     const selectItemsModalRef = useRef();
 
-    useEffect(()=>{
-        setSelectedItems(props.selectedItems);
-    },[props.selectedItems])
 
     return (
         <Form title={"Editar Variante "+props.name}
