@@ -224,7 +224,12 @@ const VariantsModalContent = (props) => {
                                         variant_attributes = {params.row.variant_attributes}
                                         onSuccess={ async (res) => {
                                             props.onFormSubmitSuccess(res);
-                                            //TODO: Refresh doesnt work for this :(
+                                            if ( res.ok ){
+                                                const updatedVariant = await res.json();
+                                                setVariants(prev =>
+                                                    prev.map(v => v.id === updatedVariant.id ? updatedVariant : v)
+                                                );
+                                            }
                                         }}
                                     />)
                                     editModalRef.current?.open();
