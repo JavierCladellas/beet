@@ -50,7 +50,8 @@ const InventoryTable = forwardRef((props, ref) => {
                 <IconButton aria-label="edit" size="small"
                     onClick={(e) => {
                         e.stopPropagation();
-                        setEditForm(<ItemEditForm key="edit-item-form"
+                        setEditForm(<ItemEditForm
+                            key={`edit-item-form-${params.row.id}`}
                             id = {params.row.id} name = {params.row.name}
                             sku = {params.row.sku} description = {params.row.description}
                             stock = {params.row.stock} image = {params.row.image_url}
@@ -64,7 +65,7 @@ const InventoryTable = forwardRef((props, ref) => {
                 <IconButton aria-label="delete" size="small"
                     onClick={(e) => {
                         e.stopPropagation();
-                        setDeleteForm(<ItemDeleteForm key="delete-item-form"
+                        setDeleteForm(<ItemDeleteForm key={`delete-item-form-${params.row.id}`}
                             id={params.row.id} name={params.row.name} sku={params.row.sku}
                             onSuccess={fetchTableData}
                         />)

@@ -36,7 +36,7 @@ const UserTable = forwardRef((props, ref) => {
                 <IconButton aria-label="edit" size="small"
                     onClick={(e) => {
                         e.stopPropagation();
-                        setEditForm(<UserEditForm key="edit-user-form" id={params.row.id} email={params.row.email} role={params.row.role} userRole={props.userRole} onSuccess={fetchTableData}/>)
+                        setEditForm(<UserEditForm key={`edit-user-form-${params.row.id}`} id={params.row.id} email={params.row.email} role={params.row.role} userRole={props.userRole} onSuccess={fetchTableData}/>)
                         editModalRef.current?.open();
                     }}
                 >
@@ -45,7 +45,7 @@ const UserTable = forwardRef((props, ref) => {
                 <IconButton aria-label="delete" size="small"
                     onClick={(e) => {
                         e.stopPropagation();
-                        setDeleteForm(<UserDeleteForm key="delete-user-form" id={params.row.id} email={params.row.email} onSuccess={fetchTableData}/>)
+                        setDeleteForm(<UserDeleteForm key={`delete-user-form-${params.row.id}`} id={params.row.id} email={params.row.email} onSuccess={fetchTableData}/>)
                         deleteModalRef.current?.open();
                     }}
                 >

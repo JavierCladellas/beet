@@ -49,7 +49,7 @@ const ProductTable = forwardRef((props, ref) => {
                         <IconButton aria-label="edit" size="small"
                             onClick={
                                 (e)=>{e.stopPropagation();
-                                setVariantsModalContent(<VariantsModalContent key="variants-modal-content"
+                                setVariantsModalContent(<VariantsModalContent key={`variants-modal-content-${params.row.id}`}
                                     id={params.row.id} name={params.row.name} variants={params.row.variants}
                                     onFormSubmitSuccess={ () => { fetchTableData(); }}
                                 />)
@@ -86,7 +86,7 @@ const ProductTable = forwardRef((props, ref) => {
                 <IconButton aria-label="edit" size="small"
                     onClick={(e) => {
                         e.stopPropagation();
-                        setEditForm(<ProductEditForm key="edit-product-form"
+                        setEditForm(<ProductEditForm key={`edit-product-form-${params.row.id}`}
                             id = {params.row.id} name = {params.row.name}
                             isVariable = {params.row.is_variable} description = {params.row.description}
                             category = {params.row.category ? params.row.category.name : ""} sku = {params.row.sku} price = {params.row.price}
@@ -101,7 +101,7 @@ const ProductTable = forwardRef((props, ref) => {
                 <IconButton aria-label="delete" size="small"
                     onClick={(e) => {
                         e.stopPropagation();
-                        setDeleteForm(<ProductDeleteForm key="delete-product-form"
+                        setDeleteForm(<ProductDeleteForm key={`delete-product-form-${params.row.id}`}
                             id={params.row.id} name={params.row.name}
                             onSuccess={fetchTableData}
                         />)
