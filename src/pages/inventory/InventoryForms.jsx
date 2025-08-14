@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
+import dev_env from '../../data/DevEnv.json';
 import Form from '../../components/Form.jsx';
 import Dropdown from '../../components/Dropdown.jsx';
 import AttributeInputSection from '../../components/AttributesInputSection.jsx';
@@ -27,6 +28,24 @@ const ItemCreateForm = ( props ) => {
         setIsProduct(true);
         setIsVariant(false);
     };
+
+
+    const [categories, setCategories] = useState([]);
+    useEffect(() => {
+        fetch(dev_env.url+"categories")
+            .then(response => response.json())
+            .then(data => {
+                let options = [{"value": "other", "label": "Otra"}];
+                data.forEach(category => {
+                    options.push({"value": category.name, "label": category.name});
+                });
+                setCategories(options);
+            })
+            .catch(error => {
+                console.error('Error fetching categories:', error);
+            });
+    },[]);
+
 
     return (
 
@@ -57,24 +76,20 @@ const ItemCreateForm = ( props ) => {
 
                     <div className='form-col' style={{display: (isProduct || isVariant ) ? "flex" : "none"}}>
                         <h3>{isProduct ? "Producto" : "Variante"}</h3>
-                        <Dropdown id="fcategory" label="Categoría" required={isProduct} style={{display: isProduct ? "flex" : "none"}}
-                            options = {[
-                                {"value": "category1", "label": "Categoría 1"},
-                                {"value": "category2", "label": "Categoría 2"},
-                                {"value": "category3", "label": "Categoría 3"},
-                                {"value": "other", "label": "Otra"}
-                            ]}
+
+                        <Dropdown id="category" label="Categoría" placeholder = "Ninguna" accept_empty
+                            options = {categories}
                         />
-                        <Dropdown id="fproduct" label="Producto" required={isVariant} style={{display: isVariant ? "flex" : "none"}}
+                        <Dropdown id="product" label="Producto" required={isVariant} style={{display: isVariant ? "flex" : "none"}}
                             options = {[
                                 {"value": "product1", "label": "Producto 1"},
                                 {"value": "product2", "label": "Producto 2"},
                                 {"value": "product3", "label": "Producto 3"}
                             ]}
                         />
-                        <NumberInput id="fprice" label="Precio ($)" required={isProduct||isVariant} style={{display: (isVariant||isProduct) ? "flex" : "none"}} min="0" default_value="0" step="0.01" pattern="^\d+(.\d{1,2})" />
+                        <NumberInput id="price" label="Precio ($)" required={isProduct||isVariant} style={{display: (isVariant||isProduct) ? "flex" : "none"}} min="0" default_value="0" step="0.01" pattern="^\d+(.\d{1,2})" />
 
-                        <AttributeInputSection />
+                        <AttributeInputSection style={{display: isVariant ? "flex" : "none"}}/>
 
                     </div>
                 </div>
