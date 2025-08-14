@@ -40,7 +40,7 @@ const SelectItems = (props) => {
                 renderCell: (params) => (
                     params.value ?
                     <img
-                    src={"http://localhost:8000/api/"+params.value}
+                    src={dev_env.url+params.value}
                     alt="preview"
                     className='table-image-preview'
                     onClick={(e) => e.stopPropagation()}

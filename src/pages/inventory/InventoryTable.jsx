@@ -38,13 +38,13 @@ const InventoryTable = forwardRef((props, ref) => {
         renderCell: (params) => (
             params.value ?
             <img
-            src={"http://localhost:8000/api/"+params.value}
+            src={dev_env.url+params.value}
             alt="preview"
             className='table-image-preview'
             style={{cursor:"pointer"}}
             onClick={(e) => {
                 e.stopPropagation();
-                setImgBig(<img src={"http://localhost:8000/api/"+params.value} className='image-full-modal' alt="item"/>);
+                setImgBig(<img src={dev_env.url+params.value} className='image-full-modal' alt="item"/>);
                 imageModalRef.current?.open();
             }}
             /> :
