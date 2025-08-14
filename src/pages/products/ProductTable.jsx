@@ -85,6 +85,12 @@ const ProductTable = forwardRef((props, ref) => {
             <span></span>
         )},
 
+        { field: "items", headerName:"items", flex:1, width:80, maxWidth:80,
+        renderCell: (params) => (
+            params.value && params.value.length ? params.value.length : " -"
+        )
+        },
+
         { field: "description", headerName:"Descripción", flex: 1,minWidth : 100},
 
         {
