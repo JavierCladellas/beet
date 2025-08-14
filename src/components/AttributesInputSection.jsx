@@ -5,9 +5,9 @@ import { FaTrash } from "react-icons/fa";
 
 import dev_env from '../data/DevEnv.json';
 
-const AttributeInputRow = ( {index, onDelete, availableAttributes} ) => {
-    const [attributeName, setAttributeName] = useState();
-    const [attributeValue, setAttributeValue] = useState();
+const AttributeInputRow = ( {index, onDelete, availableAttributes, default_attribute_name, default_attribute_value} ) => {
+    const [attributeName, setAttributeName] = useState(default_attribute_name??"");
+    const [attributeValue, setAttributeValue] = useState(default_attribute_value??"");
 
     const selectedAttribute = availableAttributes.find(att => att.name === attributeName);
 
@@ -19,11 +19,15 @@ const AttributeInputRow = ( {index, onDelete, availableAttributes} ) => {
                             { value: "other", label: "Otro" },
                             ...availableAttributes.map(att => ({ value: att.name, label: att.name }))
                         ]}
+                        accept_empty
+                        default_value={default_attribute_name}
                         onChange={(e) => setAttributeName(e.target.value)}
             />
             <Dropdown id={"attribute_value_"+index}
                     label="Valor" required
                     onChange={(e) => setAttributeValue(e.target.value)}
+                    default_value={default_attribute_value}
+                    accept_empty
                     options={[
                         { value: "other", label: "Otro" },
                         ...(selectedAttribute
@@ -34,7 +38,9 @@ const AttributeInputRow = ( {index, onDelete, availableAttributes} ) => {
                             : [])
                     ]}
             />
-            <input type="hidden" name="attributes" value={JSON.stringify([{ name: attributeName, value: attributeValue }])}/>
+            <input type="hidden" name="attribute_names" value={attributeName} />
+            <input type="hidden" name="attribute_values" value={attributeValue} />
+
             <div className='icon-buttons-container'>
                 <button className='icon-button' type="button" onClick={() => onDelete(index)} >
                     <FaTrash />
@@ -49,7 +55,6 @@ const AttributeInputSection = ( props ) => {
     const attributesListRef = useRef(null);
 
     const [availableAttributes, setAvailableAttributes] = useState([])
-
     useEffect(()=>{
         fetch(dev_env.url+"attributes")
         .then(response => response.json())
@@ -61,8 +66,24 @@ const AttributeInputSection = ( props ) => {
         })
     },[])
 
+    useEffect( () => {
+        if ( props.default_value ){
+            let existingAttRows = [];
+            props.default_value.forEach( (att,i) => (
+                existingAttRows.push(<AttributeInputRow key={i}
+                                index={i}
+                                default_attribute_name = {att.attribute.name}
+                                default_attribute_value = {att.attribute_value.value}
+                                availableAttributes = {availableAttributes}
+                                onDelete={deleteAttributeRow}
+                />)
+            ))
+            setAttributeRows(existingAttRows);
+        }
+    },[availableAttributes,props.default_value]);
+
     const addAttributeRow = ( ) => {
-        setAttributeRows(attributeRows => [...attributeRows, <AttributeInputRow key={attributeRows.length} index={attributeRows.length} />]);
+        setAttributeRows(attributeRows => [...attributeRows, <AttributeInputRow key={attributeRows.length} index={attributeRows.length}  availableAttributes = {availableAttributes} onDelete={deleteAttributeRow}/>]);
         setTimeout(() => {
             if (attributesListRef.current) {
                 attributesListRef.current.scrollTop = attributesListRef.current.scrollHeight;
@@ -81,13 +102,7 @@ const AttributeInputSection = ( props ) => {
         <div className='form-col' style={props.style}>
         {attributeRows.length > 0 &&
         <div className="form-col dynamic-col" ref={attributesListRef}>
-            {attributeRows.map((row, index) => (
-                <AttributeInputRow key={index}
-                                index={index}
-                                availableAttributes = {availableAttributes}
-                                onDelete={deleteAttributeRow}
-                />
-            ))}
+            {attributeRows}
         </div>
         }
 

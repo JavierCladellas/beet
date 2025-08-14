@@ -125,6 +125,8 @@ const VariantEditForm = ( props ) => {
 
                 <NumberInput id="price" label="Precio ($)" required min="0" default_value={props.price} step="0.01" pattern="^\d+(,\d{1,2})"/>
 
+                <AttributeInputSection default_value={props.variant_attributes} />
+
                 <UploadImage id="image" label="Foto" default_value={props.image} />
 
                 <Modal ref={selectItemsModalRef} children = {[
@@ -219,6 +221,7 @@ const VariantsModalContent = (props) => {
                                     setEditForm(<VariantEditForm key="edit-variant-form"
                                         id={params.row.id} name={params.row.name} sku={params.row.sku}
                                         price={params.row.price} selectedItems={params.row.items} image={params.row.image_url}
+                                        variant_attributes = {params.row.variant_attributes}
                                         onSuccess={ async (res) => {
                                             props.onFormSubmitSuccess(res);
                                             //TODO: Refresh doesnt work for this :(
