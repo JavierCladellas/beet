@@ -14,6 +14,8 @@ const ItemCreateForm = ( props ) => {
     const [isProduct, setIsProduct] = useState(true);
     const [isVariant, setIsVariant] = useState(false);
 
+    const [variantProductId, setVariantProductId] = useState();
+
     const isProductHandler = (e) => {
         setIsProduct(e.target.checked);
         if ( e.target.checked )
@@ -31,6 +33,7 @@ const ItemCreateForm = ( props ) => {
 
 
     const [categories, setCategories] = useState([]);
+    const [variableProducts, setVariableProducts] = useState([]);
     useEffect(() => {
         fetch(dev_env.url+"categories")
             .then(response => response.json())
@@ -44,6 +47,15 @@ const ItemCreateForm = ( props ) => {
             .catch(error => {
                 console.error('Error fetching categories:', error);
             });
+
+        fetch(dev_env.url+"products")
+            .then(response => response.json())
+            .then(data => {
+                setVariableProducts(data.filter((product) => product.is_variable).map((product) =>({value:product.id, label:product.name})))
+            })
+            .catch(error => {
+                console.error('Error fetching products:', error);
+            });
     },[]);
 
 
@@ -52,7 +64,7 @@ const ItemCreateForm = ( props ) => {
         <Form onCancel={cancelHandler}
             title ="Nuevo Item"
             method="post"
-            action={isVariant ? "items/variant" : (isProduct ? "items/product" : "items") }
+            action={isVariant ? `items/product/${variantProductId}/variant` : (isProduct ? "items/product" : "items") }
             asMultipart
             onSuccess={props.onSuccess}
             create_button_text = "Crear"
@@ -77,15 +89,12 @@ const ItemCreateForm = ( props ) => {
                     <div className='form-col' style={{display: (isProduct || isVariant ) ? "flex" : "none"}}>
                         <h3>{isProduct ? "Producto" : "Variante"}</h3>
 
-                        <Dropdown id="category" label="Categoría" placeholder = "Ninguna" accept_empty
+                        <Dropdown id="category" label="Categoría" placeholder = "Ninguna" accept_empty style={{display: !isVariant ? "flex" : "none"}}
                             options = {categories}
                         />
-                        <Dropdown id="product" label="Producto" required={isVariant} style={{display: isVariant ? "flex" : "none"}}
-                            options = {[
-                                {"value": "product1", "label": "Producto 1"},
-                                {"value": "product2", "label": "Producto 2"},
-                                {"value": "product3", "label": "Producto 3"}
-                            ]}
+                        <Dropdown id="product_id" label="Producto" required={isVariant} style={{display: isVariant ? "flex" : "none"}}
+                            options = {variableProducts}
+                            onChange = {(e) => setVariantProductId(e.target.value)}
                         />
                         <NumberInput id="price" label="Precio ($)" required={isProduct||isVariant} style={{display: (isVariant||isProduct) ? "flex" : "none"}} min="0" default_value="0" step="0.01" pattern="^\d+(.\d{1,2})" />
 
