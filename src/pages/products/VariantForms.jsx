@@ -189,7 +189,7 @@ const VariantsModalContent = (props) => {
                 columns={[
                     { field: "id", headerName:"", width:0, flex: 0},
                     { field: "sku", headerName:"SKU", width:100, flex: 1,minWidth : 100, maxWidth: 150},
-                    { field: "name", headerName:"Nombre", flex: 1,minWidth : 100, maxWidth: 300},
+                    { field: "name", headerName:"Nombre", flex: 1,minWidth : 100},
                     { field: "price", headerName:"Precio", flex: 1,minWidth : 100, maxWidth: 150,
                         renderCell:(params) =>( params.value ? ( "$ " + params.value ) : "$ -" )
                     },
