@@ -4,9 +4,9 @@ import '../styles/Button.css';
 
 import Modal from "../components/Modal.jsx";
 import { useRef,useEffect,useState, forwardRef, useImperativeHandle, useCallback } from 'react';
-import dev_env from '../data/DevEnv.json'
 import Table from '../components/Table';
 
+const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
 const Page = forwardRef((props,ref) => {
     const modalRef = useRef();
@@ -19,7 +19,7 @@ const Page = forwardRef((props,ref) => {
 
     const fetchTableData = useCallback(() => {
         setLoading(true);
-        fetch(dev_env.url + props.api_endpoint, {
+        fetch(apiUrl + props.api_endpoint, {
             method: 'GET',
             credentials: 'include',
             headers: {

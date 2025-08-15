@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import "../styles/Image.css";
-import dev_env from "../data/DevEnv.json"
+
+const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
 const UploadImage = (props) => {
   const previewRef = useRef(null);
@@ -14,7 +15,7 @@ const UploadImage = (props) => {
     if (preview) {
       if (defaultValue) {
         const fullUrl = defaultValue.startsWith("http")
-          ? defaultValue : dev_env.url + defaultValue;
+          ? defaultValue : apiUrl + defaultValue;
         preview.style.backgroundImage = `url('${fullUrl}')`;
         preview.classList.add("has-image");
       } else {

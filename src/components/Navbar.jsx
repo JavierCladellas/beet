@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { IoLogOutOutline } from "react-icons/io5";
 
-import dev_env from '../data/DevEnv.json';
 
 import '../styles/Navbar.css';
 
+const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
 const Navbar = (props) => {
     const navbar_buttons = props.navbar_buttons;
@@ -12,7 +12,7 @@ const Navbar = (props) => {
 
     const logout = async () => {
         try {
-            const response = await fetch(dev_env.url + "logout", {
+            const response = await fetch(apiUrl + "logout", {
                 method: 'POST',
                 credentials: "include",
                 headers: {

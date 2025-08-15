@@ -4,7 +4,6 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import Mosaic from 'react-loading-indicators/Mosaic';
 
 import navbar_buttons from './data/NavbarButtons.json';
-import dev_env from './data/DevEnv.json';
 
 import './styles/App.css';
 import './styles/Text.css';
@@ -17,7 +16,7 @@ import Navbar from './components/Navbar';
 import Users from './pages/users/Users';
 import Login from './pages/Login';
 
-
+const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
 
 const ProtectedRoute = ({ role, allowedRoles, children }) => {
@@ -39,7 +38,7 @@ function App() {
     useEffect(() => {
         async function checkLogin() {
             try {
-                const response = await fetch(dev_env.url + "token", {
+                const response = await fetch(apiUrl + "token", {
                     method: 'GET',
                     credentials: "include",
                     withCredentials: true,

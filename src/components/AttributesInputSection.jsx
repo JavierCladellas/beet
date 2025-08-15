@@ -3,7 +3,7 @@ import '../styles/Form.css'
 import Dropdown from './Dropdown';
 import { FaTrash } from "react-icons/fa";
 
-import dev_env from '../data/DevEnv.json';
+const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
 const AttributeInputRow = ( {index, onDelete, availableAttributes, default_attribute_name, default_attribute_value} ) => {
     const [attributeName, setAttributeName] = useState(default_attribute_name??"");
@@ -56,7 +56,7 @@ const AttributeInputSection = ( props ) => {
 
     const [availableAttributes, setAvailableAttributes] = useState([])
     useEffect(()=>{
-        fetch(dev_env.url+"attributes")
+        fetch(apiUrl+"attributes")
         .then(response => response.json())
         .then( data => {
             setAvailableAttributes(data);

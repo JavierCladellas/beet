@@ -1,8 +1,8 @@
 import { useRef } from 'react';
 
-import dev_env from '../data/DevEnv.json'
 import '../styles/Form.css'
 
+const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
 const Form = ( props ) => {
     const formRef = useRef();
@@ -71,7 +71,7 @@ const Form = ( props ) => {
 
 
         try {
-            const response = await fetch(dev_env.url + (props.action ?? '#'), {
+            const response = await fetch(apiUrl + (props.action ?? '#'), {
                 method: props.method ?? 'POST',
                 credentials: 'include',
                 withCredentials: true,

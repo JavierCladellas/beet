@@ -5,11 +5,11 @@ import { IconButton } from '@mui/material';
 import { AiFillEdit } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 
-import dev_env from '../../data/DevEnv.json'
 import Modal from '../../components/Modal';
 
 import { ItemDeleteForm, ItemEditForm } from './InventoryForms';
 
+const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
 const InventoryTable = forwardRef((props, ref) => {
     const [ tableData, setTableData ] = useState([]);
@@ -38,13 +38,13 @@ const InventoryTable = forwardRef((props, ref) => {
         renderCell: (params) => (
             params.value ?
             <img
-            src={dev_env.url+params.value}
+            src={apiUrl+params.value}
             alt="preview"
             className='table-image-preview'
             style={{cursor:"pointer"}}
             onClick={(e) => {
                 e.stopPropagation();
-                setImgBig(<img src={dev_env.url+params.value} className='image-full-modal' alt="item"/>);
+                setImgBig(<img src={apiUrl+params.value} className='image-full-modal' alt="item"/>);
                 imageModalRef.current?.open();
             }}
             /> :
@@ -93,7 +93,7 @@ const InventoryTable = forwardRef((props, ref) => {
 
     const fetchTableData = useCallback(()=> {
         setLoading(true);
-        fetch(dev_env.url + "items", {
+        fetch(apiUrl + "items", {
             method: 'GET',
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' }

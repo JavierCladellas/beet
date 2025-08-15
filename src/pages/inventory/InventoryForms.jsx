@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 
-import dev_env from '../../data/DevEnv.json';
 import Form from '../../components/Form.jsx';
 import Dropdown from '../../components/Dropdown.jsx';
 import AttributeInputSection from '../../components/AttributesInputSection.jsx';
@@ -9,6 +8,7 @@ import TextInput from '../../components/TextInput.jsx';
 import NumberInput from '../../components/NumberInput.jsx';
 import UploadImage from '../../components/UploadImage.jsx';
 
+const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
 const ItemCreateForm = ( props ) => {
     const [isProduct, setIsProduct] = useState(true);
@@ -35,7 +35,7 @@ const ItemCreateForm = ( props ) => {
     const [categories, setCategories] = useState([]);
     const [variableProducts, setVariableProducts] = useState([]);
     useEffect(() => {
-        fetch(dev_env.url+"categories")
+        fetch(apiUrl+"categories")
             .then(response => response.json())
             .then(data => {
                 let options = [{"value": "other", "label": "Otra"}];
@@ -48,7 +48,7 @@ const ItemCreateForm = ( props ) => {
                 console.error('Error fetching categories:', error);
             });
 
-        fetch(dev_env.url+"products")
+        fetch(apiUrl+"products")
             .then(response => response.json())
             .then(data => {
                 setVariableProducts(data.filter((product) => product.is_variable).map((product) =>({value:product.id, label:product.name})))

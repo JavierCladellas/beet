@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import "../styles/SelectItems.css";
-import dev_env from "../data/DevEnv.json";
 import { DataGrid } from "@mui/x-data-grid";
+
+const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
 const SelectItems = (props) => {
     const [items, setItems] = useState([]);
@@ -13,7 +14,7 @@ const SelectItems = (props) => {
     });
 
     useEffect(() => {
-        fetch(dev_env.url + "items", {
+        fetch(apiUrl + "items", {
             method: "GET",
             headers: { "Content-Type": "application/json" },
         })
@@ -40,7 +41,7 @@ const SelectItems = (props) => {
                 renderCell: (params) => (
                     params.value ?
                     <img
-                    src={dev_env.url+params.value}
+                    src={apiUrl+params.value}
                     alt="preview"
                     className='table-image-preview'
                     onClick={(e) => e.stopPropagation()}

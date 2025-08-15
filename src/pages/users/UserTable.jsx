@@ -6,10 +6,10 @@ import { IconButton } from '@mui/material';
 import { AiFillEdit } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 
-import dev_env from '../../data/DevEnv.json'
 import Modal from '../../components/Modal';
 import { UserDeleteForm, UserEditForm } from './UserForms';
 
+const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
 const UserTable = forwardRef((props, ref) => {
     const [ tableData, setTableData ] = useState([]);
@@ -59,7 +59,7 @@ const UserTable = forwardRef((props, ref) => {
 
     const fetchTableData = useCallback(()=> {
         setLoading(true);
-        fetch(dev_env.url + "users", {
+        fetch(apiUrl + "users", {
             method: 'GET',
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' }

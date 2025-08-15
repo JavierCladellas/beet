@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect} from 'react';
 
-import dev_env from '../../data/DevEnv.json';
 import SelectItems from '../../components/selectItems.jsx';
 import Checkbox from '../../components/Checkbox.jsx';
 import TextInput from '../../components/TextInput.jsx';
@@ -10,6 +9,7 @@ import Modal from '../../components/Modal.jsx';
 import Form from '../../components/Form.jsx';
 import NumberInput from '../../components/NumberInput.jsx';
 
+const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
 const ProductCreateForm = ( props ) => {
     const [isVariable, setIsVariable] = useState(false);
@@ -27,7 +27,7 @@ const ProductCreateForm = ( props ) => {
 
     const [categories, setCategories] = useState([]);
     useEffect(() => {
-        fetch(dev_env.url+"categories")
+        fetch(apiUrl+"categories")
             .then(response => response.json())
             .then(data => {
                 let options = [{"value": "other", "label": "Otra"}];
@@ -117,7 +117,7 @@ const ProductEditForm = (props) => {
 
     const [categories, setCategories] = useState([]);
     useEffect(() => {
-        fetch(dev_env.url+"categories")
+        fetch(apiUrl+"categories")
             .then(response => response.json())
             .then(data => {
                 let options = [{"value": "other", "label": "Otra"}];

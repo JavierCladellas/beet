@@ -5,12 +5,12 @@ import { IconButton } from '@mui/material';
 import { AiFillEdit, AiFillEye } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 
-import dev_env from '../../data/DevEnv.json'
 import Modal from '../../components/Modal';
 
 import { ProductDeleteForm, ProductEditForm } from './ProductForms';
 import { VariantsModalContent } from './VariantForms';
 
+const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
 const ProductTable = forwardRef((props, ref) => {
     const [ tableData, setTableData ] = useState([]);
@@ -72,13 +72,13 @@ const ProductTable = forwardRef((props, ref) => {
         renderCell: (params) => (
             params.value ?
             <img
-            src={dev_env.url+params.value}
+            src={apiUrl+params.value}
             alt="preview"
             style={{cursor:"pointer"}}
             className='table-image-preview'
             onClick={(e) => {
                 e.stopPropagation();
-                setImgBig(<img src={dev_env.url+params.value} className='image-full-modal' alt="item"/>);
+                setImgBig(<img src={apiUrl+params.value} className='image-full-modal' alt="item"/>);
                 imageModalRef.current?.open();
             }}
             /> :
@@ -133,7 +133,7 @@ const ProductTable = forwardRef((props, ref) => {
 
     const fetchTableData = useCallback(()=> {
         setLoading(true);
-        fetch(dev_env.url + "products", {
+        fetch(apiUrl + "products", {
             method: 'GET',
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' }

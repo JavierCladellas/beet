@@ -10,8 +10,8 @@ import { AiFillEdit } from 'react-icons/ai';
 import { MdDelete } from 'react-icons/md';
 import { IconButton } from '@mui/material';
 import AttributeInputSection from '../../components/AttributesInputSection';
-import dev_env from '../../data/DevEnv.json'
 
+const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
 const VariantCreateForm = (props) => {
     const [selectedItems, setSelectedItems] = useState([]);
@@ -200,13 +200,13 @@ const VariantsModalContent = (props) => {
                     renderCell: (params) => (
                         params.value ?
                         <img
-                        src={dev_env.url+params.value}
+                        src={apiUrl+params.value}
                         alt="preview"
                         className='table-image-preview'
                         style={{cursor:"pointer"}}
                         onClick={(e) => {
                             e.stopPropagation();
-                            setImgBig(<img src={dev_env.url+params.value} className='image-full-modal' alt="item"/>);
+                            setImgBig(<img src={apiUrl+params.value} className='image-full-modal' alt="item"/>);
                             imageModalRef.current?.open();
                         }}
                         /> :
