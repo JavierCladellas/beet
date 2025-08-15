@@ -134,7 +134,7 @@ const ReviewCard = (props) => {
     return (
         <div className="review-card">
             <i className="review-icon">
-                <img src="/beet/icons/likes.png" alt="review icon"/>
+                <img src="/icons/likes.png" alt="review icon"/>
             </i>
             <p>{parseText(review.comment)}</p>
             <b> - {parseText(review.name)}</b>

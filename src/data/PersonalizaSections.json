@@ -4,10 +4,10 @@
 
         "children":{
             "images":[
-                "/beet/images/personaliza-hero/Personaliza - banner principal.png",
-                "/beet/images/personaliza-hero/Personaliza - banner principal 2.png",
-                "/beet/images/personaliza-hero/Personaliza - banner principal 3.png",
-                "/beet/images/personaliza-hero/Personaliza - banner principal 4.png"
+                "/images/personaliza-hero/Personaliza - banner principal.png",
+                "/images/personaliza-hero/Personaliza - banner principal 2.png",
+                "/images/personaliza-hero/Personaliza - banner principal 3.png",
+                "/images/personaliza-hero/Personaliza - banner principal 4.png"
             ]
         }
     },
@@ -43,25 +43,25 @@
         "layout":"no-margin",
         "children":{
             "images":[
-                "/beet/images/personaliza/15.png",
-                "/beet/images/personaliza/16.png",
-                "/beet/images/personaliza/17.png",
-                "/beet/images/personaliza/18.png",
-                "/beet/images/personaliza/19.png",
-                "/beet/images/personaliza/20.png",
-                "/beet/images/personaliza/21.png",
-                "/beet/images/personaliza/22.png",
-                "/beet/images/personaliza/23.png",
-                "/beet/images/personaliza/24.png",
-                "/beet/images/personaliza/25.png",
-                "/beet/images/personaliza/26.png",
-                "/beet/images/personaliza/27.png",
-                "/beet/images/personaliza/28.png",
-                "/beet/images/personaliza/29.png",
-                "/beet/images/personaliza/30.png",
-                "/beet/images/personaliza/31.png",
-                "/beet/images/personaliza/32.png",
-                "/beet/images/personaliza/33.png"
+                "/images/personaliza/15.png",
+                "/images/personaliza/16.png",
+                "/images/personaliza/17.png",
+                "/images/personaliza/18.png",
+                "/images/personaliza/19.png",
+                "/images/personaliza/20.png",
+                "/images/personaliza/21.png",
+                "/images/personaliza/22.png",
+                "/images/personaliza/23.png",
+                "/images/personaliza/24.png",
+                "/images/personaliza/25.png",
+                "/images/personaliza/26.png",
+                "/images/personaliza/27.png",
+                "/images/personaliza/28.png",
+                "/images/personaliza/29.png",
+                "/images/personaliza/30.png",
+                "/images/personaliza/31.png",
+                "/images/personaliza/32.png",
+                "/images/personaliza/33.png"
             ]
         }
     },
@@ -76,15 +76,15 @@
             "products":[
                 {
                     "name":"Gift boxes personalizadas",
-                    "image":"/beet/images/home/section1.jpg"
+                    "image":"/images/home/section1.jpg"
                 },
                 {
                     "name":"Otros formatos creativos",
-                    "image":"/beet/images/personaliza/28.png"
+                    "image":"/images/personaliza/28.png"
                 },
                 {
                     "name":"Souvenirs para tus eventos",
-                    "image":"/beet/images/personaliza/27.png"
+                    "image":"/images/personaliza/27.png"
                 }
             ]
         }
@@ -119,7 +119,7 @@
     },
     "contact":{
         "title":"Creamos regalos que hablan por ti, \n cuando las palabras no son suficientes.",
-        "image":"/beet/images/navbar-bg.png",
+        "image":"/images/navbar-bg.png",
 
         "layout":"vertical",
         "content_style":"white-text align-center text-center more-pad-h",

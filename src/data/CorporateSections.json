@@ -1,7 +1,7 @@
 {
     "hero":{
         "layout":"hero no-margin vertical",
-        "image":"/beet/images/corporate/banner.png"
+        "image":"/images/corporate/banner.png"
     },
     "how_it_works":{
         "title":"Cómo trabajamos",
@@ -41,21 +41,21 @@
         "layout":"no-margin",
         "children":{
             "images":[
-                "/beet/images/corporate/1.png",
-                "/beet/images/corporate/2.png",
-                "/beet/images/corporate/3.png",
-                "/beet/images/corporate/4.png",
-                "/beet/images/corporate/5.png",
-                "/beet/images/corporate/6.png",
-                "/beet/images/corporate/7.png",
-                "/beet/images/corporate/8.png",
-                "/beet/images/corporate/9.png",
-                "/beet/images/corporate/10.png",
-                "/beet/images/corporate/11.png",
-                "/beet/images/corporate/12.png",
-                "/beet/images/corporate/13.png",
-                "/beet/images/corporate/15.png",
-                "/beet/images/corporate/16.png"
+                "/images/corporate/1.png",
+                "/images/corporate/2.png",
+                "/images/corporate/3.png",
+                "/images/corporate/4.png",
+                "/images/corporate/5.png",
+                "/images/corporate/6.png",
+                "/images/corporate/7.png",
+                "/images/corporate/8.png",
+                "/images/corporate/9.png",
+                "/images/corporate/10.png",
+                "/images/corporate/11.png",
+                "/images/corporate/12.png",
+                "/images/corporate/13.png",
+                "/images/corporate/15.png",
+                "/images/corporate/16.png"
             ]
         }
     },
@@ -108,20 +108,20 @@
 
         "children":{
             "clients":[
-                {"name":"Davivienda","logo":"/beet/logos/davivienda.jpg"},
-                {"name":"Excel Automotriz","logo":"/beet/logos/excel.jpg"},
-                {"name":"Teleperformance","logo":"/beet/logos/teleperformance.jpg"},
-                {"name":"McCormick","logo":"/beet/logos/mccormick.jpg"},
-                {"name":"MaxBloch","logo":"/beet/logos/maxbloch.jpg"},
-                {"name":"AndHer","logo":"/beet/logos/andher.jpg"},
-                {"name":"RSM","logo":"/beet/logos/rsm.jpg"},
-                {"name":"RoadMarket","logo":"/beet/logos/roadmarket.jpg"}
+                {"name":"Davivienda","logo":"/logos/davivienda.jpg"},
+                {"name":"Excel Automotriz","logo":"/logos/excel.jpg"},
+                {"name":"Teleperformance","logo":"/logos/teleperformance.jpg"},
+                {"name":"McCormick","logo":"/logos/mccormick.jpg"},
+                {"name":"MaxBloch","logo":"/logos/maxbloch.jpg"},
+                {"name":"AndHer","logo":"/logos/andher.jpg"},
+                {"name":"RSM","logo":"/logos/rsm.jpg"},
+                {"name":"RoadMarket","logo":"/logos/roadmarket.jpg"}
             ]
         }
     },
     "motivation":{
         "title":"Everything we do, \n we build it around you.",
-        "image":"/beet/images/navbar-bg.png",
+        "image":"/images/navbar-bg.png",
 
         "layout":"vertical",
         "content_style":"white-text align-center text-center more-pad-v medium-title"

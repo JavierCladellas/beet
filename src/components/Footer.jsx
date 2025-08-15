@@ -6,8 +6,8 @@ const Footer = (props) => {
         <div className="footer-wrapper">
             <footer>
                 <div className="footer-row logo-row">
-                    <img className="footer-logo beet-logo" src="/beet/logos/beet.png" alt="Logo" />
-                    <img className="footer-logo" src="/beet/logos/signature2.jpg" alt="Beet Signature"/>
+                    <img className="footer-logo beet-logo" src="/logos/beet.png" alt="Logo" />
+                    <img className="footer-logo" src="/logos/signature2.jpg" alt="Beet Signature"/>
                 </div>
 
                 <hr className="solid" />
@@ -19,7 +19,7 @@ const Footer = (props) => {
                             de regalos personalizados y experiencias
                             memorables, y de paso, te facilitamos la vida.
                         </p>
-                        <img className="footer-logo" src="/beet/logos/SupportLocal.jpg" alt="Support Local" />
+                        <img className="footer-logo" src="/logos/SupportLocal.jpg" alt="Support Local" />
                     </div>
 
                     <div className="footer-col">
