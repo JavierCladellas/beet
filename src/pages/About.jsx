@@ -8,7 +8,7 @@ const About = (props) => {
     return (
         <div className="page">
             <Section section = {sections.story} children = {[
-                <img key="signature" src={sections.story.children.signature} alt="Signature" className="signature"  style={{ maxWidth:"80px" }}/>
+                <img loading='lazy' key="signature" src={sections.story.children.signature} alt="Signature" className="signature"  style={{ maxWidth:"80px" }}/>
             ]} />
             <Section section = {sections.team} children = {[
                 <div key="team-grid" className="grid-row wrap">

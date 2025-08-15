@@ -30,7 +30,7 @@ const FullCarousel = ({ images, options }) => {
             <div className="embla__container">
                 {images.map((image, index) => (
                 <div className="embla__slide" key={index}>
-                    <img src={image} alt={`Carousel ${index}`} />
+                    <img loading='lazy' src={image} alt={`Carousel ${index}`} />
                 </div>
                 ))}
             </div>

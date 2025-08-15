@@ -51,7 +51,7 @@ const MemberCard = (props) => {
     return (
         <div className="member-card">
             <div className="member-image-container">
-                <img src={member.image} alt={member.name} />
+                <img loading='lazy' src={member.image} alt={member.name} />
             </div>
             <div className="member-details">
                 <h3 className="member-name">{member.name}</h3>
@@ -66,7 +66,7 @@ const ProductCard1 = (props) => {
     return (
         <div className="product-card">
             <div className="product-image-container">
-                <img src={product.image} alt={product.name} />
+                <img loading='lazy' src={product.image} alt={product.name}/>
             </div>
             <div className="product-details">
                 <h3 className="product-name">{product.name}</h3>
@@ -80,7 +80,7 @@ const ProductCard2 = (props) => {
     const product = props.product;
     return (
         <div className="product-card2">
-            <img src={product.image} alt={product.name} />
+            <img loading='lazy' src={product.image} alt={product.name} />
             <div className="product-name">
                 <h3>{product.name}</h3>
             </div>
@@ -93,7 +93,7 @@ const ClientCard1 = (props) => {
     const client = props.client;
     return (
         <div className="client-card">
-            <img src={client.logo} alt={client.name} />
+            <img loading='lazy' src={client.logo} alt={client.name} />
         </div>
     );
 }
@@ -134,7 +134,7 @@ const ReviewCard = (props) => {
     return (
         <div className="review-card">
             <i className="review-icon">
-                <img src="/icons/likes.png" alt="review icon"/>
+                <img loading='lazy' src="/icons/likes.png" alt="review icon" />
             </i>
             <p>{parseText(review.comment)}</p>
             <b> - {parseText(review.name)}</b>
