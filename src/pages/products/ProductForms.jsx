@@ -90,7 +90,7 @@ const ProductCreateForm = ( props ) => {
 
                 <NumberInput id="price" label="Precio ($)" required min="0" default_value="0" step="0.01" pattern="^\d+(,\d{1,2})" style={{display:isVariable?"none":"flex"}}/>
 
-                <Dropdown id="category" label="Categoría" placeholder = "Ninguna" accept_empty
+                <Dropdown id="category" label="Categoría" placeholder = "Ninguna" accept_empty={false}
                     options = {categories}
                 />
 
@@ -120,7 +120,7 @@ const ProductEditForm = (props) => {
         fetch(apiUrl+"categories")
             .then(response => response.json())
             .then(data => {
-                let options = [{"value": "other", "label": "Otra"}];
+                let options = [{"value":"","label":"Selecciona"},{"value": "other", "label": "Otra"}];
                 data.forEach(category => {
                     options.push({"value": category.name, "label": category.name});
                 });
@@ -135,7 +135,7 @@ const ProductEditForm = (props) => {
         <Form title={"Editar Producto "+ props.name}
             method="put"
             key="edit-product-form"
-            action={props.isVariable?`products/${props.id}`:`products/variant/${props.id}`}
+            action={props.isVariable?`products/${props.id}`:`products/${props.id}/variant`}
             create_button_text = "Editar"
             cancel_button_text = "Cancelar"
             onSuccess={props.onSuccess}
@@ -153,7 +153,7 @@ const ProductEditForm = (props) => {
                     <TextInput id="name" label="Nombre" required default_value={props.name}/>
                     <TextInput type="textarea" id="description" label="Descripción" default_value={props.description}/>
 
-                    <Dropdown id="category" label="Categoría" accept_empty default_value={props.category}
+                    <Dropdown id="category" label="Categoría" accept_empty={false} default_value={props.category}
                         options = {categories}
                     />
                 </div> :
