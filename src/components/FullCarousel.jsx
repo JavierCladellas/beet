@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback } from 'react';
 import '../styles/Carousel.css'
 import useEmblaCarousel from 'embla-carousel-react'
 import ArrowCircle from '../assets/svg/arrow-circle.jsx';
