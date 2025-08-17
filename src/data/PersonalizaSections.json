@@ -4,10 +4,10 @@
 
         "children":{
             "images":[
-                "/images/personaliza-hero/Personaliza - banner principal.png",
-                "/images/personaliza-hero/Personaliza - banner principal 2.png",
-                "/images/personaliza-hero/Personaliza - banner principal 3.png",
-                "/images/personaliza-hero/Personaliza - banner principal 4.png"
+                "/images/personaliza-hero/Personaliza - banner principal.webp",
+                "/images/personaliza-hero/Personaliza - banner principal 2.webp",
+                "/images/personaliza-hero/Personaliza - banner principal 3.webp",
+                "/images/personaliza-hero/Personaliza - banner principal 4.webp"
             ]
         }
     },
@@ -43,25 +43,25 @@
         "layout":"no-margin",
         "children":{
             "images":[
-                "/images/personaliza/15.png",
-                "/images/personaliza/16.png",
-                "/images/personaliza/17.png",
-                "/images/personaliza/18.png",
-                "/images/personaliza/19.png",
-                "/images/personaliza/20.png",
-                "/images/personaliza/21.png",
-                "/images/personaliza/22.png",
-                "/images/personaliza/23.png",
-                "/images/personaliza/24.png",
-                "/images/personaliza/25.png",
-                "/images/personaliza/26.png",
-                "/images/personaliza/27.png",
-                "/images/personaliza/28.png",
-                "/images/personaliza/29.png",
-                "/images/personaliza/30.png",
-                "/images/personaliza/31.png",
-                "/images/personaliza/32.png",
-                "/images/personaliza/33.png"
+                "/images/personaliza/15.webp",
+                "/images/personaliza/16.webp",
+                "/images/personaliza/17.webp",
+                "/images/personaliza/18.webp",
+                "/images/personaliza/19.webp",
+                "/images/personaliza/20.webp",
+                "/images/personaliza/21.webp",
+                "/images/personaliza/22.webp",
+                "/images/personaliza/23.webp",
+                "/images/personaliza/24.webp",
+                "/images/personaliza/25.webp",
+                "/images/personaliza/26.webp",
+                "/images/personaliza/27.webp",
+                "/images/personaliza/28.webp",
+                "/images/personaliza/29.webp",
+                "/images/personaliza/30.webp",
+                "/images/personaliza/31.webp",
+                "/images/personaliza/32.webp",
+                "/images/personaliza/33.webp"
             ]
         }
     },
@@ -76,15 +76,15 @@
             "products":[
                 {
                     "name":"Gift boxes personalizadas",
-                    "image":"/images/home/section1.jpg"
+                    "image":"/images/home/section1.webp"
                 },
                 {
                     "name":"Otros formatos creativos",
-                    "image":"/images/personaliza/28.png"
+                    "image":"/images/personaliza/28.webp"
                 },
                 {
                     "name":"Souvenirs para tus eventos",
-                    "image":"/images/personaliza/27.png"
+                    "image":"/images/personaliza/27.webp"
                 }
             ]
         }
@@ -119,7 +119,7 @@
     },
     "contact":{
         "title":"Creamos regalos que hablan por ti, \n cuando las palabras no son suficientes.",
-        "image":"/images/navbar-bg.png",
+        "image":"/images/navbar-bg.webp",
 
         "layout":"vertical",
         "content_style":"white-text align-center text-center more-pad-h",

@@ -8,8 +8,8 @@
       "type": "image/x-icon"
     },
     {
-      "src": "signature.jpg",
-      "type": "image/jpg",
+      "src": "signature.webp",
+      "type": "image/webp",
       "sizes": "192x192"
     }
   ],

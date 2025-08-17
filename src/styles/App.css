@@ -15,7 +15,7 @@
   flex-direction: column;
   background-color: transparent;
   align-items: center;
-  background-image: url('../assets/navbar-bg.png');
+  background-image: url('../assets/navbar-bg.webp');
 }
 .navbar-logo{
   height: var(--logo-height);
