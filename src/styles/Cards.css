@@ -82,7 +82,7 @@
 
 .client-card {
     width: 100%;
-    max-width: 200px;
+    max-width: 120px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -236,7 +236,7 @@
 
 @media screen and (max-width: 768px) {
     .client-card {
-        max-width: 150px;
+        max-width: 100px;
     }
     .client-card>img {
         width: 100%;
