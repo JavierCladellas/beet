@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
+import { IoCart } from "react-icons/io5";
 
 import '../styles/Navbar.css';
 import '../styles/HamburgerMenu.css';
@@ -30,6 +31,11 @@ const Navbar = (props) => {
                         <p>{button.name}</p>
                     </Link>
                 ))}
+            </div>
+            <div className='cart-icon-container'>
+                <Link className='cart-icon' to="/cart" key="cart-btn">
+                    <IoCart/>
+                </Link>
             </div>
         </nav>
     );
