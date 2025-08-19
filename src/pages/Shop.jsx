@@ -2,10 +2,11 @@ import { useEffect, useRef, useState } from "react";
 // import Section from "../components/Sections";
 import { ProductCard3 } from "../components/Cards";
 import Modal from "../components/Modal";
-
+import { Link } from 'react-router-dom';
 import "../styles/Cart.css";
 import "../styles/Grid.css";
 import { useLocalStorage } from "../components/LocalStorage";
+import { IoCart } from "react-icons/io5";
 
 
 const apiUrl = process.env.REACT_APP_BEET_API_URL;
@@ -16,7 +17,7 @@ const ProductModal = (props) => {
     useEffect(() => {
         if (props.product) {
             const existing = props.cart?.find((item) => item.id === props.product.id);
-            setQuantity(existing?.qty || 1);
+            setQuantity(existing?.qty || 0);
         }
     }, [props.product, props.cart]);
 
@@ -59,6 +60,11 @@ const ProductModal = (props) => {
                     Añadir al carrito
                 </button>
             )}
+            {quantity > 0 &&
+                <Link to="/cart" className="action-button pink">
+                    <IoCart style={{width:"20px", marginRight:"8px"}}/> <p>Ver Carrito </p>
+                </Link>
+            }
         </div>
     ]} />
 }

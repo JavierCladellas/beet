@@ -307,6 +307,7 @@
 
 .product-modal-content>.add-to-cart-action-btn{
     max-width: 200px;
+    height: 48px;
 }
 
 .product-modal-content>.product-description{

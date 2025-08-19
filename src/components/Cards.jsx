@@ -120,15 +120,15 @@ const ProductCard3 = (props) => {
                     className="cart-qty-controls"
                     onClick={(e) => e.stopPropagation()}
                 >
-                    <span className="qty-display">
-                        <BsCheckCircle className="check-icon" /> {qty}
-                    </span>
                     <button
                         className="qty-btn"
                         onClick={() => onUpdateCart?.(product, qty - 1)}
                     >
                         −
                     </button>
+                    <span className="qty-display">
+                        {qty}
+                    </span>
                     <button
                         className="qty-btn"
                         onClick={() => onUpdateCart?.(product, qty + 1)}
