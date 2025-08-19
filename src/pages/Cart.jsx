@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocalStorage } from "../components/LocalStorage";
+import { PiTrashThin } from "react-icons/pi";
 
 const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
@@ -35,10 +36,10 @@ const CartProductCard = (props) => {
             <div className="cart-product-card-content-container">
                 <h3> {props.product.name} </h3>
                 <p> {props.product.description} </p>
-                <span> $ {props.product.price?.toFixed(2)} </span>
+                <span> $ {(props.product.price*quantity)?.toFixed(2)} </span>
 
                 <div className="cart-qty-controls-cart">
-                    <button type="button" className="qty-btn" onClick={handleDecrease}>-</button>
+                    <button type="button" className="qty-btn" onClick={handleDecrease}>{quantity > 1 ? "–": <PiTrashThin/>}</button>
                     <span className="qty-display">{quantity ?? ""}</span>
                     <button type="button" className="qty-btn" onClick={handleIncrease}>+</button>
                 </div>

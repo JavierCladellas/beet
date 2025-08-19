@@ -138,10 +138,8 @@
 .cart-qty-controls {
     display: flex;
     align-items: center;
-    gap: 8px;
     background-color: white;
     color: black;
-    padding: 6px 8px;
     position: absolute;
     top: 0;
     left: 0;
@@ -156,18 +154,16 @@
     border: none;
     line-height: 1;
     font-size: 1.3rem;
-    width: 24px;
-    padding: 8px;
     box-sizing: border-box;
     font-weight: bold;
     vertical-align: middle;
     justify-content: center;
     height: 100%;
-    padding: 0;
     font-weight: 100;
     cursor: pointer;
     display: flex;
     align-items: center;
+    padding:4px 8px;
     justify-content: center;
 }
 
@@ -179,9 +175,9 @@
     display: flex;
     align-items: center;
     gap: 4px;
+    padding:8px 16px;
     border-left: 1px solid rgb(204, 204, 204);
     border-right: 1px solid rgb(204, 204, 204);
-    padding: 0 8px;
     font-size: 0.9rem;
     font-weight: 300;
     color: black;

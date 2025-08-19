@@ -1,6 +1,6 @@
 import { FiTarget } from 'react-icons/fi';
 import '../styles/Cards.css';
-import { PiHandshakeLight, PiLightbulbFilament } from 'react-icons/pi';
+import { PiHandshakeLight, PiLightbulbFilament, PiTrashThin } from 'react-icons/pi';
 import { BsCartPlus, BsLightning, BsCheckCircle } from 'react-icons/bs';
 import { LuPackageCheck } from 'react-icons/lu';
 import { GiHumanTarget } from 'react-icons/gi';
@@ -124,7 +124,7 @@ const ProductCard3 = (props) => {
                         className="qty-btn"
                         onClick={() => onUpdateCart?.(product, qty - 1)}
                     >
-                        −
+                        {qty > 1 ? "–": <PiTrashThin/>}
                     </button>
                     <span className="qty-display">
                         {qty}

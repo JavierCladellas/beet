@@ -7,6 +7,7 @@ import "../styles/Cart.css";
 import "../styles/Grid.css";
 import { useLocalStorage } from "../components/LocalStorage";
 import { IoCart } from "react-icons/io5";
+import { PiTrashThin } from "react-icons/pi";
 
 
 const apiUrl = process.env.REACT_APP_BEET_API_URL;
@@ -48,7 +49,7 @@ const ProductModal = (props) => {
 
             {props.cart?.find((i) => i.id === props.product.id)?.qty > 0 ? (
                 <div className="cart-qty-controls" style={{ position: "static", marginTop: "12px" }}>
-                    <button type="button" className="qty-btn" onClick={handleDecrease}>−</button>
+                    <button type="button" className="qty-btn" onClick={handleDecrease}>{quantity > 1 ? "–": <PiTrashThin/>}</button>
                     <span className="qty-display">{quantity}</span>
                     <button type="button" className="qty-btn" onClick={handleIncrease}>+</button>
                 </div>
