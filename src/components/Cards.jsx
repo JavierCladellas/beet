@@ -1,11 +1,10 @@
 import { FiTarget } from 'react-icons/fi';
 import '../styles/Cards.css';
 import { PiHandshakeLight, PiLightbulbFilament } from 'react-icons/pi';
-import { BsCartPlus, BsLightning } from 'react-icons/bs';
+import { BsCartPlus, BsLightning, BsCheckCircle } from 'react-icons/bs';
 import { LuPackageCheck } from 'react-icons/lu';
 import { GiHumanTarget } from 'react-icons/gi';
 import { Fragment } from "react";
-import { FaCarTunnel } from 'react-icons/fa6';
 
 
 
@@ -31,7 +30,7 @@ function parseInlineHTML(text) {
                     case 'b': return <b key={index}>{acc}</b>;
                     case 'i': return <i key={index}>{acc}</i>;
                     case 'u': return <u key={index}>{acc}</u>;
-                    default:  return acc;
+                    default: return acc;
                 }
             }, <Fragment key={index}>{part}</Fragment>);
         }
@@ -67,7 +66,7 @@ const ProductCard1 = (props) => {
     return (
         <div className="product-card">
             <div className="product-image-container">
-                <img loading='lazy' src={props.apiUrl + product.image_url} alt={product.name}/>
+                <img loading='lazy' src={props.apiUrl + product.image_url} alt={product.name} />
             </div>
             <div className="product-details">
                 <h3 className="product-name">{product.name}</h3>
@@ -90,14 +89,61 @@ const ProductCard2 = (props) => {
 }
 
 const ProductCard3 = (props) => {
-    const product = props.product;
+    const { product, apiUrl, cart, onAddToCartClick, onUpdateCart } = props;
+
+    const itemInCart = cart.find((item) => item.id === product.id);
+    const qty = itemInCart?.qty ?? 0;
+
     return (
-        <div className="product-card product-card3" onClick={(e) => {props.onCardClick(e);}}>
-            <button className='add-to-cart-btn' type="button">
-                <BsCartPlus className='cart-icon'/><span> Add To Cart </span>
-            </button>
+        <div
+            className="product-card product-card3"
+            onClick={(e) => {
+                props.onCardClick(e);
+            }}
+        >
+            {qty === 0 ? (
+                // if not in cart → Add button
+                <button
+                    className="add-to-cart-btn"
+                    type="button"
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        onAddToCartClick?.(1); // add with quantity = 1
+                    }}
+                >
+                    <BsCartPlus className="cart-icon" />
+                    <span>Add To Cart</span>
+                </button>
+            ) : (
+                // if in cart → show quantity controls
+                <div
+                    className="cart-qty-controls"
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    <span className="qty-display">
+                        <BsCheckCircle className="check-icon" /> {qty}
+                    </span>
+                    <button
+                        className="qty-btn"
+                        onClick={() => onUpdateCart?.(product, qty - 1)}
+                    >
+                        −
+                    </button>
+                    <button
+                        className="qty-btn"
+                        onClick={() => onUpdateCart?.(product, qty + 1)}
+                    >
+                        +
+                    </button>
+                </div>
+            )}
+
             <div className="product-image-container">
-                <img loading='lazy' src={props.apiUrl + product.image_url} alt={product.name}/>
+                <img
+                    loading="lazy"
+                    src={apiUrl + product.image_url}
+                    alt={product.name}
+                />
             </div>
             <div className="product-details">
                 <h3 className="product-name">{product.name}</h3>
@@ -105,7 +151,8 @@ const ProductCard3 = (props) => {
             </div>
         </div>
     );
-}
+};
+
 
 const ClientCard1 = (props) => {
     const client = props.client;
@@ -122,8 +169,8 @@ const StepCard1 = (props) => {
     return (
         <div className="step-card">
             <div>
-            <i className="step-number">{step.number}</i>
-            <h3>{step.title}</h3>
+                <i className="step-number">{step.number}</i>
+                <h3>{step.title}</h3>
             </div>
             <p>{step.description}</p>
         </div>
@@ -164,17 +211,17 @@ const ReviewCard = (props) => {
 function iconFactory(iconName) {
     switch (iconName) {
         case 'target':
-            return <FiTarget/>
+            return <FiTarget />
         case "lightbulb":
-            return <PiLightbulbFilament/>
+            return <PiLightbulbFilament />
         case "lightning":
-            return <BsLightning/>
+            return <BsLightning />
         case "package":
-            return <LuPackageCheck/>
+            return <LuPackageCheck />
         case "handshake":
-            return <PiHandshakeLight/>
+            return <PiHandshakeLight />
         case "human_target":
-            return <GiHumanTarget/>
+            return <GiHumanTarget />
         default:
     }
 }
@@ -184,7 +231,7 @@ const ReasonCard = (props) => {
     return (
         <div className="reason-card">
             <div className="reason-icon">
-            {iconFactory(reason.icon)}
+                {iconFactory(reason.icon)}
             </div>
             <h3>{reason.title}</h3>
             <p>{reason.description}</p>
@@ -193,4 +240,4 @@ const ReasonCard = (props) => {
 }
 
 
-export { MemberCard, ProductCard1, ProductCard2, ProductCard3, ClientCard1, StepCard1, StepCard2, ReviewCard, ReasonCard};
+export { MemberCard, ProductCard1, ProductCard2, ProductCard3, ClientCard1, StepCard1, StepCard2, ReviewCard, ReasonCard };

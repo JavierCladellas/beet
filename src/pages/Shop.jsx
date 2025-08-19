@@ -3,21 +3,71 @@ import { useEffect, useRef, useState } from "react";
 import { ProductCard3 } from "../components/Cards";
 import Modal from "../components/Modal";
 
+import "../styles/Cart.css";
 import "../styles/Grid.css";
+import { useLocalStorage } from "../components/LocalStorage";
 
 
 const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
+const ProductModal = (props) => {
+    const [quantity, setQuantity] = useState(0);
 
+    useEffect(() => {
+        if (props.product) {
+            const existing = props.cart?.find((item) => item.id === props.product.id);
+            setQuantity(existing?.qty || 1);
+        }
+    }, [props.product, props.cart]);
 
-const ProductModal = ( props ) => {
-    return <Modal ref = {props.ref} children = {[
-        <div className="product-modal-content">
-            <img src={apiUrl+props.product?.image_url} />
-            <h3>{props.product?.name}</h3>
-            <span className="product-price">$ {props.product?.price.toFixed(2)}</span>
-            <p className="product-description">{props.product?.description}</p>
-            <button className="add-to-cart-action-btn action-button pink">Anadir al carrito</button>
+    const handleDecrease = () => {
+        setQuantity((q) => {
+            const newQty = q - 1;
+            if (newQty <= 0) {
+                props.onUpdateCart?.(props.product, 0);
+                return 0;
+            } else {
+                props.onUpdateCart?.(props.product, newQty);
+                return newQty;
+            }
+        });
+    };
+
+    const handleIncrease = () => {
+        setQuantity((q) => {
+            const newQty = q + 1;
+            props.onUpdateCart?.(props.product, newQty);
+            return newQty;
+        });
+    };
+
+    const handleAddToCart = () => {
+        setQuantity(1);
+        props.onAddToCartClick?.(props.product, 1);
+    };
+
+    return <Modal ref={props.ref} children={[
+        props.product &&
+        <div className="product-modal-content" key="product-modal-content">
+            <img src={apiUrl + props.product.image_url} alt="product" />
+            <h3>{props.product.name}</h3>
+            <span className="product-price">$ {props.product.price.toFixed(2)}</span>
+            <p className="product-description">{props.product.description}</p>
+
+            {props.cart?.find((i) => i.id === props.product.id)?.qty > 0 ? (
+                <div className="cart-qty-controls" style={{ position: "static", marginTop: "12px" }}>
+                    <button type="button" className="qty-btn" onClick={handleDecrease}>−</button>
+                    <span className="qty-display">{quantity}</span>
+                    <button type="button" className="qty-btn" onClick={handleIncrease}>+</button>
+                </div>
+            ) : (
+                <button type="button"
+                    className="add-to-cart-action-btn action-button pink"
+                    onClick={handleAddToCart}
+                >
+                    Añadir al carrito
+                </button>
+            )}
         </div>
     ]} />
 }
@@ -25,18 +75,88 @@ const ProductModal = ( props ) => {
 
 
 
+const AddedToCartAlert = ({ id, message, onClose }) => {
+    const [visible, setVisible] = useState(true);
+    useEffect(() => {
+        const timer = setTimeout(() => setVisible(false), 3000);
+        const removeTimer = setTimeout(() => onClose?.(id), 4000);
+        return () => { clearTimeout(timer); clearTimeout(removeTimer); };
+    }, [id, onClose]);
 
-const Shop = ( props ) => {
+    const handleClose = () => {
+        setVisible(false);
+        setTimeout(() => onClose?.(id), 500);
+    };
+
+    return (
+        <div className={`added-to-cart-alert ${visible ? "show" : "hide"}`}>
+            <span>{message}</span>
+            <button className="alert-close-btn" onClick={handleClose}>
+                ×
+            </button>
+        </div>
+    );
+};
+
+
+
+const Shop = (props) => {
     const sections = props.sections;
     const productModalRef = useRef();
     const [productOpened, setProductOpened] = useState(null);
+    const [alerts, setAlerts] = useState([]);
 
     const [filteredProducts, setFilteredProducts] = useState([]);
+    const [cart, setCart] = useLocalStorage("cart", []);
+
+    const addToCart = (product, quantity) => {
+        const id = Date.now();
+        const message = `${product.name} (${quantity}) añadido al carrito`;
+        setAlerts((prev) => [...prev, { id, message }]);
 
 
-    const productModal = <ProductModal ref = {productModalRef} product = {productOpened}/>
+        setCart((prevCart) => {
+            const existing = prevCart.find((item) => item.id === product.id);
+            if (existing) {
+                return prevCart.map((item) =>
+                    item.id === product.id
+                        ? { ...item, qty: item.qty + Number(quantity) }
+                        : item
+                );
+            }
+            return [
+                ...prevCart,
+                { id: product.id, sku: product.sku, qty: Number(quantity) },
+            ];
+        });
+        window.dispatchEvent(new Event("storage"));
+    };
 
-    useEffect( () => {
+    const updateCart = (product, newQty) => {
+        setCart((prevCart) => {
+            if (newQty <= 0) {
+                return prevCart.filter((item) => item.id !== product.id);
+            }
+            return prevCart.map((item) =>
+                item.id === product.id ? { ...item, qty: newQty } : item
+            );
+        });
+        window.dispatchEvent(new Event("storage"));
+    };
+
+    const removeAlert = (id) => {
+        setAlerts((prev) => prev.filter((alert) => alert.id !== id));
+    };
+
+    const productModal = <ProductModal key="product-modal" ref={productModalRef}
+        product={productOpened}
+        cart={cart}
+        onAddToCartClick={addToCart}
+        onUpdateCart={updateCart}
+    />
+
+
+    useEffect(() => {
         setFilteredProducts(props.products);
     }, [props.products])
 
@@ -45,17 +165,33 @@ const Shop = ( props ) => {
             {/* <Section section = {sections.banner} /> */}
 
             <div className="products-grid">
-                {filteredProducts.map( (prod, index) =>
-                    <ProductCard3 key={index}
-                        product = {prod}
-                        onCardClick = { (e) => {
+                {filteredProducts.map((prod, index) =>
+                    <ProductCard3
+                        key={index}
+                        product={prod}
+                        cart={cart}
+                        onAddToCartClick={() => addToCart(prod, 1)}
+                        onUpdateCart={updateCart}
+                        onCardClick={() => {
                             setProductOpened(prod);
                             productModalRef.current?.open();
-                        } }
-                        apiUrl = {apiUrl}/>
+                        }}
+                        apiUrl={apiUrl}
+                    />
                 )}
             </div>
             {productModal}
+
+            {/* <div className="alert-container">
+                {alerts.map((alert) => (
+                    <AddedToCartAlert
+                        key={alert.id}
+                        id={alert.id}
+                        message={alert.message}
+                        onClose={removeAlert}
+                    />
+                ))}
+            </div> */}
         </div>
     )
 }

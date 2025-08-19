@@ -4,85 +4,43 @@
 }
 
 
-.action-button{
-  display: flex;
-  padding: 0.5rem 1rem;
-  color: white;
-  font-family: 'Roboto', sans-serif;
-  font-optical-sizing: auto;
-  font-size: 1rem;
-  font-weight: 500;
-  align-items: center;
-  height:32px;
-  min-width:140px;
-  text-align: center;
-  justify-content: center;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.05s ease-in-out;
-  min-width: 120px;
-}
-
-.action-button.light-pink{
-    background-color:  var(--light-pink);
-    border: 2px solid  var(--light-pink);
-}
-.action-button.pink {
-    background-color: var(--pink);
-    border: 2px solid  var(--pink);
-}
-
-.action-button:hover{
-    background-color: transparent;
-}
-.action-button.light-pink:hover{
-    color: var(--light-pink);
-}
-.action-button.pink:hover{
-    color: var(--pink);
-}
-
-
-.add-to-cart-btn{
-    border: solid 1px black;
-    background-color: white;
+.action-button {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 8px;
-    margin:0;
-    position: absolute;
-    top:0;
-    left:0;
-    gap:8px;
-    box-sizing: border-box;
-    cursor: pointer;
-    transition: 0.1s;
-    margin:4px;
-}
-
-.add-to-cart-btn:hover,
-.add-to-cart-btn:focus{
-    background-color: var(--pink);
-    border: 1px solid var(--pink);
-    color:white;
-}
-
-.add-to-cart-btn:hover>.cart-icon{
+    padding: 0.5rem 1rem;
     color: white;
-}
-.add-to-cart-btn>.cart-icon{
-    flex-shrink: 0;
-    width: 12px;
-    height: auto;
-    line-height: 0;
-}
-.add-to-cart-btn>span{
     font-family: 'Roboto', sans-serif;
     font-optical-sizing: auto;
-    font-size: 0.8rem;
-    font-weight: 300;
-    white-space: nowrap;
-    flex: 1;
+    font-size: 1rem;
+    font-weight: 500;
+    align-items: center;
+    height: 32px;
+    min-width: 140px;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.05s ease-in-out;
+    min-width: 120px;
+}
+
+.action-button.light-pink {
+    background-color: var(--light-pink);
+    border: 2px solid var(--light-pink);
+}
+
+.action-button.pink {
+    background-color: var(--pink);
+    border: 2px solid var(--pink);
+}
+
+.action-button:hover {
+    background-color: transparent;
+}
+
+.action-button.light-pink:hover {
+    color: var(--light-pink);
+}
+
+.action-button.pink:hover {
+    color: var(--pink);
 }
