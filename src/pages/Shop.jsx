@@ -21,24 +21,15 @@ const ProductModal = (props) => {
     }, [props.product, props.cart]);
 
     const handleDecrease = () => {
-        setQuantity((q) => {
-            const newQty = q - 1;
-            if (newQty <= 0) {
-                props.onUpdateCart?.(props.product, 0);
-                return 0;
-            } else {
-                props.onUpdateCart?.(props.product, newQty);
-                return newQty;
-            }
-        });
+        const newQty = Math.max(quantity - 1, 0);
+        setQuantity(newQty);
+        props.onUpdateCart?.(props.product, newQty);
     };
 
     const handleIncrease = () => {
-        setQuantity((q) => {
-            const newQty = q + 1;
-            props.onUpdateCart?.(props.product, newQty);
-            return newQty;
-        });
+        const newQty = quantity + 1;
+        setQuantity(newQty);
+        props.onUpdateCart?.(props.product, newQty);
     };
 
     const handleAddToCart = () => {
@@ -126,7 +117,7 @@ const Shop = (props) => {
             }
             return [
                 ...prevCart,
-                { id: product.id, sku: product.sku, qty: Number(quantity) },
+                { id: product.id, sku: product.sku, price: product.price, name: product.name, description: product.description, image_url: product.image_url, qty: Number(quantity) },
             ];
         });
         window.dispatchEvent(new Event("storage"));

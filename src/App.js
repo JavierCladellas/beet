@@ -22,6 +22,7 @@ import WhatsappButton from './components/IconButtons';
 import './styles/App.css';
 import './styles/text.css'
 import Shop from './pages/Shop';
+import Cart from './pages/Cart';
 
 const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
@@ -67,6 +68,7 @@ function App() {
                     <Route exact path="/personaliza" element = { <Personaliza sections={personaliza_sections}/> } />
                     <Route exact path="/corporate-gifting" element = { <Corporate sections={corporate_sections}/> } />
                     <Route exact path="/about" element={ <About sections={about_sections} />} />
+                    <Route exact path="/cart" element={ <Cart />} />
                 </Routes>
                 <Footer />
             </div>

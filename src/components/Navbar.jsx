@@ -20,22 +20,6 @@ const Navbar = (props) => {
         }
         setMenuActive(false);
     };
-    const updateCartQuantity = () => {
-        const cartString = localStorage.getItem('cart');
-        if (!cartString) {
-            setCartQtty(0);
-            return;
-        }
-
-        try {
-            const cart = JSON.parse(cartString);
-            const quantity = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
-            setCartQtty(quantity);
-        } catch (err) {
-            console.error('Error parsing cart from localStorage', err);
-            setCartQtty(0);
-        }
-    };
     const updateCartQtyFromStorage = () => {
         const cart = JSON.parse(localStorage.getItem("cart") || "[]");
         const qty = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
