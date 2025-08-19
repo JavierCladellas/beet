@@ -92,7 +92,7 @@ const ProductCard2 = (props) => {
 const ProductCard3 = (props) => {
     const product = props.product;
     return (
-        <div className="product-card product-card3">
+        <div className="product-card product-card3" onClick={(e) => {props.onCardClick(e);}}>
             <button className='add-to-cart-btn' type="button">
                 <BsCartPlus className='cart-icon'/><span> Add To Cart </span>
             </button>

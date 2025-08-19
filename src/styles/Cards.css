@@ -290,3 +290,25 @@
 {
     font-size: 1rem;
 }
+
+
+.product-modal-content{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    align-items: center;
+    gap:16px;
+}
+
+.product-modal-content>img{
+    height: 400px;
+    object-fit: contain;
+}
+
+.product-modal-content>.add-to-cart-action-btn{
+    max-width: 200px;
+}
+
+.product-modal-content>.product-description{
+    width: 100%;
+}
