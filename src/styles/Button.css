@@ -62,7 +62,8 @@
     margin:4px;
 }
 
-.add-to-cart-btn:hover{
+.add-to-cart-btn:hover,
+.add-to-cart-btn:focus{
     background-color: var(--pink);
     border: 1px solid var(--pink);
     color:white;
