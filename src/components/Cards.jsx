@@ -1,10 +1,11 @@
 import { FiTarget } from 'react-icons/fi';
 import '../styles/Cards.css';
 import { PiHandshakeLight, PiLightbulbFilament } from 'react-icons/pi';
-import { BsLightning } from 'react-icons/bs';
+import { BsCartPlus, BsLightning } from 'react-icons/bs';
 import { LuPackageCheck } from 'react-icons/lu';
 import { GiHumanTarget } from 'react-icons/gi';
 import { Fragment } from "react";
+import { FaCarTunnel } from 'react-icons/fa6';
 
 
 
@@ -88,6 +89,23 @@ const ProductCard2 = (props) => {
     );
 }
 
+const ProductCard3 = (props) => {
+    const product = props.product;
+    return (
+        <div className="product-card product-card3">
+            <button className='add-to-cart-btn' type="button">
+                <BsCartPlus className='cart-icon'/><span> Add To Cart </span>
+            </button>
+            <div className="product-image-container">
+                <img loading='lazy' src={props.apiUrl + product.image_url} alt={product.name}/>
+            </div>
+            <div className="product-details">
+                <h3 className="product-name">{product.name}</h3>
+                <p className="product-description">$ {product.price.toFixed(2)}</p>
+            </div>
+        </div>
+    );
+}
 
 const ClientCard1 = (props) => {
     const client = props.client;
@@ -175,4 +193,4 @@ const ReasonCard = (props) => {
 }
 
 
-export { MemberCard, ProductCard1, ProductCard2, ClientCard1, StepCard1, StepCard2, ReviewCard, ReasonCard};
+export { MemberCard, ProductCard1, ProductCard2, ProductCard3, ClientCard1, StepCard1, StepCard2, ReviewCard, ReasonCard};

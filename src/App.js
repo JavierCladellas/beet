@@ -8,6 +8,7 @@ import home_sections from './data/HomeSections.json'
 import personaliza_sections from './data/PersonalizaSections.json'
 import corporate_sections from './data/CorporateSections.json'
 import about_sections from './data/AboutSections.json'
+import shop_sections from './data/ShopSections.json'
 import coordinates from './data/Coordinates.json'
 
 import Footer from './components/Footer';
@@ -62,7 +63,7 @@ function App() {
                 <Navbar navbar_buttons = {navbar_buttons}/>
                 <Routes>
                     <Route exact path="/" element = { <Home sections={home_sections} products={products}/> } />
-                    <Route exact path="shop" element = { <Shop products={products} />} />
+                    <Route exact path="shop" element = { <Shop sections={shop_sections} products={products} />} />
                     <Route exact path="/personaliza" element = { <Personaliza sections={personaliza_sections}/> } />
                     <Route exact path="/corporate-gifting" element = { <Corporate sections={corporate_sections}/> } />
                     <Route exact path="/about" element={ <About sections={about_sections} />} />

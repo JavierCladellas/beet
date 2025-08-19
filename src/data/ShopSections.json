@@ -1,0 +1,10 @@
+{
+    "banner":{
+        "title":"Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+        "image":"/images/navbar-bg.webp",
+
+        "layout":"vertical",
+        "content_style":"white-text align-center text-center more-pad-h",
+        "button_style":"light-pink"
+    }
+}

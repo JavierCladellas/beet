@@ -41,3 +41,47 @@
 .action-button.pink:hover{
     color: var(--pink);
 }
+
+
+.add-to-cart-btn{
+    border: solid 1px black;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    margin:0;
+    position: absolute;
+    top:0;
+    left:0;
+    gap:8px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: 0.1s;
+    margin:4px;
+}
+
+.add-to-cart-btn:hover{
+    background-color: var(--pink);
+    border: 1px solid var(--pink);
+    color:white;
+}
+
+.add-to-cart-btn:hover>.cart-icon{
+    color: white;
+}
+.add-to-cart-btn>.cart-icon{
+    flex-shrink: 0;
+    width: 12px;
+    height: auto;
+    line-height: 0;
+}
+.add-to-cart-btn>span{
+    font-family: 'Roboto', sans-serif;
+    font-optical-sizing: auto;
+    font-size: 0.8rem;
+    font-weight: 300;
+    white-space: nowrap;
+    flex: 1;
+}

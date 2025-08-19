@@ -18,6 +18,14 @@
     grid-template-columns: repeat(4, minmax(10px,1fr));
 }
 
+.products-grid{
+    display:flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap:32px;
+    margin:64px 160px;
+}
 
 @media screen and (max-width: 768px) {
     .full-grid,.square-grid {
