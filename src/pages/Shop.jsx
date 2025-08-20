@@ -109,7 +109,7 @@ const Shop = (props) => {
 
     const addToCart = (product, quantity) => {
         const id = Date.now();
-        const message = `${product.name} (${quantity}) añadido al carrito`;
+        const message = `${product.name} añadido al carrito`;
         setAlerts((prev) => [...prev, { id, message }]);
 
 
@@ -182,7 +182,7 @@ const Shop = (props) => {
             </div>
             {productModal}
 
-            {/* <div className="alert-container">
+            <div className="alert-container">
                 {alerts.map((alert) => (
                     <AddedToCartAlert
                         key={alert.id}
@@ -191,7 +191,7 @@ const Shop = (props) => {
                         onClose={removeAlert}
                     />
                 ))}
-            </div> */}
+            </div>
         </div>
     )
 }
