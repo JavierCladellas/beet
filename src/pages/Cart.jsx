@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocalStorage } from "../components/LocalStorage";
 import { PiTrashThin } from "react-icons/pi";
+import { Link } from 'react-router-dom';
 
 const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
@@ -8,12 +9,11 @@ const apiUrl = process.env.REACT_APP_BEET_API_URL;
 const CartProductCard = (props) => {
     const [quantity, setQuantity] = useState(props.product?.qty ?? 1);
 
-    // keep local UI state in sync if props.product.qty changes
     useEffect(() => {
         if (props.product) {
             setQuantity(props.product.qty);
         }
-    }, [props.product?.qty]);
+    }, [props.product]);
 
     const handleDecrease = () => {
         const newQty = Math.max(quantity - 1, 0);
@@ -79,14 +79,14 @@ const Cart = (props) => {
         });
     };
 
-    const updateCartQtyFromStorage = () => {
-        const parsedCart = JSON.parse(localStorage.getItem("cart") || "[]");
-        setCart(parsedCart);
-        setOrderPrice(parsedCart.reduce((sum, prod) => sum + prod.price * prod.qty, 0));
-    };
-
     useEffect(() => {
-        updateCartQtyFromStorage(); // ✅ run once on mount
+        const updateCartQtyFromStorage = () => {
+            const parsedCart = JSON.parse(localStorage.getItem("cart") || "[]");
+            setCart(parsedCart);
+            setOrderPrice(parsedCart.reduce((sum, prod) => sum + prod.price * prod.qty, 0));
+        };
+
+        updateCartQtyFromStorage();
         const handler = () => updateCartQtyFromStorage();
         window.addEventListener("storage", handler);
         return () => {
@@ -114,7 +114,7 @@ const Cart = (props) => {
                 <div className="checkout-card-item">
                     <span>Total </span> <span> {Number.isInteger(totalPrice) ? totalPrice : totalPrice?.toFixed(2)} $</span>
                 </div>
-                <button className="action-button pink checkout-btn">Checkout</button>
+                <Link className="action-button pink checkout-btn" to="/checkout">Checkout</Link>
             </div>
         </div>
     );

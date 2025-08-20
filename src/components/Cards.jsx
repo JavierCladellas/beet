@@ -1,7 +1,7 @@
 import { FiTarget } from 'react-icons/fi';
 import '../styles/Cards.css';
 import { PiHandshakeLight, PiLightbulbFilament, PiTrashThin } from 'react-icons/pi';
-import { BsCartPlus, BsLightning, BsCheckCircle } from 'react-icons/bs';
+import { BsCartPlus, BsLightning } from 'react-icons/bs';
 import { LuPackageCheck } from 'react-icons/lu';
 import { GiHumanTarget } from 'react-icons/gi';
 import { Fragment } from "react";

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { Link, HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 
@@ -23,6 +23,7 @@ import './styles/App.css';
 import './styles/text.css'
 import Shop from './pages/Shop';
 import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
 
 const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
@@ -75,7 +76,9 @@ function App() {
             <div className="App">
 
                 <div className='logo-wrapper'>
-                    <img className="navbar-logo" src="/logos/beet.webp" alt="Logo"/>
+                    <Link to ="/" sx={{cursor:"pointer"}}>
+                    <img sx={{cursor:"pointer"}} className="navbar-logo" src="/logos/beet.webp" alt="Logo"/>
+                    </Link>
                 </div>
                 <Navbar navbar_buttons = {navbar_buttons}/>
                 <Routes>
@@ -85,6 +88,7 @@ function App() {
                     <Route exact path="/corporate-gifting" element = { <Corporate sections={corporate_sections}/> } />
                     <Route exact path="/about" element={ <About sections={about_sections} />} />
                     <Route exact path="/cart" element={ <Cart />} />
+                    <Route exact path="/checkout" element={ <Checkout/>} />
                 </Routes>
                 <Footer />
             </div>

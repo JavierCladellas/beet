@@ -99,7 +99,6 @@ const AddedToCartAlert = ({ id, message, onClose }) => {
 
 
 const Shop = (props) => {
-    const sections = props.sections;
     const productModalRef = useRef();
     const [productOpened, setProductOpened] = useState(null);
     const [alerts, setAlerts] = useState([]);
