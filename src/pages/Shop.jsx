@@ -38,16 +38,16 @@ const ProductModal = (props) => {
         setQuantity(1);
         props.onAddToCartClick?.(props.product, 1);
     };
-
+    const product = props.product;
     return <Modal ref={props.ref} children={[
-        props.product &&
+        product &&
         <div className="product-modal-content" key="product-modal-content">
-            <img src={apiUrl + props.product.image_url} alt="product" />
-            <h3>{props.product.name}</h3>
-            <span className="product-price">$ {props.product.price.toFixed(2)}</span>
-            <p className="product-description">{props.product.description}</p>
+            <img src={apiUrl + product.image_url} alt="product" />
+            <h3>{product.name}</h3>
+            <span className="product-price">$ {product.price.toFixed(2)}</span>
+            <p className="product-description">{product.description}</p>
 
-            {props.cart?.find((i) => i.id === props.product.id)?.qty > 0 ? (
+            {props.cart?.find((i) => i.id === product.id)?.qty > 0 ? (
                 <div className="cart-qty-controls" style={{ position: "static", marginTop: "12px" }}>
                     <button type="button" className="qty-btn" onClick={handleDecrease}>{quantity > 1 ? "–": <PiTrashThin/>}</button>
                     <span className="qty-display">{quantity}</span>
@@ -168,7 +168,9 @@ const Shop = (props) => {
                         key={index}
                         product={prod}
                         cart={cart}
-                        onAddToCartClick={() => addToCart(prod, 1)}
+                        onAddToCartClick={() => {
+                            addToCart(prod, 1)
+                        }}
                         onUpdateCart={updateCart}
                         onCardClick={() => {
                             setProductOpened(prod);

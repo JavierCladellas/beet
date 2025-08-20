@@ -22,7 +22,7 @@ const Home = (props) => {
 
     useEffect( () => {
         setRelevantProducts(
-            getRandomElements(props.products.filter((prod) => !prod.is_variable, 3))
+            getRandomElements(props.products, 3)
         );
     }, [props.products])
 
