@@ -1,0 +1,134 @@
+.input-container {
+	display: flex;
+	flex-direction: column-reverse;
+	position: relative;
+    width: 100%;
+    cursor:text;
+}
+
+.input-container>.text-input + label{
+	color: #8597a3;
+	top: 0rem;
+	transition: 0.25s ease;
+    cursor:text;
+}
+
+
+.number-input-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap:32px;
+}
+
+.number-input{
+    width: 10%;
+	border: 0;
+    flex: 0.4;
+    text-align: center;
+    outline: 0;
+	background-color: transparent;
+	z-index: 1;
+	font: inherit;
+	border-bottom: 2px solid #eee;
+}
+
+.number-input:focus,
+.number-input:valid {
+    outline: 0;
+    border-bottom-color: var(--light-pink);
+}
+input.number-input:invalid{
+    border-bottom-color: red;
+}
+
+input.text-input, textarea.text-input{
+
+	border: 0;
+	z-index: 1;
+    height: 8px;
+	background-color: transparent;
+	border-bottom: 2px solid #eee;
+	font: inherit;
+	transition: 0.25s ease;
+}
+
+.input-container>.text-input:focus,
+.input-container>.text-input.not-empty{
+    outline: 0;
+    border-bottom-color: var(--light-pink);
+    height:16px;
+}
+.input-container>.text-input.not-empty:not(:focus):invalid{
+    border-bottom-color: red;
+}
+.input-container>.text-input:focus + label,
+.input-container>.text-input.not-empty + label{
+    color: var(--light-pink);
+    transform: translateY(-0.3rem);
+}
+
+
+/* Not focused and invalid */
+.input-container>.text-input.not-empty:not(:focus):invalid + label{
+    color: red;
+}
+
+form,.form-col{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    height: 100%;
+    width: 100%;
+	gap: 2.2rem;
+    flex:1;
+}
+
+.form-col>h3{
+    width: 100%;
+}
+.dynamic-col{
+    overflow-y:scroll;
+    justify-content: flex-start;
+    max-height: 120px;
+    padding-right: 16px;
+}
+
+.form-row{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2.2rem;
+    width: 100%;
+}
+
+.form-row.align-center{
+    align-items: center;
+}
+.form-row.justify-end{
+    justify-content: flex-end;
+}
+
+.form-row.tight{
+    gap:8px;
+}
+
+.transparent-add-button{
+    justify-self: flex-end;
+}
+
+@media screen and (max-width: 768px) {
+
+    .dynamic-col{
+        max-height: 300px;
+    }
+    .resp-col{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}

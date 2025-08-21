@@ -36,7 +36,7 @@ const CartProductCard = (props) => {
             <div className="cart-product-card-content-container">
                 <h3> {props.product.name} </h3>
                 <p> {props.product.description} </p>
-                <span> $ {(props.product.price*quantity)?.toFixed(2)} </span>
+                <span> $ {(props.product.price)?.toFixed(2)} </span>
 
                 <div className="cart-qty-controls-cart">
                     <button type="button" className="qty-btn" onClick={handleDecrease}>{quantity > 1 ? "–": <PiTrashThin/>}</button>
@@ -51,7 +51,6 @@ const CartProductCard = (props) => {
 const Cart = (props) => {
     const [cart, setCart] = useLocalStorage("cart", []);
     const [orderPrice, setOrderPrice] = useState(null);
-    const totalPrice = orderPrice;
 
 
     const updateCart = (product, newQty) => {
@@ -104,17 +103,19 @@ const Cart = (props) => {
                 )}
             </div>
             <div className="checkout-card">
-                <div className="checkout-card-item">
-                    <p>Subtotal </p> <span> {Number.isInteger(orderPrice) ? orderPrice : orderPrice?.toFixed(2)} $</span>
-                </div>
-                <div className="checkout-card-item">
-                    <p>Descuento </p> <span> {Number.isInteger(0) ? 0 : (0).toFixed(2)} $</span>
-                </div>
+                <span><b>Productos</b></span>
+                {
+                    cart && cart.map(( prod ) =>
+                    <div className="checkout-card-item" key={"prod_summary_" + prod.id}>
+                        <p>{prod.qty} x {prod.name} </p> <span className="price"> {Number.isInteger((prod.price * prod.qty)) ? (prod.price * prod.qty) : (prod.price * prod.qty)?.toFixed(2)} $</span>
+                    </div>
+                )}
+
                 <hr/>
                 <div className="checkout-card-item">
-                    <span>Total </span> <span> {Number.isInteger(totalPrice) ? totalPrice : totalPrice?.toFixed(2)} $</span>
+                    <span>Subtotal </span> <span> {Number.isInteger(orderPrice) ? orderPrice : orderPrice?.toFixed(2)} $</span>
                 </div>
-                <Link className="action-button pink checkout-btn" to="/checkout">Checkout</Link>
+                <Link className="action-button pink" to="/checkout"><p>Checkout</p></Link>
             </div>
         </div>
     );
