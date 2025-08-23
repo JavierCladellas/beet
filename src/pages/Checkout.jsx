@@ -59,7 +59,7 @@ const Checkout = (props) => {
         setDeliveryType(type);
         if (type === "delivery") {
             if (!deliveryMunicipality || !deliveryDepartment) {
-                setDeliveryPrice(0);
+                setDeliveryPrice(2.5);
                 setIsMetropolitan(false);
             }
             else if (metropolitan_area.includes(deliveryMunicipality))
