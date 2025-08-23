@@ -199,10 +199,10 @@ const Checkout = (props) => {
                 <div className="form-col" style={{display:(step === 1 && paymentType==="card") ? "flex" : "none"}}>
                     <TextInput type="text" id="card_number" label="Número de tarjeta" required={paymentType === "card"} pattern="^\\+?[0-9 ()]{5,20}$" inputMode="numeric" autocomplete="cc-number" />
                     <div className="form-row">
-                        <TextInput type="text" id="card_expiry" label="MM/AA" required={paymentType === "card"} autocomplete="cc-exp" />
-                        <TextInput type="text" id="card_cvc" label="CVC" required={paymentType === "card"} autocomplete="cc-csc" />
+                        <TextInput type="text" id="card_expiry" label="MM/AA" required={paymentType === "card"} autocomplete="cc-exp" pattern="^(0[1-9]|1[0-2])/[0-9]{2}$" />
+                        <TextInput type="text" id="card_cvc" label="CVC" required={paymentType === "card"} autocomplete="cc-csc"  pattern="^[0-9]{3,4}$" />
                     </div>
-                    <TextInput type="text" id="card_name" label="Nombre en la tarjeta" required={paymentType === "card"} autocomplete="cc-number" />
+                    <TextInput type="text" id="card_name" label="Nombre en la tarjeta" required={paymentType === "card"} autocomplete="cc-number"/>
                 </div>
 
                 <hr style={{display:(step === 1) ? "flex" : "none" }}/>
