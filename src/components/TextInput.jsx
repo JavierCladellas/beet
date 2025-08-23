@@ -17,6 +17,8 @@ const TextInput = (props) => {
         setValue(e.target.value);
         setIsEmpty(e.target.value.trim() === "");
 
+        props.onChange?.(e);
+
         if ( props.checkAgainst ) {
             const other = document.getElementById(props.checkAgainst);
             if (other && e.target.value !== other.value) {

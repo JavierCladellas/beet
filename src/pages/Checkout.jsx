@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocalStorage } from "../components/LocalStorage";
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
@@ -19,7 +19,7 @@ const Checkout = (props) => {
     const totalPrice = orderPrice + deliveryPrice;
     const [paymentType, setPaymentType] = useState("card");
 
-    const [deliveryType, setDeliveryType] = useState("domicilio");
+    const [deliveryType, setDeliveryType] = useState("delivery");
     const [deliveryDepartment, setDeliveryDepartment] = useState("");
     const [deliveryMunicipality, setDeliveryMunicipality] = useState("");
 
@@ -57,13 +57,23 @@ const Checkout = (props) => {
 
     const deliveryTypeHandler = (type) => {
         setDeliveryType(type);
-        if (type === "domicilio") {
-            setDeliveryPrice(2.5);
-            setIsMetropolitan(true);
-        } else {
+        if (type === "delivery") {
+            if (!deliveryMunicipality || !deliveryDepartment) {
+                setDeliveryPrice(0);
+                setIsMetropolitan(false);
+            }
+            else if (metropolitan_area.includes(deliveryMunicipality))
+            {
+                setDeliveryPrice(2.5);
+                setIsMetropolitan(true);
+            }
+            else{
+                setDeliveryPrice(5);
+                setIsMetropolitan(false);
+            }
+        }
+        else {
             setDeliveryPrice(0);
-            setDeliveryDepartment("");
-            setDeliveryMunicipality("");
             setIsMetropolitan(false);
         }
     }
@@ -83,21 +93,33 @@ const Checkout = (props) => {
         };
     }, []);
 
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [telephone, setTelephone] = useState("");
+
+    const [ address, setAddress ] = useState("");
+
     return (
         <div className="page cart-page" style={{ flexDirection: "row", justifyContent: "space-between" }}>
             <form className="checkout-form" style={{ alignItems: "flex-start" }}>
 
+                <input type="hidden" name="name" value={name} />
+                <input type="hidden" name="email" value={email} />
+                <input type="hidden" name="telephone" value={telephone} />
 
                 <div className="form-col" style={{ alignItems: "flex-start", display:step === 0 ? "flex" : "none"}}>
                     <p> Datos personales </p>
-                    <TextInput type="text" id="name" label="Nombre Completo" required />
+                    <TextInput type="text" label="Nombre Completo" required onChange ={(e) => { setName(e.target.value); }} />
                     <div className="form-row">
-                        <TextInput type="email" id="email" label="Email" required />
-                        <TextInput type="tel" id="telephone" label="Teléfono" required pattern="^$|^\+?(?=(?:\D*\d){5,16}\D*$)[\d ]+$" />
+                        <TextInput type="email" label="Email" required onChange={(e) => { setEmail(e.target.value); }} />
+                        <TextInput type="tel" label="Teléfono" required pattern="^$|^\+?(?=(?:\D*\d){5,16}\D*$)[\d ]+$" onChange={(e) => { setTelephone(e.target.value); }} />
                     </div>
                 </div>
 
                 <hr style={{display:step === 0 ? "flex" : "none"}}/>
+
+
 
                 <div className="form-row" style={{ justifyContent: "flex-start", alignItems: "center",display:step === 0 ? "flex" : "none" }}>
                     <p>Método de Entrega</p>
@@ -105,31 +127,55 @@ const Checkout = (props) => {
                     <ToggleButtonGroup value={deliveryType} exclusive onChange={(e) => { deliveryTypeHandler(e.target.value); }} aria-label="Platform" color="primary">
                         <ToggleButton
                             sx={{ "&.Mui-selected": { backgroundColor: "#b275a6", color: "white", "&:hover": { backgroundColor: "#9a5e8a" } } }}
-                            value="domicilio">
+                            value="delivery">
                             Envío a domicilio
                         </ToggleButton>
                         <ToggleButton
                             sx={{ "&.Mui-selected": { backgroundColor: "#b275a6", color: "white", "&:hover": { backgroundColor: "#9a5e8a" } } }}
-                            value="tienda">
+                            value="pickup">
                             Retiro en tienda
                         </ToggleButton>
                     </ToggleButtonGroup>
                 </div>
-                <div className="form-col" style={{ alignItems: "flex-start",display:(step === 0 && deliveryType === "domicilio") ? "flex" : "none"}}>
+                <div className="form-col" style={{ alignItems: "flex-start",display:(step === 0 && deliveryType === "delivery") ? "flex" : "none"}}>
 
-                    <TextInput id="address" label="Dirección de entrega" required={deliveryType === "domicilio"} />
+                    <TextInput  label="Dirección de entrega" required={deliveryType === "delivery"} onChange={(e) => { setAddress(e.target.value); }} />
                     <SearchableDropdown
                         label="Departamento - Municipio"
                         options={municipalities}
                         style={{ maxWidth: "350px" }}
                         onChange={(value) => municipalityHandler(value)}
-                        required={deliveryType === "domicilio"}
+                        required={deliveryType === "delivery"}
                     />
-                    <input type="hidden" name="municipality" value={deliveryMunicipality} />
-                    <input type="hidden" name="department" value={deliveryDepartment} />
-
                 </div>
-                <button type="button" className="action-button pink form-button" style={{alignSelf:"flex-end", display:(step === 0) ? "flex" : "none"}} onClick={(e)=>{setStep(1);}}><p>Siguiente</p></button>
+
+                <input type="hidden" name="delivery_type" value={deliveryType}/>
+                <input type="hidden" name="municipality" value={deliveryMunicipality} />
+                <input type="hidden" name="department" value={deliveryDepartment} />
+                <input type="hidden" name="address" value={address} />
+
+                <button type="button" className="action-button pink form-button" style={{alignSelf:"flex-end", display:(step === 0) ? "flex" : "none"}} onClick={(e)=>{
+                    if ( !name || !email || !telephone) {
+                        alert("Por favor, completa todos los campos requeridos antes de continuar.");
+                        return;
+                    }
+                    if ( deliveryType === "delivery" && (!deliveryMunicipality || !deliveryDepartment || !address)) {
+                        alert("Por favor, completa todos los campos requeridos para la entrega a domicilio.");
+                        return;
+                    }
+
+                    if (!/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/.test(name)) {
+                        alert("El nombre solo debe contener letras, espacios y acentos.");
+                        return;
+                    }
+                    if (!/^\+?[0-9 ()]{5,20}$/.test(telephone)) {
+                        alert("Por favor, ingresa un número de teléfono válido (solo dígitos, espacios, paréntesis y un '+' opcional al inicio).");
+                        return;
+                    }
+
+                    setStep(1);
+
+                }}><p>Siguiente</p></button>
 
                 <div className="form-row" style={{ justifyContent: "flex-start", alignItems: "center",display:(step === 1) ? "flex" : "none" }}>
                     <p>Método de Pago</p>
@@ -148,8 +194,10 @@ const Checkout = (props) => {
                     </ToggleButtonGroup>
                 </div>
 
+                <input type="hidden" name="payment_type" value={paymentType} />
+
                 <div className="form-col" style={{display:(step === 1 && paymentType==="card") ? "flex" : "none"}}>
-                    <TextInput type="text" id="card_number" label="Número de tarjeta" required={paymentType === "card"} pattern="[0-9\s]{13,19}" inputMode="numeric" autocomplete="cc-number" />
+                    <TextInput type="text" id="card_number" label="Número de tarjeta" required={paymentType === "card"} pattern="^\\+?[0-9 ()]{5,20}$" inputMode="numeric" autocomplete="cc-number" />
                     <div className="form-row">
                         <TextInput type="text" id="card_expiry" label="MM/AA" required={paymentType === "card"} autocomplete="cc-exp" />
                         <TextInput type="text" id="card_cvc" label="CVC" required={paymentType === "card"} autocomplete="cc-csc" />
@@ -187,7 +235,7 @@ const Checkout = (props) => {
                 </div>
                 <div className="checkout-card-item">
                     <p>Envío <br/> <i>({
-                        deliveryType==="domicilio"?
+                        deliveryType==="delivery"?
                         "A domicilio - " + (isMetropolitan ? "Área Metropolitana" : "Resto del país")
                         :"Recoger en tienda"
                     })</i> </p> <p className="price"> {Number.isInteger(deliveryPrice) ? deliveryPrice : deliveryPrice?.toFixed(2)} $</p>
@@ -198,6 +246,8 @@ const Checkout = (props) => {
                 <div className="checkout-card-item">
                     <span>Total </span> <span> {Number.isInteger(totalPrice) ? totalPrice : totalPrice?.toFixed(2)} $</span>
                 </div>
+
+                <input type="hidden" name="total_amount" value={totalPrice} />
 
 
             </div>
