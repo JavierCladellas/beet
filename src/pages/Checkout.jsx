@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useLocalStorage } from "../components/LocalStorage";
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
@@ -11,8 +11,13 @@ import municipalities from "../data/municipios.json";
 import metropolitan_area from "../data/metropolitanArea.json";
 
 
+const apiUrl = process.env.REACT_APP_BEET_API_URL;
+
 
 const Checkout = (props) => {
+
+    const formRef = useRef(null);
+
     const [cart, setCart] = useLocalStorage("cart", []);
     const [orderPrice, setOrderPrice] = useState(null);
     const [deliveryPrice, setDeliveryPrice] = useState(2.5);
@@ -34,7 +39,7 @@ const Checkout = (props) => {
             setDeliveryDepartment(d);
             setDeliveryMunicipality(m);
             if (r.length > 2)
-                throw "MUNICIPALITY IS WRONG";
+                throw new Error("MUNICIPALITY IS WRONG");
 
 
             if (metropolitan_area.includes(m))
@@ -100,9 +105,34 @@ const Checkout = (props) => {
 
     const [ address, setAddress ] = useState("");
 
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(formRef.current);
+        let data = Object.fromEntries(formData.entries());
+
+        data["cart_items"] = cart.map(item => ({ id: item.id, qty: item.qty }));
+        data["total_amount"] = totalPrice;
+
+
+        fetch(apiUrl + "checkout", {
+            method: "POST",
+            headers: { "Content-Type": "application/json", },
+            body: JSON.stringify(data),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+            })
+            .catch((error) => {
+                alert("Error al procesar el pago. Inténtalo de nuevo.");
+            });
+    };
+
     return (
         <div className="page cart-page" style={{ flexDirection: "row", justifyContent: "space-between" }}>
-            <form className="checkout-form" style={{ alignItems: "flex-start" }}>
+            <form className="checkout-form" style={{ alignItems: "flex-start" }} ref={formRef} onSubmit={submitHandler}>
+
 
                 <input type="hidden" name="name" value={name} />
                 <input type="hidden" name="email" value={email} />
@@ -153,6 +183,7 @@ const Checkout = (props) => {
                 <input type="hidden" name="municipality" value={deliveryMunicipality} />
                 <input type="hidden" name="department" value={deliveryDepartment} />
                 <input type="hidden" name="address" value={address} />
+                <input type="hidden" name="delivery_amount" value={deliveryPrice} />
 
                 <button type="button" className="action-button pink form-button" style={{alignSelf:"flex-end", display:(step === 0) ? "flex" : "none"}} onClick={(e)=>{
                     if ( !name || !email || !telephone) {
@@ -211,7 +242,7 @@ const Checkout = (props) => {
                     <p>Notas adicionales</p>
                     <TextInput type="textarea" id="special_notes" label="Notas adicionales para tus productos o información de entrega" sx={{ ">textarea": { minHeight: "80px" } }} />
                 </div>
-                <div style={{ width:"100%", display:"flex", flexDirection:"row", alignContent:"center", justifyContent:"space-between",display:(step === 1) ? "flex" : "none" }}>
+                <div style={{ width:"100%", flexDirection:"row", alignContent:"center", justifyContent:"space-between",display:(step === 1) ? "flex" : "none" }}>
                     <button type="button" className="action-button light-pink form-button" onClick={(e)=>{setStep(0);}}><p>Regresar</p></button>
                     <button type="submit" className="action-button pink form-button" ><p>Pagar</p></button>
                 </div>
@@ -249,6 +280,10 @@ const Checkout = (props) => {
 
                 <input type="hidden" name="total_amount" value={totalPrice} />
 
+
+                <div>
+                    TODO: Add serfinsa logos (and mastercard and stuff)
+                </div>
 
             </div>
         </div>
