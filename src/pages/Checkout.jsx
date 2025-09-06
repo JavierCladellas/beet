@@ -4,6 +4,7 @@ import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import TextInput from "../components/TextInput";
 import { SearchableDropdown } from "../components/Dropdown";
+import Modal from "../components/Modal";
 import "../styles/Checkout.css";
 import "../styles/Button.css";
 
@@ -17,6 +18,9 @@ const apiUrl = process.env.REACT_APP_BEET_API_URL;
 const Checkout = (props) => {
 
     const formRef = useRef(null);
+    const confirmationModalRef = useRef();
+
+    const [confirmationMsg, setConfirmationMsg] = useState(<p></p>);
 
     const [cart, setCart] = useLocalStorage("cart", []);
     const [orderPrice, setOrderPrice] = useState(null);
@@ -105,9 +109,15 @@ const Checkout = (props) => {
 
     const [ address, setAddress ] = useState("");
 
+    const [isLoading, setIsLoading] = useState(false);
+
 
     const submitHandler = (e) => {
         e.preventDefault();
+
+        //Open confirmation modal with loading screen
+        confirmationModalRef.current?.open();
+        setIsLoading(true);
 
         const formData = new FormData(formRef.current);
         let data = Object.fromEntries(formData.entries());
@@ -121,11 +131,52 @@ const Checkout = (props) => {
             headers: { "Content-Type": "application/json", },
             body: JSON.stringify(data),
         })
-            .then((res) => res.json())
-            .then((data) => {
+            .then((response) => {
+                setIsLoading(false);
+                if (response.ok) {
+                    if (data["payment_type"] === "bank_transfer"){
+                        setConfirmationMsg(
+                            <>
+                            <h2>La orden ha sido tomada en cuenta!</h2>
+                            <p>Haz tu transferencia con los siguientes detalles. <br/>
+                                Banco: <b>Davivienda</b>
+                                Numero de Cuenta: <b>1234-5678-9100-1234</b>
+                            </p>
+                            <p>
+                                Luego envianos captura de pantalla con la confirmacion de la transferencia por WhatsApp : <b>7852 4563</b>
+                            </p>
+                            </>
+                        )
+                    }
+                    else if (data["payment_type"] === "card"){
+                        setConfirmationMsg(
+                            <>
+                            <h2>Tu pago ha sido tomada en cuenta!</h2>
+                            <p> Te enviaremos tu pedido lo antes posible.</p>
+                            </>
+                        )
+                    }
+                }
+                else {
+                    //If response code is XXX then show payment error, 
+                    // else show default err msh
+                    setConfirmationMsg(
+                        <>
+                        <h2>Lo sentimos...</h2>
+                        <p>Ha ocurrido un error con tu orden :( </p>
+                        </>
+                    )
+                }
             })
             .catch((error) => {
-                alert("Error al procesar el pago. Inténtalo de nuevo.");
+                setIsLoading(false);
+                setConfirmationMsg(
+                    <>
+                    <h2>Lo sentimos...</h2>
+                    <p>Ha ocurrido un error con tu orden :( </p>
+                    <p>Intentalo de nuevo o contactanos al 7123 7723</p>
+                    </>
+                )
             });
     };
 
@@ -219,8 +270,8 @@ const Checkout = (props) => {
                         </ToggleButton>
                         <ToggleButton
                             sx={{ "&.Mui-selected": { backgroundColor: "#b275a6", color: "white", "&:hover": { backgroundColor: "#9a5e8a" } } }}
-                            value="cash">
-                            Efectivo
+                            value="bank_transfer">
+                            Transferencia
                         </ToggleButton>
                     </ToggleButtonGroup>
                 </div>
@@ -286,6 +337,15 @@ const Checkout = (props) => {
                 </div>
 
             </div>
+            <Modal ref={confirmationModalRef} key="confirmation-modal" className="small" children={[
+                isLoading ? (
+                    <div style={{ display: "flex", justifyContent: "center", padding: "20px" }}>
+                        <div className="spinner"></div>
+                    </div>
+                ) : (
+                    <div>{confirmationMsg}</div>
+                )
+            ]}/>
         </div>
     )
 
