@@ -3,13 +3,27 @@ import { useEffect,useState, useCallback, useRef, forwardRef, useImperativeHandl
 
 import { DataGrid } from '@mui/x-data-grid';
 import { IconButton } from '@mui/material';
-import { AiFillEdit } from "react-icons/ai";
+import { AiFillEdit, AiFillEye } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 
 import Modal from '../../components/Modal';
 import { OrderDeleteForm, OrderEditForm } from './OrderForms';
+import Dropdown from '../../components/Dropdown';
+import "../../styles/Cards.css";
 
 const apiUrl = process.env.REACT_APP_BEET_API_URL;
+
+const statusOpts = [
+    {value:"new",label:"NUEVA"},
+    {value:"complete",label:"COMPLETADA"}
+]
+
+const paymentStatusOpts = [
+    {value:"pending",label:"PENDING"},
+    {value:"accepted",label:"ACCEPTED"},
+    {value:"denied",label:"DENIED"}
+]
+
 
 const OrderTable = forwardRef((props, ref) => {
     const [ tableData, setTableData ] = useState([]);
@@ -23,17 +37,152 @@ const OrderTable = forwardRef((props, ref) => {
     const editModalRef = useRef(null);
     const editModal = <Modal key="edit-order-modal" ref={editModalRef} children={[editForm]} />
 
+
+    const detailModalRef = useRef(null);
+    const [detail, setDetail] = useState();
+    const detailModal = <Modal key="detail-modal" ref={detailModalRef} children={[detail]}/>
+
+
+
     const tableColumns = [
         { field: "id", headerName:"", width:150, flex: 0},
         { field: "code", headerName:"Codigo", width: 150},
-        { field: "customer", headerName: "Cliente"  },
+        { field: "status", headerName: "Status", width: 100,
+            renderCell: (params) => (
+                params.value ?
+                <Dropdown key="status" default_value={params.value}
+                    options = {statusOpts}
+                />
+                : ""
+            )
+        },
+        { field: "customer", headerName: "Cliente", width: 250,
+            renderCell: (params) => (
+                params.value ?
+                <div style={{display:"flex",justifyContent:"space-between", paddingRight: "32px"}}>
+                    {params.value.name}
+                    <IconButton aria-label="edit" size="small"
+                        onClick={
+                            (e)=>{e.stopPropagation();
+                            setDetail(
+                                <div key="client-detail">
+                                <h2>Orden <u>{params.row.code}</u></h2>
+                                <br/>
+                                <span style={{display:"flex", gap:"8px"}}>Nombre: <p><b>{params.value.name}</b></p> </span>
+                                <span style={{display:"flex", gap:"8px"}}>Email: <p><b>{params.value.email}</b></p> </span>
+                                <span style={{display:"flex", gap:"8px"}}>Cel: <p><b>{params.value.telephone}</b></p> </span>
+                                </div>
+                            )
+                            detailModalRef.current?.open(); }
+                        }
+                    >
+                        <AiFillEye/>
+                    </IconButton>
+                </div> :
+                ""
+            )
+        },
+        { field:"delivery", headerName: "Delivery", width: 300, flex:1,
+            renderCell: (params) => (
+                params.value ?
+                ( params.value.delivery_type === "pickup" ? "PickUp" :
+                    <div style={{display:"flex",justifyContent:"space-between", paddingRight: "32px"}}>
+                        {params.value.address}  -  {params.value.municipality}  -  {params.value.department}
+                        <IconButton aria-label="edit" size="small"
+                            onClick={
+                                (e)=>{e.stopPropagation();
+                                setDetail(
+                                    <div key="delivery-detail">
+                                    <h2>Orden <u>{params.row.code}</u></h2>
+                                    <br/>
+                                    <p>{params.value.municipality} - {params.value.department} <b>($ {params.value.delivery_amount})</b></p>
+                                    <br/>
+                                    <p>{params.value.address}</p>
+                                    <br/>
+                                    {params.row.special_notes ?
+                                        <p>Notas: <br/> {params.row.special_notes} </p>
+                                        : ""
+                                    }
+                                    </div>
+                                )
+                                detailModalRef.current?.open(); }
+                            }
+                        >
+                            <AiFillEye/>
+                        </IconButton>
+                    </div>
+                )
+                : "")
+        },
+
+       { field: "total_amount", headerName: "Total",
+            renderCell:(params) =>( params.value ? ( "$ " + params.value ) : "$ -" )
+       },
+
+        { field: "payment_method", headerName: "Pago (tipo)", width:100,
+            renderCell: (params) => (params.value ?
+                params.value === "card" ? "Card" : ( params.value === "bank_transfer" ? "Bank" : "" )
+                : "")
+        },
+
+        { field: "payment_status", headerName: "Pago (status)", width:120,
+            renderCell: (params) => (
+                params.value ?
+                <Dropdown key="status" default_value={params.value}
+                    options = {paymentStatusOpts}
+                />
+                : ""
+            )
+        },
+
+        {field:"order_items", headerName: "Productos", width:100,
+            renderCell: (params) => (
+                params.value ?
+                <div style={{display:"flex",justifyContent:"space-between", paddingRight: "32px"}}>
+                    {params.value.length}
+                    <IconButton aria-label="edit" size="small"
+                        onClick={
+                            (e)=>{e.stopPropagation();
+                            setDetail(
+                                <div key="order-items-detail" style={{display:"flex", flexDirection:"column", gap:"32px"}}>
+                                    <h2>Orden <u>{params.row.code}</u></h2>
+                                    <div className='order-products'>
+                                        {params.value.map((it)=>(
+                                            <div className='order-product-card'>
+                                                <div className='img-container'>
+                                                    <img src= {apiUrl + it.variant.image_url} alt="order product"/>
+                                                </div>
+                                                <div className='order-product-card-content'>
+                                                    <span><b>{it.variant.sku}</b></span>
+                                                    <span>{it.variant.name}</span>
+                                                    <span>Precio: <b>$ {it.variant.price * it.quantity}</b></span>
+                                                    <span>Cantidad: <b>{it.quantity}</b></span>
+                                                </div>
+                                            </div>
+                                        )
+                                        )}
+                                    </div>
+
+                                    <span style={{display:"flex", width:"100%", textAlign:"center", justifyContent:"center", gap:"8px"}}>Total: <b>$ {params.row.total_amount}</b></span>
+                                </div>
+                            )
+                            detailModalRef.current?.open(); }
+                        }
+                    >
+                        <AiFillEye/>
+                    </IconButton>
+                </div> : ""
+            )
+        },
+
+        {field: "special_notes", headerName: "Notas", width:200, flex:1},
 
         {
-            field:"actions", headerName: " ", width:100,
+            field:"actions", headerName: " ", width:20,
             sortable: false, filterable: false, disableExport: true,
             renderCell: (params) => (
                 <>
-                <IconButton aria-label="edit" size="small"
+                {/* <IconButton aria-label="edit" size="small"
                     onClick={(e) => {
                         e.stopPropagation();
                         setEditForm(<OrderEditForm key={`edit-order-form-${params.row.id}`} id={params.row.id} userRole={props.userRole} onSuccess={fetchTableData}/>)
@@ -41,7 +190,7 @@ const OrderTable = forwardRef((props, ref) => {
                     }}
                 >
                     <AiFillEdit />
-                </IconButton>
+                </IconButton> */}
                 <IconButton aria-label="delete" size="small"
                     onClick={(e) => {
                         e.stopPropagation();
@@ -100,6 +249,7 @@ const OrderTable = forwardRef((props, ref) => {
             />
             {deleteModal}
             {editModal}
+            {detailModal}
         </div>
     );
 });
