@@ -15,6 +15,7 @@ import Inventory from './pages/inventory/Inventory';
 import Navbar from './components/Navbar';
 import Users from './pages/users/Users';
 import Login from './pages/Login';
+import Orders from './pages/orders/Orders';
 
 const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
@@ -95,6 +96,7 @@ function App() {
                             <Users userRole = {userRole}/>
                         </ProtectedRoute>
                     } />
+                    <Route exact path="/orders" element = { <Orders userRole = {userRole} /> } />
                 </Routes>
             </div>
             </HashRouter>
