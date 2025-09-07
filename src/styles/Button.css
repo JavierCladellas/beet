@@ -44,3 +44,13 @@
 .action-button.pink:hover {
     color: var(--pink);
 }
+
+
+.action-button:disabled{
+    background-color: #ccc; /* grey fallback */
+    border: 2px solid #ccc;
+    color: #666;            /* dimmed text */
+    cursor: not-allowed;
+    pointer-events: none;   /* prevent clicks / hover */
+    opacity: 0.7;
+}

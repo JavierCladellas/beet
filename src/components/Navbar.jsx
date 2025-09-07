@@ -46,7 +46,7 @@ const Navbar = (props) => {
                 ))}
             </div>
             <div className='cart-icon-container'>
-                <Link className='cart-icon' to="/cart" key="cart-btn">
+                <Link className='cart-icon' to="/cart" key="cart-btn" onClick={(e)=>{if (!cartQtty){e.preventDefault()};}}>
                     <IoCart />{cartQtty > 0 && <span>{cartQtty}</span>}
                 </Link>
             </div>

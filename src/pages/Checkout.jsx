@@ -347,12 +347,19 @@ const Checkout = (props) => {
                 <input type="hidden" name="total_amount" value={totalPrice} />
 
 
-                <div>
-                    TODO: Add serfinsa logos (and mastercard and stuff)
+                <div className="payment-logos-container">
+                    <div className="payment-logos">
+                        <img src="/logos/Logos_Serfinsa_Naranja.png" alt="Serfinsa"/>
+                    </div>
+                    <div className="payment-logos">
+                        <img src="/logos/VISA.png" alt="visa"/>
+                        <img src="/logos/MASTERCARD.png" alt="Mastercard"/>
+                        <img src="/logos/UNION PAY.png" alt="Union Pay"/>
+                    </div>
                 </div>
 
             </div>
-            <Modal ref={confirmationModalRef} key="confirmation-modal" className="confirmation-modal" 
+            <Modal ref={confirmationModalRef} key="confirmation-modal" className="confirmation-modal"
             close = {(e)=>{
                 window.dispatchEvent(new Event("storage"));
                 navigate("/shop");

@@ -125,3 +125,26 @@
 .confirmation-modal>.modal-content>img{
     max-height: 80px;
 }
+
+
+.payment-logos{
+    display: flex;
+    justify-items: flex-start;
+    align-items: flex-start;
+}
+
+.payment-logos>img{
+    width: auto;
+    height: 40px;
+}
+.payment-logos-container{
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+    align-items: center;
+    gap:16px;
+}
+
+.payment-logos{
+    gap: 16px;
+}
