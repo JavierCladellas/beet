@@ -46,3 +46,70 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+/* --- Responsive Checkout --- */
+
+/* Tablet and below */
+@media screen and (max-width: 1024px) {
+    .checkout-page {
+        flex-direction: column !important;
+        gap: 32px;
+    }
+
+    .checkout-form {
+        margin: 0;
+        padding: 24px;
+        width: 100%;
+    }
+
+    .checkout-card {
+        width: 100%;
+        padding: 24px;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+    .checkout-page {
+        padding: 16px;
+        gap: 24px;
+    }
+
+    .checkout-form {
+        padding: 16px;
+        gap: 24px;
+    }
+
+    .checkout-form .form-row {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 16px;
+        width: 100%;
+    }
+
+    .checkout-form .form-col {
+        width: 100%;
+    }
+
+    .checkout-card {
+        padding: 16px;
+        border: 1px solid #ccc;
+        gap: 12px;
+    }
+
+    .checkout-card-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .checkout-card-item > p,
+    .checkout-card-item > span {
+        font-size: 0.95rem;
+    }
+
+    .form-button {
+        width: 100%;
+        justify-content: center;
+    }
+}

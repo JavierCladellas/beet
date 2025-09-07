@@ -181,7 +181,7 @@ const Checkout = (props) => {
     };
 
     return (
-        <div className="page cart-page" style={{ flexDirection: "row", justifyContent: "space-between" }}>
+        <div className="page cart-page checkout-page" style={{ flexDirection: "row", justifyContent: "space-between" }}>
             <form className="checkout-form" style={{ alignItems: "flex-start" }} ref={formRef} onSubmit={submitHandler}>
 
 
