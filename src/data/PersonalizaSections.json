@@ -89,6 +89,15 @@
             ]
         }
     },
+    "contact":{
+        "title":"Creamos regalos que hablan por ti, \n cuando las palabras no son suficientes.",
+        "image":"/images/navbar-bg.webp",
+
+        "layout":"vertical",
+        "content_style":"white-text align-center text-center more-pad-h",
+        "button_style":"light-pink"
+
+    },
     "reviews":{
         "title":"Testimonios que nos hacen el día",
         "body_text":"Clientes que confiaron en nosotros para decir lo que no sabían cómo decir... \n y esto fue lo que pasó.",
@@ -116,14 +125,5 @@
                 }
             ]
         }
-    },
-    "contact":{
-        "title":"Creamos regalos que hablan por ti, \n cuando las palabras no son suficientes.",
-        "image":"/images/navbar-bg.webp",
-
-        "layout":"vertical",
-        "content_style":"white-text align-center text-center more-pad-h",
-        "button_style":"light-pink"
-
     }
 }

@@ -8,6 +8,7 @@ const Modal = forwardRef((props, ref) => {
     const dialogRef = useRef();
 
     const modalClose = () => {
+        props.close?.();
         dialogRef.current?.close();
         document.body.classList.remove('no-scroll');
     }

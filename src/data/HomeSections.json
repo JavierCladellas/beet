@@ -18,30 +18,7 @@
 
         "layout":"vertical",
         "content_style":"align-center more-pad-h text-center",
-        "button_style":"light-pink",
-
-        "children":{
-            "products":[
-                {
-                    "name":"Nombre del producto",
-                    "description":"Breve descripción que inspire al cliente",
-                    "image":"/images/personaliza/21.webp",
-                    "alt_text":"alt"
-                },
-                {
-                    "name":"Nombre del producto",
-                    "description":"Breve descripción que despierte curiosidad",
-                    "image":"/images/personaliza/22.webp",
-                    "alt_text":"alt"
-                },
-                {
-                    "name":"Nombre del producto",
-                    "description":"Breve descripción que de ideas por ocasión",
-                    "image":"/images/personaliza/23.webp",
-                    "alt_text":"alt"
-                }
-            ]
-        }
+        "button_style":"light-pink"
     },
     "corporate_gifting":{
         "title":"Corporate Gifting, a otro nivel.",
