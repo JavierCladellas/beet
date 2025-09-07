@@ -10,6 +10,7 @@ import "../styles/Button.css";
 
 import municipalities from "../data/municipios.json";
 import metropolitan_area from "../data/metropolitanArea.json";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const apiUrl = process.env.REACT_APP_BEET_API_URL;
@@ -131,20 +132,27 @@ const Checkout = (props) => {
             headers: { "Content-Type": "application/json", },
             body: JSON.stringify(data),
         })
-            .then((response) => {
+            .then( async (response) => {
                 setIsLoading(false);
                 if (response.ok) {
                     if (data["payment_type"] === "bank_transfer"){
+                        const order = await response.json();
+                        console.log(order);
                         setConfirmationMsg(
                             <>
                             <h2>La orden ha sido tomada en cuenta!</h2>
                             <p>Haz tu transferencia con los siguientes detalles. <br/>
-                                Banco: <b>Davivienda</b>
+                                Banco: <b>Davivienda</b> <br/>
                                 Numero de Cuenta: <b>1234-5678-9100-1234</b>
                             </p>
                             <p>
                                 Luego envianos captura de pantalla con la confirmacion de la transferencia por WhatsApp : <b>7852 4563</b>
                             </p>
+
+                            <p> Hemos enviado un mensaje con los detalles de tu orden a tu correo. </p>
+
+                            <br/>
+                            <p> Orden : <b>{order.code}</b></p>
                             </>
                         )
                     }
@@ -153,9 +161,15 @@ const Checkout = (props) => {
                             <>
                             <h2>Tu pago ha sido tomada en cuenta!</h2>
                             <p> Te enviaremos tu pedido lo antes posible.</p>
+                            <p> Hemos enviado un mensaje con los detalles de tu orden a tu correo. </p>
                             </>
                         )
                     }
+                    else{
+                        throw new Error("Unkown payment type");
+                    }
+
+                    setCart([]);
                 }
                 else {
                     //If response code is XXX then show payment error, 
@@ -179,6 +193,7 @@ const Checkout = (props) => {
                 )
             });
     };
+    const navigate = useNavigate();
 
     return (
         <div className="page cart-page checkout-page" style={{ flexDirection: "row", justifyContent: "space-between" }}>
@@ -337,14 +352,26 @@ const Checkout = (props) => {
                 </div>
 
             </div>
-            <Modal ref={confirmationModalRef} key="confirmation-modal" className="small" children={[
+            <Modal ref={confirmationModalRef} key="confirmation-modal" className="confirmation-modal" 
+            close = {(e)=>{
+                window.dispatchEvent(new Event("storage"));
+                navigate("/shop");
+            }}
+            children={[
+                <img src="/logos/beet_minimal_white_bg.webp" />,
                 isLoading ? (
                     <div style={{ display: "flex", justifyContent: "center", padding: "20px" }}>
                         <div className="spinner"></div>
                     </div>
                 ) : (
                     <div>{confirmationMsg}</div>
-                )
+                ),
+                <Link className="action-button pink" to="/shop" onClick={
+                    (e)=>{
+                        window.dispatchEvent(new Event("storage"));
+                        confirmationModalRef.current?.close();
+                    }
+                } ><p> Regresar </p> </Link>
             ]}/>
         </div>
     )
