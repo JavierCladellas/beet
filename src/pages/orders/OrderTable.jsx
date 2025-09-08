@@ -14,14 +14,18 @@ import "../../styles/Cards.css";
 const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
 const statusOpts = [
-    {value:"new",label:"NUEVA"},
-    {value:"complete",label:"COMPLETADA"}
+    {value:"pending",label:"PENDIENTE"},
+    {value:"processing",label:"PROCESANDO"},
+    {value:"ready",label:"LISTA"},
+    {value:"delivered",label:"ENTREGADA"},
+    {value:"cancelada",label:"CANCELLED"}
 ]
 
 const paymentStatusOpts = [
     {value:"pending",label:"PENDING"},
     {value:"accepted",label:"ACCEPTED"},
-    {value:"denied",label:"DENIED"}
+    {value:"denied",label:"DENIED"},
+    {value:"refunded",lable:"REFUNDED"}
 ]
 
 
@@ -51,6 +55,17 @@ const OrderTable = forwardRef((props, ref) => {
             renderCell: (params) => (
                 params.value ?
                 <Dropdown key="status" default_value={params.value}
+                    onChange = {(e) => {
+                        fetch( apiUrl + `orders/status/${params.row.id}`, {
+                            method: 'PUT',
+                            credentials: 'include',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({status: e.target.value})
+                        })
+                        .then( response => response.json() )
+                        .then( data => { return fetchTableData(); } )
+                        .catch(error => { console.error("Error Updating status:", error); })
+                    }}
                     options = {statusOpts}
                 />
                 : ""
@@ -129,6 +144,19 @@ const OrderTable = forwardRef((props, ref) => {
             renderCell: (params) => (
                 params.value ?
                 <Dropdown key="status" default_value={params.value}
+                    onChange = {(e) => {
+                        fetch( apiUrl + `orders/payment_status/${params.row.id}`, {
+                            method: 'PUT',
+                            credentials: 'include',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({payment_status: e.target.value})
+                        })
+                        .then( response => response.json() )
+                        .then( data => {
+                            return fetchTableData();
+                        } )
+                        .catch(error => { console.error("Error Updating status:", error); })
+                    }}
                     options = {paymentStatusOpts}
                 />
                 : ""
