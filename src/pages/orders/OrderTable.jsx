@@ -25,7 +25,7 @@ const paymentStatusOpts = [
     {value:"pending",label:"PENDING"},
     {value:"accepted",label:"ACCEPTED"},
     {value:"denied",label:"DENIED"},
-    {value:"refunded",lable:"REFUNDED"}
+    {value:"refunded",label:"REFUNDED"}
 ]
 
 
@@ -50,8 +50,8 @@ const OrderTable = forwardRef((props, ref) => {
 
     const tableColumns = [
         { field: "id", headerName:"", width:150, flex: 0},
-        { field: "code", headerName:"Codigo", width: 150},
-        { field: "status", headerName: "Status", width: 100,
+        { field: "code", headerName:"Codigo", width: 150, flex:1},
+        { field: "status", headerName: "Status", width: 125,
             renderCell: (params) => (
                 params.value ?
                 <Dropdown key="status" default_value={params.value}
@@ -71,7 +71,7 @@ const OrderTable = forwardRef((props, ref) => {
                 : ""
             )
         },
-        { field: "customer", headerName: "Cliente", width: 250,
+        { field: "customer", headerName: "Cliente", minWidth: 200, flex:1,
             renderCell: (params) => (
                 params.value ?
                 <div style={{display:"flex",justifyContent:"space-between", paddingRight: "32px"}}>
@@ -97,12 +97,12 @@ const OrderTable = forwardRef((props, ref) => {
                 ""
             )
         },
-        { field:"delivery", headerName: "Delivery", width: 300, flex:1,
+        { field:"delivery", headerName: "Delivery", width: 350, minWidth:250, flex:2,
             renderCell: (params) => (
                 params.value ?
                 ( params.value.delivery_type === "pickup" ? "PickUp" :
                     <div style={{display:"flex",justifyContent:"space-between", paddingRight: "32px"}}>
-                        {params.value.address}  -  {params.value.municipality}  -  {params.value.department}
+                        {params.value.municipality}  -  {params.value.department} - {params.value.address}
                         <IconButton aria-label="edit" size="small"
                             onClick={
                                 (e)=>{e.stopPropagation();
@@ -130,7 +130,7 @@ const OrderTable = forwardRef((props, ref) => {
                 : "")
         },
 
-       { field: "total_amount", headerName: "Total",
+       { field: "total_amount", headerName: "Total", minWidth:70, flex:0.5,
             renderCell:(params) =>( params.value ? ( "$ " + params.value ) : "$ -" )
        },
 
@@ -163,7 +163,7 @@ const OrderTable = forwardRef((props, ref) => {
             )
         },
 
-        {field:"order_items", headerName: "Productos", width:100,
+        {field:"order_items", headerName: "", width:50,
             renderCell: (params) => (
                 params.value ?
                 <div style={{display:"flex",justifyContent:"space-between", paddingRight: "32px"}}>
