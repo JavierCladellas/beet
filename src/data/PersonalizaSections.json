@@ -84,10 +84,13 @@
                 },
                 {
                     "name":"Souvenirs para tus eventos",
-                    "image":"/images/personaliza/27.webp"
+                    "image":"/images/personaliza/souvenirs.webp"
                 }
             ]
-        }
+        },
+        "button_style":"pink",
+        "button_text":"VER CATALOGO",
+        "button_link":"/shop"
     },
     "contact":{
         "title":"Creamos regalos que hablan por ti, \n cuando las palabras no son suficientes.",
