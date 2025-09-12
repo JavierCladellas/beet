@@ -91,7 +91,7 @@ const Corporate = (props) => {
                 <Modal ref={confirmationModalRef} key="confirmation-modal" className="small" children={[
                     <p key="confirmation-msg">
                         Gracias por tomarnos en cuenta! <br/>
-                        Hemos recibido tu info, proto te contactaremos por WhatsApp.
+                        Hemos recibido tu info, pronto te contactaremos por WhatsApp.
                     </p>
                 ]}/>
             ]}/>
