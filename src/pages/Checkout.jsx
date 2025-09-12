@@ -145,11 +145,12 @@ const Checkout = (props) => {
                             <>
                             <h2>La orden ha sido tomada en cuenta!</h2>
                             <p>Haz tu transferencia con los siguientes detalles. <br/>
-                                Banco: <b>Davivienda</b> <br/>
-                                Numero de Cuenta: <b>1234-5678-9100-1234</b>
+                                Banco: <b>BANCO DE AMERICA CENTRAL</b> <br/>
+                                Nombre: <b>CHELU, S.A. DE C.V. </b> <br/>
+                                Cuenta CORRIENTE: <b>201469871</b>
                             </p>
                             <p>
-                                Luego envianos captura de pantalla con la confirmacion de la transferencia por WhatsApp : <b>7852 4563</b>
+                                Luego envianos captura de pantalla con la confirmacion de la transferencia por WhatsApp : <b>7602-5162</b>
                             </p>
 
                             <p> Hemos enviado un mensaje con los detalles de tu orden a tu correo. </p>
