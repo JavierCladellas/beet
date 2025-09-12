@@ -107,3 +107,10 @@ footer a{
     width:auto;
     object-fit: contain;
 }
+
+
+@media screen and (max-width: 1024px) {
+    .copyright-row > p {
+        margin-top:72px;
+    }
+}

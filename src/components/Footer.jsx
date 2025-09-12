@@ -33,9 +33,9 @@ const Footer = (props) => {
                         <Link className="footer-nav-button" to={"corporate-gifting"} key="corporate-gifting">
                             <p>CORPORATE GIFTING</p>
                         </Link>
-                        <Link className="footer-nav-button" to={"events"} key="events">
+                        {/* <Link className="footer-nav-button" to={"events"} key="events" >
                             <p>EVENTOS</p>
-                        </Link>
+                        </Link> */}
                         <Link className="footer-nav-button" to={"about"} key="about">
                             <p>ABOUT US</p>
                         </Link>
