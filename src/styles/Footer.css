@@ -64,16 +64,22 @@ footer a{
     width: 100%;
     align-items: center;
 }
-
-.copyright-row{
+.copyright-row {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    position: relative;
 }
-.copyright-row>p{
-    text-align: center;
+
+.copyright-row > p {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* perfectly centered */
     font-size: 0.9rem;
+    margin: 0;
+    text-align: center;
 }
+
 
 @media screen and (max-width: 768px) {
     .footer-row-content {
@@ -89,4 +95,15 @@ footer a{
         margin: 4px;
         gap:2px;
     }
+}
+
+.card-logos-container{
+    display: flex;
+    gap:16px;
+    margin: 8px 0;
+}
+.card-logos-container>img{
+    height:24px;
+    width:auto;
+    object-fit: contain;
 }

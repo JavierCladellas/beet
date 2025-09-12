@@ -19,7 +19,8 @@ const Footer = (props) => {
                             de regalos personalizados y experiencias
                             memorables, y de paso, te facilitamos la vida.
                         </p>
-                        <img loading='lazy' className="footer-logo" src="/logos/SupportLocal.webp" alt="Support Local" />
+                        <br/>
+                        <img loading='lazy' className="footer-logo" src="/logos/SSL.svg" alt="SSL Verified" />
                     </div>
 
                     <div className="footer-col">
@@ -68,7 +69,15 @@ const Footer = (props) => {
                 <hr className="solid" />
 
                 <div className="footer-row copyright-row">
+                    <div className='card-logos-container'>
+                        <img src="/logos/Logos_Serfinsa_Blanco.png" alt="Serfinsa"/>
+                        <img src="/logos/VISA.png" alt="Visa"/>
+                        <img src="/logos/MASTERCARD.png" alt="MasterCard"/>
+                        <img src="/logos/UNION PAY.png" alt="Union Pay"/>
+                    </div>
                     <p>BEET ® by Chelú, S.A. de C.V. <br/>Est. 2013</p>
+                    <div>
+                    </div>
                 </div>
 
             </footer>
