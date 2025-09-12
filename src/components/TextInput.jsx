@@ -62,6 +62,7 @@ const TextInput = (props) => {
                     name={props.id}
                     onChange={inputHandler}
                     defaultValue={value}
+                    placeholder={props.placeholder ?? ""}
                 />
                 <label htmlFor={props.id}>{props.label}</label>
             </div>

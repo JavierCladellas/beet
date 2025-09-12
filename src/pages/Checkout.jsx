@@ -217,6 +217,15 @@ const Checkout = (props) => {
                     </div>
                 </div>
 
+                <hr style={{display:(step === 0) ? "flex" : "none" }}/>
+
+                <div className="form-col" style={{ alignItems: "flex-start",display:(step === 0) ? "flex" : "none"  }}>
+                    <p>Notas adicionales</p>
+                    <TextInput type="textarea" id="special_notes" label="Indicaciones adicionales sobre tu compra" sx={{ ">textarea": { minHeight: "80px" } }}
+                        placeholder="(Decir que es un regalo de parte de Tati)"
+                    />
+                </div>
+
                 <hr style={{display:step === 0 ? "flex" : "none"}}/>
 
 
@@ -306,12 +315,6 @@ const Checkout = (props) => {
                     <TextInput type="text" id="card_name" label="Nombre en la tarjeta" required={paymentType === "card"} autocomplete="cc-number"/>
                 </div>
 
-                <hr style={{display:(step === 1) ? "flex" : "none" }}/>
-
-                <div className="form-col" style={{ alignItems: "flex-start",display:(step === 1) ? "flex" : "none"  }}>
-                    <p>Notas adicionales</p>
-                    <TextInput type="textarea" id="special_notes" label="Notas adicionales para tus productos o información de entrega" sx={{ ">textarea": { minHeight: "80px" } }} />
-                </div>
                 <div style={{ width:"100%", flexDirection:"row", alignContent:"center", justifyContent:"space-between",display:(step === 1) ? "flex" : "none" }}>
                     <button type="button" className="action-button light-pink form-button" onClick={(e)=>{setStep(0);}}><p>Regresar</p></button>
                     <button type="submit" className="action-button pink form-button" ><p>Pagar</p></button>
