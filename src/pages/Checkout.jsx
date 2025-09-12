@@ -15,6 +15,9 @@ import { Link, useNavigate } from "react-router-dom";
 
 const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
+const metropolitanAreaPrice = 3;
+const restOfTheCountryPrice = 5;
+
 
 const Checkout = (props) => {
 
@@ -25,7 +28,7 @@ const Checkout = (props) => {
 
     const [cart, setCart] = useLocalStorage("cart", []);
     const [orderPrice, setOrderPrice] = useState(null);
-    const [deliveryPrice, setDeliveryPrice] = useState(2.5);
+    const [deliveryPrice, setDeliveryPrice] = useState(metropolitanAreaPrice);
     const totalPrice = orderPrice + deliveryPrice;
     const [paymentType, setPaymentType] = useState("card");
 
@@ -49,11 +52,11 @@ const Checkout = (props) => {
 
             if (metropolitan_area.includes(m))
             {
-                setDeliveryPrice(2.5);
+                setDeliveryPrice(metropolitanAreaPrice);
                 setIsMetropolitan(true);
             }
             else{
-                setDeliveryPrice(5);
+                setDeliveryPrice(restOfTheCountryPrice);
                 setIsMetropolitan(false);
             }
         }
@@ -69,16 +72,16 @@ const Checkout = (props) => {
         setDeliveryType(type);
         if (type === "delivery") {
             if (!deliveryMunicipality || !deliveryDepartment) {
-                setDeliveryPrice(2.5);
+                setDeliveryPrice(metropolitanAreaPrice);
                 setIsMetropolitan(false);
             }
             else if (metropolitan_area.includes(deliveryMunicipality))
             {
-                setDeliveryPrice(2.5);
+                setDeliveryPrice(metropolitanAreaPrice);
                 setIsMetropolitan(true);
             }
             else{
-                setDeliveryPrice(5);
+                setDeliveryPrice(restOfTheCountryPrice);
                 setIsMetropolitan(false);
             }
         }
