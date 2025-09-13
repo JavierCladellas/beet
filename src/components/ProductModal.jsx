@@ -57,7 +57,7 @@ const ProductModal = (props) => {
                 </button>
             )}
             {quantity > 0 &&
-                <Link to="/cart" className="action-button pink">
+                <Link to="/cart" className="action-button pink" onClick={ () => {document.body.classList.remove('no-scroll');}}>
                     <IoCart style={{width:"20px", marginRight:"8px"}}/> <p>Ver Carrito </p>
                 </Link>
             }
