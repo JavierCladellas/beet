@@ -5,6 +5,7 @@ import { FaStar } from "react-icons/fa";
 
 import "../styles/Grid.css";
 import FullCarousel from "../components/FullCarousel";
+import { Link } from "react-router-dom";
 
 
 
@@ -29,7 +30,9 @@ const Personaliza = (props) => {
             <Section section = {sections.suggestions} children = {[
                 <div className="grid-row" key="products2">
                     {sections.suggestions.children.products.map((product, index) => (
-                        <ProductCard2 product={product} key={index} />
+                        <Link to={"/shop?category="+product.category}>
+                            <ProductCard2 product={product} key={index} />
+                        </Link>
                     ))}
                 </div>
             ]}/>

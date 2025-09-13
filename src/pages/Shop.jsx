@@ -7,6 +7,11 @@ import "../styles/Cart.css";
 import "../styles/Grid.css";
 import { useLocalStorage } from "../components/LocalStorage";
 
+import { useLocation } from "react-router-dom";
+
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 
 
 const apiUrl = process.env.REACT_APP_BEET_API_URL;
@@ -17,9 +22,25 @@ const Shop = (props) => {
     const [productOpened, setProductOpened] = useState(null);
     const [alerts, setAlerts] = useState([]);
 
-    const [filteredProducts, setFilteredProducts] = useState([]);
+    const query = useQuery();
+    const initialCategory = query.get("category");
+
     const [selectedCategories, setSelectedCategories] = useState([]);
+
+    useEffect(() => {
+    if (
+        initialCategory &&
+        props.products.length > 0 &&
+        props.products.some(p => p.category.name === initialCategory)
+    ) {
+        setSelectedCategories([initialCategory]);
+    }
+    }, [initialCategory, props.products]);
+
+    const [filteredProducts, setFilteredProducts] = useState([]);
+
     const [cart, setCart] = useLocalStorage("cart", []);
+
 
     const addToCart = (product, quantity) => {
         const id = Date.now();

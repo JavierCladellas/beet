@@ -76,15 +76,18 @@
             "products":[
                 {
                     "name":"Gift boxes personalizadas",
-                    "image":"/images/home/section1.webp"
+                    "image":"/images/home/section1.webp",
+                    "category":"Gift boxes"
                 },
                 {
                     "name":"Otros formatos creativos",
-                    "image":"/images/personaliza/28.webp"
+                    "image":"/images/personaliza/28.webp",
+                    "category":"Formatos creativos"
                 },
                 {
                     "name":"Souvenirs para tus eventos",
-                    "image":"/images/personaliza/souvenirs.webp"
+                    "image":"/images/personaliza/souvenirs.webp",
+                    "category":"Souvenirs"
                 }
             ]
         },
