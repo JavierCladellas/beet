@@ -38,11 +38,9 @@ function App() {
     const [products, setProducts ] = useState([]);
 
     useEffect( () => {
-        fetch( apiUrl + "products", {
+        fetch( apiUrl + "products?only_visible=true", {
             method:"GET",
-            headers:{
-                'Content-Type': 'application/json'
-            }
+            headers:{ 'Content-Type': 'application/json'}
         })
         .then( response => response.json())
         .then( data => {
