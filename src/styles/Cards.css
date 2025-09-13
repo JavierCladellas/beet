@@ -1,4 +1,5 @@
-.product-card, .member-card{
+.product-card,
+.member-card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,8 +8,9 @@
     height: 100%;
     padding: 1rem;
     border-radius: 8px;
-    flex:1;
+    flex: 1;
 }
+
 .product-card>.product-image-container,
 .member-card>.product-image-container {
     width: 100%;
@@ -19,8 +21,7 @@
 }
 
 
-.product-card>.product-image-container>img
-{
+.product-card>.product-image-container>img {
     object-fit: cover;
     height: 250px;
     width: 250px;
@@ -33,8 +34,9 @@
     width: 200px;
     cursor: pointer;
 }
-.product-card >.product-details,
-.member-card >.member-details{
+
+.product-card>.product-details,
+.member-card>.member-details {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,10 +45,12 @@
     cursor: pointer;
     max-width: 200px;
 }
-.product-card >.product-details>h3,
-.member-card >.member-details>h3 {
-    margin:0;
+
+.product-card>.product-details>h3,
+.member-card>.member-details>h3 {
+    margin: 0;
 }
+
 .product-card2 {
     position: relative;
     width: 300px;
@@ -57,35 +61,35 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.product-card3{
+.product-card3 {
     max-width: 250px;
     padding: 0;
     position: relative;
     box-sizing: border-box;
 }
 
-.product-card3>.product-image-container>img{
+.product-card3>.product-image-container>img {
     max-height: 250px;
     max-width: 250px;
 }
 
-.product-card{
+.product-card {
     transition: 0.1s;
     cursor: pointer;
 }
 
-.product-card:hover{
-    box-shadow:0 4px 10px rgba(0, 0, 0, 0.05);
+.product-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.product-card2 > img {
+.product-card2>img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-.product-card2 > .product-name {
+.product-card2>.product-name {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -114,7 +118,7 @@
     height: auto;
 }
 
-.step-card{
+.step-card {
     display: flex;
     position: relative;
     flex-direction: column;
@@ -124,25 +128,28 @@
     max-width: 360px;
     padding: 1rem;
     border-radius: 8px;
-    flex:1;
+    flex: 1;
     gap: 1rem;
-    padding-top:0;
+    padding-top: 0;
     text-align: center;
 }
 
-.step-card>div>h3{
-    flex:1;
+.step-card>div>h3 {
+    flex: 1;
     align-self: flex-start;
 }
-.step-card>p{
-    flex:1;
+
+.step-card>p {
+    flex: 1;
 }
-.step-card>div{
+
+.step-card>div {
     display: flex;
     flex-direction: column;
-    gap:8px;
+    gap: 8px;
 }
-.step-number{
+
+.step-number {
     display: block;
     color: var(--light-pink);
     font-size: 3rem;
@@ -154,7 +161,7 @@
 }
 
 
-.step-card2{
+.step-card2 {
     display: flex;
     position: relative;
     flex-direction: column;
@@ -162,25 +169,24 @@
     justify-content: flex-start;
     padding: 1rem;
     border-radius: 8px;
-    padding-top:0;
-    gap:8px;
+    padding-top: 0;
+    gap: 8px;
 }
 
-.step-card2>div{
+.step-card2>div {
     display: flex;
     flex-direction: row;
-    gap:16px;
+    gap: 16px;
     align-items: flex-start;
 }
 
 .step-card2>div>h3,
-.step-card2>div>p
-{
+.step-card2>div>p {
     max-width: 320px;
-    margin-left:32px;
+    margin-left: 32px;
 }
 
-.step-number2{
+.step-number2 {
     width: 0;
     display: block;
     font-size: 2rem;
@@ -197,22 +203,22 @@
 
 
 
-.review-card{
+.review-card {
     display: flex;
     flex-direction: column;
     background-color: white;
     padding: 32px;
     gap: 32px;
-    flex:1;
+    flex: 1;
     min-width: 400px;
-    position:relative;
+    position: relative;
     margin: 16px;
     justify-content: space-between;
 }
 
-.review-icon{
-    width:24px;
-    height:24px;
+.review-icon {
+    width: 24px;
+    height: 24px;
     background-color: var(--pink);
     border-radius: 100%;
     padding: 8px;
@@ -221,10 +227,10 @@
     right: 50%;
     transform: translate(-50%, -50%);
     margin: auto;
-    top:0;
+    top: 0;
 }
 
-.review-icon>img{
+.review-icon>img {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -233,7 +239,7 @@
 
 
 
-.reason-card{
+.reason-card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -242,14 +248,15 @@
     height: 100%;
     padding: 1rem;
     border-radius: 8px;
-    flex:1;
+    flex: 1;
     text-align: center;
     max-width: 300px;
 }
+
 .reason-icon {
     width: 48px;
     height: 48px;
-    color:var(--light-pink);
+    color: var(--light-pink);
     padding: 8px;
 }
 
@@ -258,23 +265,25 @@
     .client-card {
         max-width: 100px;
     }
+
     .client-card>img {
         width: 100%;
     }
 
     .step-card,
     .step-card2,
-    .review-card{
+    .review-card {
         width: 100%;
         max-width: 300px;
         height: auto;
     }
-    .step-number{
+
+    .step-number {
         font-size: 2rem;
         line-height: 2rem;
     }
 
-    .review-icon>img{
+    .review-icon>img {
         width: 100%;
         height: 100%;
     }
@@ -285,30 +294,57 @@
 .step-card>p,
 .step-card2>div>p,
 .reason-card>p,
-.review-card>p
-{
+.review-card>p {
     font-size: 1rem;
 }
 
 
-.product-modal-content{
+.product-modal-content {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
     align-items: center;
-    gap:16px;
+    gap: 16px;
 }
 
-.product-modal-content>img{
+.product-modal-content>img {
     height: 400px;
     object-fit: contain;
 }
 
-.product-modal-content>.add-to-cart-action-btn{
+.product-modal-content>.add-to-cart-action-btn {
     max-width: 200px;
     height: 48px;
 }
 
-.product-modal-content>.product-description{
+.product-modal-content>.product-description {
     width: 100%;
+}
+
+
+.category-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0 160px;
+    margin-top:32px;
+}
+
+.chip {
+    padding: 0.4rem 0.8rem;
+    border-radius: 9999px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.1s ease, color 0.1s ease, border-color 0.1s ease;
+    user-select: none;
+}
+
+.chip:hover {
+    background: #f0f0f0;
+}
+
+.chip.active {
+    background: var(--light-pink);
+    color: white;
+    border-color: var(--light-pink);
 }

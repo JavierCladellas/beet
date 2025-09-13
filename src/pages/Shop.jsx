@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ProductCard3 } from "../components/Cards";
 
-import { ProductModal, AddedToCartAlert } from "../components/ProductModal"; 
+import { ProductModal, AddedToCartAlert } from "../components/ProductModal";
 
 import "../styles/Cart.css";
 import "../styles/Grid.css";
@@ -18,6 +18,7 @@ const Shop = (props) => {
     const [alerts, setAlerts] = useState([]);
 
     const [filteredProducts, setFilteredProducts] = useState([]);
+    const [selectedCategories, setSelectedCategories] = useState([]);
     const [cart, setCart] = useLocalStorage("cart", []);
 
     const addToCart = (product, quantity) => {
@@ -66,14 +67,38 @@ const Shop = (props) => {
         onUpdateCart={updateCart}
     />
 
+    const categories = [...new Set(props.products.map(p => p.category.name))];
+
+    const toggleCategory = (cat) => {
+        setSelectedCategories((prev) =>
+            prev.includes(cat) ? prev.filter(c => c !== cat) : [...prev, cat]
+        );
+    };
 
     useEffect(() => {
-        setFilteredProducts(props.products);
-    }, [props.products])
+        if (selectedCategories.length === 0) {
+            setFilteredProducts(props.products);
+        } else {
+            setFilteredProducts(props.products.filter(p =>
+                selectedCategories.includes(p.category.name)
+            ));
+        }
+    }, [props.products, selectedCategories]);
 
+    console.log(categories)
     return (
         <div className="page">
-            {/* <Section section = {sections.banner} /> */}
+            <div className="category-chips">
+                {categories.map((cat) => (
+                    <span
+                        key={cat}
+                        className={`chip ${selectedCategories.includes(cat) ? "active" : ""}`}
+                        onClick={() => toggleCategory(cat)}
+                    >
+                        {cat}
+                    </span>
+                ))}
+            </div>
 
             <div className="products-grid">
                 {filteredProducts.map((prod, index) =>
