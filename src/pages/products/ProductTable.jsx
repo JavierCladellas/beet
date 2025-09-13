@@ -9,6 +9,7 @@ import Modal from '../../components/Modal';
 
 import { ProductDeleteForm, ProductEditForm } from './ProductForms';
 import { VariantsModalContent } from './VariantForms';
+import Checkbox from '../../components/Checkbox';
 
 const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
@@ -35,6 +36,30 @@ const ProductTable = forwardRef((props, ref) => {
 
     const tableColumns = [
         { field: "id", headerName:"", width:0, flex: 0},
+
+        { field:"visibility", headerName:"Visible", maxWidth:60,
+            renderCell: (params) => (
+                <div style={{height:"100%", width:"100%", display:"flex", alignItems:"center", justifyContent:"center"}}>
+                    <Checkbox style={{gap:"0"}}
+                        id={"visible_" + params.row.id}
+                        checked_default = {params.value}
+                        on_change={ (e )=> {
+                            e.stopPropagation();
+                            fetch( apiUrl + `products/${params.row.id}/visibility`, {
+                                method: 'PUT',
+                                credentials: 'include',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({visibility: e.target.checked})
+                            })
+                            .then( response => response.json() )
+                            .then( data => { return fetchTableData(); } )
+                            .catch(error => { console.error("Error Updating visibility:", error); })
+                        }}
+                    />
+                </div>
+            )
+        },
+
         { field: "name", headerName:"Nombre", flex: 1,minWidth : 100, maxWidth: 300},
         { field: "sku", headerName:"SKU", width:100, flex: 1,minWidth : 100, maxWidth: 150},
         { field: "price", headerName:"Precio", flex: 1,minWidth : 100, maxWidth: 150,
