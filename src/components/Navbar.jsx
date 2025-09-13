@@ -80,7 +80,7 @@ const Navbar = (props) => {
                 {cartOpen && cartQtty > 0 && (
                     <div className="cart-summary">
                         <ul className="cart-summary-list">
-                            {cartItems.slice(0, 3).map((item) => (
+                            {cartItems.map((item) => (
                                 <li key={item.id} className="cart-summary-item">
                                     <img src={apiUrl + item.image_url} alt={item.name} />
                                     <div className="cart-summary-details">
@@ -92,11 +92,6 @@ const Navbar = (props) => {
                                 </li>
                             ))}
                         </ul>
-                        {cartItems.length > 3 && (
-                            <p className="cart-summary-more">
-                                + {cartItems.length - 3} more items
-                            </p>
-                        )}
                         <div className="cart-summary-subtotal">
                             <span>Subtotal:</span>
                             <span>{subtotal.toFixed(2)}€</span>
