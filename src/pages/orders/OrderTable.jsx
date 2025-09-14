@@ -18,7 +18,7 @@ const statusOpts = [
     {value:"processing",label:"PROCESANDO"},
     {value:"ready",label:"LISTA"},
     {value:"delivered",label:"ENTREGADA"},
-    {value:"cancelada",label:"CANCELLED"}
+    {value:"cancelled",label:"CANCELADA"}
 ]
 
 const paymentStatusOpts = [
