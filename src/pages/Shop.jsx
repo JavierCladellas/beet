@@ -59,7 +59,7 @@ const Shop = (props) => {
             }
             return [
                 ...prevCart,
-                { id: product.id, sku: product.sku, price: product.price, name: product.name, description: product.description, image_url: product.image_url, qty: Number(quantity) },
+                { id: product.id, sku: product.sku, price: product.price, name: product.name, description: product.description, image_url: product.image_url, has_stock: product.has_stock, qty: Number(quantity) },
             ];
         });
         window.dispatchEvent(new Event("storage"));
@@ -132,8 +132,10 @@ const Shop = (props) => {
                         }}
                         onUpdateCart={updateCart}
                         onCardClick={() => {
-                            setProductOpened(prod);
-                            productModalRef.current?.open();
+                            if (prod.has_stock){
+                                setProductOpened(prod);
+                                productModalRef.current?.open();
+                            }
                         }}
                         apiUrl={apiUrl}
                     />

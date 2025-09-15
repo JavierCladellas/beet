@@ -55,7 +55,8 @@ function App() {
                             image_url: v.image_url,
                             description: p.description,
                             category: p.category,
-                            price: v.price
+                            price: v.price,
+                            has_stock: v.has_stock
                         }
                     );
                 })

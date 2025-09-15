@@ -96,13 +96,14 @@ const ProductCard3 = (props) => {
 
     return (
         <div
-            className="product-card product-card3"
+            className={"product-card product-card3"+ (product.has_stock ? "": " out_of_stock")}
             onClick={(e) => {
                 props.onCardClick(e);
             }}
         >
             {qty === 0 ? (
                 // if not in cart → Add button
+                product.has_stock ?
                 <button
                     className="add-to-cart-btn"
                     type="button"
@@ -114,8 +115,18 @@ const ProductCard3 = (props) => {
                     <BsCartPlus className="cart-icon" />
                     <span>Add To Cart</span>
                 </button>
+                :
+                <button
+                    className="add-to-cart-btn out-of-stock"
+                    type="button"
+                    onClick={(e)=>{e.preventDefault();e.stopPropagation();}}
+                    style={{cursor:"pointer"}}
+                >
+                    <span>No Disponible</span>
+                </button>
             ) : (
                 // if in cart → show quantity controls
+                product.has_stock &&
                 <div
                     className="cart-qty-controls"
                     onClick={(e) => e.stopPropagation()}
