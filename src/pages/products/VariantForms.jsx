@@ -10,6 +10,7 @@ import { AiFillEdit } from 'react-icons/ai';
 import { MdDelete } from 'react-icons/md';
 import { IconButton } from '@mui/material';
 import AttributeInputSection from '../../components/AttributesInputSection';
+import { FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
 
 const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
@@ -192,6 +193,17 @@ const VariantsModalContent = (props) => {
                     { field: "id", headerName:"", width:0, flex: 0},
                     { field: "sku", headerName:"SKU", width:100, flex: 1,minWidth : 100, maxWidth: 150},
                     { field: "name", headerName:"Nombre", flex: 1,minWidth : 100},
+                    { field: "has_stock", headerName:"Stock", maxWidth:55,
+                        renderCell: (params) => ( params.value ?
+                            <IconButton aria-label="edit" size="small">
+                                <FaCheckCircle color="green" />
+                            </IconButton>
+                            :
+                            <IconButton aria-label="edit" size="small">
+                                <FaExclamationCircle color="red"/>
+                            </IconButton>
+                        )
+                    },
                     { field: "price", headerName:"Precio", flex: 1,minWidth : 100, maxWidth: 150,
                         renderCell:(params) =>( params.value ? ( "$ " + params.value ) : "$ -" )
                     },

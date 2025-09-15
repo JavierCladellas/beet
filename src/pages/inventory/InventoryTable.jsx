@@ -8,6 +8,7 @@ import { MdDelete } from "react-icons/md";
 import Modal from '../../components/Modal';
 
 import { ItemDeleteForm, ItemEditForm } from './InventoryForms';
+import { FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
 
 const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
@@ -32,7 +33,23 @@ const InventoryTable = forwardRef((props, ref) => {
         { field: "id", headerName:"", width:0, flex: 0},
         { field: "sku", headerName:"SKU", width:100, flex: 1,minWidth : 100, maxWidth: 150},
         { field: "name", headerName:"Nombre", flex: 1,minWidth : 100, maxWidth: 300},
-        { field: "stock", headerName:"Stock", flex: 1, maxWidth: 80},
+        { field: "stock", headerName:"Stock", flex: 1, maxWidth: 80,
+            renderCell: (params) => (
+                <>
+                    <>{params.value}</>
+                    <>{params.value > 0 ?
+                    <IconButton aria-label="edit" size="small">
+                        <FaCheckCircle color="green" />
+                    </IconButton>
+                    :
+                    <IconButton aria-label="edit" size="small">
+                        <FaExclamationCircle color="red"/>
+                    </IconButton>
+                    }
+                    </>
+                </>
+            )
+        },
         { field: "image_url", headerName:"", flex: 1,minWidth : 100, maxWidth: 300,
         sortable: false, filterable: false, disableExport: true,
         renderCell: (params) => (
