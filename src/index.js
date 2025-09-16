@@ -3,11 +3,22 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { CacheProvider } from "@emotion/react";
+import createCache from "@emotion/cache";
+
+const nonce = document.querySelector("meta[property='csp-nonce']")?.content;
+
+const cache = createCache({
+  key: "mui",
+  nonce: nonce, // must match CSP
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <CacheProvider value={cache}>
+      <App />
+    </CacheProvider>
   </React.StrictMode>
 );
 
