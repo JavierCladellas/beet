@@ -140,7 +140,6 @@ const Checkout = (props) => {
                 if (response.ok) {
                     if (data["payment_type"] === "bank_transfer"){
                         const order = await response.json();
-                        console.log(order);
                         setConfirmationMsg(
                             <>
                             <h2>La orden ha sido tomada en cuenta!</h2>

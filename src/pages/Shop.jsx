@@ -106,7 +106,6 @@ const Shop = (props) => {
         }
     }, [props.products, selectedCategories]);
 
-    console.log(categories)
     return (
         <div className="page">
             <div className="category-chips">
