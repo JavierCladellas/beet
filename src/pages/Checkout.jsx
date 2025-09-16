@@ -220,7 +220,7 @@ const Checkout = (props) => {
 
                 <div className="form-col" style={{ alignItems: "flex-start",display:(step === 0) ? "flex" : "none"  }}>
                     <p>Notas adicionales</p>
-                    <TextInput type="textarea" id="special_notes" label="Indicaciones adicionales sobre tu compra" style={{ ">textarea": { minHeight: "80px" } }}
+                    <TextInput type="textarea" id="special_notes" label="Indicaciones adicionales sobre tu compra" sx={{ ">textarea": { minHeight: "80px" } }}
                         placeholder="(Decir que es un regalo de parte de Tati)"
                     />
                 </div>
@@ -233,10 +233,14 @@ const Checkout = (props) => {
                     <p>Método de Entrega</p>
 
                     <ToggleButtonGroup value={deliveryType} exclusive onChange={(e) => { deliveryTypeHandler(e.target.value); }} aria-label="Platform" color="primary">
-                        <ToggleButton value="delivery">
+                        <ToggleButton
+                            sx={{ "&.Mui-selected": { backgroundColor: "#b275a6", color: "white", "&:hover": { backgroundColor: "#9a5e8a" } } }}
+                            value="delivery">
                             Envío a domicilio
                         </ToggleButton>
-                        <ToggleButton value="pickup">
+                        <ToggleButton
+                            sx={{ "&.Mui-selected": { backgroundColor: "#b275a6", color: "white", "&:hover": { backgroundColor: "#9a5e8a" } } }}
+                            value="pickup">
                             Retiro en tienda
                         </ToggleButton>
                     </ToggleButtonGroup>
@@ -286,10 +290,14 @@ const Checkout = (props) => {
                     <p>Método de Pago</p>
 
                     <ToggleButtonGroup value={paymentType} exclusive onChange={(e) => { setPaymentType(e.target.value) }} aria-label="Platform" color="primary">
-                        <ToggleButton value="card">
+                        <ToggleButton
+                            sx={{ "&.Mui-selected": { backgroundColor: "#b275a6", color: "white", "&:hover": { backgroundColor: "#9a5e8a" } } }}
+                            value="card">
                             Tarjeta
                         </ToggleButton>
-                        <ToggleButton value="bank_transfer">
+                        <ToggleButton
+                            sx={{ "&.Mui-selected": { backgroundColor: "#b275a6", color: "white", "&:hover": { backgroundColor: "#9a5e8a" } } }}
+                            value="bank_transfer">
                             Transferencia
                         </ToggleButton>
                     </ToggleButtonGroup>
