@@ -365,4 +365,8 @@
     .review-card>b {
         font-size: 0.9rem;
     }
+
+    .category-chips{
+        margin: 24px;
+    }
 }

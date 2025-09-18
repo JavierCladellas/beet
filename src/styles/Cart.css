@@ -3,6 +3,7 @@
     width: 100%;
     display: flex;
     gap: 40px;
+    justify-content: space-between;
 }
 
 .cart-icon-container {
@@ -279,14 +280,6 @@
 }
 
 
-.cart-page {
-    padding: 80px;
-    width: 100%;
-    display: flex;
-    gap: 40px;
-    justify-content: space-between;
-}
-
 /* 🟢 Tablet and below */
 @media (max-width: 1024px) {
     .cart-page {
@@ -307,7 +300,7 @@
 /* 🟢 Mobile (phones) */
 @media (max-width: 768px) {
     .cart-page {
-        padding: 20px;
+        padding: 10px;
         gap: 20px;
         flex-direction: column;
     }

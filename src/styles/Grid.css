@@ -27,6 +27,16 @@
     margin:64px 160px;
 }
 
+@media screen and (max-width: 1024px) {
+
+    .products-grid{
+        margin:0;
+        width: 100%;
+        margin-top: 32px;
+        justify-content: center;
+        align-items: center;
+    }
+}
 @media screen and (max-width: 768px) {
     .full-grid,.square-grid {
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
