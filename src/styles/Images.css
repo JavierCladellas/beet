@@ -1,11 +1,12 @@
 .image-container.background-image {
     background-size: cover;
-    background-position: center;
+    background-repeat: no-repeat;
+    background-position: top;
 }
 
 @media screen and (max-width: 768px) {
 .image-top>.image-container{
-    background-position: 0% 15%;
+    background-position: 0% 5%;
     background-repeat: no-repeat;
 }
 }
