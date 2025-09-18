@@ -31,7 +31,7 @@ const Shop = (props) => {
     if (
         initialCategory &&
         props.products.length > 0 &&
-        props.products.some(p => p.category.name === initialCategory)
+        props.products.some(p => p.category?.name === initialCategory)
     ) {
         setSelectedCategories([initialCategory]);
     }
@@ -100,11 +100,8 @@ const Shop = (props) => {
         if (selectedCategories.length === 0) {
             setFilteredProducts(props.products);
         } else {
-            setFilteredProducts(props.products.filter(p =>{
-                if ( p && p.category && p.category.name  ){
-                    selectedCategories.includes(p.category.name)
-                }
-            }
+            setFilteredProducts(props.products.filter(p =>
+                selectedCategories.includes(p.category?.name)
             ));
         }
     }, [props.products, selectedCategories]);
