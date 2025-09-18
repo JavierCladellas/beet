@@ -39,12 +39,12 @@ const Footer = (props) => {
                         <Link className="footer-nav-button" to={"about"} key="about">
                             <p>ABOUT US</p>
                         </Link>
-                        <Link className="footer-nav-button" to={"faq"} key="faq">
+                        <a className="footer-nav-button"  href="/legal/faq.pdf" key="faq" download>
                             <p>FAQ</p>
-                        </Link>
-                        <Link className="footer-nav-button" to={"terms_and_conditions"} key="terms_and_conditions">
+                        </a>
+                        <a className="footer-nav-button" href="/legal/Terminos y condiciones BEET.pdf" key="terms_and_conditions" download>
                             <p>TERMS & CONDITIONS</p>
-                        </Link>
+                        </a>
                     </div>
 
                     <div className="footer-col contact-col">
