@@ -58,7 +58,10 @@ a>p{
 
 @media screen and (max-width: 768px) {
 
-    p, a>p {
+    p{
+        font-size: 1rem;
+    }
+    a>p {
         font-size: 0.8rem;
     }
 

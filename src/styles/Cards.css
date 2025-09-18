@@ -348,3 +348,20 @@
     color: white;
     border-color: var(--light-pink);
 }
+
+
+@media screen and (max-width: 768px) {
+    .review-card {
+        min-width: 0;
+        width: 100%;
+        margin:0;
+        box-sizing: border-box;
+    }
+
+    .review-card>p {
+        font-size: 0.9rem;
+    }
+    .review-card>b {
+        font-size: 0.9rem;
+    }
+}

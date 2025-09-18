@@ -82,6 +82,9 @@ footer a{
 
 
 @media screen and (max-width: 768px) {
+    footer{
+        padding:32px 40px;
+    }
     .footer-row-content {
         flex-direction: column;
         align-items: center;
