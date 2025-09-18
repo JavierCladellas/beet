@@ -1,6 +1,7 @@
 {
     "hero":{
         "layout":"hero carousel no-margin",
+        "content_style":"",
 
         "children":{
             "images":[
@@ -100,7 +101,7 @@
         "image":"/images/navbar-bg.webp",
 
         "layout":"vertical",
-        "content_style":"white-text align-center text-center more-pad-h",
+        "content_style":"white-text align-center text-center more-pad-h medium-title more-pad-v",
         "button_style":"light-pink"
 
     },

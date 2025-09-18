@@ -74,7 +74,7 @@ footer a{
 .copyright-row > p {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%); /* perfectly centered */
+    transform: translateX(-50%);
     font-size: 0.9rem;
     margin: 0;
     text-align: center;
@@ -110,7 +110,25 @@ footer a{
 
 
 @media screen and (max-width: 1024px) {
+
+    .card-logos-container{
+        flex-wrap: wrap;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    .copyright-row {
+        flex-direction: column;
+    }
     .copyright-row > p {
-        margin-top:72px;
+        width: 100%;
+        position: relative;
+        margin-top: 16px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .card-logos-container>img{
+        height:16px;
     }
 }

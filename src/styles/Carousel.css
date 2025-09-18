@@ -4,10 +4,17 @@
     overflow: hidden;
     position: relative;
 }
+.carousel.hero>.content{
+    height: 100%;
+}
+.carousel.hero>.content>div{
+    height: 100%;
+}
 
 .embla__viewport {
     overflow: hidden;
     width: 100%;
+    height: 100%;
 }
 
 .embla__container {

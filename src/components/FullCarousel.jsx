@@ -26,7 +26,7 @@ const FullCarousel = ({ images, options }) => {
 
   return (
     <div className="full-carousel embla">
-        <div className="embla__viewport" ref={emblaRef}>
+        <div className="embla__viewport" ref={emblaRef} style={{height:"100%"}}>
             <div className="embla__container">
                 {images.map((image, index) => (
                 <div className="embla__slide" key={index}>
