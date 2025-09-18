@@ -8,8 +8,8 @@
       "type": "image/x-icon"
     },
     {
-      "src": "signature.jpg",
-      "type": "image/jpg",
+      "src": "favicon.png",
+      "type": "image/png",
       "sizes": "192x192"
     }
   ],
