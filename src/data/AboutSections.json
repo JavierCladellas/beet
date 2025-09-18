@@ -4,8 +4,8 @@
         "body_text":"Creo que un buen regalo tiene el poder de unir, sanar y decir lo que a veces no sabemos cómo poner en palabras. Beet nace de ese deseo de transformar lo tangible, en emociones. De entender que un detalle, cuando se elige con intención, puede cambiar un día, estrechar vínculos o volverse algo inolvidable. \n\n No quiero ser una empresa más de regalos. Pretendo crear un nuevo lenguaje, una forma de comunicar lo invisible. Porque para mí, regalar no es solo dar algo... es acompañar a alguien con el alma y desde el corazón. \n\n Cada proyecto que surge en Beet, lleva mi esencia, mi intuición y mi compromiso por hacer sentir, por humanizar. Beet es mi manera de recordarle al mundo que las relaciones importan - y que vale la pena cultivarlas y celebrarlas. \n\n Gracias por dejarme ser parte de tus momentos.",
 
         "image":"/images/about/lucia_about.webp",
-
-        "layout":"side left image-top",
+        "img_classes":"about-us-picture",
+        "layout":"side left",
         "content_style":"align-center less-pad-h text-center",
 
         "children": {
