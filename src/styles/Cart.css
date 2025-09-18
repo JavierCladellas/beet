@@ -97,6 +97,7 @@
     cursor: pointer;
     transition: 0.1s;
     margin: 4px;
+    color:black;
 }
 
 .add-to-cart-btn:not(.out-of-stock):hover,

@@ -88,7 +88,7 @@ const Shop = (props) => {
         onUpdateCart={updateCart}
     />
 
-    const categories = [...new Set(props.products.map(p => p.category.name))];
+    const categories = [...new Set(props.products.map(p => p.category?.name).filter(Boolean))];
 
     const toggleCategory = (cat) => {
         setSelectedCategories((prev) =>
@@ -100,8 +100,11 @@ const Shop = (props) => {
         if (selectedCategories.length === 0) {
             setFilteredProducts(props.products);
         } else {
-            setFilteredProducts(props.products.filter(p =>
-                selectedCategories.includes(p.category.name)
+            setFilteredProducts(props.products.filter(p =>{
+                if ( p && p.category && p.category.name  ){
+                    selectedCategories.includes(p.category.name)
+                }
+            }
             ));
         }
     }, [props.products, selectedCategories]);
