@@ -44,25 +44,17 @@
         "layout":"no-margin",
         "children":{
             "images":[
-                "/images/personaliza/15.webp",
-                "/images/personaliza/16.webp",
-                "/images/personaliza/17.webp",
-                "/images/personaliza/18.webp",
-                "/images/personaliza/19.webp",
-                "/images/personaliza/20.webp",
-                "/images/personaliza/21.webp",
-                "/images/personaliza/22.webp",
-                "/images/personaliza/23.webp",
-                "/images/personaliza/24.webp",
-                "/images/personaliza/25.webp",
-                "/images/personaliza/26.webp",
-                "/images/personaliza/27.webp",
-                "/images/personaliza/28.webp",
-                "/images/personaliza/29.webp",
-                "/images/personaliza/30.webp",
-                "/images/personaliza/31.webp",
-                "/images/personaliza/32.webp",
-                "/images/personaliza/33.webp"
+                "/images/personaliza-carousel/17.webp",
+                "/images/personaliza-carousel/18.webp",
+                "/images/personaliza-carousel/20.webp",
+                "/images/personaliza-carousel/24.webp",
+                "/images/personaliza-carousel/31.webp",
+                "/images/personaliza-carousel/IMG_0720.webp",
+                "/images/personaliza-carousel/IMG_0725.webp",
+                "/images/personaliza-carousel/IMG_0755.webp",
+                "/images/personaliza-carousel/IMG_0776.webp",
+                "/images/personaliza-carousel/IMG_0787.webp",
+                "/images/personaliza-carousel/IMG_5848.webp"
             ]
         }
     },
