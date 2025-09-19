@@ -78,7 +78,7 @@ const ProductTable = forwardRef((props, ref) => {
             renderCell:(params) =>( params.value ? ( "$ " + params.value ) : "$ -" )
         },
 
-        { field:"featured", headerName:"Featured", maxWidth:60,
+        { field:"featured", headerName:"Featured", maxWidth:80,
             renderCell: (params) => (
                 <div style={{height:"100%", width:"100%", display:"flex", alignItems:"center", justifyContent:"center"}}>
                     <Checkbox style={{gap:"0"}}
