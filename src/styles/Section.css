@@ -137,4 +137,8 @@ section.hero {
         align-items: center;
         text-align: center;
     }
+
+    section>.content.shrink-text>p{
+        max-width: 100%;
+    }
 }
