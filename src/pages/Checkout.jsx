@@ -152,7 +152,7 @@ const Checkout = (props) => {
                                 Luego envianos captura de pantalla con la confirmacion de la transferencia por WhatsApp : <b>7602-5162</b>
                             </p>
 
-                            <p> Hemos enviado un mensaje con los detalles de tu orden a tu correo. </p>
+                            <p>Te hemos enviado un correo con los detalles  de tu orden.</p>
 
                             <br/>
                             <p> Orden : <b>{order.code}</b></p>
@@ -162,9 +162,9 @@ const Checkout = (props) => {
                     else if (data["payment_type"] === "card"){
                         setConfirmationMsg(
                             <>
-                            <h2>Tu pago ha sido tomada en cuenta!</h2>
-                            <p> Te enviaremos tu pedido lo antes posible.</p>
-                            <p> Hemos enviado un mensaje con los detalles de tu orden a tu correo. </p>
+                            <h2>Tu pago ha sido procesado!</h2>
+                            <p>Recibirás tu pedido pronto.</p>
+                            <p>Te hemos enviado un correo con los detalles  de tu orden.</p>
                             </>
                         )
                     }
