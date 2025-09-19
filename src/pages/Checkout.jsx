@@ -175,14 +175,24 @@ const Checkout = (props) => {
                     setCart([]);
                 }
                 else {
-                    //If response code is XXX then show payment error, 
-                    // else show default err msh
-                    setConfirmationMsg(
-                        <>
-                        <h2>Lo sentimos...</h2>
-                        <p>Ha ocurrido un error con tu orden :( </p>
-                        </>
-                    )
+                    if ( response.status === 400 ){
+                        setConfirmationMsg(
+                            <>
+                            <h2>Lo sentimos...</h2>
+                            <p>Tu pago no ha podido ser procesado.</p>
+                            <p>Verifica con tu banco e intenta de nuevo en un momento.</p>
+                            </>
+                        )
+                    }
+                    else{
+                        setConfirmationMsg(
+                            <>
+                            <h2>Lo sentimos...</h2>
+                            <p>Ha ocurrido un error con tu orden :( </p>
+                            <p>Intenta de nuevo en un momento</p>
+                            </>
+                        )
+                    }
                 }
             })
             .catch((error) => {
