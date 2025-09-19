@@ -15,8 +15,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
-const metropolitanAreaPrice = 3;
-const restOfTheCountryPrice = 5;
+const metropolitanAreaPrice = 3.99;
+const restOfTheCountryPrice = 10.99;
 
 
 const Checkout = (props) => {
