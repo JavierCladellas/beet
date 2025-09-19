@@ -77,6 +77,30 @@ const ProductTable = forwardRef((props, ref) => {
         { field: "price", headerName:"Precio", flex: 1,minWidth : 100, maxWidth: 150,
             renderCell:(params) =>( params.value ? ( "$ " + params.value ) : "$ -" )
         },
+
+        { field:"featured", headerName:"Featured", maxWidth:60,
+            renderCell: (params) => (
+                <div style={{height:"100%", width:"100%", display:"flex", alignItems:"center", justifyContent:"center"}}>
+                    <Checkbox style={{gap:"0"}}
+                        id={"featured_" + params.row.id}
+                        checked_default = {params.value}
+                        on_change={ (e )=> {
+                            e.stopPropagation();
+                            fetch( apiUrl + `products/${params.row.id}/featured`, {
+                                method: 'PUT',
+                                credentials: 'include',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({featured: e.target.checked})
+                            })
+                            .then( response => response.json() )
+                            .then( data => { return fetchTableData(); } )
+                            .catch(error => { console.error("Error Updating featured:", error); })
+                        }}
+                    />
+                </div>
+            )
+        },
+
         { field: "category", headerName:"Categoría", flex: 1,minWidth : 100, maxWidth: 150,
             renderCell: (params) => ( params.value ? params.value.name : "" )
         },
