@@ -123,7 +123,7 @@ const Home = (props) => {
 
     useEffect(() => {
         setRelevantProducts(
-            getRandomElements(props.products.filter(p => p.has_stock), 3)
+            getRandomElements(props.products.filter(p => p.has_stock && p.featured), 3)
         );
     }, [props.products])
 

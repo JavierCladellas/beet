@@ -56,7 +56,8 @@ function App() {
                             description: p.description,
                             category: p.category,
                             price: v.price,
-                            has_stock: v.has_stock
+                            has_stock: v.has_stock,
+                            featured: p.featured
                         }
                     );
                 })
