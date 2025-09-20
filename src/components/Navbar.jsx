@@ -94,7 +94,7 @@ const Navbar = (props) => {
                         </ul>
                         <div className="cart-summary-subtotal">
                             <span>Subtotal:</span>
-                            <span>{subtotal.toFixed(2)}€</span>
+                            <span>$ {subtotal.toFixed(2)}</span>
                         </div>
                         <Link to="/cart" className="action-button light-pink " onClick={() => setCartOpen(false)}>
                             Ir al Carrito
