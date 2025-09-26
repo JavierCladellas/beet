@@ -12,6 +12,7 @@ const Form = ( props ) => {
         const modalRef = formRef.current.closest('.modal');
         if (modalRef) {
             modalRef.close();
+            document.body.classList.remove('no-scroll');
         }
     }
 
