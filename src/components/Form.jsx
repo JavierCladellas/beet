@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 import '../styles/Form.css'
 
@@ -6,6 +6,7 @@ const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
 const Form = ( props ) => {
     const formRef = useRef();
+    const [loading, setLoading] = useState(false);
 
     const closeModal = () => {
         const modalRef = formRef.current.closest('.modal');
@@ -50,22 +51,28 @@ const Form = ( props ) => {
     };
 
     const onSuccess = (result) => {
+        setLoading(false);
         closeModal();
 
         props.onSuccess?.(result);
     }
 
     const onError = (error) => {
+        setLoading(false);
         props.onError?.(error);
     }
 
     const submitHandler = async (event) => {
         event.preventDefault();
 
+        if (loading) return;
+        setLoading(true);
+
         const formData = new FormData(formRef.current);
         const data = Object.fromEntries(formData.entries());
 
         if ( props.validate && !props.validate() ) {
+            setLoading(false);
             return;
         }
 
@@ -101,10 +108,15 @@ const Form = ( props ) => {
 
             <div className='form-row justify-end'>
                 { props.cancel_button_text &&
-                    <button type="button" className='action-button light-gray' onClick={cancelHandler}>Cancelar</button>
+                    <button type="button" className='action-button light-gray' onClick={cancelHandler} disabled={loading}>Cancelar</button>
                 }
                 { props.create_button_text &&
-                    <button className='action-button light-pink'>{props.create_button_text}</button>
+                    <button
+                        className='action-button light-pink'
+                        disabled={loading}
+                    >
+                        {loading ? <span className="spinner"></span> : props.create_button_text}
+                    </button>
                 }
             </div>
         </form>
