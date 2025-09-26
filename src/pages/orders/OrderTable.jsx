@@ -74,10 +74,8 @@ const OrderTable = forwardRef((props, ref) => {
         { field: "customer", headerName: "Cliente", minWidth: 200, flex:1,
             renderCell: (params) => (
                 params.value ?
-                <div style={{display:"flex",justifyContent:"space-between", paddingRight: "32px"}}>
-                    {params.value.name}
-                    <IconButton aria-label="edit" size="small"
-                        onClick={
+                <div style={{display:"flex",justifyContent:"space-between", paddingRight: "32px", cursor:"pointer"}}
+                    onClick={
                             (e)=>{e.stopPropagation();
                             setDetail(
                                 <div key="client-detail">
@@ -90,9 +88,8 @@ const OrderTable = forwardRef((props, ref) => {
                             )
                             detailModalRef.current?.open(); }
                         }
-                    >
-                        <AiFillEye/>
-                    </IconButton>
+                >
+                    {params.value.name}
                 </div> :
                 ""
             )
@@ -101,30 +98,27 @@ const OrderTable = forwardRef((props, ref) => {
             renderCell: (params) => (
                 params.value ?
                 ( params.value.delivery_type === "pickup" ? "PickUp" :
-                    <div style={{display:"flex",justifyContent:"space-between", paddingRight: "32px"}}>
-                        {params.value.municipality}  -  {params.value.department} - {params.value.address}
-                        <IconButton aria-label="edit" size="small"
-                            onClick={
-                                (e)=>{e.stopPropagation();
-                                setDetail(
-                                    <div key="delivery-detail">
-                                    <h2>Orden <u>{params.row.code}</u></h2>
-                                    <br/>
-                                    <p>{params.value.municipality} - {params.value.department} <b>($ {params.value.delivery_amount})</b></p>
-                                    <br/>
-                                    <p>{params.value.address}</p>
-                                    <br/>
-                                    {params.row.special_notes ?
-                                        <p>Notas: <br/> {params.row.special_notes} </p>
-                                        : ""
-                                    }
-                                    </div>
-                                )
-                                detailModalRef.current?.open(); }
-                            }
+                    <div style={{display:"flex",justifyContent:"space-between", paddingRight: "32px", cursor:"pointer"}}
+                        onClick={
+                            (e)=>{e.stopPropagation();
+                            setDetail(
+                                <div key="delivery-detail">
+                                <h2>Orden <u>{params.row.code}</u></h2>
+                                <br/>
+                                <p>{params.value.municipality} - {params.value.department} <b>($ {params.value.delivery_amount})</b></p>
+                                <br/>
+                                <p>{params.value.address}</p>
+                                <br/>
+                                {params.row.special_notes ?
+                                    <p>Notas: <br/> {params.row.special_notes} </p>
+                                    : ""
+                                }
+                                </div>
+                            )
+                            detailModalRef.current?.open(); }
+                        }
                         >
-                            <AiFillEye/>
-                        </IconButton>
+                        {params.value.municipality}  -  {params.value.department} - {params.value.address}
                     </div>
                 )
                 : "")
@@ -169,6 +163,7 @@ const OrderTable = forwardRef((props, ref) => {
                 <div style={{display:"flex",justifyContent:"space-between", paddingRight: "32px"}}>
                     {params.value.length}
                     <IconButton aria-label="edit" size="small"
+                        className='view-icon'
                         onClick={
                             (e)=>{e.stopPropagation();
                             setDetail(
@@ -203,7 +198,29 @@ const OrderTable = forwardRef((props, ref) => {
             )
         },
 
-        {field: "special_notes", headerName: "Notas", width:200, flex:1},
+        {field: "special_notes", headerName: "Notas", width:200, flex:1,
+        renderCell: (params) => (
+            params.value ?
+            <div style={{display:"flex",justifyContent:"space-between", paddingRight: "32px", cursor:"pointer"}}
+                onClick={
+                    (e)=>{e.stopPropagation();
+                    if (params.value){
+                        setDetail(
+                            <div key="delivery-detail">
+                            <h2>Orden <u>{params.row.code}</u></h2>
+                            <p>Notas: <br/> {params.row.special_notes} </p>
+                            </div>
+                        )
+                        detailModalRef.current?.open(); }
+                    }
+            }>
+                {params.value}
+            </div>
+            : ""
+        )
+
+
+        },
 
         {
             field:"actions", headerName: " ", width:20,
