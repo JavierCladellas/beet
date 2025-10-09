@@ -11,7 +11,9 @@
     right: 0;
     top: 0;
     height: 100%;
+    display: flex;
     padding-right: 32px;
+    box-sizing: border-box
 }
 
 .cart-icon {
@@ -27,6 +29,11 @@
     background-color: transparent;
     border: none;
     outline: none;
+    box-sizing: border-box
+}
+.cart-icon>svg{
+    max-height: 36px;
+    max-width: 36px;
 }
 
 .cart-icon:hover,
@@ -174,6 +181,10 @@
 
 .qty-btn:hover {
     color: var(--light-pink);
+}
+.qty-btn>svg{
+    max-width: 20px;
+    max-height: 20px;
 }
 
 .qty-display {
