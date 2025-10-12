@@ -25,6 +25,7 @@ import './styles/text.css'
 import Shop from './pages/Shop';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
+import TermsAndConditions from './pages/terms';
 
 const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
@@ -91,6 +92,7 @@ function App() {
                     <Route exact path="/cart" element={ <Cart />} />
                     <Route exact path="/checkout" element={ <Checkout/>} />
                     <Route exact path="/faq" element={ <Faq/>} />
+                    <Route exact path="/terms" element={ <TermsAndConditions/>} />
                 </Routes>
                 <Footer />
             </div>

@@ -77,7 +77,7 @@ img {
   user-select: none;
 }
 
-.faq{
+.faq,.terms{
   padding:80px;
   box-sizing: border-box;
 }
