@@ -39,9 +39,9 @@ const Footer = (props) => {
                         <Link className="footer-nav-button" to={"about"} key="about">
                             <p>ABOUT US</p>
                         </Link>
-                        <a className="footer-nav-button"  href="/legal/faq.pdf" key="faq" download>
+                        <Link className="footer-nav-button"  to={"faq"} key="faq">
                             <p>FAQ</p>
-                        </a>
+                        </Link>
                         <a className="footer-nav-button" href="/legal/Terminos y condiciones BEET.pdf" key="terms_and_conditions" download>
                             <p>TERMS & CONDITIONS</p>
                         </a>

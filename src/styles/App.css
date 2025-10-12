@@ -76,3 +76,8 @@ img {
   -webkit-user-select: none;
   user-select: none;
 }
+
+.faq{
+  padding:80px;
+  box-sizing: border-box;
+}

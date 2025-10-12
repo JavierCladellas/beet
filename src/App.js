@@ -16,6 +16,7 @@ import Home from './pages/Home';
 import Personaliza from './pages/Personaliza';
 import Corporate from './pages/Corporate';
 import About from './pages/About';
+import Faq from './pages/faq';
 
 import WhatsappButton from './components/IconButtons';
 
@@ -89,6 +90,7 @@ function App() {
                     <Route exact path="/about" element={ <About sections={about_sections} />} />
                     <Route exact path="/cart" element={ <Cart />} />
                     <Route exact path="/checkout" element={ <Checkout/>} />
+                    <Route exact path="/faq" element={ <Faq/>} />
                 </Routes>
                 <Footer />
             </div>
