@@ -1,6 +1,7 @@
 import Modal from "../components/Modal";
 import { Link } from 'react-router-dom';
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import parse from "html-react-parser";
 
 import { IoCart } from "react-icons/io5";
 import { PiTrashThin } from "react-icons/pi";
@@ -41,7 +42,7 @@ const ProductModal = (props) => {
             <div className="product-modal-body">
                 <h3 className="product-title">{product.name}</h3>
                 <span className="product-price">$ {product.price.toFixed(2)}</span>
-                <p className="product-description">{product.description}</p>
+                <p className="product-description">{parse(product.description.replace(/\n/g, "<br/>"))}</p>
 
                 {props.cart?.find((i) => i.id === product.id)?.qty > 0 ? (
                     <div className="cart-qty-controls" style={{ position: "static", marginTop: "12px" }}>
