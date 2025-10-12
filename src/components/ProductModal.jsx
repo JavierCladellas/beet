@@ -39,7 +39,7 @@ const ProductModal = (props) => {
         <div className="product-modal-content" key="product-modal-content">
             <img src={apiUrl + product.image_url} alt="product" />
             <div className="product-modal-body">
-                <h3>{product.name}</h3>
+                <h3 className="product-title">{product.name}</h3>
                 <span className="product-price">$ {product.price.toFixed(2)}</span>
                 <p className="product-description">{product.description}</p>
 

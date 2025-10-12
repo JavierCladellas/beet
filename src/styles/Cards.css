@@ -325,6 +325,16 @@
 }
 
 
+.product-modal-content>.product-modal-body>.product-title {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-size: 1.8rem;
+    font-variation-settings: "width" 100;
+    margin: 0;
+    white-space: 'pre-line'
+}
+
 .product-modal-content>.product-modal-body>.cart-qty-controls,
 .product-modal-content>.product-modal-body>.see-cart-btn{
     align-self: center;
