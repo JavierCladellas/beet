@@ -38,29 +38,31 @@ const ProductModal = (props) => {
         product &&
         <div className="product-modal-content" key="product-modal-content">
             <img src={apiUrl + product.image_url} alt="product" />
-            <h3>{product.name}</h3>
-            <span className="product-price">$ {product.price.toFixed(2)}</span>
-            <p className="product-description">{product.description}</p>
+            <div className="product-modal-body">
+                <h3>{product.name}</h3>
+                <span className="product-price">$ {product.price.toFixed(2)}</span>
+                <p className="product-description">{product.description}</p>
 
-            {props.cart?.find((i) => i.id === product.id)?.qty > 0 ? (
-                <div className="cart-qty-controls" style={{ position: "static", marginTop: "12px" }}>
-                    <button type="button" className="qty-btn" onClick={handleDecrease}>{quantity > 1 ? "–": <PiTrashThin/>}</button>
-                    <span className="qty-display">{quantity}</span>
-                    <button type="button" className="qty-btn" onClick={handleIncrease}>+</button>
-                </div>
-            ) : (
-                <button type="button"
-                    className="add-to-cart-action-btn action-button pink"
-                    onClick={handleAddToCart}
-                >
-                    Añadir al carrito
-                </button>
-            )}
-            {quantity > 0 &&
-                <Link to="/cart" className="action-button pink" onClick={ () => {document.body.classList.remove('no-scroll');}}>
-                    <IoCart style={{width:"20px", marginRight:"8px"}}/> <p>Ver Carrito </p>
-                </Link>
-            }
+                {props.cart?.find((i) => i.id === product.id)?.qty > 0 ? (
+                    <div className="cart-qty-controls" style={{ position: "static", marginTop: "12px" }}>
+                        <button type="button" className="qty-btn" onClick={handleDecrease}>{quantity > 1 ? "–": <PiTrashThin/>}</button>
+                        <span className="qty-display">{quantity}</span>
+                        <button type="button" className="qty-btn" onClick={handleIncrease}>+</button>
+                    </div>
+                ) : (
+                    <button type="button"
+                        className="add-to-cart-action-btn action-button pink"
+                        onClick={handleAddToCart}
+                    >
+                        Añadir al carrito
+                    </button>
+                )}
+                {quantity > 0 &&
+                    <Link to="/cart" className="see-cart-btn action-button pink" onClick={ () => {document.body.classList.remove('no-scroll');}}>
+                        <IoCart style={{width:"20px", marginRight:"8px"}}/> <p>Ver Carrito </p>
+                    </Link>
+                }
+            </div>
         </div>
     ]} />
 }

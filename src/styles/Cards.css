@@ -302,9 +302,20 @@
 
 .product-modal-content {
     display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    align-items: stretch;
+    gap: 40px;
+    height: 100%;
+}
+
+.product-modal-body{
+    display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    align-items: center;
+    align-items: flex-start;
+    flex: 1;
+    justify-content: space-between;
     gap: 16px;
 }
 
@@ -313,13 +324,22 @@
     object-fit: contain;
 }
 
-.product-modal-content>.add-to-cart-action-btn {
+
+.product-modal-content>.product-modal-body>.cart-qty-controls,
+.product-modal-content>.product-modal-body>.see-cart-btn{
+    align-self: center;
+}
+
+.product-modal-content>.product-modal-body>.add-to-cart-action-btn {
     max-width: 200px;
+    align-self: center;
     height: 48px;
 }
 
-.product-modal-content>.product-description {
+.product-modal-content>.product-modal-body>.product-description {
     width: 100%;
+    flex:1;
+    overflow-y: auto;
 }
 
 
@@ -369,4 +389,15 @@
     .category-chips{
         margin: 24px;
     }
+
+
+
+    .product-modal-content{
+        flex-direction: column;
+    }
+    .product-modal-content>img{
+        max-height: 250px;
+        object-fit: contain;
+    }
+
 }
