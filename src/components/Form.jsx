@@ -93,11 +93,11 @@ const Form = ( props ) => {
                 onSuccess(response);
             }
             if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.message || 'Form submission failed');
+                throw new Error( await response.text() || 'Form submission failed');
             }
         } catch (error) {
             onError(error);
+            alert(error);
         }
     };
 
