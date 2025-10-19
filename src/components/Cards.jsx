@@ -90,6 +90,8 @@ const ProductCard2 = (props) => {
 
 const ProductCard3 = (props) => {
     const { product, apiUrl, cart, onAddToCartClick, onUpdateCart } = props;
+    if ( !product )
+        return
 
     const itemInCart = cart.find((item) => item.id === product.id);
     const qty = itemInCart?.qty ?? 0;

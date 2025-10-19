@@ -45,27 +45,7 @@ function App() {
             headers:{ 'Content-Type': 'application/json'}
         })
         .then( response => response.json())
-        .then( data => {
-            let extendedProds = [];
-            data.forEach((p) => {
-                p.variants.forEach((v) => {
-                    extendedProds.push(
-                        {
-                            id: v.id,
-                            name: v.name,
-                            sku: v.sku,
-                            image_url: v.image_url,
-                            description: p.description,
-                            category: p.category,
-                            price: v.price,
-                            has_stock: v.has_stock,
-                            featured: p.featured
-                        }
-                    );
-                })
-            })
-            setProducts(extendedProds);
-        })
+        .then( products => { setProducts(products); })
         .catch(error => {
             console.log("Could not load products : ", error);
         })

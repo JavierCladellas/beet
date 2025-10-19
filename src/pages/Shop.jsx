@@ -42,36 +42,36 @@ const Shop = (props) => {
     const [cart, setCart] = useLocalStorage("cart", []);
 
 
-    const addToCart = (product, quantity) => {
+    const addToCart = (variant, quantity) => {
         const id = Date.now();
-        const message = `${product.name} añadido al carrito`;
+        const message = `${variant.name} añadido al carrito`;
         setAlerts((prev) => [...prev, { id, message }]);
 
 
         setCart((prevCart) => {
-            const existing = prevCart.find((item) => item.id === product.id);
+            const existing = prevCart.find((item) => item.id === variant.id);
             if (existing) {
                 return prevCart.map((item) =>
-                    item.id === product.id
+                    item.id === variant.id
                         ? { ...item, qty: item.qty + Number(quantity) }
                         : item
                 );
             }
             return [
                 ...prevCart,
-                { id: product.id, sku: product.sku, price: product.price, name: product.name, description: product.description, image_url: product.image_url, has_stock: product.has_stock, qty: Number(quantity) },
+                { id: variant.id, sku: variant.sku, price: variant.price, name: variant.name, description: variant.description, image_url: variant.image_url, has_stock: variant.has_stock, qty: Number(quantity) },
             ];
         });
         window.dispatchEvent(new Event("storage"));
     };
 
-    const updateCart = (product, newQty) => {
+    const updateCart = (variant, newQty) => {
         setCart((prevCart) => {
             if (newQty <= 0) {
-                return prevCart.filter((item) => item.id !== product.id);
+                return prevCart.filter((item) => item.id !== variant.id);
             }
             return prevCart.map((item) =>
-                item.id === product.id ? { ...item, qty: newQty } : item
+                item.id === variant.id ? { ...item, qty: newQty } : item
             );
         });
         window.dispatchEvent(new Event("storage"));
@@ -124,10 +124,10 @@ const Shop = (props) => {
                 {filteredProducts.map((prod, index) =>
                     <ProductCard3
                         key={index}
-                        product={prod}
+                        product={prod.variants[0]}
                         cart={cart}
                         onAddToCartClick={() => {
-                            addToCart(prod, 1)
+                            addToCart(prod.variants[0], 1)
                         }}
                         onUpdateCart={updateCart}
                         onCardClick={() => {
