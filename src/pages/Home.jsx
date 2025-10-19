@@ -84,16 +84,16 @@ const ProductSection = (props) => {
             <div className="grid-row" key="shop">
                 {filteredProducts.map((product, index) => (
                     <ProductCard3
-                        product={product}
+                        product={product.variants[0]}
                         key={index}
                         apiUrl={apiUrl}
                         cart={cart}
                         onAddToCartClick={() => {
-                            addToCart(product, 1)
+                            addToCart(product.variants[0], 1)
                         }}
                         onUpdateCart={updateCart}
                         onCardClick={() => {
-                            setProductOpened(product);
+                            setProductOpened(product.variants[0]);
                             productModalRef.current?.open();
                         }}
                     />
