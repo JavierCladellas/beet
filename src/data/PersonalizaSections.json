@@ -69,17 +69,17 @@
             "products":[
                 {
                     "name":"Diseño de Curated Gift Boxes",
-                    "image":"/images/home/section1.webp",
+                    "image":"/images/personaliza/what_we_do/Gift boxes.webp",
                     "category":""
                 },
                 {
                     "name":"Arreglo de globos personalizados",
-                    "image":"/images/personaliza/28.webp",
+                    "image":"/images/personaliza/what_we_do/Globos.webp",
                     "category":""
                 },
                 {
                     "name":"Servicio de Personal Shopper",
-                    "image":"/images/personaliza/souvenirs.webp",
+                    "image":"/images/personaliza/what_we_do/Personal shopper.webp",
                     "category":""
                 }
             ]
