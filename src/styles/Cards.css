@@ -411,3 +411,11 @@
     }
 
 }
+
+@media screen and (max-width: 550px ) {
+
+    .product-card3{
+        max-width: 150px;
+        max-height: 300px;
+    }
+}
