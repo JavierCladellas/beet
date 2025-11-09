@@ -1,20 +1,20 @@
 {
     "personaliza":{
-        "title":"Regalar es el lenguaje universal que nos une.",
-        "body_text":"Diseñamos regalos que hablan por ti, cuando las palabras no son suficientes.Transformamos tu intención en regalos bien pensados, emotivos y llenos de significado.",
-        "button_text":"QUIERO, PORFA!",
+        "title":"Esta Navidad llevamos el arte de regalar a otro nivel!",
+        "body_text":"Descubre nuestra Holiday Edition 2025 y déjanos guiarte para que esta temporada tus regalos vayan llenos de intención y propósito. Todo lo diseñamos a tu medida y en base a tu budget.",
+        "button_text":"SOLICITA EL CATALOGO",
         "image":"/images/home/section1.webp",
-        "button_link":"/personaliza",
+        "button_link":"https://api.whatsapp.com/send?phone=+50376025162&text=Hola%21%20Quiero%20el%20cat%C3%A1logo%20porfa%21",
 
         "layout":"side left",
         "content_style":"light-gray align-start",
-        "button_style":"light-pink"
+        "button_style":"pink"
     },
     "shop":{
         "title":"Ready. Set. Gift.",
         "body_text":"No time? No problem. Si necesitas hacer un regalo de forma express, sin complicarte y quedar bien con alguien, este es un shortcut para explorar nuestros Ready-to-Go.",
-        "button_text":"SHOP",
-        "button_link":"/shop",
+        "button_text":"DESCUBRE MAS",
+        "button_link":"/shop?category=Gift Boxes",
 
         "layout":"vertical",
         "content_style":"align-center more-pad-h text-center",

@@ -59,33 +59,33 @@
         }
     },
     "suggestions":{
-        "title":"¿No sabés qué regalar?",
-        "body_text":"Aquí te damos algunas ideas de qué tipo de regalos podés diseñar con nosotros. Literal, podemos hacer que el tuyo sea el que más le guste.",
+        "title":"What we do (best!)",
+        "body_text":"Te asesoramos, te acompañamos en cada paso del proceso, cuidamos de tu budget y te inspiramos para que tu intención llegue de la forma más especial. Todo eso a través de los siguientes servicios:",
 
         "layout":"vertical",
-        "content_style":"align-center light-gray more-pad-h shrink-text text-center",
+        "content_style":"align-center light-gray more-pad-h text-center",
 
         "children":{
             "products":[
                 {
-                    "name":"Gift boxes personalizadas",
+                    "name":"Diseño de Curated Gift Boxes",
                     "image":"/images/home/section1.webp",
-                    "category":"Gift boxes"
+                    "category":""
                 },
                 {
-                    "name":"Globos personalizados",
+                    "name":"Arreglo de globos personalizados",
                     "image":"/images/personaliza/28.webp",
-                    "category":"Formatos creativos"
+                    "category":""
                 },
                 {
-                    "name":"Souvenirs para tus eventos",
+                    "name":"Servicio de Personal Shopper",
                     "image":"/images/personaliza/souvenirs.webp",
-                    "category":"Souvenirs"
+                    "category":""
                 }
             ]
         },
         "button_style":"pink",
-        "button_text":"VER CATALOGO",
+        "button_text":"EXPLORAR MAS",
         "button_link":"/shop"
     },
     "contact":{
