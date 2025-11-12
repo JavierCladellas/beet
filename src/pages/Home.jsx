@@ -93,7 +93,7 @@ const ProductSection = (props) => {
                         }}
                         onUpdateCart={updateCart}
                         onCardClick={() => {
-                            setProductOpened(product.variants[0]);
+                            setProductOpened(product);
                             productModalRef.current?.open();
                         }}
                     />
