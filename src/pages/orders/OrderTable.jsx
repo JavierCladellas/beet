@@ -113,6 +113,10 @@ const OrderTable = forwardRef((props, ref) => {
                                     <p>Notas: <br/> {params.row.special_notes} </p>
                                     : ""
                                 }
+                                <br/>
+                                Fecha de entrega: {params.value.delivery_datetime}
+                                <br/>
+                                Persona de entrega: {params.row.delivery_person_name } - {params.row.delivery_person_tel}
                                 </div>
                             )
                             detailModalRef.current?.open(); }
