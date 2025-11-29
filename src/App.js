@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Link, HashRouter, Routes, Route, useLocation } from 'react-router-dom';
-
 import Navbar from './components/Navbar';
 
 import navbar_buttons from './data/NavbarButtons.json';

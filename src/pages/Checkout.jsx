@@ -11,6 +11,8 @@ import "../styles/Button.css";
 import municipalities from "../data/municipios.json";
 import metropolitan_area from "../data/metropolitanArea.json";
 import { Link, useNavigate } from "react-router-dom";
+import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import dayjs from "dayjs";
 
 
 const apiUrl = process.env.REACT_APP_BEET_API_URL;
@@ -35,6 +37,10 @@ const Checkout = (props) => {
     const [deliveryType, setDeliveryType] = useState("delivery");
     const [deliveryDepartment, setDeliveryDepartment] = useState("");
     const [deliveryMunicipality, setDeliveryMunicipality] = useState("");
+
+    const [deliveryPersonName,setDeliveryPersonName] = useState("")
+    const [deliveryPersonTel,setDeliveryPersonTel] = useState("")
+    const [deliveryApproxDate,setDeliveryApproxDate] = useState(null)
 
     const [isMetropolitan, setIsMetropolitan] = useState(true);
     const [step, setStep] = useState(0);
@@ -115,6 +121,7 @@ const Checkout = (props) => {
 
     const [isLoading, setIsLoading] = useState(false);
 
+    const now = new Date();
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -219,7 +226,7 @@ const Checkout = (props) => {
 
                 <div className="form-col" style={{ alignItems: "flex-start", display:step === 0 ? "flex" : "none"}}>
                     <p> Datos personales </p>
-                    <TextInput type="text" label="Nombre Completo" required onChange ={(e) => { setName(e.target.value); }} />
+                    <TextInput type="text" label="Tu Nombre Completo" required onChange ={(e) => { setName(e.target.value); }} />
                     <div className="form-row">
                         <TextInput type="email" label="Email" required onChange={(e) => { setEmail(e.target.value); }} />
                         <TextInput type="tel" label="Teléfono" required pattern="^$|^\+?(?=(?:\D*\d){5,16}\D*$)[\d ]+$" onChange={(e) => { setTelephone(e.target.value); }} />
@@ -265,6 +272,18 @@ const Checkout = (props) => {
                         onChange={(value) => municipalityHandler(value)}
                         required={deliveryType === "delivery"}
                     />
+                    <div className="form-row" style={{ alignItems: "flex-start", justifyContent:"flex-start"}} >
+                        <p>Fecha estimada de entrega </p>
+                        <DateTimePicker
+                            value={deliveryApproxDate ? dayjs(deliveryApproxDate) : null}
+                            onChange={(value) => setDeliveryApproxDate(value?.toISOString())}
+                            minDateTime={dayjs().add(24, "hour")}
+                            format="DD/MM/YYYY HH:mm"
+                            slotProps={{ textField: { required: true, sx: { width: "230px" }}
+                            }}
+                        />
+
+                    </div>
                 </div>
 
                 <input type="hidden" name="delivery_type" value={deliveryType}/>
@@ -272,6 +291,19 @@ const Checkout = (props) => {
                 <input type="hidden" name="department" value={deliveryDepartment} />
                 <input type="hidden" name="address" value={address} />
                 <input type="hidden" name="delivery_amount" value={deliveryPrice} />
+
+                <input type="hidden" name="delivery_datetime" value={deliveryApproxDate} />
+
+                <hr style={{display:step === 0 ? "flex" : "none"}}/>
+
+                <div className="form-col" style={{ alignItems: "flex-start",display:(step === 0) ? "flex" : "none"}}>
+                    <p>Datos de quién recibe</p>
+                    <div className="form-row">
+                    <TextInput label="Nombre" id="receiver_name"  required={true} onChange={(e) => { setDeliveryPersonName(e.target.value) }} style={{ display: step === 0 ? "flex":"none"}} />
+                    <TextInput type="tel" label="Teléfono" id="receiver_tel" required={true} onChange={(e) => { setDeliveryPersonTel(e.target.value) }} style={{ display: step === 0 ? "flex":"none"}} />
+                    </div>
+                </div>
+
 
                 <button type="button" className="action-button pink form-button" style={{alignSelf:"flex-end", display:(step === 0) ? "flex" : "none"}} onClick={(e)=>{
                     if ( !name || !email || !telephone) {
