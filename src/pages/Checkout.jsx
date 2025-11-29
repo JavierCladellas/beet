@@ -279,7 +279,7 @@ const Checkout = (props) => {
                             onChange={(value) => setDeliveryApproxDate(value?.toISOString())}
                             minDateTime={dayjs().add(24, "hour")}
                             format="DD/MM/YYYY HH:mm"
-                            slotProps={{ textField: { required: true, sx: { width: "230px" }}
+                            slotProps={{ textField: { required: false, sx: { width: "230px" }}
                             }}
                         />
 
