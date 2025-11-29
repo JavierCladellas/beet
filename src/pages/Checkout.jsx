@@ -40,7 +40,7 @@ const Checkout = (props) => {
 
     const [deliveryPersonName,setDeliveryPersonName] = useState("")
     const [deliveryPersonTel,setDeliveryPersonTel] = useState("")
-    const [deliveryApproxDate,setDeliveryApproxDate] = useState(null)
+    const [deliveryApproxDate,setDeliveryApproxDate] = useState("")
 
     const [isMetropolitan, setIsMetropolitan] = useState(true);
     const [step, setStep] = useState(0);
@@ -136,6 +136,7 @@ const Checkout = (props) => {
         data["cart_items"] = cart.map(item => ({ id: item.id, qty: item.qty }));
         data["total_amount"] = totalPrice;
 
+        console.log(data);
 
         fetch(apiUrl + "checkout", {
             method: "POST",
@@ -299,8 +300,8 @@ const Checkout = (props) => {
                 <div className="form-col" style={{ alignItems: "flex-start",display:(step === 0) ? "flex" : "none"}}>
                     <p>Datos de quién recibe</p>
                     <div className="form-row">
-                    <TextInput label="Nombre" id="receiver_name"  required={true} onChange={(e) => { setDeliveryPersonName(e.target.value) }} style={{ display: step === 0 ? "flex":"none"}} />
-                    <TextInput type="tel" label="Teléfono" id="receiver_tel" required={true} onChange={(e) => { setDeliveryPersonTel(e.target.value) }} style={{ display: step === 0 ? "flex":"none"}} />
+                    <TextInput label="Nombre" id="receiver_name"  required={false} onChange={(e) => { setDeliveryPersonName(e.target.value) }} style={{ display: step === 0 ? "flex":"none"}} />
+                    <TextInput type="tel" label="Teléfono" id="receiver_tel" required={false} onChange={(e) => { setDeliveryPersonTel(e.target.value) }} style={{ display: step === 0 ? "flex":"none"}} />
                     </div>
                 </div>
 
