@@ -4,7 +4,7 @@
         "body_text":"Aquí creamos regalos que despiertan emociones y dejan huella. Explora nuestro shop, déjate inspirar y elige piezas cuidadosamente curadas para cada ocasión, diseñadas con intención, detalle y significado, para transformar cada momento en una experiencia memorable.",
         "button_text":"VISITA NUESTRO SHOP",
         "image":"/images/home/section1.webp",
-        "button_link":"https://api.whatsapp.com/send?phone=+50376025162&text=Hola%21%20Quiero%20el%20cat%C3%A1logo%20porfa%21",
+        "button_link":"/shop",
 
         "layout":"side left",
         "content_style":"light-gray align-start",
