@@ -25,57 +25,70 @@ import Shop from './pages/Shop';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import TermsAndConditions from './pages/terms';
+import ReactGA from "react-ga4";
 
+function AnalyticsTracker() {
+    const location = useLocation();
+    useEffect(() => {
+        ReactGA.send({
+            hitType: "pageview",
+            page: window.location.pathname + window.location.hash,
+        });
+    }, [location]);
+
+    return null;
+}
 const apiUrl = process.env.REACT_APP_BEET_API_URL;
 
 const ScrollToTop = () => {
     const { pathname } = useLocation();
-    useEffect(() => { window.scrollTo(0, 0);}, [pathname]);
+    useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
     return null;
 };
 
 
 function App() {
-    const [products, setProducts ] = useState([]);
+    const [products, setProducts] = useState([]);
 
-    useEffect( () => {
-        fetch( apiUrl + "products?only_visible=true", {
-            method:"GET",
-            headers:{ 'Content-Type': 'application/json'}
+    useEffect(() => {
+        fetch(apiUrl + "products?only_visible=true", {
+            method: "GET",
+            headers: { 'Content-Type': 'application/json' }
         })
-        .then( response => response.json())
-        .then( products => { setProducts(products); })
-        .catch(error => {
-            console.log("Could not load products : ", error);
-        })
+            .then(response => response.json())
+            .then(products => { setProducts(products); })
+            .catch(error => {
+                console.log("Could not load products : ", error);
+            })
     }, [])
 
 
     return (
         <HashRouter>
+            <AnalyticsTracker />
             <ScrollToTop />
             <div className="App">
 
                 <div className='logo-wrapper'>
-                    <Link to ="/" sx={{cursor:"pointer"}}>
-                    <img sx={{cursor:"pointer"}} className="navbar-logo" src="/logos/beet.webp" alt="Logo"/>
+                    <Link to="/" sx={{ cursor: "pointer" }}>
+                        <img sx={{ cursor: "pointer" }} className="navbar-logo" src="/logos/beet.webp" alt="Logo" />
                     </Link>
                 </div>
-                <Navbar navbar_buttons = {navbar_buttons}/>
+                <Navbar navbar_buttons={navbar_buttons} />
                 <Routes>
-                    <Route exact path="/" element = { <Home sections={home_sections} products={products}/> } />
-                    <Route exact path="shop" element = { <Shop sections={shop_sections} products={products} />} />
-                    <Route exact path="/personaliza" element = { <Personaliza sections={personaliza_sections}/> } />
-                    <Route exact path="/corporate-gifting" element = { <Corporate sections={corporate_sections}/> } />
-                    <Route exact path="/about" element={ <About sections={about_sections} />} />
-                    <Route exact path="/cart" element={ <Cart />} />
-                    <Route exact path="/checkout" element={ <Checkout/>} />
-                    <Route exact path="/faq" element={ <Faq/>} />
-                    <Route exact path="/terms" element={ <TermsAndConditions/>} />
+                    <Route exact path="/" element={<Home sections={home_sections} products={products} />} />
+                    <Route exact path="shop" element={<Shop sections={shop_sections} products={products} />} />
+                    <Route exact path="/personaliza" element={<Personaliza sections={personaliza_sections} />} />
+                    <Route exact path="/corporate-gifting" element={<Corporate sections={corporate_sections} />} />
+                    <Route exact path="/about" element={<About sections={about_sections} />} />
+                    <Route exact path="/cart" element={<Cart />} />
+                    <Route exact path="/checkout" element={<Checkout />} />
+                    <Route exact path="/faq" element={<Faq />} />
+                    <Route exact path="/terms" element={<TermsAndConditions />} />
                 </Routes>
                 <Footer />
             </div>
-            <WhatsappButton number = {coordinates.wa_number} text = {coordinates.wa_default_text}/>
+            <WhatsappButton number={coordinates.wa_number} text={coordinates.wa_default_text} />
         </HashRouter>
     );
 }

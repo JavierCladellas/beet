@@ -7,7 +7,9 @@ import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import ReactGA from "react-ga4";
 
+ReactGA.initialize("G-R2B3CYGFP7");
 const nonce = document.querySelector("meta[property='csp-nonce']")?.content;
 
 const cache = createCache({
