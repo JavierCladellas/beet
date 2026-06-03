@@ -58,36 +58,6 @@
             ]
         }
     },
-    "suggestions":{
-        "title":"What we do (best!)",
-        "body_text":"Te asesoramos, te acompañamos en cada paso del proceso, cuidamos de tu budget y te inspiramos para que tu intención llegue de la forma más especial. Todo eso a través de los siguientes servicios:",
-
-        "layout":"vertical",
-        "content_style":"align-center light-gray more-pad-h text-center",
-
-        "children":{
-            "products":[
-                {
-                    "name":"Diseño de Curated Gift Boxes",
-                    "image":"/images/personaliza/what_we_do/Gift boxes.webp",
-                    "category":""
-                },
-                {
-                    "name":"Arreglo de globos personalizados",
-                    "image":"/images/personaliza/what_we_do/Globos.webp",
-                    "category":""
-                },
-                {
-                    "name":"Servicio de Personal Shopper",
-                    "image":"/images/personaliza/what_we_do/Personal shopper.webp",
-                    "category":""
-                }
-            ]
-        },
-        "button_style":"pink",
-        "button_text":"EXPLORAR MAS",
-        "button_link":"/shop"
-    },
     "contact":{
         "title":"Creamos regalos que hablan por ti, \n cuando las palabras no son suficientes.",
         "image":"/images/navbar-bg.webp",
