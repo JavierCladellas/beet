@@ -60,7 +60,7 @@
         }
     },
     "why":{
-        "title":"Por qué las empresas nos eligen",
+        "title":"Qué nos hace diferentes",
 
         "layout":"vertical",
         "content_style":"align-center ",
@@ -95,13 +95,13 @@
                 {
                     "icon":"human_target",
                     "title":"Te ponemos al centro de todo lo que hacemos. ",
-                    "description":"Cada proyectoú es nico. Tu marca es la protagonista siempre y nosotros cuidamos cada detalle por ti."
+                    "description":"Cada proyecto es único. Tu marca es la protagonista siempre y nosotros cuidamos cada detalle por ti."
                 }
             ]
         }
     },
     "clients":{
-        "title":"Our Clients",
+        "title":"Marcas que confían en nosotros",
 
         "layout":"vertical",
         "content_style":"align-center",
