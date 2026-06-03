@@ -78,8 +78,8 @@ function App() {
                 <Routes>
                     <Route exact path="/" element={<Home sections={home_sections} products={products} />} />
                     <Route exact path="shop" element={<Shop sections={shop_sections} products={products} />} />
-                    <Route exact path="/personaliza" element={<Personaliza sections={personaliza_sections} />} />
-                    <Route exact path="/corporate-gifting" element={<Corporate sections={corporate_sections} />} />
+                    <Route exact path="/curated-boxes" element={<Personaliza sections={personaliza_sections} />} />
+                    <Route exact path="/corporate" element={<Corporate sections={corporate_sections} />} />
                     <Route exact path="/about" element={<About sections={about_sections} />} />
                     <Route exact path="/cart" element={<Cart />} />
                     <Route exact path="/checkout" element={<Checkout />} />

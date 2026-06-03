@@ -1,7 +1,8 @@
 [
     {"name": "HOME", "link": "/", "key": "home"},
-    {"name": "SHOP", "link": "/shop", "key": "shop"},
-    {"name": "PERSONALIZA", "link": "/personaliza", "key": "personaliza"},
-    {"name": "CORPORATE GIFTING", "link": "/corporate-gifting", "key": "corporate-gifting"},
-    {"name": "ABOUT US", "link": "/about", "key": "about"}
+    {"name": "CURATED BOXES", "link": "/curated-boxes", "key": "curated-boxes"},
+    {"name": "CORPORATE", "link": "/corporate", "key": "corporate"},
+    {"name": "GLOBAL GIFTING", "link": "/global-gifting", "key": "global-gifting"},
+    {"name": "SHOP", "link": "/shop", "key": "shop", "style": "bold"},
+    {"name": "ABOUT", "link": "/about", "key": "about"}
 ]

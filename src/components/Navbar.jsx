@@ -65,7 +65,7 @@ const Navbar = (props) => {
             <div className={`navbar-buttons ${menuActive ? 'active' : ''}`}>
                 {navbar_buttons.map((button) => (
                     <Link className="navbar-button" to={button.link} key={button.key} onClick={() => handleNavClick(button.link)}>
-                        <p>{button.name}</p>
+                        <p>{ button.style ? (button.style==="bold" ? <b>{button.name}</b> : "") : button.name }</p>
                     </Link>
                 ))}
             </div>

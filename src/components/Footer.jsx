@@ -27,11 +27,11 @@ const Footer = (props) => {
                         <Link className="footer-nav-button" to={"shop"} key="shop">
                             <p>SHOP</p>
                         </Link>
-                        <Link className="footer-nav-button" to={"personaliza"} key="personaliza">
+                        <Link className="footer-nav-button" to={"curated-boxes"} key="curated-boxes">
                             <p>PERSONALIZA</p>
                         </Link>
-                        <Link className="footer-nav-button" to={"corporate-gifting"} key="corporate-gifting">
-                            <p>CORPORATE GIFTING</p>
+                        <Link className="footer-nav-button" to={"corporate"} key="corporate">
+                            <p>CORPORATE</p>
                         </Link>
                         {/* <Link className="footer-nav-button" to={"events"} key="events" >
                             <p>EVENTOS</p>
