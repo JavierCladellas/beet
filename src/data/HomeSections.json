@@ -1,8 +1,8 @@
 {
     "personaliza":{
-        "title":"Celebremos juntos el Arte de Regalar.",
-        "body_text":"Aquí creamos regalos que despiertan emociones y dejan huella. Explora nuestro shop, déjate inspirar y elige piezas cuidadosamente curadas para cada ocasión, diseñadas con intención, detalle y significado, para transformar cada momento en una experiencia memorable.",
-        "button_text":"VISITA NUESTRO SHOP",
+        "title":"Regalos que hablan por tí",
+        "body_text":" Hay ocasiones en que las palabras no bastan. ¡Para esos momentos, están los regalos! Transformamos cada intención en un gesto lleno de significado, haciendo que cada unboxing sea una experiencia imposible de olvidar.\n Más de 10 años perfeccionando el Arte de Regalar: dejando huella en muchas almas y despertando emociones que merecen ser atesoradas para siempre.",
+        "button_text":"Let’s Create Your Gift",
         "image":"/images/home/section1.webp",
         "button_link":"/shop",
 
@@ -11,9 +11,9 @@
         "button_style":"pink"
     },
     "shop":{
-        "title":"Ready. Set. Gift.",
-        "body_text":"No time? No problem. Si necesitas hacer un regalo de forma express, sin complicarte y quedar bien con alguien, este es un shortcut para explorar nuestros Ready-to-Go.",
-        "button_text":"DESCUBRE MAS",
+        "title":"Regalar sin complicaciones",
+        "body_text":"Elige el regalo que mejor se ajusta a tus necesidades, budget y ocasión. Personaliza los detalles a tu gusto y sorprende en menos de 24 horas, todo sin tener que moverte de casa.",
+        "button_text":"Shop Now",
         "button_link":"/shop?category=Gift Boxes",
 
         "layout":"vertical",
@@ -21,9 +21,9 @@
         "button_style":"light-pink"
     },
     "corporate_gifting":{
-        "title":"Corporate Gifting, a otro nivel.",
-        "body_text":"Regalos empresariales que te colocan en el Top of Mind y te ayudan a crear conexiones más auténticas y duraderas con tus clientes, proveedores y colaboradores. Cada proyecto está hecho a tu medida.",
-        "button_text":"COTIZA",
+        "title":"Where Corporate Gifting meets true strategy",
+        "body_text":" Colaboramos con empresas que comprenden y valoran el poder de un buen regalo. \n Somos especialistas en conectar a las marcas con sus audiencias clave, a través de regalos corporativos diseñados con estrategia, coherencia y creatividad. \n Gestionamos cada proyecto con agilidad y eficiencia, convirtiéndolo en un proceso libre de estrés para el cliente y completamente alineado con sus objetivos y presupuesto. Acompañamos al cliente en todo momento, desde la conceptualización, la curaduría de productos, personalización, hasta la ejecución y producción de los regalos. ",
+        "button_text":"Cotiza tu proyecto",
         "image":"/images/home/yeti.webp",
         "button_link":"/corporate",
 
@@ -33,7 +33,7 @@
         "button_style":"pink"
     },
     "clients":{
-        "title":"Our Clients",
+        "title":"Proud to collaborate with",
 
         "layout":"vertical",
         "content_style":"align-center",
