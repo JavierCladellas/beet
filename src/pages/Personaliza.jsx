@@ -27,15 +27,15 @@ const Personaliza = (props) => {
             <Section section = {sections.product_carousel} children = {[
                 <FullCarousel key="product-carousel" images={sections.product_carousel.children.images} />
             ]}/>
-            <Section section = {sections.suggestions} children = {[
-                <div className="grid-row" key="products2">
-                    {sections.suggestions.children.products.map((product, index) => (
-                        <Link to={"/shop?category="+product.category}>
-                            <ProductCard2 product={product} key={index} />
-                        </Link>
-                    ))}
-                </div>
-            ]}/>
+            {/* <Section section = {sections.suggestions} children = {[ */}
+            {/*     <div className="grid-row" key="products2"> */}
+            {/*         {sections.suggestions.children.products.map((product, index) => ( */}
+            {/*             <Link to={"/shop?category="+product.category}> */}
+            {/*                 <ProductCard2 product={product} key={index} /> */}
+            {/*             </Link> */}
+            {/*         ))} */}
+            {/*     </div> */}
+            {/* ]}/> */}
             <Section section = {sections.contact} />
             <Section section = {sections.reviews} children = {[
                 <div className="grid-row wrap" key="reviews">
