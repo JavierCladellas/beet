@@ -41,17 +41,21 @@
         "children":{
             "clients":[
                 {"name":"Abank","logo":"/logos/clients/abank.webp"},
-                {"name":"Asofarma","logo":"/logos/clients/asofarma.webp"},
-                {"name":"DLC","logo":"/logos/clients/dlc.webp"},
+                {"name":"Dollarcity","logo":"/logos/clients/DC.webp"},
                 {"name":"Davivienda","logo":"/logos/clients/davivienda.webp"},
+                {"name":"Farmacias Uno","logo":"/logos/clients/uno.webp"},
+
                 {"name":"Excel Automotriz","logo":"/logos/clients/excel.webp"},
                 {"name":"Teleperformance","logo":"/logos/clients/teleperformance.webp"},
-                {"name":"McCormick","logo":"/logos/clients/mccormick.webp"},
+                {"name":"Asofarma","logo":"/logos/clients/asofarma.webp"},
                 {"name":"MaxBloch","logo":"/logos/clients/maxbloch.webp"},
+
                 {"name":"Movistar","logo":"/logos/clients/movistar.webp"},
-                {"name":"AndHer","logo":"/logos/clients/andher.webp"},
                 {"name":"RSM","logo":"/logos/clients/rsm.webp"},
-                {"name":"RoadMarket","logo":"/logos/clients/roadmarket.webp"}
+                {"name":"AndHer","logo":"/logos/clients/andher.webp"},
+                {"name":"RoadMarket","logo":"/logos/clients/roadmarket.webp"},
+
+                {"name":"DLC","logo":"/logos/clients/dlc.webp"}
             ]
         }
 
