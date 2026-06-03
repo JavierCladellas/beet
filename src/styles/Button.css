@@ -19,7 +19,6 @@
     justify-content: center;
     text-decoration: none;
     cursor: pointer;
-    border-radius:30px;
     transition: background-color 0.05s ease-in-out;
     min-width: 120px;
 }
