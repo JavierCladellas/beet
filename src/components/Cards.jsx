@@ -207,6 +207,18 @@ const StepCard2 = (props) => {
     );
 }
 
+const StepCard3 = (props) => {
+    const step = props.step;
+    return (
+        <div className="step-card3">
+            <div>
+                <h3><b>{step.title}</b></h3>
+            </div>
+            <p>{step.description}</p>
+        </div>
+    );
+}
+
 const ReviewCard = (props) => {
     const review = props.review;
     return (
@@ -253,4 +265,4 @@ const ReasonCard = (props) => {
 }
 
 
-export { MemberCard, ProductCard1, ProductCard2, ProductCard3, ClientCard1, StepCard1, StepCard2, ReviewCard, ReasonCard };
+export { MemberCard, ProductCard1, ProductCard2, ProductCard3, ClientCard1, StepCard1, StepCard2, StepCard3, ReviewCard, ReasonCard };

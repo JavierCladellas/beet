@@ -5,33 +5,34 @@
     },
     "how_it_works":{
         "title":"Cómo trabajamos",
-        "button_text":"SOLICITA TU PROPUESTA",
+        "body_text":"Cada proyecto es liderado con estructura, estrategia y dirección. \n Nuestro proceso está diseñado para que la experiencia del cliente sea fluida y libre de estrés. ",
+        "button_text":"Cotiza tu proyecto",
 
         "layout":"vertical",
-        "content_style":"align-center light-gray",
+        "content_style":"align-center light-gray text-center",
         "button_style":"pink",
 
         "children":{
             "steps":[
                 {
                     "number":"1",
-                    "title":"Nos contás tu necesidad o desafío",
-                    "description":"Nos das a conocer tus objetivos, te escuchamos de verdad, entendemos tu marca, captamos tus expectativas ... nos empapamos e integramos todo lo que buscas."
+                    "title":"Conceptualización y Storytelling",
+                    "description":"Coordinamos un Discovery Call para conocer tu marca, objetivos, audiencia y presupuesto. A partir de ahí, construimos una propuesta visual que incluye el concepto, narrativa y dirección creativa, pensado para que cada regalo comunique tu esencia, valores e intención."
                 },
                 {
                     "number":"2",
-                    "title":"Te presentamos una propuesta creativa",
-                    "description":"Preparamos una propuesta visual, alineada a tu presupuesto y tomando en cuenta todas tus solicitudes. "
+                    "title":"Feedback y Curaduría de productos",
+                    "description":"Afinamos la propuesta y curamos cada detalle con criterio y estrategia. Definimos el contenido final, precios, fecha de entrega y detalles de personalización, manteniéndo siempre la coherencia con tu marca para elevar la experiencia final."
                 },
                 {
                     "number":"3",
-                    "title":"Personalizamos los toques finales y afinamos detalles",
-                    "description":"Hacemos de tu marca la protagonista de cada regalo, personalizando los elementos con tu imagen de marca y respetando tu estilo y esencia."
+                    "title":"Planificación y Ejecución",
+                    "description":"Coordinamos la producción y ensamblaje, bajo un riguroso control de calidad. Producimos con agilidad, precisión y enfoque en el detalle, manteniendo al cliente informado en cada etapa del proceso."
                 },
                 {
                     "number":"4",
-                    "title":"Ejecutamos el proyecto con precisión",
-                    "description":"Producción, empaque, entregas y cumplimiento. El profesionalismo y puntualidad ante todo, siempre."
+                    "title":"Logística y Entrega",
+                    "description":"Gestionamos la entrega con puntualidad, responsabilidad y profesionalismo, garantizando que cada regalo llegue impecable hasta su destino final."
                 }
             ]
         }

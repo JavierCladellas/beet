@@ -1,5 +1,5 @@
 import Section from "../components/Sections";
-import { StepCard2, ReasonCard, ClientCard1 } from "../components/Cards";
+import { StepCard3, ReasonCard, ClientCard1 } from "../components/Cards";
 import {useRef, useState} from 'react';
 import "../styles/Grid.css";
 import "../styles/Form.css";
@@ -118,13 +118,14 @@ const Corporate = (props) => {
                 on_button_click={() => modalRef.current?.open()}
                 children={[
                     <div key="how">
-                        {[...Array(Math.floor(sections.how_it_works.children.steps.length/2))].map((_, index) => (
-                            <div className="grid-row" key={index}>
-                                {sections.how_it_works.children.steps.slice(index * 2, index * 2 + 2).map((step, stepIndex) => (
-                                    <StepCard2 step={step} key={stepIndex} />
-                                ))}
+                        <div className="grid-row" style={{justifyContent: "center"}}>
+                        { sections.how_it_works.children.steps.map((step, index) => (
+                            <div className="grid-row">
+                                <StepCard3 step={step} />
+                            {index < 3 && <div className="step-arrow"> &rsaquo; </div> }
                             </div>
-                        ))}
+                        )) }
+                        </div>
                     </div>,
                 <HowItWorksModal ref={modalRef} confirmationModalRef={confirmationModalRef} key="how_it_works_modal"/>,
                 <ConfirmationModal ref={confirmationModalRef} key="confirmation-modal"/>
