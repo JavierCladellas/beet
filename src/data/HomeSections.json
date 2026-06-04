@@ -3,7 +3,7 @@
         "title":"Regalos que hablan por tí",
         "body_text":" Hay ocasiones en que las palabras no bastan. ¡Para esos momentos, están los regalos! Transformamos cada intención en un gesto lleno de significado, haciendo que cada unboxing sea una experiencia imposible de olvidar.\n Más de 10 años perfeccionando el Arte de Regalar: dejando huella en muchas almas y despertando emociones que merecen ser atesoradas para siempre.",
         "button_text":"Let’s Create Your Gift",
-        "image":"/images/home/section1.webp",
+        "image":"/images/home/HOME_portada.webp",
         "button_link":"/shop",
 
         "layout":"side left",
@@ -55,7 +55,18 @@
                 {"name":"AndHer","logo":"/logos/clients/andher.webp"},
                 {"name":"RoadMarket","logo":"/logos/clients/roadmarket.webp"},
 
-                {"name":"DLC","logo":"/logos/clients/dlc.webp"}
+                {"name":"DLC","logo":"/logos/clients/dlc.webp"},
+                {"name":"Toyota", "logo":"/logos/clients/toyota.webp"},
+                {"name":"Chevrolet", "logo":"/logos/clients/chevrolet.webp"},
+                {"name":"el_encanto", "logo":"/logos/clients/el_encanto.webp"},
+                {"name":"McCormick", "logo":"/logos/clients/mccormick.webp"},
+                {"name":"ESEN", "logo":"/logos/clients/esen.webp"},
+                {"name":"OGC", "logo":"/logos/clients/ogc.webp"},
+                {"name":"Oral B", "logo":"/logos/clients/oral_b.webp"},
+                {"name":"Mawdy", "logo":"/logos/clients/mawdy.webp"},
+                {"name":"Porter Novelli", "logo":"/logos/clients/porter.webp"},
+                {"name":"LAFISE", "logo":"/logos/clients/lafise.webp"},
+                {"name":"Consortium Legal", "logo":"/logos/clients/consortium.webp"}
             ]
         }
 
