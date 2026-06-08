@@ -41,14 +41,14 @@ const HowItWorksModal = (props) => {
         });
 
         props.confirmationModalRef.current?.open();
-        props.ref.current?.close();
+        props.modalRef.current?.close();
         document.body.classList.add('no-scroll');
     };
 
 
 
     return (
-        <Modal ref={props.ref}
+        <Modal ref={props.modalRef}
             children = {[
             <form key="how_it_works_form" ref={formRef} >
                 <h2>Solicita tu propuesta</h2>
@@ -81,7 +81,7 @@ const HowItWorksModal = (props) => {
                         {"value":"30-50", "label":"30$-$50"},
                         {"value":"+50", "label":"+$50"}
                 ]} />
-                <a href={false} className="action-button light-pink"
+                <a href="false" className="action-button light-pink"
                     type="sumbit"
                     onClick={(e) => submitHandler(e)}
                 >
@@ -94,7 +94,7 @@ const HowItWorksModal = (props) => {
 
 const ConfirmationModal = (props) => {
     return (
-        <Modal ref={props.ref} key="confirmation-modal" className="small" children={[
+        <Modal ref={props.modalRef} key="confirmation-modal" className="small" children={[
             <p key="confirmation-msg">
                 Gracias por tomarnos en cuenta! <br/>
                 Hemos recibido tu info, pronto te contactaremos por WhatsApp.
@@ -120,15 +120,15 @@ const Corporate = (props) => {
                     <div key="how">
                         <div className="grid-row" style={{justifyContent: "center"}}>
                         { sections.how_it_works.children.steps.map((step, index) => (
-                            <div className="grid-row">
+                            <div className="grid-row" key={index}>
                                 <StepCard3 step={step} />
                             {index < 3 && <div className="step-arrow"> &rsaquo; </div> }
                             </div>
                         )) }
                         </div>
                     </div>,
-                <HowItWorksModal ref={modalRef} confirmationModalRef={confirmationModalRef} key="how_it_works_modal"/>,
-                <ConfirmationModal ref={confirmationModalRef} key="confirmation-modal"/>
+                <HowItWorksModal modalRef={modalRef} confirmationModalRef={confirmationModalRef} key="how_it_works_modal"/>,
+                <ConfirmationModal modalRef={confirmationModalRef} key="confirmation-modal"/>
             ]}/>
             <Section section = {sections.product_carousel} children = {[
                 <FullCarousel key="product-carousel" images={sections.product_carousel.children.images} />
@@ -139,7 +139,7 @@ const Corporate = (props) => {
                     {[...Array(Math.floor(sections.why.children.reasons.length/3))].map((_, index) => (
                         <div className="grid-row" key={index}>
                             {sections.why.children.reasons.slice(index * 3, index * 3 + 3).map((reason, reasonIndex) => (
-                                <ReasonCard reason={reason} key={reasonIndex} />
+                                <ReasonCard reason={reason} key={index + "-"+ reasonIndex} />
                             ))}
                         </div>
                     ))}
