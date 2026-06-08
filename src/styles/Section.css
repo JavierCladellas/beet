@@ -67,6 +67,11 @@ section>.content.less-pad-h{
     padding-right: 5%;
 }
 
+section>.content.less-pad-v{
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
 section>.content.shrink-text>p{
     max-width: 60%;
 }

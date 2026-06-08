@@ -6,7 +6,7 @@
         "image":"/images/about/Lucia.webp",
         "img_classes":"about-us-picture",
         "layout":"side left",
-        "content_style":"align-center less-pad-h text-center",
+        "content_style":"align-center less-pad-h less-pad-v text-center",
 
         "children": {
             "signature": "/logos/signature.webp"
