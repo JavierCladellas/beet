@@ -12,46 +12,35 @@
             "signature": "/logos/signature.webp"
         }
     },
-    "team":{
-        "title":"The Dream Team",
-        "body_text":"<b>More than a team, we’re a tribe turning purpose into emotions.</b> Somos un equipo diverso, creativo y comprometido con crear conexiones que trascienden. Conoce las mentes y manos detrás de cada emoción que entregamos.",
+    "how_we_roll":{
+        "title":"How We Roll",
+        "body_text":"La esencia que nos define, la brújula que nos guía en todo lo que hacemos. Así pensamos, así creamos y así entregamos.",
 
         "layout":"vertical",
-        "content_style":"align-center light-gray text-center shrink-text",
+        "content_style":"align-center pink text-center",
 
-        "children":{
-            "members":[
-                {
-                    "name":"Lucía Cladellas",
-                    "role":"CEO & Founder",
-                    "image":"/images/about/Lu.webp"
-                },
-                {
-                    "name":"Wendy Monge",
-                    "role":"Líder de Operaciones",
-                    "image":"/images/about/Wendy.webp"
-                },
-                {
-                    "name":"Cecilia Baires",
-                    "role":"Coordinadora de Entregas",
-                    "image":"/images/navbar-bg.webp"
-                },
-                {
-                    "name":"Camila González",
-                    "role":"Partner Estratégico Marketing Digital | Khamaleón Creativa",
-                    "image":"/images/about/Cami.webp"
-                },
-                {
-                    "name":"Javier Cladellas",
-                    "role":"Partner Estratégico \n Tech & Web",
-                    "image":"/images/about/Javi.webp"
-                }
-            ]
-        }
+        "children":[
+            {
+                "title":"If there’s no way, we create one.",
+                "description":"Vemos oportunidades donde otros ven límites. Para nosotros, siempre hay una forma de hacerlo realidad."
+            },
+            {
+                "title":"Plan A or Plan Z, we deliver.",
+                "description":"Nos adaptamos, resolvemos, encontramos el camino para cumplir lo que prometemos."
+            },
+            {
+                "title":"Details are our love language",
+                "description":"Cuidamos cada detalle porque sabemos que ahí es donde se guarda la magia de lo inolvidable."
+            },
+            {
+                "title":"No shortcuts, zero shaddy stuff.",
+                "description":"Hacemos las cosas bien, aunque nadie esté viendo. En Beet, la transparencia, el compromiso y la integridad no son negociables."
+            }
+        ]
     },
     "what_we_do":{
-        "title":"#1 en El Salvador y la región",
-        "body_text":" Somos la marca referente de Corporate Gifting en Latinoamérica. Llevamos más de 12 años construyendo marcas y diseñando experiencias memorables para empresas. Con más de 100,000 regalos entregados, hemos logrado perfeccionar el Arte de Regalar, convirtiéndolo en una herramienta poderosa y eficiente que permite a las marcas conectar mejor con sus audiencias clave. \n\n Nuestra misión es ayudar a más marcas a construir relaciones más auténticas y duraderas con sus clientes, colaboradores, partners y proveedores. \n\n #ElevateYourBrand with us! ",
+        "title":"Referentes en la Región",
+        "body_text":"Llevamos más de 12 años construyendo marcas y diseñando experiencias memorables para empresas. Con más de 100,000 regalos entregados, hemos logrado perfeccionar el Arte de Regalar, convirtiéndolo en una herramienta poderosa y eficiente que permite a las marcas conectar mejor con sus audiencias clave. \n\n Nuestra misión es ayudar a más marcas a construir relaciones más auténticas y duraderas con sus clientes, colaboradores, partners y proveedores. \n\n #ElevateYourBrand with us! ",
         "image":"/images/about/about_corporate.webp",
 
         "layout":"side right",

@@ -211,8 +211,16 @@
     margin:0;
 }
 
+.step-card3>div>h3{
+    font-size: 1.8rem;
+}
+
 .step-card3>p{
-    min-height:250px;
+    min-height:350px;
+}
+
+div.small-cards>.step-card3>p{
+    min-height:150px;
 }
 
 .step-arrow{

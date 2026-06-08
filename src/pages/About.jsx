@@ -1,5 +1,5 @@
 import Section from "../components/Sections";
-import { MemberCard } from "../components/Cards";
+import { MemberCard, StepCard3 } from "../components/Cards";
 
 
 const About = (props) => {
@@ -10,10 +10,10 @@ const About = (props) => {
             <Section section = {sections.story} children = {[
                 <img loading='lazy' key="signature" src={sections.story.children.signature} alt="Signature" className="signature"  style={{ maxWidth:"80px" }}/>
             ]} />
-            <Section section = {sections.team} children = {[
-                <div key="team-grid" className="grid-row wrap">
-                    {sections.team.children.members.map((member, index) => (
-                        <MemberCard member={member} key={index} />
+            <Section section = {sections.how_we_roll} children = {[
+                <div key="how_we_roll" className="grid-row wrap small-cards">
+                    { sections.how_we_roll.children.map((step, index) => (
+                        <StepCard3 step={step} />
                     ))}
                 </div>
             ]} />

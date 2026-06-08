@@ -1,6 +1,7 @@
 :root{
     --light-gray: #f4f4f4;
     --white: #ffffff;
+    --pink: #2C0931
 }
 
 .page{
@@ -48,7 +49,7 @@ section>.content>div{
 }
 
 section.side>.content{
-    padding:5% 10%;
+    padding:5% 5%;
 }
 section.vertical>.content{
     padding: 5% 5%;
@@ -74,6 +75,12 @@ section.hero>.content{
     justify-content: space-between;
 }
 
+section>.content.pink{
+    background-color: var(--pink);
+}
+section>.content.pink>p, section>.content.pink>h2{
+    color: white;
+}
 
 section>.content.light-gray{
     background-color: var(--light-gray);
