@@ -1,6 +1,7 @@
 :root {
     --light-pink: #b275a6;
     --pink: #2c0931;
+    --gold: #FFF9C7
 }
 
 
@@ -34,6 +35,12 @@
     border: 2px solid var(--pink);
 }
 
+.action-button.gold{
+    background-color: var(--gold);
+    border: 2px solid var(--gold);
+    color:black;
+}
+
 .action-button:hover {
     background-color: transparent;
 }
@@ -44,6 +51,10 @@
 
 .action-button.pink:hover {
     color: var(--pink);
+}
+
+.action-button.gold:hover {
+    color: var(--gold);
 }
 
 

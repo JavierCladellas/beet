@@ -49,6 +49,7 @@ const Section = (props) => {
         <section className={section.layout}>
             { section.image && <div className={"image-container background-image "+ section.img_classes ?? "" } style={{ backgroundImage: `url(${section.image})` }}></div> }
             <div className={"content " + section.content_style}>
+                { props.html_title && props.html_title}
                 { section.title && <h2>{parseText(section.title)}</h2> }
                 { section.body_text && <p> {parseText(section.body_text)} </p> }
                 { props.children && props.children.map( (child => { return child; } )) }

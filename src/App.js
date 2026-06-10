@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import navbar_buttons from './data/NavbarButtons.json';
 import home_sections from './data/HomeSections.json'
 import personaliza_sections from './data/PersonalizaSections.json'
+import global_gifting_sections from './data/GlobalGiftingSections.json'
 import corporate_sections from './data/CorporateSections.json'
 import about_sections from './data/AboutSections.json'
 import shop_sections from './data/ShopSections.json'
@@ -13,6 +14,7 @@ import coordinates from './data/Coordinates.json'
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Personaliza from './pages/Personaliza';
+import GlobalGifting from './pages/GlobalGifting';
 import Corporate from './pages/Corporate';
 import About from './pages/About';
 import Faq from './pages/faq';
@@ -78,6 +80,7 @@ function App() {
                 <Routes>
                     <Route exact path="/" element={<Home sections={home_sections} products={products} />} />
                     <Route exact path="shop" element={<Shop sections={shop_sections} products={products} />} />
+                    <Route exact path="/global-gifting" element={<GlobalGifting sections={global_gifting_sections} />} />
                     <Route exact path="/curated-boxes" element={<Personaliza sections={personaliza_sections} />} />
                     <Route exact path="/corporate" element={<Corporate sections={corporate_sections} />} />
                     <Route exact path="/about" element={<About sections={about_sections} />} />

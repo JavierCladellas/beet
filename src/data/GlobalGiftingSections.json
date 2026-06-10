@@ -1,0 +1,12 @@
+{
+    "hero":{
+        "layout":"hero no-margin vertical",
+        "image":"/images/global-gifting/GlobalGiftingBanner.webp",
+        "body_text":"Después de recibir varias solicitudes de diferentes partes del mundo, hemos creado un producto digital que consiste en un servicio de acompañamiento remoto a través del cual asesoramos a empresas en otros países y les guiamos paso a paso en la ejecución de sus proyectos de regalos corporativos.",
+        "layout":"vertical",
+        "content_style":"align-center more-pad-h more-pad-v text-center white-text",
+        "button_text":"Let's talk",
+        "button_link":"https://api.whatsapp.com/send?phone=+50376025162&text=Hola! Quiero info porfa!",
+        "button_style":"gold"
+    }
+}
