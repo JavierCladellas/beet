@@ -126,11 +126,26 @@ section.hero {
     height: 600px;
 }
 
+section.just-image {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position:contain;
+    background-color: var(--color-background);
+    min-height: 800px;
+}
+
 
 
 @media screen and (max-width: 768px) {
-    section.hero {
+    section.hero, just-image {
         max-height: 400px;
+    }
+
+    section.just-image {
+        min-height:300px;
     }
 
     section.side.left{

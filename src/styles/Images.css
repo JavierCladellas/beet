@@ -17,6 +17,11 @@
     background-position: 0% 35%;
 }
 
+.image-container.image-contain{
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 @media screen and (max-width: 768px) {
 .about-us-picture.image-container{
     background-position: 0% 10%;

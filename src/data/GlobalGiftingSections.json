@@ -8,5 +8,22 @@
         "button_text":"Let's talk",
         "button_link":"https://api.whatsapp.com/send?phone=+50376025162&text=Hola! Quiero info porfa!",
         "button_style":"gold"
+    },
+    "cruzando_fronteras":{
+        "title":"Cruzando fronteras",
+        "body_text":" Un servicio diseñado para empresas, agencias y marcas que necesitan crear experiencias de regalo personalizadas y bien pensadas, pero que prefieren producir localmente desde su país. \n\n Beet hace acompañamiento desde la idea inicial hasta el concepto creativo, la selección de productos, la gestión con proveedores y, si es necesario, la ejecución remota del proyecto. \n\n La meta es simple: hacer que cada regalo tenga un propósito claro, cuente una historia que deje huella y lleve un plan de ejecución que sea viable para cada cliente.",
+        "image":"/images/global-gifting/cruzando-fronteras.webp",
+        "layout":"side left",
+        "content_style":"light-gray align-start"
+    },
+    "quote":{
+        "layout":"hero no-margin vertical",
+        "image":"images/global-gifting/quoteBanner.webp"
+    },
+    "how_we_work":{
+        "layout":"just-image no-margin vertical",
+        "image":"images/global-gifting/como_trabajamos.webp",
+        "img_classes":"image-contain"
     }
+
 }

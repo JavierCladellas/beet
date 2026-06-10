@@ -1,6 +1,5 @@
 import Section from "../components/Sections";
 
-
 const GlobalGifting = (props) => {
     const sections = props.sections;
 
@@ -12,6 +11,9 @@ const GlobalGifting = (props) => {
                     <span className="title" style={{color:"#FFF9C7"}}> Gifting </span>
                 </h1>
             }/>
+            <Section section={sections.cruzando_fronteras} />
+            <Section section={sections.quote} />
+            <Section section={sections.how_we_work} />
         </div>
     );
 };
