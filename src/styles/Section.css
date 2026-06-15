@@ -1,7 +1,8 @@
 :root{
     --light-gray: #f4f4f4;
     --white: #ffffff;
-    --pink: #2C0931
+    --pink: #2C0931;
+    --green: #03313D;
 }
 
 .page{
@@ -93,6 +94,10 @@ section>.content.light-gray{
 
 section>.content.white{
     background-color: var(--white);
+}
+
+section>.content.green{
+    background-color: var(--green);
 }
 
 

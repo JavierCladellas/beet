@@ -12,7 +12,15 @@ const GlobalGifting = (props) => {
                 </h1>
             }/>
             <Section section={sections.cruzando_fronteras} />
-            <Section section={sections.quote} />
+            <Section
+                section={sections.quote}
+                html_title={
+                    <h1>
+                        <span className="title bigger-title" style={{color:"white"}}> Transformamos un objetivo de marca en una experiencia </span>
+                        <span className="title bigger-title" style={{color:"#FFF9C7"}}> estratégica, coherente y ejecutable </span>
+                    </h1>
+                }
+            />
             {/* <Section section={sections.how_we_work} /> */}
         </div>
     );

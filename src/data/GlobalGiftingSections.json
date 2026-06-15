@@ -17,8 +17,8 @@
         "content_style":"light-gray align-start"
     },
     "quote":{
-        "layout":"hero no-margin vertical",
-        "image":"images/global-gifting/quoteBanner.webp"
+        "layout":"vertical",
+        "content_style":"green align-center more-pad-h white-text"
     },
     "how_we_work":{
         "layout":"just-image no-margin vertical",
