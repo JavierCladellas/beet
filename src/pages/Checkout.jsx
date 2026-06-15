@@ -252,12 +252,12 @@ const Checkout = (props) => {
 
                     <ToggleButtonGroup value={deliveryType} exclusive onChange={(e) => { deliveryTypeHandler(e.target.value); }} aria-label="Platform" color="primary">
                         <ToggleButton
-                            sx={{ "&.Mui-selected": { backgroundColor: "#b275a6", color: "white", "&:hover": { backgroundColor: "#9a5e8a" } } }}
+                            sx={{ "&.Mui-selected": { backgroundColor: "#2c0931", color: "white", "&:hover": { backgroundColor: "#9a5e8a" } } }}
                             value="delivery">
                             Envío a domicilio
                         </ToggleButton>
                         <ToggleButton
-                            sx={{ "&.Mui-selected": { backgroundColor: "#b275a6", color: "white", "&:hover": { backgroundColor: "#9a5e8a" } } }}
+                            sx={{ "&.Mui-selected": { backgroundColor: "#2c0931", color: "white", "&:hover": { backgroundColor: "#9a5e8a" } } }}
                             value="pickup">
                             Retiro en tienda
                         </ToggleButton>
@@ -334,12 +334,12 @@ const Checkout = (props) => {
 
                     <ToggleButtonGroup value={paymentType} exclusive onChange={(e) => { setPaymentType(e.target.value) }} aria-label="Platform" color="primary">
                         <ToggleButton
-                            sx={{ "&.Mui-selected": { backgroundColor: "#b275a6", color: "white", "&:hover": { backgroundColor: "#9a5e8a" } } }}
+                            sx={{ "&.Mui-selected": { backgroundColor: "#2c0931", color: "white", "&:hover": { backgroundColor: "#9a5e8a" } } }}
                             value="card">
                             Tarjeta
                         </ToggleButton>
                         <ToggleButton
-                            sx={{ "&.Mui-selected": { backgroundColor: "#b275a6", color: "white", "&:hover": { backgroundColor: "#9a5e8a" } } }}
+                            sx={{ "&.Mui-selected": { backgroundColor: "#2c0931", color: "white", "&:hover": { backgroundColor: "#9a5e8a" } } }}
                             value="bank_transfer">
                             Transferencia
                         </ToggleButton>

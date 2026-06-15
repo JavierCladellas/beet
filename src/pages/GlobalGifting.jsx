@@ -13,7 +13,7 @@ const GlobalGifting = (props) => {
             }/>
             <Section section={sections.cruzando_fronteras} />
             <Section section={sections.quote} />
-            <Section section={sections.how_we_work} />
+            {/* <Section section={sections.how_we_work} /> */}
         </div>
     );
 };

@@ -77,10 +77,10 @@ const SearchableDropdown = ({ label, options, onChange }) => {
                             borderRadius: "12px",
                             backgroundColor: "#fff",
                             boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
-                            "&:hover fieldset": { borderColor: "#b275a6" },
-                            "&.Mui-focused fieldset": { borderColor: "#b275a6" },
+                            "&:hover fieldset": { borderColor: "#2c0931" },
+                            "&.Mui-focused fieldset": { borderColor: "#2c0931" },
                         },
-                        "& .MuiInputLabel-root.Mui-focused": { color: "#b275a6" },
+                        "& .MuiInputLabel-root.Mui-focused": { color: "#2c0931" },
                     }}
                 />
             )}
