@@ -5,6 +5,7 @@ import { ProductCard3, ClientCard1 } from "../components/Cards";
 import { ProductModal, AddedToCartAlert } from "../components/ProductModal";
 import { useLocalStorage } from "../components/LocalStorage";
 
+import { HowItWorksModal, ConfirmationModal } from "./Corporate";
 import "../styles/Grid.css";
 import { useEffect, useRef, useState } from "react";
 const apiUrl = process.env.REACT_APP_BEET_API_URL;
@@ -121,6 +122,9 @@ const Home = (props) => {
 
     const [relevantProducts, setRelevantProducts] = useState([]);
 
+    const modalRef = useRef();
+    const confirmationModalRef = useRef();
+
     useEffect(() => {
         setRelevantProducts(
             getRandomElements(props.products.filter(p => p.has_stock && p.featured), 3)
@@ -131,7 +135,13 @@ const Home = (props) => {
         <div className="page">
             <Section section={sections.personaliza} />
             <ProductSection section={sections.shop} products={relevantProducts} />
-            <Section section={sections.corporate_gifting} />
+            <Section section={sections.corporate_gifting}
+                on_button_click={() => modalRef.current?.open()}
+                children = {[
+                    <HowItWorksModal modalRef={modalRef} confirmationModalRef={confirmationModalRef} key="how_it_works_modal"/>,
+                    <ConfirmationModal modalRef={confirmationModalRef} key="confirmation-modal"/>
+                ]}
+            />
             <Section section={sections.clients} children={[
                 <div className="full-grid" key="clients">
                     {sections.clients.children.clients.map((client, index) => (

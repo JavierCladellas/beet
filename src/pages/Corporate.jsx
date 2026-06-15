@@ -159,4 +159,4 @@ const Corporate = (props) => {
     );
 };
 
-export default Corporate;
+export {Corporate, HowItWorksModal, ConfirmationModal  };

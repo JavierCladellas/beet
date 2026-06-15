@@ -15,7 +15,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Personaliza from './pages/Personaliza';
 import GlobalGifting from './pages/GlobalGifting';
-import Corporate from './pages/Corporate';
+import {Corporate} from './pages/Corporate';
 import About from './pages/About';
 import Faq from './pages/faq';
 
