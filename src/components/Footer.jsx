@@ -6,8 +6,8 @@ const Footer = (props) => {
         <div className="footer-wrapper">
             <footer>
                 <div className="footer-row logo-row">
-                    <img loading='lazy' className="footer-logo beet-logo" src="/logos/beet.webp" alt="Logo" />
-                    <img loading='lazy' className="footer-logo" src="/logos/signature2.webp" alt="Beet Signature"/>
+                    <img loading='lazy' className="footer-logo beet-logo" src="/logos/beet_pink.webp" alt="Logo" />
+                    <img loading='lazy' className="footer-logo" src="/logos/beet_minimal.webp" alt="Beet Signature"/>
                 </div>
 
                 <hr className="solid" />
@@ -70,7 +70,7 @@ const Footer = (props) => {
 
                 <div className="footer-row copyright-row">
                     <div className='card-logos-container'>
-                        <img src="/logos/Logos_Serfinsa_Blanco.png" alt="Serfinsa"/>
+                        <img src="/logos/Logos_Serfinsa_Naranja.png" alt="Serfinsa"/>
                         <img src="/logos/VISA.png" alt="Visa"/>
                         <img src="/logos/MASTERCARD.png" alt="MasterCard"/>
                         <img src="/logos/UNION PAY.png" alt="Union Pay"/>
