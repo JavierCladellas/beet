@@ -13,8 +13,7 @@
 .image-container.background-image.about-us-picture{
     background-size: cover;
     background-repeat: no-repeat;
-    /* background-position: top; */
-    background-position: 0% 35%;
+    background-position: 10% 35%;
 }
 
 .image-container.image-contain{
