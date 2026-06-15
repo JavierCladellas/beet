@@ -18,7 +18,7 @@ const About = (props) => {
                 </div>
             ]} />
             <Section section = {sections.what_we_do} />
-            <Section section = {sections.mission} />
+            {/* <Section section = {sections.mission} /> */}
             {/* <Section section = {sections.signification} /> */}
         </div>
     );

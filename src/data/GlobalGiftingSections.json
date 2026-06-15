@@ -2,7 +2,7 @@
     "hero":{
         "layout":"hero no-margin vertical",
         "image":"/images/global-gifting/GlobalGiftingBanner.webp",
-        "body_text":"Después de recibir varias solicitudes de diferentes partes del mundo, hemos creado un producto digital que consiste en un servicio de acompañamiento remoto a través del cual asesoramos a empresas en otros países y les guiamos paso a paso en la ejecución de sus proyectos de regalos corporativos.",
+        "body_text":"Después de recibir varias solicitudes de diferentes partes del mundo, hemos creado un servicio de acompañamiento remoto a través del cual asesoramos a empresas en otros países y les guiamos paso a paso en la ejecución de sus proyectos de regalos corporativos.",
         "layout":"vertical",
         "content_style":"align-center more-pad-h more-pad-v text-center white-text",
         "button_text":"Let's talk",
@@ -10,7 +10,7 @@
         "button_style":"gold"
     },
     "cruzando_fronteras":{
-        "title":"Cruzando fronteras",
+        "title":"Corporate Gifting con alcance global",
         "body_text":" Un servicio diseñado para empresas, agencias y marcas que necesitan crear experiencias de regalo personalizadas y bien pensadas, pero que prefieren producir localmente desde su país. \n\n Beet hace acompañamiento desde la idea inicial hasta el concepto creativo, la selección de productos, la gestión con proveedores y, si es necesario, la ejecución remota del proyecto. \n\n La meta es simple: hacer que cada regalo tenga un propósito claro, cuente una historia que deje huella y lleve un plan de ejecución que sea viable para cada cliente.",
         "image":"/images/global-gifting/cruzando-fronteras.webp",
         "layout":"side left",

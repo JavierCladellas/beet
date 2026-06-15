@@ -21,7 +21,7 @@
                 },
                 {
                     "number":"2",
-                    "title":"Feedback y Curaduría de productos",
+                    "title":"Feedback y Curaduría",
                     "description":"Afinamos la propuesta y curamos cada detalle con criterio y estrategia. Definimos el contenido final, precios, fecha de entrega y detalles de personalización, manteniéndo siempre la coherencia con tu marca para elevar la experiencia final."
                 },
                 {
@@ -31,7 +31,7 @@
                 },
                 {
                     "number":"4",
-                    "title":"Logística y Entrega",
+                    "title":"Logística y\n Entrega",
                     "description":"Gestionamos la entrega con puntualidad, responsabilidad y profesionalismo, garantizando que cada regalo llegue impecable hasta su destino final."
                 }
             ]
@@ -110,17 +110,32 @@
         "children":{
             "clients":[
                 {"name":"Abank","logo":"/logos/clients/abank.webp"},
-                {"name":"Asofarma","logo":"/logos/clients/asofarma.webp"},
-                {"name":"DLC","logo":"/logos/clients/dlc.webp"},
+                {"name":"Dollarcity","logo":"/logos/clients/DC.webp"},
                 {"name":"Davivienda","logo":"/logos/clients/davivienda.webp"},
+                {"name":"Farmacias Uno","logo":"/logos/clients/uno.webp"},
+
                 {"name":"Excel Automotriz","logo":"/logos/clients/excel.webp"},
                 {"name":"Teleperformance","logo":"/logos/clients/teleperformance.webp"},
-                {"name":"McCormick","logo":"/logos/clients/mccormick.webp"},
+                {"name":"Asofarma","logo":"/logos/clients/asofarma.webp"},
                 {"name":"MaxBloch","logo":"/logos/clients/maxbloch.webp"},
+
                 {"name":"Movistar","logo":"/logos/clients/movistar.webp"},
-                {"name":"AndHer","logo":"/logos/clients/andher.webp"},
                 {"name":"RSM","logo":"/logos/clients/rsm.webp"},
-                {"name":"RoadMarket","logo":"/logos/clients/roadmarket.webp"}
+                {"name":"AndHer","logo":"/logos/clients/andher.webp"},
+                {"name":"RoadMarket","logo":"/logos/clients/roadmarket.webp"},
+
+                {"name":"DLC","logo":"/logos/clients/dlc.webp"},
+                {"name":"Toyota", "logo":"/logos/clients/toyota.webp"},
+                {"name":"Chevrolet", "logo":"/logos/clients/chevrolet.webp"},
+                {"name":"el_encanto", "logo":"/logos/clients/el_encanto.webp"},
+                {"name":"McCormick", "logo":"/logos/clients/mccormick.webp"},
+                {"name":"ESEN", "logo":"/logos/clients/esen.webp"},
+                {"name":"OGC", "logo":"/logos/clients/ogc.webp"},
+                {"name":"Oral B", "logo":"/logos/clients/oral_b.webp"},
+                {"name":"Mawdy", "logo":"/logos/clients/mawdy.webp"},
+                {"name":"Porter Novelli", "logo":"/logos/clients/porter.webp"},
+                {"name":"LAFISE", "logo":"/logos/clients/lafise.webp"},
+                {"name":"Consortium Legal", "logo":"/logos/clients/consortium.webp"}
             ]
         }
     },

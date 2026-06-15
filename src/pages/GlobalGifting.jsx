@@ -7,8 +7,8 @@ const GlobalGifting = (props) => {
         <div className="page">
             <Section section={sections.hero} html_title={
                 <h1>
-                    <span className="title" style={{color:"white"}}> Global </span>
-                    <span className="title" style={{color:"#FFF9C7"}}> Gifting </span>
+                    <span className="title bigger-title" style={{color:"white"}}> Strategic </span>
+                    <span className="title bigger-title" style={{color:"#FFF9C7"}}> Gifting </span>
                 </h1>
             }/>
             <Section section={sections.cruzando_fronteras} />

@@ -1,7 +1,7 @@
 {
     "story":{
         "title":"The soul behind the brand",
-        "body_text":" Creo firmemente que un buen regalo tiene el poder de unir, sanar y transmitir lo que a veces no sabemos cómo expresar en palabras. Beet surge de ese deseo de transformar ideas en emociones y convertirlas en experiencias que nunca se olvidan. Porque estoy convencida de que cuando un detalle es elegido con intención tiene la capacidad de cambiar un día, acortar una distancia, abrazar una herida, fortalecer un vínculo y simplemente convertirse en algo memorable. \n \n Mi objetivo es convertir el Arte de Regalar en el lenguaje universal que nos conecta a los seres humanos. Porque para mí, regalar no es solo obsequiar algo; es acompañar a alguien desde el alma y con el corazón. \n\n Cada proyecto que lideramos en Beet, lleva consigo nuestro compromiso de hacer sentir y de humanizar. Nuestra misión es hacerle ver al mundo que las relaciones sí importan y que vale la pena cultivarlas y celebrarlas. \n\n Gracias por permitirnos ser parte de tus momentos y confiar en nosotros para contar tu historia y elevar tus experiencias. ",
+        "body_text":" Creo firmemente que un buen regalo tiene el poder de unir, sanar y transmitir lo que a veces no sabemos cómo expresar en palabras. Beet surge de ese deseo de transformar ideas en emociones y convertirlas en experiencias que nunca se olvidan. Porque estoy convencida de que cuando un detalle es elegido con intención tiene la capacidad de cambiar un día, acortar una distancia, abrazar una herida, fortalecer un vínculo y simplemente convertirse en algo memorable. \n \n  Cada proyecto que lideramos en Beet, lleva consigo nuestro compromiso de hacer sentir y de humanizar. Nuestra misión es hacerle ver al mundo que las relaciones sí importan y que vale la pena cultivarlas y celebrarlas. ",
 
         "image":"/images/about/Lucia.webp",
         "img_classes":"about-us-picture",
@@ -45,12 +45,5 @@
 
         "layout":"side right",
         "content_style":"align-center text-center less-pad-h"
-    },
-    "mission":{
-        "title":"Inspiramos y conectamos personas a través de regalos personalizados y experiencias memorables, y de paso, les facilitamos la vida",
-        "image":"/images/navbar-bg.webp",
-
-        "layout":"vertical",
-        "content_style":"white-text align-center text-center more-pad-h more-pad-v medium-title"
     }
 }
