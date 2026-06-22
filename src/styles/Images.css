@@ -27,4 +27,8 @@
     min-height: 500px;
     background-repeat: no-repeat;
 }
+
+.image-container.background-image.about-us-picture{
+    background-position: center;
+}
 }
