@@ -28,7 +28,7 @@
     flex:1;
     position: relative;
     min-width: 33.3333%; /* Show 3 slides at a time */
-    height: 600px;
+    height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
