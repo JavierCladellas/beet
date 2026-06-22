@@ -5,10 +5,9 @@
 
         "children":{
             "images":[
-                "/images/personaliza-hero/Personaliza - banner principal.webp",
-                "/images/personaliza-hero/Personaliza - banner principal 2.webp",
-                "/images/personaliza-hero/Personaliza - banner principal 3.webp",
-                "/images/personaliza-hero/Personaliza - banner principal 4.webp"
+                "/images/personaliza/Header-Curated1.webp",
+                "/images/personaliza/Header-Curated2.webp",
+                "/images/personaliza/Header-Curated3.webp"
             ]
         }
     },
@@ -59,12 +58,9 @@
         }
     },
     "contact":{
-        "title":"Creamos regalos que hablan por ti, \n cuando las palabras no son suficientes.",
-        "image":"/images/navbar-bg.webp",
-
         "layout":"vertical",
-        "content_style":"white-text align-center text-center more-pad-h medium-title more-pad-v",
-        "button_style":"light-pink"
+        "image":"/images/personaliza/Quote-CuratedBoxes.webp",
+        "content_style":"more-pad-v"
 
     },
     "reviews":{

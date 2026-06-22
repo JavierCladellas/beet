@@ -1,7 +1,7 @@
 {
     "hero":{
         "layout":"hero no-margin vertical",
-        "image":"/images/corporate/banner.webp"
+        "image":"/images/corporate/Header-Corporate.webp"
     },
     "how_it_works":{
         "title":"Cómo trabajamos",
@@ -140,11 +140,8 @@
         }
     },
     "motivation":{
-        "title":"Everything we do, \n we build it around you.",
-        "image":"/images/navbar-bg.webp",
-
         "layout":"vertical",
-        "content_style":"white-text align-center text-center more-pad-v medium-title"
-
+        "image":"/images/corporate/Quote-Corporate.webp",
+        "content_style":"more-pad-v"
     }
 }

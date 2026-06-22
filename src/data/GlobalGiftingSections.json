@@ -18,7 +18,8 @@
     },
     "quote":{
         "layout":"vertical",
-        "content_style":"green align-center more-pad-h white-text"
+        "image":"/images/global-gifting/Quote-Global.webp",
+        "content_style":"more-pad-v"
     },
     "how_we_work":{
         "layout":"just-image no-margin vertical",
