@@ -234,7 +234,11 @@ div.small-cards>.step-card3>p{
     text-align:center;
 }
 
-
+.product-card>.product-details>h3,
+.product-card>.product-details>p
+{
+    font-family: "Roboto", sans-serif;
+}
 
 
 .review-card {
