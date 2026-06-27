@@ -82,7 +82,7 @@ const ProductSection = (props) => {
     return (
         <>
         <Section section={props.section} children={[
-            <div className="grid-row" key="shop">
+            <div className="grid-row wrap featured-products-grid" key="shop">
                 {filteredProducts.map((product, index) => (
                     <ProductCard3
                         product={product.variants[0]}
@@ -127,7 +127,7 @@ const Home = (props) => {
 
     useEffect(() => {
         setRelevantProducts(
-            getRandomElements(props.products.filter(p => p.has_stock && p.featured), 3)
+            getRandomElements(props.products.filter(p => p.has_stock && p.featured), 4)
         );
     }, [props.products])
 

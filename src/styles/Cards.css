@@ -453,10 +453,21 @@ div.small-cards>.step-card3>p{
 
 }
 
-@media screen and (max-width: 550px ) {
+@media screen and (max-width: 768px ) {
 
     .product-card3{
         max-width: 150px;
         max-height: 300px;
+    }
+
+}
+
+@media screen and (max-width: 768px ) {
+    .product-card3>.product-image-container>img {
+        max-width: 120px;
+    }
+
+    .product-card3>.product-details>h3{
+        font-size: 1rem;
     }
 }

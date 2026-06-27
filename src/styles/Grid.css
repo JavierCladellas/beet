@@ -49,5 +49,11 @@
         gap:32px;
         margin-bottom: 32px;
     }
+    .grid-row.wrap{
+        gap:16px;
+        flex-direction: row;
+        flex-wrap:wrap;
+    }
 
 }
+
