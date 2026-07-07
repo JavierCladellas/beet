@@ -329,6 +329,12 @@ div.small-cards>.step-card3>p{
     .step-arrow{
         rotate:90deg;
     }
+
+
+    .step-card3>p{
+        min-height:0;
+    }
+
 }
 
 
