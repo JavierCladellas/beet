@@ -67,6 +67,7 @@ const ProductSection = (props) => {
     };
 
     const productModal = <ProductModal key="product-modal" ref={productModalRef}
+        modal_ref={productModalRef}
         product={productOpened}
         cart={cart}
         onAddToCartClick={addToCart}

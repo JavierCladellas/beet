@@ -82,6 +82,7 @@ const Shop = (props) => {
     };
 
     const productModal = <ProductModal key="product-modal" ref={productModalRef}
+        modal_ref={productModalRef}
         product={productOpened}
         cart={cart}
         onAddToCartClick={addToCart}
@@ -131,10 +132,8 @@ const Shop = (props) => {
                         }}
                         onUpdateCart={updateCart}
                         onCardClick={() => {
-                            if (prod.has_stock){
-                                setProductOpened(prod);
-                                productModalRef.current?.open();
-                            }
+                            setProductOpened(prod);
+                            productModalRef.current?.open();
                         }}
                         apiUrl={apiUrl}
                     />

@@ -68,7 +68,7 @@ const ProductModal = (props) => {
 
 
 
-    return <Modal ref={props.ref} children={[
+    return <Modal ref={props.modal_ref} children={[
         product && currentVariant &&
         <div className="product-modal-content" key="product-modal-content">
             <img src={apiUrl + currentVariant.image_url} alt="product" />
