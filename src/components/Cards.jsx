@@ -212,9 +212,9 @@ const StepCard3 = (props) => {
     return (
         <div className="step-card3">
             <div>
-                <h3><b>{step.title}</b></h3>
+                <h3><b>{parseText(step.title)}</b></h3>
             </div>
-            <p>{step.description}</p>
+            <p>{parseText(step.description)}</p>
         </div>
     );
 }
