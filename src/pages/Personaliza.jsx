@@ -38,7 +38,7 @@ const Personaliza = (props) => {
             {/* ]}/> */}
             <Section section = {sections.contact} />
             <Section section = {sections.reviews} children = {[
-                <div className="grid-row wrap" key="reviews">
+                <div className="grid-row wrap personaliza-reviews" key="reviews">
                     {sections.reviews.children.reviews.map((review, index) => (
                         <ReviewCard review = {review} key={index} />
                     ))}
