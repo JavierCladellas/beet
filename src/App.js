@@ -40,7 +40,8 @@ function AnalyticsTracker() {
 
     return null;
 }
-const apiUrl = process.env.REACT_APP_BEET_API_URL;
+const apiUrl = process.env.REACT_APP_TESERAKTO_API_URL;
+const teserkatoApiKey = process.env.REACT_APP_TESERAKTO_STOREFRONT_API_KEY;
 
 const ScrollToTop = () => {
     const { pathname } = useLocation();
@@ -55,7 +56,10 @@ function App() {
     useEffect(() => {
         fetch(apiUrl + "products?only_visible=true", {
             method: "GET",
-            headers: { 'Content-Type': 'application/json' }
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization':'Bearer '+ process.env.REACT_APP_TESERAKTO_STOREFRONT_API_KEY
+            }
         })
             .then(response => response.json())
             .then(products => { setProducts(products); })
