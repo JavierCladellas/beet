@@ -113,7 +113,9 @@ const Checkout = (props) => {
     }, []);
 
 
-    const [name, setName] = useState("");
+    const [firstname, setFirstname] = useState("");
+    const [lastname, setLastname] = useState("");
+
     const [email, setEmail] = useState("");
     const [telephone, setTelephone] = useState("");
 
@@ -221,13 +223,19 @@ const Checkout = (props) => {
             <form className="checkout-form" style={{ alignItems: "flex-start" }} ref={formRef} onSubmit={submitHandler}>
 
 
-                <input type="hidden" name="name" value={name} />
+                <input type="hidden" name="firstname" value={firstname} />
+                <input type="hidden" name="lastname" value={firstname} />
                 <input type="hidden" name="email" value={email} />
                 <input type="hidden" name="telephone" value={telephone} />
 
                 <div className="form-col" style={{ alignItems: "flex-start", display:step === 0 ? "flex" : "none"}}>
                     <p> Datos personales </p>
-                    <TextInput type="text" label="Tu Nombre Completo" required onChange ={(e) => { setName(e.target.value); }} />
+
+                    <div className="form-row">
+                        <TextInput type="text" label="Nombre" required onChange ={(e) => { setFirstname(e.target.value); }} />
+                        <TextInput type="text" label="Apellido" required onChange ={(e) => { setLastname(e.target.value); }} />
+
+                    </div>
                     <div className="form-row">
                         <TextInput type="email" label="Email" required onChange={(e) => { setEmail(e.target.value); }} />
                         <TextInput type="tel" label="Teléfono" required pattern="^$|^\+?(?=(?:\D*\d){5,16}\D*$)[\d ]+$" onChange={(e) => { setTelephone(e.target.value); }} />
@@ -307,7 +315,7 @@ const Checkout = (props) => {
 
 
                 <button type="button" className="action-button pink form-button" style={{alignSelf:"flex-end", display:(step === 0) ? "flex" : "none"}} onClick={(e)=>{
-                    if ( !name || !email || !telephone) {
+                    if ( !firstname || !lastname || !email || !telephone) {
                         alert("Por favor, completa todos los campos requeridos antes de continuar.");
                         return;
                     }
@@ -316,7 +324,7 @@ const Checkout = (props) => {
                         return;
                     }
 
-                    if (!/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/.test(name)) {
+                    if (!/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/.test(firstname) || !/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/.test(lastname)) {
                         alert("El nombre solo debe contener letras, espacios y acentos.");
                         return;
                     }
