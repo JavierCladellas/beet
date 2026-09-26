@@ -41,7 +41,7 @@ function AnalyticsTracker() {
     return null;
 }
 const apiUrl = process.env.REACT_APP_TESERAKTO_API_URL;
-const teserkatoApiKey = process.env.REACT_APP_TESERAKTO_STOREFRONT_API_KEY;
+const teseraktoApiKey = process.env.REACT_APP_TESERAKTO_STOREFRONT_API_KEY;
 
 const ScrollToTop = () => {
     const { pathname } = useLocation();
@@ -58,7 +58,7 @@ function App() {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization':'Bearer '+ process.env.REACT_APP_TESERAKTO_STOREFRONT_API_KEY
+                'Authorization':'Bearer '+ teseraktoApiKey
             }
         })
             .then(response => response.json())

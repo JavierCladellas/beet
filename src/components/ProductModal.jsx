@@ -22,7 +22,7 @@ const ProductModal = (props) => {
 
             setSelectedAttributes(
                 Object.fromEntries(
-                    product.attributes.map(attr => {
+                    product.product_attributes.map(attr => {
                         const found = product.variants[0].attributes.find(
                             var_attr => var_attr.attribute.id == attr.id
                         );
@@ -38,6 +38,10 @@ const ProductModal = (props) => {
             selectedAttributes[var_attr.attribute.id] == var_attr.attribute_value.id
         )
     ) );
+    if ( product && currentVariant )
+    {
+        currentVariant.image_url = product.is_variable ? currentVariant.image_url : product.image_url;
+    }
 
     const updateQuantity = () => {
         if (!currentVariant) return;
@@ -80,8 +84,8 @@ const ProductModal = (props) => {
 
 
                 {
-                    product.attributes.length > 0 && product.variants.length > 1 &&
-                    product.attributes.map( (attr) => {
+                    product.product_attributes.length > 0 && product.variants.length > 1 &&
+                    product.product_attributes.map( (attr) => {
                         const current_variant_attribute = currentVariant.attributes.find( (var_attr) => (var_attr.attribute.id == attr.id) )
                         if (current_variant_attribute === undefined)
                             return
