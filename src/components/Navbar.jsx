@@ -7,7 +7,7 @@ import '../styles/Cart.css';
 import '../styles/HamburgerMenu.css';
 
 
-const apiUrl = process.env.REACT_APP_BEET_API_URL;
+const apiUrl = process.env.REACT_APP_TESERAKTO_API_URL;
 
 const Navbar = (props) => {
     const navbar_buttons = props.navbar_buttons;

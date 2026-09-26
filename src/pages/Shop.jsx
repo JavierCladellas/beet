@@ -14,7 +14,7 @@ function useQuery() {
 }
 
 
-const apiUrl = process.env.REACT_APP_BEET_API_URL;
+const apiUrl = process.env.REACT_APP_TESERAKTO_API_URL;
 
 
 const Shop = (props) => {
@@ -125,10 +125,10 @@ const Shop = (props) => {
                 {filteredProducts.map((prod, index) =>
                     <ProductCard3
                         key={index}
-                        product={prod.variants[0]}
+                        product={prod}
                         cart={cart}
                         onAddToCartClick={() => {
-                            addToCart(prod.variants[0], 1)
+                            addToCart(prod, 1)
                         }}
                         onUpdateCart={updateCart}
                         onCardClick={() => {

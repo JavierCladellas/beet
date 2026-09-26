@@ -8,7 +8,7 @@ import { useLocalStorage } from "../components/LocalStorage";
 import { HowItWorksModal, ConfirmationModal } from "./Corporate";
 import "../styles/Grid.css";
 import { useEffect, useRef, useState } from "react";
-const apiUrl = process.env.REACT_APP_BEET_API_URL;
+const apiUrl = process.env.REACT_APP_TESERAKTO_API_URL;
 
 function getRandomElements(arr, x) {
     const result = [...arr];
@@ -86,12 +86,12 @@ const ProductSection = (props) => {
             <div className="grid-row wrap featured-products-grid" key="shop">
                 {filteredProducts.map((product, index) => (
                     <ProductCard3
-                        product={product.variants[0]}
+                        product={product}
                         key={index}
                         apiUrl={apiUrl}
                         cart={cart}
                         onAddToCartClick={() => {
-                            addToCart(product.variants[0], 1)
+                            addToCart(product, 1)
                         }}
                         onUpdateCart={updateCart}
                         onCardClick={() => {

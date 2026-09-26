@@ -7,7 +7,7 @@ import { IoCart } from "react-icons/io5";
 import { PiTrashThin } from "react-icons/pi";
 import { Dropdown } from "./Dropdown";
 
-const apiUrl = process.env.REACT_APP_BEET_API_URL;
+const apiUrl = process.env.REACT_APP_TESERAKTO_API_URL;
 
 const ProductModal = (props) => {
     const product = props.product;
@@ -17,13 +17,13 @@ const ProductModal = (props) => {
 
     useEffect(() => {
         if (product) {
-            const existing = props.cart?.find((item) => item.id === product.variants[0].id);
+            const existing = props.cart?.find((item) => item.id === product.id);
             setQuantity(existing?.qty || 0);
 
             setSelectedAttributes(
                 Object.fromEntries(
                     product.attributes.map(attr => {
-                        const found = product.variants[0].variant_attributes.find(
+                        const found = product.variants[0].attributes.find(
                             var_attr => var_attr.attribute.id == attr.id
                         );
                         return [attr.id, found?.attribute_value.id];
@@ -34,7 +34,7 @@ const ProductModal = (props) => {
     }, [product]);
 
     const currentVariant = product?.variants.find( ( variant ) => (
-        variant.variant_attributes.every(var_attr =>
+        variant.attributes.every(var_attr =>
             selectedAttributes[var_attr.attribute.id] == var_attr.attribute_value.id
         )
     ) );
@@ -82,14 +82,14 @@ const ProductModal = (props) => {
                 {
                     product.attributes.length > 0 && product.variants.length > 1 &&
                     product.attributes.map( (attr) => {
-                        const current_variant_attribute = currentVariant.variant_attributes.find( (var_attr) => (var_attr.attribute.id == attr.id) )
+                        const current_variant_attribute = currentVariant.attributes.find( (var_attr) => (var_attr.attribute.id == attr.id) )
                         if (current_variant_attribute === undefined)
                             return
                         return <Dropdown key="attribute-dropdown" id="variant_attribute" label = {attr.name} accept_empty required
                             default_value = {current_variant_attribute.attribute_value.id}
                             options = {
                                 product.variants.map( (variant) => {
-                                    const variant_attribute = variant.variant_attributes.find( (var_attr) => (var_attr.attribute.id == attr.id) );
+                                    const variant_attribute = variant.attributes.find( (var_attr) => (var_attr.attribute.id == attr.id) );
                                     if (variant_attribute === undefined)
                                         return
                                     return { "value":variant_attribute.attribute_value.id,"label":variant_attribute.attribute_value.value }
