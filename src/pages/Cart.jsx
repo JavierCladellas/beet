@@ -3,7 +3,7 @@ import { useLocalStorage } from "../components/LocalStorage";
 import { PiTrashThin } from "react-icons/pi";
 import { Link } from 'react-router-dom';
 
-const apiUrl = process.env.REACT_APP_BEET_API_URL;
+const apiUrl = process.env.REACT_APP_TESERAKTO_API_URL;
 
 
 const CartProductCard = (props) => {
