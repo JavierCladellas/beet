@@ -457,7 +457,11 @@ div.small-cards>.step-card3>p{
 
     .product-card3{
         max-width: 150px;
-        max-height: 300px;
+        max-height: 200px;
+    }
+
+    .product-card>.product-image-container>img {
+        object-fit: contain;
     }
 
 

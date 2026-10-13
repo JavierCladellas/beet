@@ -434,6 +434,12 @@
         max-height: 60vh;
         overflow-y: auto;
     }
+
+    .add-to-cart-btn {
+        padding: 2px;
+        margin:0;
+        margin-left:12px;
+    }
 }
 
 
